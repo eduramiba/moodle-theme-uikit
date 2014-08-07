@@ -1,23 +1,34 @@
-About this theme
-================
+UIKit Theme for Moodle
+=======================
+
+Key features of this theme
+---------------------------
+
+* **Contains a very advanced and interactive visual styles customizer**
+* Base styles
+* Fully responsive design
+* Support of Google fonts
+* Integrates Fontaweseme in Moodle
+* Slideshow, marketing spots and social networks for your site frontpage
+* Many other cool features and customizations
 
 This is the UIKit theme for Moodle.
-It was initially developed for Moodle 2.5.1
-It supports Moodle 2.5.1, 2.6 and 2.7
 
-* package   Moodle UIKit theme
+It was initially developed for Moodle 2.5.1. It supports Moodle 2.5.1, 2.6 and 2.7
+
+* package   Moodle UIKit theme (theme_uikit)
 * copyright 2013-2014 Eduardo Ramos
 * authors   Eduardo Ramos
-* license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
-
-This theme is based in bootstrapbase theme and essential theme (https://moodle.org/plugins/view.php?plugin=theme_essential).
-A big thank you to the creators of these two themes.
-
-Many features and settings are based on the essential theme, while others are new for this theme, specially the visual style manager.
+* license   [GNU GPL v3 or later](http://www.gnu.org/copyleft/gpl.html)
 
 This theme is based on the UIKit CSS framework version 2.8 (http://www.getuikit.com)
 It contains all unmodified less* CSS sources from the UIKit framework in folder /less/uikit, except for FontAwesome url in icon.less.
 
+It is inspired in bootstrapbase theme and essential theme (https://moodle.org/plugins/view.php?plugin=theme_essential). A big thank you to the creators of these two themes.
+
+Many features and settings are based on the essential theme, while others are new for this theme, specially the visual style manager.
+
+**Notice: these theme is NOT an official UIKit team release.**
 
 *less CSS
 Less CSS is a Object Oriented way of writing CSS code. All Less CSS files
@@ -34,6 +45,7 @@ This customizer is inspired in the UIKit customizer (http://www.getuikit.com/doc
 
 
 JavaScript Libraries
+=====================
 
 
 Blob.js and Filesaver.js
@@ -57,7 +69,7 @@ less.js
 -------
 LESS - Leaner CSS v1.7.4
 Javascript official LESS compiler
-Used to extract variables and evaluate expressions from LESS code in the browser by the customizer
+Used to compile styles from LESS code in the browser in the customizer
 
 spectrum.colorpicker.js
 --------------------
