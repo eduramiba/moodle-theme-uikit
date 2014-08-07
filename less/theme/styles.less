@@ -1,0 +1,44 @@
+//@uikit-theme: gradient;//When using this file, a theme has to be set here
+
+//Include UIkit base
+@import "../uikit/themes/default/@{uikit-theme}/uikit.less";
+
+//Uikit addons:
+@import "../uikit/src/less/addons/sticky.less";
+@import "../uikit/src/less/addons/autocomplete.less";
+@import "../uikit/themes/default/@{uikit-theme}/addons/sticky.less";
+@import "../uikit/themes/default/@{uikit-theme}/addons/autocomplete.less";
+
+
+// Include legacy Moodle base styles
+// Old Moodle stuff from base theme.
+// Massive, needs broken up.
+@import "../moodle/moodle-grid.less";
+@import "../moodle/bootstrap-utilities.less";
+@import "../moodle/core.less";
+@import "../moodle/admin.less";
+@import "../moodle/calendar.less";
+@import "../moodle/course.less";
+@import "../moodle/filemanager.less";
+@import "../moodle/filemanager-2.5.less";
+@import "../moodle/grade.less";
+@import "../moodle/message.less";
+@import "../moodle/question.less";
+@import "../moodle/user.less";
+@import "../moodle/forms.less";
+@import "../moodle/modules.less";
+@import "../moodle/chat.less";
+
+//Other moodle styles:
+@import "../moodle/backup-restore.less";
+@import "../moodle/reports.less";
+
+//Include our theme styles
+@import "../custom/variables.less";
+@import "../custom/mixins.less";
+@import "../custom/general.less";
+@import "../custom/blocks.less";
+@import "../custom/editicons.less";
+@import "../custom/course.less";
+@import "../custom/social.less";
+@import "../custom/additional.less";

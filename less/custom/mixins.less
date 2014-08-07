@@ -1,0 +1,156 @@
+/* Flexible boxes http://alwaystwisted.com/post.php?s=2012-05-17-content-choreography-mixins-in-less */
+
+/*
+* Old deprecated standard for flex box
+* @box-dir can be:
+*     horizontal
+*     vertical
+*/
+.boxit(@box-dir) {
+    display:-webkit-box;
+    display:   -moz-box;
+    display:        box;
+
+    -webkit-box-orient:@box-dir;
+    -moz-box-orient:@box-dir;
+    -ms-box-orient:@box-dir;
+    box-orient:@box-dir;
+}
+
+
+/*
+* New standard for flex box
+* @flex-dir can be:
+*     row
+*     row-reverse
+*     column
+*     column-reverse
+*/
+.flexit(@flex-dir) {
+    display:-webkit-flex;
+    display:-moz-flex;
+    display:-ms-flex;
+    display:-o-flex;
+    display: flex;
+
+    -webkit-flex-direction:@flex-dir;
+    -moz-flex-direction:@flex-dir;
+    -ms-flex-direction:@flex-dir;
+    -o-flex-direction:@flex-dir;	
+    flex-direction:@flex-dir;
+}
+
+.box-order(@box-order-number: 1) {
+    -webkit-box-ordinal-group: @box-order-number;   
+    -moz-box-ordinal-group: @box-order-number;
+    box-ordinal-group: @box-order-number;
+
+    -webkit-box-order: @box-order-number;
+    -moz-order: @box-order-number;
+    -ms-order: @box-order-number;
+    -o-order: @box-order-number;
+    order: @box-order-number;
+
+}
+
+.drop-shadow (@x: 0, @y: 1px, @blur: 2px, @spread: 0, @alpha: 0.25) {
+	-webkit-box-shadow:	@x @y @blur @spread rgba(0, 0, 0, @alpha);
+	-moz-box-shadow: @x @y @blur @spread rgba(0, 0, 0, @alpha);
+	box-shadow: @x @y @blur @spread rgba(0, 0, 0, @alpha);
+}
+
+//Separate buttons vertically when they stack
+.buttons-vertical-separation(@separation: 4px){
+    line-height: @button-line-height + @separation;//Separate buttons vertically when they stack
+}
+
+.mdl-container(@max-width) {
+    max-width: @max-width;
+    margin-left: auto;
+    margin-right: auto;
+    
+	.box-sizing(border-box);
+
+    //Micro clearfix
+    &:before,
+    &:after {
+        content: " ";
+        display: table;
+    }
+
+    &:after { clear: both; }
+}
+
+/* Margins */
+
+.mt(@value) {
+    margin-top: unit(@value, px);
+}
+.mr(@value) {
+    margin-right: unit(@value, px);
+}
+.ml(@value) {
+    margin-left: unit(@value, px);
+}
+.mb(@value) {
+    margin-bottom: unit(@value, px);
+}
+
+margin-auto {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.mt5 {
+    .mt(5);
+}
+.mt10 {
+    .mt(10);
+}
+.mt20 {
+    .mt(20);
+}
+.mt30 {
+    .mt(30);
+}
+.mt40 {
+    .mt(40);
+}
+.mt50 {
+    .mt(50);
+}
+
+.mb5 {
+    .mb(5);
+}
+
+.mb10 {
+    .mb(10);
+}
+
+.mb20 {
+    .mb(20);
+}
+
+.mb30 {
+    .mb(30);
+}
+
+.mb40 {
+    .mb(40);
+}
+
+.mb50 {
+    .mb(50);
+}
+
+.ml5 {
+    .ml(5);
+}
+
+.mr2 {
+    .mr(2);
+}
+.mr5 {
+    .mr(5);
+}

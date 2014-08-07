@@ -1,0 +1,471 @@
+/* modules.less */
+
+// The home for small tweaks to modules that don't require
+// changes drastic enough to pull in the full module css
+// and replace it completely
+// Plus some misc. odds and ends
+
+select {
+    width: auto;
+}
+
+// Forum
+
+.path-mod-forum .forumsearch {
+    input,
+    .helptooltip {
+        margin: 0 3px;
+    }
+}
+
+.path-mod-forum .forumheaderlist,
+.path-mod-forum .forumheaderlist td {
+    border: none;
+}
+
+.path-mod-forum .forumheaderlist {
+    thead .header {
+        white-space: normal;
+        vertical-align: top;
+    }
+    thead .header.lastpost {
+        text-align: right;
+    }
+    .discussion {
+        .author, .replies, .lastpost {
+            white-space: normal;
+        }
+        .replies {
+            text-align: center;
+        }
+        .topic, .topic.starter, .picture, .author, .replies, .lastpost {
+            vertical-align: top;
+        }
+    }
+}
+
+.path-mod-feedback .generalbox div table tbody img {
+    height: 5px; // we should remove the bar height specification in core
+}
+
+.forumpost {
+    .well;
+    padding: 6px;
+    .header {
+        margin-bottom: 3px;
+    }
+    .maincontent {
+        .left {
+            padding: 0 10px 0 10px;
+        }
+    }
+}
+
+.forumpost .row .left {
+    width: auto;
+}
+
+.forumpost .options .commands {
+    margin-left: 0;
+}
+
+.forumpost .subject {
+    font-weight: bold;
+}
+
+// Override hardcoded forum modules styling
+.forumsearch input[type=text] {
+     margin-bottom: 0 !important;
+}
+
+#page-mod-forum-discuss .discussioncontrols {
+    width: auto;
+    margin: 0;
+}
+
+#page-footer {
+    margin-top: 1em;
+    padding: 1em 0;
+    border-top: 2px solid #eee;
+}
+
+.maincalendar .calendarmonth td,.maincalendar .calendarmonth th {
+    border: 1px dotted #ddd;
+}
+
+.path-grade-report-grader h1 {
+    text-align: inherit;
+}
+
+#page-mod-chat-gui_basic input#message {
+    max-width: 100%;
+}
+
+#page-mod-data-view #singleimage {
+    width: auto;
+}
+
+.path-mod-data form {
+    margin-top: 10px;
+}
+
+.template_heading {
+    margin-top: 10px;
+}
+
+#page-navbar {
+    .clearfix;
+    
+    nav {
+        display: block;
+    }
+    
+    .breadcrumb-button {
+        float: right;
+        margin-top: 10px;
+        margin-bottom: 5px;
+        margin-right: 5px;
+    }
+}
+
+.ie .row-fluid .desktop-first-column {
+    margin-left: 0;
+}
+
+.langmenu form {
+    margin: 0;
+}
+
+// contributed by Paul Hibbitts, see http://msdn.microsoft.com/en-us/library/ie/jj583807(v=vs.85).aspx
+canvas {
+    -ms-touch-action: auto;
+}
+
+div#dock {
+    display: none;
+}
+
+.path-mod-choice {
+    .horizontal  .choices {
+        margin: 0;
+        .option {
+            display: inline-block;
+            padding: 10px;
+        }
+    }
+    .results .data {
+        white-space: normal;
+    }
+}
+
+.path-mod-lesson .firstpageoptions {
+    margin: auto;
+    min-width: 280px;
+    width: 60%;
+}
+
+.path-mod-lesson .centerpadded {
+    padding: 5px;
+    text-align: center;
+}
+
+.path-mod-wiki .wiki_headingtitle,
+.path-mod-wiki .midpad,
+.path-mod-wiki .wiki_headingtime {
+    text-align: inherit;
+}
+
+.path-mod-wiki .wiki_contentbox {
+    width: 100%;
+}
+
+// Quiz module
+#id_reviewoptionshdr {
+    min-width: 1000px;
+}
+
+// Survey module
+
+.path-mod-survey {
+    .surveytable {
+        .r0 {background-color: #eee;}
+        .r1 {background-color: #ddd;}
+        .rblock label {text-align: center;}
+    }
+    .resultgraph, .reportsummary, .studentreport, .reportbuttons, .centerpara {
+        text-align:center;
+    }
+}
+// rtl overrides
+.dir-rtl {
+    .path-mod-forum .forumheaderlist {
+        thead .header.lastpost {
+            text-align: left;
+        }
+    }
+}
+
+
+
+/*
+ * Messages
+ */
+.message .contactselector td.contact {
+    padding: 5px;
+}
+.message td.heading {
+    padding-top:18px;
+    padding-bottom:12px;
+}
+.message #usergroupselector.fieldset, .message #viewing {
+    margin-top: 11px;
+}
+.message .visible {
+    display: inline;
+    margin-top: 15px;
+}
+.message div.heading {
+    font-weight: normal;
+    .uk-alert;
+    .uk-alert-warning;
+}
+
+.userlist {
+    table.controls {
+        margin-bottom: 20px;
+    }
+
+    .initialbar.firstinitial {
+        margin-bottom: 10px;
+    }
+
+    .initialbar.lastinitial {
+        margin-bottom: 25px;
+    }
+}
+
+
+
+/*
+ * Breadcrumbs:
+ */
+.breadcrumb-nav {
+	.uk-breadcrumb > li:nth-child(n+2):before {
+		font-family: 'FontAwesome'; 
+		font-weight: normal;
+		font-style: normal;
+		content: "\f105";//angle-right
+	}
+	
+	.uk-breadcrumb > li:last-child {
+		font-weight: bold;
+	}
+}
+
+.breadcrumb-nav ul li {
+    a {
+        text-decoration: none;
+        color: @mdl-breadcrumb-link-color;
+    }
+    
+    a:hover {
+        color: @mdl-breadcrumb-link-hover-color;
+    }
+}
+
+/*
+ * Forums:
+ */
+.forumpost .options .commands, .forumpost .content .attachments, .forumpost .options .footer, .forumpost .options .link {
+    padding-right: 5px;
+}
+
+#forummenu select {
+    margin-right: 5px;
+}
+
+#searchforums {
+    margin-left: 5px;
+}
+
+.path-mod-forum .forumheaderlist,
+.path-mod-forum .forumheaderlist td {
+    border: none;
+}
+
+.forumpost {
+    border: none;//If the theme has border, it will be overriden by next mixins
+    
+    .uk-panel;
+    .uk-panel-box;
+    .uk-panel-box-primary;
+    padding: 6px;
+}
+
+.forumpost .row .left {
+    width: auto;
+}
+
+.forumpost .options .commands {
+    margin-left: 0;
+}
+
+.forumpost .subject {
+    font-weight: bold;
+}
+
+// Override hardcoded forum modules styling
+.forumsearch input[type=text] {
+     margin-bottom: 0 !important;
+}
+
+.forumsearch, .discussioncontrols {
+    text-align: center;
+    .buttons-vertical-separation;
+}
+
+
+/* TABLES */
+
+
+/* ========================================================================
+   Component: Table
+ ========================================================================== */
+table.flexible,
+.generaltable {
+    /* Extend UIkit table styles */
+    &:extend(.uk-table all);
+}
+
+/* User enrolment table in courses */
+table.userenrolment {
+	margin-top: 10px;
+	td {
+		padding: 5px;
+	}
+}
+
+.enrol_user_buttons {
+	margin-bottom: 5px;
+}
+
+
+/*
+ * Custom styles for action menus
+ */
+.moodle-actionmenu .caret:after {
+    font-family: "FontAwesome";
+    content: " \f0d7"
+}
+
+.moodle-actionmenu ul.menubar a {
+    font-weight: bold;
+}
+
+.moodle-actionmenu.block-control-actions.commands {
+    ul.menubar {
+        float: left;
+    }
+
+    ul.menubar li {
+        margin-right: 5px;
+    }
+
+    //Clearfix:
+    &:before, &:after {
+        content: "";
+        display: table;
+        line-height: 0;
+    }
+    &:after {
+        clear: both;
+    }
+}
+
+
+
+
+
+//Make all buttons and submit inputs as if they had uk-button classes:
+button, input[type=submit], input[type=button],
+#id_submitbutton, #id_submitbutton2, .form-submit {
+    &:extend(.uk-button all);
+
+    .block & {
+        &:extend(.uk-button.uk-button-primary all);
+        &:extend(.uk-button-primary all);
+    }
+    
+    &.yui3-button, &.closebutton {
+        min-height: inherit;
+    }
+}
+
+//Special button colors:
+#id_submitbutton, .form-submit {
+    &:extend(.uk-button.uk-button-success all);
+    &:extend(.uk-button-success all);
+}
+
+#id_submitbutton2, #loginbtn, .guestform input[type=submit] {
+    &:extend(.uk-button.uk-button-primary all);
+    &:extend(.uk-button-primary all);
+}
+
+.breadcrumb-button input[type=submit] {
+    &:extend(.uk-button.uk-button-primary all);
+    &:extend(.uk-button-primary all);
+    &:extend(.uk-button.uk-button-small all);
+    &:extend(.uk-button-small all);
+}
+
+//Other elements that are not buttons (links) to render as buttons:
+.addbloglink, .messagebox a {
+    &:extend(.uk-button all);
+}
+
+
+
+
+/*
+ * Login page box:
+ */
+#page-login-index {
+    #main-content-box {
+        background: @mdl-login-box-background;
+        margin-top: 20px;
+        min-width: @mdl-login-box-width;
+        width: @mdl-login-box-width;
+
+        border: @mdl-border-width solid @mdl-login-box-border;
+        
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    #loginbtn {
+        display: block;
+        margin-top: 14px;
+        margin-bottom: 16px;
+    }
+
+    #username, #password  {
+        min-width: 125px;
+        max-width: 250px;
+        width: 60%;
+    }
+
+    /*
+     * Small devices
+     */
+    @media only screen and (max-width: @breakpoint-medium), only screen and (max-device-width: @breakpoint-medium){
+        #main-content-box {
+            width: 100%;
+            min-width: 100%;
+        }
+
+        #region-main {
+            padding-left: 0;
+        }
+    }
+}

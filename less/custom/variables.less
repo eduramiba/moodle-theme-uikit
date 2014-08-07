@@ -1,0 +1,99 @@
+//Navbar margins:
+@mdl-navbar-side-margin: 0;
+
+//Page margins:
+@mdl-page-side-margin: 20px;
+@mdl-page-top-margin: 15px;
+
+//Max widths for different page sections:
+@mdl-base-max-width-medium: 1200px;
+@mdl-max-page-header-content-width: @mdl-base-max-width-medium;
+@mdl-page-header-content-padding: 0 25px;
+@mdl-max-page-navbar-content-width: @mdl-base-max-width-medium;
+@mdl-max-additional-frontpage-content-width: @mdl-base-max-width-medium;
+
+@mdl-base-max-width-large: 1920px;
+@mdl-max-page-content-width: @mdl-base-max-width-large;
+@mdl-max-page-footer-width: 100%;
+
+//Main region:
+@mdl-main-region-background: rgba(180, 180, 180, 0.1);
+@mdl-main-region-border: @global-border;
+@mdl-main-region-padding: 10px;
+
+//Blocks:
+@mdl-block-header-icon-color: #07D;
+@mdl-block-header-text-color: @global-color;
+
+@mdl-block-header-font-family: @base-heading-font-family;
+@mdl-block-header-font-size: @base-h2-font-size;
+@mdl-block-header-font-weight: @panel-title-font-weight;
+
+
+@mdl-block-icon-color: #999;
+@mdl-block-text-color: @global-color;
+
+@mdl-block-menu-item-font-family: @base-body-font-family;
+@mdl-block-menu-item-font-size: @global-font-size;
+@mdl-block-menu-item-font-weight: normal;
+
+
+@mdl-block-link-color: @global-link-color;
+@mdl-block-link-color-hover: @mdl-block-link-color;
+
+//Breadcrumbs
+@mdl-breadcrumb-link-color: @base-link-color;
+@mdl-breadcrumb-link-hover-color: @base-link-hover-color;
+
+//Go to top button
+@mdl-to-top-background: #00D2FF;
+@mdl-to-top-shadow-background: #0097B7;
+@mdl-to-top-background-hover: #1ED7FF;
+@mdl-to-top-shadow-background-hover: #0097B7;
+
+@mdl-to-top-color: #fff;
+@mdl-to-top-color-hover: @mdl-to-top-color;
+
+//Other
+@mdl-social-heading-color: #666;
+
+//Login
+@mdl-login-box-width: 750px;
+@mdl-login-box-background: @mdl-main-region-background;
+@mdl-login-box-border: @mdl-main-region-border;
+
+
+//UIkit base theme dependant variables:
+.theme-vars (default) {
+    //Basic theme has no borders
+    @mdl-border-width: 0;
+    @mdl-border-radius: 0;
+}
+
+.theme-vars (almost-flat) {
+    @mdl-border-width: 1px;
+    @mdl-border-radius: @global-border-radius;
+}
+
+.theme-vars (gradient) {
+    @mdl-border-width: 1px;
+    @mdl-border-radius: @global-border-radius;
+}
+
+.theme-vars(@uikit-theme);
+
+
+
+
+
+
+/**
+ * Overriden UIKit base variables for Moodle
+ */
+@panel-box-padding: 10px;//Blocks padding
+@mdl-theme-base-font: "Bree Serif", "Helvetica Neue", Helvetica, Arial, sans-serif;
+@base-body-font-family: @mdl-theme-base-font;
+@base-heading-font-family: @mdl-theme-base-font;
+@navbar-nav-font-family: @mdl-theme-base-font;
+@mdl-block-header-font-family: @mdl-theme-base-font;
+@mdl-block-menu-item-font-family: @mdl-theme-base-font;

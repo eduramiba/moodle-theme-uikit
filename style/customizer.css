@@ -1,0 +1,45 @@
+#customizerVariablesGroups {
+    max-height: 900px;
+    overflow: auto;
+}
+
+#embeddedSite{
+    width: 100%;
+    min-height: 1200px;
+}
+
+#embeddedSite.loaded {
+    border: 1px solid #EEEEEE;
+    border-radius: 5px;
+}
+
+.uikit-customizer-control {
+    float: right;
+    width: 30%;
+}
+
+input.uikit-customizer-control:focus {
+    float: right;
+    width: 45%;
+}
+
+#customizerVariablesGroups fieldset {
+    margin-right: 5px;
+}
+
+#customizerVariablesGroups .uikit-customizer-variable {
+    display: block;
+}
+
+.uikit-customizer-group-header{
+    cursor: pointer;
+}
+
+.exportImportActions{
+    line-height: 35px;
+}
+
+.uikit-customizer-variable-label.modified {
+	font-weight: bold;
+	cursor: pointer;
+}

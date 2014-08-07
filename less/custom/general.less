@@ -1,0 +1,354 @@
+/* General Styles */
+
+// Clearfix
+// --------
+// For clearing floats like a boss h5bp.com/q
+//Taken from Twitter Bootstrap
+.clearfix {
+  *zoom: 1;
+  &:before,
+  &:after {
+    display: table;
+    content: "";
+    // Fixes Opera/contenteditable bug:
+    // http://nicolasgallagher.com/micro-clearfix-hack/#comment-36952
+    line-height: 0;
+  }
+  &:after {
+    clear: both;
+  }
+}
+ 
+html[xmlns] .clearfix {
+	display: block;
+}
+ 
+* html .clearfix {
+	height: 1%;
+}
+
+body > * {
+	.box-sizing(border-box);//Make sure body first childen user border-box so it could never force a horizontal scroll on small devices
+}
+
+#page-navigation {
+    margin-left: @mdl-navbar-side-margin;
+    margin-right: @mdl-navbar-side-margin;
+}
+
+a.headerLink {
+    &:hover{
+        text-decoration: none;
+    }
+}
+
+#headerlogo {
+    font-size: 4em;
+}
+
+div#dock {
+    display: none;
+}
+
+#page {
+    margin-top: @mdl-page-top-margin;
+    margin-left: @mdl-page-side-margin;
+    margin-right: @mdl-page-side-margin;
+}
+
+
+
+
+
+//Establish width for page sections (listed in their order of appeareance):
+#page-header-content {
+    .mdl-container(@mdl-max-page-header-content-width);
+	padding: @mdl-page-header-content-padding;
+}
+
+#navbar-uikit-theme-content {
+    .mdl-container(@mdl-max-page-navbar-content-width);
+}
+
+#aditional-frontpage-content{
+    .mdl-container(@mdl-max-additional-frontpage-content-width);
+}
+
+#page-content {
+    .mdl-container(@mdl-max-page-content-width);
+}
+
+#page-theme-uikit-customizer-index #page-content {
+    max-width: none; //Always use full width in the customizer page
+}
+
+#page-footer {
+    .mdl-container(@mdl-max-page-footer-width);
+}
+
+
+
+
+
+
+
+#navbar-uikit-theme {
+    z-index: 500;
+}
+
+#sticky-navbar-uikit-theme.uk-sticky.uk-active #navbar-uikit-theme {
+    .drop-shadow(0, 5px, 10px, 0, 0.1);
+}
+
+#content {
+	min-height: 200px;
+}
+
+*.pointer {
+	cursor: pointer;
+}
+
+*.bold {
+	font-weight: bold;
+}
+
+h2.main, #pageheading {
+    border-bottom: 1px solid @base-hr-border;
+}
+
+.uk-form textarea {
+	max-width: 95%;
+	width: 95%;
+	height: 100px;
+}
+
+div.logininfo {
+   display: inline-block; 
+}
+
+#navsearchbox input {
+    margin-right: 5px;
+}
+
+#toTop {
+    background-color: @mdl-to-top-background;
+    bottom: 20px;
+    box-shadow: 0 6px 0 @mdl-to-top-shadow-background;
+    display: none;
+    height: 40px;
+    line-height: 45px;
+    right: 15px;
+    width: 50px;
+    
+    border-radius: 5px 5px 5px 5px;
+    color: @mdl-to-top-color;
+    font-size: 20px;
+    position: fixed;
+    text-align: center;
+    vertical-align: middle;
+    
+    z-index: 2000;
+}
+
+#toTop:hover {
+    background-color: @mdl-to-top-background-hover;
+    bottom: 17px;
+    box-shadow: 0 3px 0 @mdl-to-top-shadow-background-hover;
+    
+    color: @mdl-to-top-color-hover;
+}
+
+a.sitename {
+    text-decoration: none;
+}
+
+
+body img {
+    .box-sizing(inherit);//Make sure the images don't use border-box
+}
+
+/* Logo */
+
+a.logo {
+    display: block;
+    float: left;
+    margin: 0;
+    padding: 0;
+	min-height: 1px;
+}
+
+#page-header {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+/* Navigation: */
+.uk-navbar .logininfo a {
+    color: @navbar-link-color;
+    
+    &:hover {
+        color: @navbar-link-hover-color;
+    }
+}
+
+.uk-dropdown .uikit-dropdown-menu-sublist{
+	display: inline-block;
+	max-width: 90%;
+}
+
+/* Modal dialogs: */
+.uk-modal-dialog {
+    color: #333333;//Make sure text color is good for white background independently of the general text color
+}
+
+
+/*
+ * Main page content:
+ */
+#main-content-box {
+    .uk-overflow-container();
+    
+    background-color: @mdl-main-region-background;
+    border: @mdl-border-width solid @mdl-main-region-border;
+    border-radius: @mdl-border-radius;
+    
+	
+    
+	.box-sizing(border-box);
+    padding: @mdl-main-region-padding;
+    .clearfix;
+}
+
+
+//This part is for re-ordering course columns for small devices so the course content appears before left sidebar, since this section uses full device width
+@media only screen and (max-width: @breakpoint-medium), only screen and (max-device-width: @breakpoint-medium){
+    #pre-and-content{
+        .boxit(vertical);
+        .flexit(column);
+        
+        #region-main-uikit {
+            .box-order(1);
+            float: none;
+        }
+        
+        .content-pre {
+            .box-order(2);
+            float: none;
+        }
+        
+        #block-region-side-pre {
+            .box-order(2);
+            float: none;
+        }
+    }
+}
+
+
+/* Footer */
+
+#page-footer {
+    .box-sizing(border-box);
+    margin-top: 10px;
+    margin-bottom: 15px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 10px;
+    text-align: left;
+    
+    .copy {
+        margin-top: 0px;
+        padding-left: 20px;
+        float: left;
+    }
+
+    .footimage {
+        text-align: center;
+        margin-top: 0;
+        margin-bottom: 5px;
+    }
+    
+    .footnote {
+        text-align: center;
+        color: @global-muted-color;
+        
+        margin-top: 0px;
+        margin-left: 20px;
+    }
+    
+    .helplink {
+        margin-top: 0px;
+        float: right;
+        padding-right: 20px;
+    }
+}
+
+.purgecaches {
+	.box-sizing(border-box);
+    visibility: hidden;
+    padding-right: 20px;
+    text-align: right;
+    width: 100%;
+}
+
+.purgecaches:hover {
+    margin-top: 0px;
+    float: right;
+    padding-right: 20px;
+}
+
+ul, ol {
+    padding-left: 0;
+    padding-right: 0;
+    ul, ol {
+        padding-left: 30px;
+    }
+}
+
+/**
+ * These styles are added because, at least in UIKit 2.8, there is no xlarge classes for the grid.
+ * If they are added in future versions of UIKit, we should delete these.
+ */
+@media (min-width: @breakpoint-xlarge) {
+  /* Whole */
+    .mdl-width-xlarge-1-1 { width: 100%; }
+
+    /* Halves */
+    .mdl-width-xlarge-1-2,
+    .mdl-width-xlarge-2-4,
+    .mdl-width-xlarge-3-6,
+    .mdl-width-xlarge-5-10 { width: 50%; }
+
+    /* Thirds */
+    .mdl-width-xlarge-1-3,
+    .mdl-width-xlarge-2-6 { width: 33.333%; }
+    .mdl-width-xlarge-2-3,
+    .mdl-width-xlarge-4-6 { width: 66.666%; }
+
+    /* Quarters */
+    .mdl-width-xlarge-1-4 { width: 25%; }
+    .mdl-width-xlarge-3-4 { width: 75%; }
+
+    /* Fifths */
+    .mdl-width-xlarge-1-5,
+    .mdl-width-xlarge-2-10 { width: 20%; }
+    .mdl-width-xlarge-2-5,
+    .mdl-width-xlarge-4-10 { width: 40%; }
+    .mdl-width-xlarge-3-5,
+    .mdl-width-xlarge-6-10 { width: 60%; }
+    .mdl-width-xlarge-4-5,
+    .mdl-width-xlarge-8-10 { width: 80%; }
+
+    /* Sixths */
+    .mdl-width-xlarge-1-6 { width: 16.666%; }
+    .mdl-width-xlarge-5-6 { width: 83.333%; }
+
+    /* Tenths */
+    .mdl-width-xlarge-1-10 { width: 10%; }
+    .mdl-width-xlarge-3-10 { width: 30%; }
+    .mdl-width-xlarge-7-10 { width: 70%; }
+    .mdl-width-xlarge-9-10 { width: 90%; }
+}
+
+
+
+@import (inline) "moodle-settings.css";//Some settings in a separate file so LESS doesn't complain about syntax

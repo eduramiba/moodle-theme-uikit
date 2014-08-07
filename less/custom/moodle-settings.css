@@ -1,0 +1,29 @@
+/* These are settings that need to be in a separate CSS file so LESS doesn't complain about syntax errors */
+
+/* Page background */
+body.theme_uikit , h2.pagetitle span {
+    [[setting:pagebackground]];
+}
+
+/* Header background */
+#page-header {
+    [[setting:headerbackground]];
+}
+
+/* Footer background */
+#page-footer{
+    [[setting:footerbackground]];
+}
+
+/* Login header image */
+/* If image is available, we hide the h2 header and place the image after it with active visibility */
+#page-login-index [[setting:loginheaderimagerule]] > h2 {
+    visibility: hidden;
+    line-height: 0;
+}
+
+#page-login-index [[setting:loginheaderimagerule]] > h2:after {
+    display: block;
+    visibility: visible;
+    content: url("[[setting:loginheaderimageurl]]");
+}

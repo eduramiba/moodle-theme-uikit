@@ -1,0 +1,60 @@
+/* 
+ * This adapts Moodle grid classes to act as the UIKit grid 
+ * (Moodle uses their own classes and Bootstrap grid classes)
+ */
+
+.grid-row-r, .row-fluid {
+  &:extend(.uk-grid all);
+  
+  .grid-col-1-12, .span1 {
+    width: 8.333333333333%;
+  }
+  
+  .grid-col-2-12, .span2 {
+    width: 16.666666666666%;
+  }
+  
+  .grid-col-3-12, .span3 {
+    width: 25%;
+  }
+  
+  .grid-col-4-12, .span4 {
+    width: 33.333333333333%;
+  }
+  
+  .grid-col-5-12, .span5 {
+    width: 41.666666666666%;
+  }
+  
+  .grid-col-6-12, .span6 {
+    width: 50%;
+  }
+  
+  .grid-col-7-12, .span7 {
+    width: 58.333333333333%;
+  }
+  
+  .grid-col-8-12, .span8 {
+    width: 66.666666666666%;
+  }
+  
+  .grid-col-9-12, .span9 {
+    width: 75%;
+  }
+  
+  .grid-col-10-12, .span10 {
+    width: 83.333333333333%;
+  }
+  
+  .grid-col-11-12, .spa11 {
+    width: 91.666666666666%;
+  }
+  
+  .grid-col-12-12, .span12 {
+    width: 100%;
+  }
+}
+
+[class*='grid-col'], [class*='span'] {
+  &:extend([class*='uk-width']);
+}

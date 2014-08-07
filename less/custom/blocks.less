@@ -1,0 +1,381 @@
+.block {
+    .uk-icon{
+        color: @mdl-block-icon-color;
+        margin-right: 4px;
+    }
+    
+    .tree_item {
+        a {
+            color: @mdl-block-link-color;
+        }
+
+        a:hover{
+            color: @mdl-block-link-color-hover;
+        }
+    }
+    
+    &.hidden {
+        .block-hider-hide {
+            display: none;
+        }
+        
+        .block-hider-show {
+            display: inline;
+        }
+    }
+    
+    .block-hider-show {
+        display: none;
+    }
+    
+    .block-hider-show, .block-hider-hide {
+        cursor: pointer;
+        padding-left: 5px;
+        padding-right: 5px;
+    }
+
+    img {
+        border: 0 none;
+        height: auto;
+        max-width: 100%;
+        vertical-align: middle;
+    }
+    
+    .uk-panel-title {
+        word-break: break-all;
+    }
+    
+    &.block_settings .block_tree .tree_item {
+        padding: 0;
+    }
+    
+    &.block_settings .block_tree li.item_with_icon > p img {
+        position: inherit;
+    }
+	
+	.singlebutton {
+		.buttons-vertical-separation(8px);
+	}
+}
+
+
+a.skip-block, a.skip {
+    display: none;
+}
+
+.accesshide {
+    display: none;
+}
+
+.uk-panel.hidden {
+    &.uk-panel-header .uk-panel-title {
+        border-bottom: none;
+        padding-bottom: 0;
+    }
+    
+    > *:nth-child(2), .content {
+        display: none;
+    }
+    
+    > .header {
+        display: inherit;
+    }
+}
+
+/**
+ * Special blocks (Front-page middle blocks and footer blocks):
+ */
+#footer-blocks {
+    margin-bottom: 10px;
+}
+
+.additional-block {
+    min-height: 1px;//So content can be dropped in them and they use their width
+}
+
+.additional-block.yui3-dd-drop-active-valid {
+    min-height: 100px;
+    border: 1px dashed gray;
+    border-radius: 5px;
+    margin-left: 10px;
+    margin-top: 10px;
+    padding: 10px;
+}
+
+.block-region .block + .block {
+    margin-top: 15px;
+}
+
+/* Block icons: */
+
+.tree_item {
+	background-image: none !important;
+}
+
+.tree_item.branch:before, .tree_item.emptybranch:before { 
+	font-family: FontAwesome;
+    font-size: @mdl-block-menu-item-font-size;
+	content: "\f07c ";
+	color: @mdl-block-icon-color;
+	margin-right: 5px;
+}
+
+.tree_item.branch.loadingbranch:before {
+    content : "\f110 " !important;//Refresh icon while spinning
+    .uk-icon-spin;
+}
+
+.tree_item {
+    font-family: @mdl-block-menu-item-font-family;
+    font-size: @mdl-block-menu-item-font-size;
+    font-weight: @mdl-block-menu-item-font-weight;
+    color: @mdl-block-text-color;
+    margin: 3px 0;
+}
+
+
+.block_navigation.block li.depth_1 .tree_item.branch:before {
+	content: "\f015 ";//Home
+}
+
+//Collapsed folders:
+.block_navigation.block li.depth_2 .tree_item.branch:before {
+	content: "\f07b ";//Folder
+}
+.block_navigation.block li.depth_2 {
+	margin-left: -20px;
+}
+
+//Open folders:
+.block_navigation.block li.depth_2 {
+    &, li {
+        &.contains_branch:not(.collapsed) > .tree_item.branch {
+            &:before{
+                content: "\f07c ";//Folder-open
+            }
+        }
+    }
+    .tree_item.branch[data-loaded="1"] {
+        &:before{
+            content: "\f07c ";//Folder-open
+        }
+    }
+}
+
+.block_navigation.block li.depth_2 .tree_item.emptybranch:before {
+	content: "\f114 ";//Folder empty
+}
+
+.collapsed .tree_item.branch:before { 
+	font-family: FontAwesome;
+    font-size: @mdl-block-menu-item-font-size;
+	content: "\f07b ";
+	color: @mdl-block-icon-color;
+	margin-right: 5px;
+}
+	
+.hidden-blocks {
+    .block {
+        .mt(15);
+        float: right;
+        width: 250px;
+        margin-left: 10px;
+    }
+}
+
+
+.dir-rtl .collapsed .tree_item.branch:before { 
+	content: " \f053";
+}
+
+.block .header .uk-panel-title h2 {
+    font-family: @mdl-block-header-font-family;
+    font-size: @mdl-block-header-font-size;
+    font-weight: @mdl-block-header-font-weight;
+    color: @mdl-block-header-text-color;
+}
+
+.block .header .uk-panel-title h2:before {
+    font-size: @mdl-block-header-font-size;
+    color: @mdl-block-header-icon-color;
+    content: "\f0c9";
+    font-family: FontAwesome;
+    font-size: 1em;
+    margin-right: 0.3em;
+}
+
+.block .uk-button {
+    margin-left: 5px;
+}
+
+.block .adminsearchform, .block .searchform {
+    text-align: center;
+    .buttons-vertical-separation;
+}
+
+.hidden-blocks.uk-alert {
+    text-shadow: none;
+}
+
+.block_news_items .header .uk-panel-title h2:before {
+    content:"\f0a1";
+}
+
+.block_navigation .header .uk-panel-title h2:before {
+    content:"\f0e8";
+}
+
+.block_calendar_upcoming .header .uk-panel-title h2:before,
+.block_calendar_month .header .uk-panel-title h2:before {
+    content:"\f073";
+}
+
+.block_course_list .header .uk-panel-title h2:before {
+    content:"\f108";
+}
+
+.block_completionstatus .header .uk-panel-title h2:before,
+.block_selfcompletion .header .uk-panel-title h2:before {
+    content:"\f0e4";
+}
+
+.block_rss_client .header .uk-panel-title h2:before {
+    content:"\f09e";
+}
+
+.block_blog_menu .header .uk-panel-title h2:before {
+    content:"\f02d";
+}
+
+.block_quiz_results .header .uk-panel-title h2:before {
+    content:"\f080";
+}
+
+.block_quiz_navblock .header .uk-panel-title h2:before {
+    content:"\f126";
+}
+
+.block_glossary_random .header .uk-panel-title h2:before {
+    content:"\f0eb";
+}
+
+.block_book_toc .header .uk-panel-title h2:before {
+    content:"\f02d";
+}
+
+
+.block_participants .header .uk-panel-title h2:before,
+.block_online_users .header .uk-panel-title h2:before {
+    content:"\f0c0";
+}
+
+.block_html .header .uk-panel-title h2:before {
+    content:"\f022";
+}
+
+.block_section_links .header .uk-panel-title h2:before {
+    content:"\f02e";
+}
+
+.block_activity_modules .header .uk-panel-title h2:before {
+    content:"\f12e";
+}
+
+.block_comments .header .uk-panel-title h2:before {
+    content:"\f075";
+}
+
+.block_settings .header .uk-panel-title h2:before {
+    content:"\f085";
+}
+
+.block_admin_bookmarks .header .uk-panel-title h2:before{
+    content:"\f02e";
+}
+
+.block_blog_tags .header .uk-panel-title h2:before,
+.block_tags .header .uk-panel-title h2:before {
+    content:"\f02c";
+}
+
+.block_private_files .header .uk-panel-title h2:before {
+    content:"\f114";
+}
+
+.block_block_mentees .header .uk-panel-title h2:before {
+    content:"\f0c0";
+}
+
+.block_messages .header .uk-panel-title h2:before {
+    content:"\f0e0";
+}
+
+.block_community .header .uk-panel-title h2:before {
+    content:"\f0ac";
+}
+
+.block_login .header .uk-panel-title h2:before {
+    content:"\f007";
+}
+
+.block_recent_activity .header .uk-panel-title h2:before {
+    content:"\f017";
+}
+
+.block_search_forums .header .uk-panel-title h2:before {
+    content:"\f0e6";
+}
+
+.block_myprofile .header .uk-panel-title h2:before {
+    content:"\f007";
+}
+
+.block_adminblock .header .uk-panel-title h2:before {
+    content:"\f009";
+}
+
+.block_feedback .header .uk-panel-title h2:before {
+    content:"\f087";
+}
+
+.block_flickr .header .uk-panel-title h2:before {
+    content:"\f03e";
+}
+
+.block_youtube .header .uk-panel-title h2:before {
+    content:"\f145";
+}
+
+.block_course_badges .header .uk-panel-title h2:before {
+    content:"\f091";
+}
+
+.block_twitter_search .header .uk-panel-title h2:before {
+    content:"\f099";
+}
+
+//Fix images inside block trees:
+.block_tree li.item_with_icon{
+    p img, p.hasicon img {
+        &, a img{
+            position: inherit !important;
+            margin-right: 5px !important;
+        }
+    }
+}
+
+
+
+
+/*
+ * Special styles for online users block:
+ */
+.block_online_users .content .list li.listentry .user .userpicture{
+    margin-right: 8px;
+}
+.block_online_users .content .list li.listentry {
+    clear: both;
+    display: block;
+    margin-bottom: 5px;
+    overflow: auto;
+}
