@@ -5,7 +5,7 @@ Key features of this theme
 ---------------------------
 
 * **Contains a very advanced and interactive visual styles customizer**
-* Base styles
+* 3 base themes to use in your site
 * Fully responsive design
 * Support of Google fonts
 * Integrates Fontaweseme in Moodle
