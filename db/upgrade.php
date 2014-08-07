@@ -31,7 +31,7 @@ function xmldb_theme_uikit_upgrade($oldversion) {
     
  
     
-    if ($oldversion < 20141012700) {
+    if ($oldversion < 2014080701) {
         $dbman = $DB->get_manager(); // loads ddl manager and xmldb classes
 
         // Define table theme_uikit_less_settings to be created.
@@ -51,7 +51,7 @@ function xmldb_theme_uikit_upgrade($oldversion) {
         }
 
         // Uikit savepoint reached.
-        upgrade_plugin_savepoint(true, 20141012700, 'theme', 'uikit');
+        upgrade_plugin_savepoint(true, 2014080701, 'theme', 'uikit');
     }
 
     return $result;
