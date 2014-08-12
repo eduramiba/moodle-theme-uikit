@@ -5,16 +5,16 @@ Key features of this theme
 ---------------------------
 
 * **Contains a very advanced and interactive visual styles customizer**
-* 3 base themes to use in your site
+* 3 base themes to build your site appearance
 * Fully responsive design
 * Support of Google fonts
-* Integrates Fontaweseme in Moodle
-* Slideshow, marketing spots and social networks for your site frontpage
-* Many other cool features and customizations
+* Integrates Fontawesome for displaying most icons in Moodle
+* Slideshow, marketing spots and social networks for your site frontpage like in the essential theme
+* Many other cool features such as: login page and navigation menu customization, possibility of showing only enrolled courses in combo lists and google analytics integration
 
 This is the UIKit theme for Moodle.
 
-It was initially developed for Moodle 2.5.1. It supports Moodle 2.5.1, 2.6 and 2.7
+It supports Moodle 2.5, 2.6 and 2.7
 
 * package   Moodle UIKit theme (theme_uikit)
 * copyright 2013-2014 Eduardo Ramos
@@ -36,8 +36,7 @@ for this theme are stored in the /less folder. A developer can use less
 to generate the CSS files in the /style folder.
 
 
-This theme includes an advanced Visual Style Customizer to change the appearance of the whole site.
-This customizer is inspired in the UIKit customizer (http://www.getuikit.com/docs/customizer.html)
+This theme includes an advanced Visual Style Customizer to change the appearance of the whole site with a few clicks. This customizer is inspired in the UIKit customizer (http://www.getuikit.com/docs/customizer.html)
 
 
 
