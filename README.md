@@ -1,4 +1,4 @@
-UIKit Theme for Moodle
+UIkit Theme for Moodle
 =======================
 
 Key features of this theme
@@ -12,23 +12,21 @@ Key features of this theme
 * Slideshow, marketing spots and social networks for your site frontpage like in the essential theme
 * Many other cool features such as: login page and navigation menu customization, possibility of showing only enrolled courses in combo lists and google analytics integration
 
-This is the UIKit theme for Moodle.
-
 It supports Moodle 2.5, 2.6 and 2.7
 
-* package   Moodle UIKit theme (theme_uikit)
+* package   Moodle UIkit theme (theme_uikit)
 * copyright 2013-2014 Eduardo Ramos
 * authors   Eduardo Ramos
 * license   [GNU GPL v3 or later](http://www.gnu.org/copyleft/gpl.html)
 
-This theme is based on the UIKit CSS framework version 2.8 (http://www.getuikit.com)
+This theme is based on the UIkit CSS framework version 2.8 (http://www.getuikit.com)
 It contains all unmodified less* CSS sources from the UIKit framework in folder /less/uikit, except for FontAwesome url in icon.less.
 
-It is inspired in bootstrapbase theme and essential theme (https://moodle.org/plugins/view.php?plugin=theme_essential). A big thank you to the creators of these two themes.
+It is inspired by bootstrapbase theme and essential theme (https://moodle.org/plugins/view.php?plugin=theme_essential). A big thank you to the creators of these two themes.
 
 Many features and settings are based on the essential theme, while others are new for this theme, specially the visual style manager.
 
-**Notice: these theme is NOT an official UIKit team release.**
+**Notice: these theme is NOT an official UIkit team release.**
 
 *less CSS
 Less CSS is a Object Oriented way of writing CSS code. All Less CSS files
@@ -36,7 +34,7 @@ for this theme are stored in the /less folder. A developer can use less
 to generate the CSS files in the /style folder.
 
 
-This theme includes an advanced Visual Style Customizer to change the appearance of the whole site with a few clicks. This customizer is inspired in the UIKit customizer (http://www.getuikit.com/docs/customizer.html)
+This theme includes an advanced Visual Style Customizer to change the appearance of the whole site with a few clicks. This customizer is inspired by the UIkit customizer (http://www.getuikit.com/docs/customizer.html)
 
 
 
@@ -82,7 +80,7 @@ Used to edit custom LESS code in the customizer
 
 uikit.js
 ---------
-UIKit framework javascripts
+UIkit framework javascript
 
 
 
