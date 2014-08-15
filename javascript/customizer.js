@@ -1081,7 +1081,7 @@
                 
                 showConfirmModal($successDiv, function(){
                     window.location = '/';
-                }, 'Home' + ' <i class="uk-icon uk-icon-home"></i>', 'Ok');
+                }, i18n['home'] + ' <i class="uk-icon uk-icon-home"></i>', i18n['ok']);
             }
             
             function showErrorModal(text) {

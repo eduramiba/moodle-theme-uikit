@@ -60,6 +60,8 @@ $string['styleswritepermissionsfail'] = 'Error: theme/uikit/styles folder is not
 
 
 /* Javascript (customizer.js) internationalization strings */
+$string['js-ok'] = 'Ok';
+$string['js-home'] = 'Home';
 $string['js-compile-error'] = 'An error happened while building the styles';
 $string['js-reset-group'] = 'Reset group values to default';
 $string['js-reset-group-confirm'] = 'Reset group <i>{0}</i> variables to default?';

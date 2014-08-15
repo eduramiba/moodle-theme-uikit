@@ -59,6 +59,8 @@ $string['uikit_select_link'] = 'Por favor selecciónalo aquí';
 $string['styleswritepermissionsfail'] = 'Error: No se pudo escribir en el directorio theme/uikit/styles. Por favor comprueba que tu servidor web tiene permisos de escritura en este directorio';
 
 /* Javascript (customizer.js) internationalization strings */
+$string['js-ok'] = 'Ok';
+$string['js-home'] = 'Home';
 $string['js-compile-error'] = 'Un error ocurrió al construir los estilos';
 $string['js-reset-group'] = 'Resetear valores del grupo';
 $string['js-reset-group-confirm'] = '¿Resetear valores del grupo <i>{0}</i>?';
