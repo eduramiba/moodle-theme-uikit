@@ -19,7 +19,7 @@ It supports Moodle 2.5, 2.6 and 2.7
 * authors   Eduardo Ramos
 * license   [GNU GPL v3 or later](http://www.gnu.org/copyleft/gpl.html)
 
-This theme is based on the UIkit CSS framework version 2.8 (http://www.getuikit.com)
+This theme is based on the UIkit CSS framework version 2.9 (http://www.getuikit.com)
 It contains all unmodified less* CSS sources from the UIKit framework in folder /less/uikit, except for FontAwesome url in icon.less.
 
 It is inspired by bootstrapbase theme and essential theme (https://moodle.org/plugins/view.php?plugin=theme_essential). A big thank you to the creators of these two themes.
