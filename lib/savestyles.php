@@ -39,23 +39,24 @@ $aValidUikitThemes = array(
     'gradient'
 );
 
-function getParam($param) {
-    return (isset($_REQUEST[$param]) && $_REQUEST[$param] !== '') ? $_REQUEST[$param] : null;
-}
 
-$base_theme = getParam('theme');
-$customLess = getParam('customLess');
-$css = getParam('css');
+$base_theme = required_param('theme', PARAM_ALPHANUMEXT);
+$variables = optional_param_array('lessVariables', array(), PARAM_RAW_TRIMMED);
+$customLess = optional_param('customLess', '', PARAM_RAW_TRIMMED);
+$css = required_param('css', PARAM_RAW_TRIMMED);
 
 if (!in_array($base_theme, $aValidUikitThemes)) {
     $base_theme = $aValidUikitThemes[0];
 }
 
-$variables = array();
-foreach ($_REQUEST as $key => $val) {
-    if (strpos($key, "@") === 0 && $val !== '') {
-        $variables[$key] = $val;
+$processedVariables = array();
+foreach ($variables as $key => $val) {
+    //Make sure the variable starts with "@"
+    if (strpos($key, '@') !== 0) {
+        $key = '@'.$key;
     }
+    
+    $processedVariables[$key] = $val;
 }
 
 try {
@@ -156,10 +157,17 @@ try {
     $theme_record->value = $base_theme;
     $DB->insert_record($table, $theme_record, false, true);
     
+    //Save theme version and moodle version used to generate the styles
+    //in case we need it for later updgrades, etc.
     $theme_version_record = new stdClass();
     $theme_version_record->setting = 'version';
     $theme_version_record->value = $PAGE->theme->settings->version;
     $DB->insert_record($table, $theme_version_record, false, true);
+    
+    $moodle_version_record = new stdClass();
+    $moodle_version_record->setting = 'moodle_version';
+    $moodle_version_record->value = $CFG->version;
+    $DB->insert_record($table, $moodle_version_record, false, true);
 
     if (!empty($customLess)) {
         $custom_less_record = new stdClass();
@@ -168,7 +176,7 @@ try {
         $DB->insert_record($table, $custom_less_record, false, true);
     }
 
-    foreach ($variables as $name => $val) {
+    foreach ($processedVariables as $name => $val) {
         $variable_record = new stdClass();
         $variable_record->setting = $name;
         $variable_record->value = $val;

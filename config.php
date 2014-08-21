@@ -36,45 +36,41 @@ $THEME->supportscssoptimisation = false;
 global $DB;
 $table = "theme_uikit_less_settings";
 
-$dbman = $DB->get_manager(); // loads ddl manager and xmldb classes
+$generatedCssFile = $DB->get_record($table, array('setting' => 'cssFile'));
+if($generatedCssFile){
+    $cssFile = $generatedCssFile->value;
 
-if($dbman->table_exists($table)){
-    $generatedCssFile = $DB->get_record($table, array('setting' => 'cssFile'));
-    if($generatedCssFile){
-        $cssFile = $generatedCssFile->value;
+    $stylesDir = realpath(dirname(__FILE__).'/style');
 
-        $stylesDir = realpath(dirname(__FILE__).'/style');
-        
-        $stylesPath = $stylesDir.'/'.$cssFile;
-        
-        if(!file_exists($stylesPath) && is_writable($stylesDir)){
-            //The file in styles directory with generated CSS was deleted somehow.
-            //Try to recover it from mooodledata files:
-            $context = context_system::instance();
-            $fileinfo = array(
-                'contextid' => $context->id,
-                'component' => 'theme_uikit',
-                'filearea' => 'theme_uikit_styles',
-                'itemid' => 0,
-                'filepath' => '/',
-                'filename' => 'theme_uikit_generated_styles.css'
-            );
-            
-            $fs = get_file_storage();
-            $file = $fs->get_file($fileinfo['contextid'], $fileinfo['component'], $fileinfo['filearea'], 
-                $fileinfo['itemid'], $fileinfo['filepath'], $fileinfo['filename']);
-            if ($file) {
-                $contents = $file->get_content();
-                
-                file_put_contents($stylesPath, $contents);
-            }
+    $stylesPath = $stylesDir.'/'.$cssFile;
+
+    if(!file_exists($stylesPath) && is_writable($stylesDir)){
+        //The file in styles directory with generated CSS was deleted somehow.
+        //Try to recover it from mooodledata files:
+        $context = context_system::instance();
+        $fileinfo = array(
+            'contextid' => $context->id,
+            'component' => 'theme_uikit',
+            'filearea' => 'theme_uikit_styles',
+            'itemid' => 0,
+            'filepath' => '/',
+            'filename' => 'theme_uikit_generated_styles.css'
+        );
+
+        $fs = get_file_storage();
+        $file = $fs->get_file($fileinfo['contextid'], $fileinfo['component'], $fileinfo['filearea'], 
+            $fileinfo['itemid'], $fileinfo['filepath'], $fileinfo['filename']);
+        if ($file) {
+            $contents = $file->get_content();
+
+            file_put_contents($stylesPath, $contents);
         }
-        
-        //Use available generated styles:
-        if(file_exists($stylesPath)){
-            //Remove .css extension if present:
-            $cssFileWithoutExtension = pathinfo($stylesPath, PATHINFO_FILENAME);
-        }
+    }
+
+    //Use available generated styles:
+    if(file_exists($stylesPath)){
+        //Remove .css extension if present:
+        $cssFileWithoutExtension = pathinfo($stylesPath, PATHINFO_FILENAME);
     }
 }
 

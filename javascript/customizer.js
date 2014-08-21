@@ -552,10 +552,9 @@
 
                     $.each(group['elements'], function(_, element) {
                         var text = element['name'];
+                        
                         var variableId = element['var'];
-                        if (variableId.indexOf("@") === 0) {
-                            variableId = variableId.slice(1, variableId.length);
-                        }
+                        variableId = removeVariableMarkFromName(variableId);
                         var variableLessId = "@" + variableId;
 
                         var type = element['type'] || defaultType;
@@ -712,9 +711,7 @@
                     if(group['elements']){
                         $.each(group['elements'], function(_, element) {
                             var variableId = element['var'];
-                            if (variableId.indexOf("@") === 0) {
-                                variableId = variableId.slice(1, variableId.length);
-                            }
+                            variableId = removeVariableMarkFromName(variableId);
                             var variableLessId = "@" + variableId;
                             
                             var value = extractLessVariableValue(lessVariables, variableLessId);
@@ -970,14 +967,27 @@
 
 
 
-
+       
+       /**
+        * Removes the "@" character from the beginning of the variable name, if present.
+        * @param {string} variableName 
+        * @returns {string}
+        */
+        function removeVariableMarkFromName(variableName){
+            if (variableName.indexOf("@") === 0) {
+                variableName = variableName.slice(1, variableName.length);
+            }
+            
+            return variableName;
+        }
 
         /**
          * Get current variable values in the user interface.
-         * @param {bool} includeNotChangedVariables Whether to include variables that have a value different than theme default
+         * @param {bool} includeNotChangedVariables Whether to include variables that have a value different than theme default. False by default
+         * @param {bool} removeMarkFromVariableNames Whether to remove the "@" character from the beginning of the variable name. False by default
          * @returns {object}
          */
-        function getLessVariablesValues(includeNotChangedVariables){
+        function getLessVariablesValues(includeNotChangedVariables, removeMarkFromVariableNames){
             var $variableInputs = $(".uikit-customizer-variable.available").find('input, select');
 
             var customLessVariables = {};
@@ -985,6 +995,10 @@
             $variableInputs.each(function() {
                 var $input = $(this);
                 var varName = $input.prop('name');
+                
+                if(removeMarkFromVariableNames){
+                    varName = removeVariableMarkFromName(varName);
+                }
 
                 var value = $.trim($input.val());
                 var defaultVale = $.trim($input.attr('data-default'));
@@ -1101,19 +1115,22 @@
             
 
             //Prepare data:
-            $("<input>")
-                    .attr('type', 'hidden')
-                    .attr('name', 'css')
-                    .val(compiledCssWithoutMoodlePostProcess)
-                    .appendTo($form);
-            var options = $form.serializeArray();
-            $form.find('input[name=css]').remove();
+            var saveParams = {
+                theme: $themeSelector.val(),
+                css: compiledCssWithoutMoodlePostProcess,
+                lessVariables: getLessVariablesValues(true, true)
+            };
+            
+            if($checkUseCustomLess.is(':checked')){
+                saveParams['customLess'] = $customLessTextarea.val();
+            }
+            
             
             $.ajax({
                 url: SAVE_LESS_AJAX_URL,
                 cache: false,
                 type: "POST",
-                data: options,
+                data: saveParams,
                 dataType: "json",
                 success: function(response) {
                     enableControls();

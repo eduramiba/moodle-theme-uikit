@@ -32,10 +32,6 @@ $PAGE->set_url($CFG->wwwroot.'/theme/uikit/lib/postProcessCSS.php');
 
 header('Content-Type: text/json');
 
-function getParam($param){
-    return (isset($_REQUEST[$param]) && $_REQUEST[$param] !== '') ? $_REQUEST[$param] : null;
-}
-
 try {
     //Treat warnings, errors, as exceptions:
     function handleError($errno, $errstr, $errfile, $errline, array $errcontext) {
@@ -61,7 +57,7 @@ try {
         die;
     }
     
-    $css = getParam('css');
+    $css = required_param('css', PARAM_RAW_TRIMMED);
 
     //Post process moodle placeholders like font and image urls
     $themeName = 'uikit';
