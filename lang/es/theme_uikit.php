@@ -41,8 +41,7 @@ $string['footnotedesc'] = 'Cualquier texto que agregue en este campo se mostará
 $string['logo'] = 'Logotipo';
 $string['logodesc'] = 'Por favor suba su logotipo personalizado aquí si quiere agregarlo a la cabecera de la página.<br>Si usted sube un logotipo, este reemplazará el ícono y texto mostrado por defecto.';
 $string['footerimage'] = 'Imagen del Pie';
-$string['footerimagedesc'] = 'Por favor suba su imagen personalizada aquí si quieres añadirla al pie de página'.
-		'<br>Si sube una imagen aparecerá encima del HTML personalizado del pie (si lo hay).';
+$string['footerimagedesc'] = 'Por favor suba su imagen personalizada aquí si quiere añadirla al pie de página. <br>Si sube una imagen aparecerá encima del HTML personalizado del pie (si lo hay).';
 $string['favicon'] = 'Favicon';
 $string['favicondesc'] = 'Por favor suba aquí su favicon personalizado si quiere añadirlo a la página';
 
@@ -291,8 +290,7 @@ $string['analyticsid'] = 'Tracking ID';
 $string['analyticsiddesc'] = 'Introduce el Tracking ID proporcionado. Normalmente tiene el formato UA-XXXXXXXX-X';
 
 $string['analyticsclean'] = 'Enviar URLs limpias';
-$string['analyticscleandesc'] = 'Esta fantástica característica fue creada por <a href="https://moodle.org/user/profile.php?id=281671" target="_blank">Gavin Henrick</a> and <a href="https://moodle.org/user/view.php?id=907814" target="_blank">Bas Brands</a> y es implementada en este tema.'
-        . ' En lugar de enviar URLs Moodle estandar el tema enviará URLs limpias facilitando la identificación de la página y proporcionando información avanzada. Más información puede <b><a href="http://www.somerandomthoughts.com/blog/2012/04/18/ireland-uk-moodlemoot-analytics-to-the-front/" target="_blank">encontrarse aquí</a></b>.';
+$string['analyticscleandesc'] = 'Esta fantástica característica fue creada por <a href="https://moodle.org/user/profile.php?id=281671" target="_blank">Gavin Henrick</a> and <a href="https://moodle.org/user/view.php?id=907814" target="_blank">Bas Brands</a> y es implementada en este tema. En lugar de enviar URLs Moodle estandar el tema enviará URLs limpias facilitando la identificación de la página y proporcionando información avanzada. Más información puede <b><a href="http://www.somerandomthoughts.com/blog/2012/04/18/ireland-uk-moodlemoot-analytics-to-the-front/" target="_blank">encontrarse aquí</a></b>.';
 
 $string['analyticsadmin'] = 'Tracking de Usuarios Administradores';
 $string['analyticsadmindesc'] = 'Activar para habilitar el tracking de usuarios administradores.';
