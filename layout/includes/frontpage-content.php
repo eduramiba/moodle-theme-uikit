@@ -24,7 +24,7 @@
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 ?>
-<div id="region-main-uikit" class="uk-width-1-1 uk-width-medium-2-3 uk-width-large-3-4 mdl-width-xlarge-8-10"> 
+<div id="region-main-uikit" class="<?php echo $regionClasses; ?>"> 
     <section id="region-main" class="uk-margin-bottom">
 		<div id="main-content-box">
 			<!-- Start Frontpage Content -->
