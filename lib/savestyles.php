@@ -96,30 +96,8 @@ try {
 
     global $DB;
     $table = "theme_uikit_less_settings";
-    
-    //Save generated CSS file for the site:
-    $styles_dir = realpath(dirname(__FILE__) . '/../style');
-    
-    if(!is_writable($styles_dir)){
-        throw new Exception(get_string("styleswritepermissionsfail", "theme_uikit"));
-    }
-    
-    $filename = 'generated_' . sha1(uniqid(rand(), true)) . '.css'; //We generate a random file name in case this moodle installation is used for a multi-site configuration
-    file_put_contents($styles_dir . '/' . $filename, $css);
 
-    //TODO check write permissions
-    //Delete old style file
-    $existing_css_file = $DB->get_record($table, array('setting' => 'cssFile'));
-    if ($existing_css_file) {
-        if (file_exists($styles_dir . '/' . $existing_css_file->value)) {
-            unlink($styles_dir . '/' . $existing_css_file->value);
-        }
-    }
-    
-    
-    
-
-    //Also save generated CSS file for the site in moodledata in case it gets lost later:
+    //Save generated CSS file for the site in moodledata to be loaded by the theme later:
     $fs = get_file_storage();
  
     // Prepare file record object
@@ -146,11 +124,6 @@ try {
     
     //Also save customizations to database
     $DB->delete_records($table);
-
-    $css_file_record = new stdClass();
-    $css_file_record->setting = 'cssFile';
-    $css_file_record->value = $filename;
-    $DB->insert_record($table, $css_file_record, false, true);
 
     $theme_record = new stdClass();
     $theme_record->setting = 'theme';

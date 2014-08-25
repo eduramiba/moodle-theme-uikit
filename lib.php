@@ -201,36 +201,80 @@ function uikit_performance_output($param) {
     return $html;
 }
 
-function theme_uikit_process_css($css, $theme) {
-    // Set the background image for the logo.
-    $logo = $theme->setting_file_url('logo', 'logo');
-    $css = theme_uikit_set_logo($css, $logo);
 
-    // Set the background image for the page.
-    $setting = 'pagebackground';
-    $pagebackground = $theme->setting_file_url($setting, $setting);
-    $css = theme_uikit_set_pagebackground($css, $pagebackground);
+/**
+ * This function checks if the generated styles file has been included, and replaces the placeholder with the real generated css (saved in moodledata).
+ * Then runs other post-processing functions (logo, background images, etc.) of this theme with the final css.
+ * @param string $css
+ * @return string
+ */
+function theme_uikit_process_css($css, $theme) {
+    $placeholder = '[[theme_uikit_full_generated_styles]]';
+    if(strpos($css, $placeholder) !== false){
+        //Generated styles placeholder found, put real styles from moodledata:
+        
+        $context = context_system::instance();
+        $fileinfo = array(
+            'contextid' => $context->id,
+            'component' => 'theme_uikit',
+            'filearea' => 'theme_uikit_styles',
+            'itemid' => 0,
+            'filepath' => '/',
+            'filename' => 'theme_uikit_generated_styles.css'
+        );
+
+        $fs = get_file_storage();
+        $generated_css_file = $fs->get_file($fileinfo['contextid'], $fileinfo['component'], $fileinfo['filearea'], 
+            $fileinfo['itemid'], $fileinfo['filepath'], $fileinfo['filename']);
+        
+        if($generated_css_file){
+            $generatedcss = $generated_css_file->get_content();
+        }else{
+            //Error: the file should be present. Try to recover by loading the theme base styles:
+            $generatedcss = file_get_contents(dirname(__FILE__).'/style/themeuikit.css');
+        }
+        
+        $css = str_replace($placeholder, $generatedcss, $css);
+
+        //Do a second replace of the placeholder, in case generatedcss contains malicious css that has the same placeholder (it would cause endless calls to this function)
+        $css = str_replace($placeholder, '', $css);
+
+        //We need to post-process the styles again by core Moodle to include images and fonts, and run the rest of this theme post-processing functions
+        $themeName = 'uikit';
+        $theme = theme_config::load($themeName);
+        $css = $theme->post_process($css);
+    }else{
+        // Set the background image for the logo.
+        $logo = $theme->setting_file_url('logo', 'logo');
+        $css = theme_uikit_set_logo($css, $logo);
+
+        // Set the background image for the page.
+        $setting = 'pagebackground';
+        $pagebackground = $theme->setting_file_url($setting, $setting);
+        $css = theme_uikit_set_pagebackground($css, $pagebackground);
+
+        // Set the background image for the header.
+        $setting = 'headerbackground';
+        $pagebackground = $theme->setting_file_url($setting, $setting);
+        $css = theme_uikit_set_headerbackground($css, $pagebackground);
+
+        // Set the background image for the footer.
+        $setting = 'footerbackground';
+        $pagebackground = $theme->setting_file_url($setting, $setting);
+        $css = theme_uikit_set_footerbackground($css, $pagebackground);
+
+        // Set the login image instead of header.
+        $setting = 'loginheaderimage';
+        $loginheaderimage = $theme->setting_file_url($setting, $setting);
+        $css = theme_uikit_set_loginheaderimage($css, $loginheaderimage);
+
+        // Set the slideshow colors
+        $css = theme_uikit_set_slideshow_colors($css, $theme);
+
+        // Set the font path.
+        $css = theme_uikit_set_fontwww($css);
+    }
     
-    // Set the background image for the header.
-    $setting = 'headerbackground';
-    $pagebackground = $theme->setting_file_url($setting, $setting);
-    $css = theme_uikit_set_headerbackground($css, $pagebackground);
-    
-    // Set the background image for the footer.
-    $setting = 'footerbackground';
-    $pagebackground = $theme->setting_file_url($setting, $setting);
-    $css = theme_uikit_set_footerbackground($css, $pagebackground);
-    
-    // Set the login image instead of header.
-    $setting = 'loginheaderimage';
-    $loginheaderimage = $theme->setting_file_url($setting, $setting);
-    $css = theme_uikit_set_loginheaderimage($css, $loginheaderimage);
-    
-	// Set the slideshow colors
-    $css = theme_uikit_set_slideshow_colors($css, $theme);
-	
-    // Set the font path.
-    $css = theme_uikit_set_fontwww($css);
     return $css;
 }
 

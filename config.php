@@ -36,50 +36,29 @@ $THEME->supportscssoptimisation = false;
 global $DB;
 $table = "theme_uikit_less_settings";
 
-$generatedCssFile = $DB->get_record($table, array('setting' => 'cssFile'));
-if($generatedCssFile){
-    $cssFile = $generatedCssFile->value;
+//Check if generated styles are available for the site and load them
+$context = context_system::instance();
+$fileinfo = array(
+    'contextid' => $context->id,
+    'component' => 'theme_uikit',
+    'filearea' => 'theme_uikit_styles',
+    'itemid' => 0,
+    'filepath' => '/',
+    'filename' => 'theme_uikit_generated_styles.css'
+);
 
-    $stylesDir = realpath(dirname(__FILE__).'/style');
+$fs = get_file_storage();
+$generated_css_file = $fs->get_file($fileinfo['contextid'], $fileinfo['component'], $fileinfo['filearea'], 
+    $fileinfo['itemid'], $fileinfo['filepath'], $fileinfo['filename']);
 
-    $stylesPath = $stylesDir.'/'.$cssFile;
-
-    if(!file_exists($stylesPath) && is_writable($stylesDir)){
-        //The file in styles directory with generated CSS was deleted somehow.
-        //Try to recover it from mooodledata files:
-        $context = context_system::instance();
-        $fileinfo = array(
-            'contextid' => $context->id,
-            'component' => 'theme_uikit',
-            'filearea' => 'theme_uikit_styles',
-            'itemid' => 0,
-            'filepath' => '/',
-            'filename' => 'theme_uikit_generated_styles.css'
-        );
-
-        $fs = get_file_storage();
-        $file = $fs->get_file($fileinfo['contextid'], $fileinfo['component'], $fileinfo['filearea'], 
-            $fileinfo['itemid'], $fileinfo['filepath'], $fileinfo['filename']);
-        if ($file) {
-            $contents = $file->get_content();
-
-            file_put_contents($stylesPath, $contents);
-        }
-    }
-
-    //Use available generated styles:
-    if(file_exists($stylesPath)){
-        //Remove .css extension if present:
-        $cssFileWithoutExtension = pathinfo($stylesPath, PATHINFO_FILENAME);
-    }
-}
-
-
-if(!isset($cssFileWithoutExtension)){
-    $THEME->sheets = array('themeuikit');
+$THEME->sheets = array();
+if ($generated_css_file) {
+    $THEME->sheets[]= 'generated';//Load a file with just a placeholder where the real saved styles will be put by the theme post-process function
 }else{
-    $THEME->sheets = array($cssFileWithoutExtension);
+    $THEME->sheets[]= 'themeuikit';//Load base styles for theme uikit
 }
+
+$THEME->csspostprocess = 'theme_uikit_process_css';
 
 $THEME->sheets[]= 'slides';
 
@@ -207,8 +186,6 @@ $THEME->javascripts = array(
     'modernizr',
 	'cslider'
 );
-
-$THEME->csspostprocess = 'theme_uikit_process_css';
 
 $useragent = '';
 if (!empty($_SERVER['HTTP_USER_AGENT'])) {
