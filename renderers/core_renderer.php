@@ -620,7 +620,10 @@ class theme_uikit_core_renderer extends core_renderer {
             't/show' => 'eye-slash',
             't/print' => 'print',
         );
-        if (isset($icons[$name])) {
+        
+        if(strpos($name, 'uk-icon') === 0){
+             return "<i class=\"$name uk-icon mr2\" ".$title."></i>";
+        }elseif (isset($icons[$name])) {
             return "<i class=\"uk-icon-$icons[$name] uk-icon mr2\" ".$title."></i>";
         } else {
             return false;
