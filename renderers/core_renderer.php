@@ -25,6 +25,148 @@
 require_once($CFG->libdir. '/coursecatlib.php');
 class theme_uikit_core_renderer extends core_renderer {
     
+     /**
+     * Extended login info to support modes in this theme settings.
+     * 
+     * Return the standard string that says whether you are logged in (and switched
+     * roles/logged in as another user).
+     * @param bool $withlinks if false, then don't include any links in the HTML produced.
+     * If not set, the default is the nologinlinks option from the theme config.php file,
+     * and if that is not set, then links are included.
+     * @param int $displaymode
+     * @return string HTML fragment.
+     */
+    public function login_info($withlinks = null, $displaymode = 0){
+        switch($displaymode){
+            case 1:
+                return $this->login_info_html(true, false);
+            case 2:
+                return $this->login_info_html(false);
+            case 3:
+                return '';
+            case 0:
+            default:
+                return parent::login_info($withlinks);
+        }
+    }
+    
+    /**
+     * Custom function similar to renderer_base::login_info but with more options for this theme.
+     */
+    private function login_info_html($bDisplayName = true, $bDisplayLoggedInAsText = true, $bDisplayLogout = true, $withlinks = true) {
+       global $USER, $CFG, $DB, $SESSION;
+
+        if (during_initial_install()) {
+            return '';
+        }
+
+        if (is_null($withlinks)) {
+            $withlinks = empty($this->page->layout_options['nologinlinks']);
+        }
+
+        $loginpage = ((string)$this->page->url === get_login_url());
+        $course = $this->page->course;
+        if (\core\session\manager::is_loggedinas()) {
+            $realuser = \core\session\manager::get_realuser();
+            $fullname = fullname($realuser, true);
+            if ($withlinks) {
+                $loginastitle = get_string('loginas');
+                $realuserinfo = " [<a href=\"$CFG->wwwroot/course/loginas.php?id=$course->id&amp;sesskey=".sesskey()."\"";
+                $realuserinfo .= "title =\"".$loginastitle."\">$fullname</a>] ";
+            } else {
+                $realuserinfo = " [$fullname] ";
+            }
+        } else {
+            $realuserinfo = '';
+        }
+
+        $loginurl = get_login_url();
+        
+        if (empty($course->id)) {
+            // $course->id is not defined during installation
+            return '';
+        } else if (isloggedin()) {
+            $context = context_course::instance($course->id);
+
+            if($bDisplayName){
+                $username = fullname($USER, true);
+
+                // Since Moodle 2.0 this link always goes to the public profile page (not the course profile page)
+                if ($withlinks) {
+                    $linktitle = get_string('viewprofile');
+                    $username = "<a href=\"$CFG->wwwroot/user/profile.php?id=$USER->id\" title=\"$linktitle\">$username</a>";
+                } else {
+                    $username = $username;
+                }
+                if (is_mnet_remote_user($USER) and $idprovider = $DB->get_record('mnet_host', array('id' => $USER->mnethostid))) {
+                    if ($withlinks) {
+                        $username .= " from <a href=\"{$idprovider->wwwroot}\">{$idprovider->name}</a>";
+                    } else {
+                        $username .= " from {$idprovider->name}";
+                    }
+                }
+            }
+            
+            if($bDisplayName){
+                if (isguestuser()) {
+                    if($bDisplayLoggedInAsText){
+                        $loggedinas = $realuserinfo . get_string('loggedinasguest');
+                    }else{
+                        $loggedinas = $realuserinfo . get_string('guest');
+                    }
+                        
+                    if (!$loginpage && $withlinks) {
+                        $loggedinas .= " (<a href=\"$loginurl\">" . get_string('login') . '</a>)';
+                    }
+                } else if (is_role_switched($course->id)) { // Has switched roles
+                    $rolename = '';
+                    if ($role = $DB->get_record('role', array('id' => $USER->access['rsw'][$context->path]))) {
+                        $rolename = ': ' . role_get_name($role, $context);
+                    }
+                    
+                    if($bDisplayLoggedInAsText){
+                        $loggedinas = get_string('loggedinas', 'moodle', $username) . $rolename;
+                    }else{
+                        $loggedinas = $username . $rolename;
+                    }
+                    
+                    if ($withlinks) {
+                        $url = new moodle_url('/course/switchrole.php', array('id' => $course->id, 'sesskey' => sesskey(), 'switchrole' => 0, 'returnurl' => $this->page->url->out_as_local_url(false)));
+                        $loggedinas .= '(' . html_writer::tag('a', get_string('switchrolereturn'), array('href' => $url)) . ')';
+                    }
+                } else {
+                    if($bDisplayLoggedInAsText){
+                        $loggedinas = $realuserinfo . get_string('loggedinas', 'moodle', $username);
+                    }else{
+                        $loggedinas = $realuserinfo . $username;
+                    }
+                    
+                    if ($bDisplayLogout && $withlinks) {
+                        $loggedinas .= " (<a href=\"$CFG->wwwroot/login/logout.php?sesskey=" . sesskey() . "\">" . get_string('logout') . '</a>)';
+                    }
+                }
+            }else{
+                if($bDisplayLogout){
+                    $loggedinas = "<a href=\"$CFG->wwwroot/login/logout.php?sesskey=" . sesskey() . "\">" . get_string('logout') . '</a>';
+                }else{
+                    $loggedinas = '';
+                }
+            }
+        } else {
+            if($bDisplayLoggedInAsText){
+                $loggedinas = get_string('loggedinnot', 'moodle');
+                if (!$loginpage && $withlinks) {
+                    $loggedinas .= " (<a href=\"$loginurl\">" . get_string('login') . '</a>)';
+                }
+            }else{
+                $loggedinas = "<a href=\"$loginurl\">" . get_string('login') . '</a>';
+            }
+        }
+
+        $loggedinas = '<div class="logininfo">'.$loggedinas.'</div>';
+        
+        return $loggedinas;
+    }
     
     /**
      * Returns HTML attributes to use within the body tag. This includes an ID and classes.
