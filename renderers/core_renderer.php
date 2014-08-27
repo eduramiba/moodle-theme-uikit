@@ -260,7 +260,7 @@ class theme_uikit_core_renderer extends core_renderer {
         }
 
         if ($addlangmenu) {
-            $language = $menu->add(get_string('language'), new moodle_url('#'), get_string('language'), 5000);
+            $language = $menu->add(get_string('language'), new moodle_url('#'), get_string('language'), -3000);//We use negative branchsort so any custom elements appear after theme elements
             foreach ($langs as $langtype => $langname) {
                 if($this->page->has_set_url()){
                     $pageurl = $this->page->url;
@@ -465,7 +465,7 @@ class theme_uikit_core_renderer extends core_renderer {
             $branchlabel = '<i class="uk-icon-dashboard"></i> ' . get_string('mydashboard', 'theme_uikit');
             $branchurl = new moodle_url('/my/index.php');
             $branchtitle = get_string('mydashboard', 'theme_uikit');
-            $branchsort = 10000;
+            $branchsort = -2000;
 
             $branch = $menu->add($branchlabel, $branchurl, $branchtitle, $branchsort);
             
@@ -506,9 +506,8 @@ class theme_uikit_core_renderer extends core_renderer {
                 $branchtitle = get_string('mycourses', 'theme_uikit');
             }
             $branchurl = new moodle_url('/my/index.php');
-            $branchsort = 20000;
 
-            $branch = $menu->add($branchlabel, $branchurl, $branchtitle, $branchsort);
+            $branch = $menu->add($branchlabel, $branchurl, $branchtitle, -1000);
             
             $this->add_my_courses_subelements($branch);
         }
