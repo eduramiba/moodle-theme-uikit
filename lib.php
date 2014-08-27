@@ -162,8 +162,6 @@ function theme_uikit_pluginfile($course, $cm, $context, $filearea, $args, $force
             'ipadretinaicon'
         );
         
-        preg_match("#slide\d+image#", $filearea);
-        
         if (in_array($filearea, $valid_files) || preg_match("#slide\d+image#", $filearea) || preg_match("#marketing\d+image#", $filearea)) {
             return $theme->setting_file_serve($filearea, $args, $forcedownload, $options);
         } else {
