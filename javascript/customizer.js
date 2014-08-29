@@ -57,6 +57,12 @@
         * General customizer configuration
         */
         var config = window.customizerConfig;
+        
+        var wwwroot = window.moodlewwwroot;
+        
+        function buildAbsoluteURL(relativeURL){
+            return wwwroot + relativeURL;
+        }
 
         /*
         * Translation strings for internationalization (i18n)
@@ -67,8 +73,8 @@
         var tinyColorParserAvailable = typeof window.tinycolor === "function";
         
         //Constants:
-        var POST_PROCESS_CSS_URL = '/theme/uikit/lib/postProcessCSS.php';
-        var SAVE_LESS_AJAX_URL = '/theme/uikit/lib/savestyles.php?save=1';
+        var POST_PROCESS_CSS_URL = buildAbsoluteURL('/theme/uikit/lib/postProcessCSS.php');
+        var SAVE_LESS_AJAX_URL = buildAbsoluteURL('/theme/uikit/lib/savestyles.php?save=1');
         var TYPE_COLOR = 'color';
         var TYPE_VALUE = 'value';
         var TYPE_FONT_FAMILY = 'font-family';
@@ -220,7 +226,8 @@
                 
                 function browserCompileLess(){
                     var lessCode = "@uikit-theme: "+currentTheme+';';
-                    lessCode += '@import "/theme/uikit/less/theme/styles.less";';
+                    var stylesURL = buildAbsoluteURL("/theme/uikit/less/theme/styles.less");
+                    lessCode += '@import "'+stylesURL+'";';
                     
                     var parserCacheId = currentTheme;
                     if($checkUseCustomLess.is(':checked')){
@@ -422,8 +429,11 @@
         function loadStyle(theme) {
             var deferred = $.Deferred();
             
-            var imports = '@import "/theme/uikit/less/uikit/themes/default/'+currentTheme+'/uikit.less";';
-            imports += "\n" + '@import "/theme/uikit/less/custom/variables.less";';
+            var themeStylesURL = buildAbsoluteURL('/theme/uikit/less/uikit/themes/default/'+currentTheme+'/uikit.less');
+            var variablesURL = buildAbsoluteURL('/theme/uikit/less/custom/variables.less');
+            
+            var imports = '@import "'+themeStylesURL+'";';
+            imports += "\n" + '@import "'+variablesURL+'";';
 
             if (variablesCacheByStyle[theme]) {
                 deferred.resolve(variablesCacheByStyle[theme]);

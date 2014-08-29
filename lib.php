@@ -25,13 +25,14 @@
  * Include the Awesome Font.
  */
 function theme_uikit_set_fontwww($css) {
+    global $CFG;
     $tag = '[[setting:fontwww]]';
 	
     $theme = theme_config::load('uikit');
     if (!empty($theme->settings->bootstrapcdn)) {
         $css = str_replace($tag, '//netdna.bootstrapcdn.com/font-awesome/4.1.0/fonts/', $css);
     } else {
-        $css = str_replace($tag, '/theme/uikit/fonts/', $css);
+        $css = str_replace($tag, $CFG->wwwroot.'/theme/uikit/fonts/', $css);
     }
     return $css;
 }

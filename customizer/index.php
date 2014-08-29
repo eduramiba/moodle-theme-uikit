@@ -41,6 +41,22 @@ if (!has_capability("moodle/site:config", $context)) {
 
 global $DB;
 
+
+$PAGE->set_context($context);
+$PAGE->set_pagelayout('popup');//Use a simple layout without side bars
+$PAGE->set_title(sprintf("%s - %s", $SITE->fullname, get_string('visualstylemanager', 'theme_uikit')));
+$PAGE->set_heading($SITE->fullname);
+$PAGE->set_url($url);
+$PAGE->navigation->clear_cache();
+
+//Make sure theme designer mode is enabled:
+if($DB->get_field('config', 'value', array('name' => 'themedesignermode')) == 0){
+    $DB->set_field('config', 'value', 1, array('name' => 'themedesignermode'));
+    purge_all_caches();
+    
+    redirect($url, get_string('themedesignerenabled', 'theme_uikit'));
+}
+
 $PAGE->requires->js(new moodle_url($CFG->wwwroot . '/theme/uikit/javascript/customizer.js'));
 $PAGE->requires->js(new moodle_url($CFG->wwwroot . '/theme/uikit/javascript/less.js'));
 $PAGE->requires->js(new moodle_url($CFG->wwwroot . '/theme/uikit/javascript/jquery.less.js'));
@@ -58,23 +74,6 @@ $PAGE->requires->css(new moodle_url($CFG->wwwroot . '/theme/uikit/style/codemirr
 $PAGE->requires->css(new moodle_url($CFG->wwwroot . '/theme/uikit/style/codemirror/theme/solarized.css'));
 $PAGE->requires->js(new moodle_url($CFG->wwwroot . '/theme/uikit/javascript/codemirror/codemirror.js'));
 $PAGE->requires->js(new moodle_url($CFG->wwwroot . '/theme/uikit/javascript/codemirror/mode/less/less.js'));
-
-
-$PAGE->set_context($context);
-$PAGE->set_pagelayout('popup');//Use a simple layout without side bars
-$PAGE->set_title(sprintf("%s - %s", $SITE->fullname, get_string('visualstylemanager', 'theme_uikit')));
-$PAGE->set_heading($SITE->fullname);
-$PAGE->set_url($url);
-$PAGE->navigation->clear_cache();
-
-//Make sure theme designer mode is enabled:
-if($DB->get_field('config', 'value', array('name' => 'themedesignermode')) == 0){
-    $DB->set_field('config', 'value', 1, array('name' => 'themedesignermode'));
-    purge_all_caches();
-    
-    redirect($url, get_string('themedesignerenabled', 'theme_uikit'));
-}
-
 
 //Load current settings:
 $table = "theme_uikit_less_settings";
@@ -111,6 +110,7 @@ if($current_theme->name === 'uikit'){
     ?>
 
         <script type="text/javascript">
+            window.moodlewwwroot = '<?php echo $CFG->wwwroot; ?>';
             <?php if(!empty($aSettings)){ ?>
                 window.currentSettings = <?php echo json_encode($aSettings); ?>;
             <?php } ?>
