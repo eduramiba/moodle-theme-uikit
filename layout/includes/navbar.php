@@ -24,8 +24,8 @@
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-$displaysitename = $PAGE->theme->settings->displaysitename;
-$displayloggedusermode = $PAGE->theme->settings->displayloggedusermode;
+$displaysitename = isset($PAGE->theme->settings->displaysitename) ? $PAGE->theme->settings->displaysitename : true;
+$displayloggedusermode = isset($PAGE->theme->settings->displayloggedusermode) ? $PAGE->theme->settings->displayloggedusermode : 0;
 
 ?>
 <header id="page-navigation" role="navigation">
