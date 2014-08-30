@@ -49,6 +49,7 @@ $string['bootstrapcdn'] = 'FontAwesome de CDN';
 $string['bootstrapcdndesc'] = 'Si se activa, carga la fuenta FontAwesome  del CDN online de Bootstrap. Activa esta opción si tienes problemas para mostrar los iconos de Font Awesome en tu sitio.';
 $string['copyright'] = 'Copyright';
 $string['copyrightdesc'] = 'El nombre de su organización.';
+$string['showmoodledocs'] = 'Mostrar la sección "Moodle Docs para esta página" en el pie';
 
 $string['contactinfo'] = 'Información de contacto';
 $string['contactinfodesc'] = 'Introduzca su información de contacto';

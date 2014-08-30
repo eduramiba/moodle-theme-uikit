@@ -32,6 +32,7 @@ $hasfooterimage = (!empty($PAGE->theme->settings->footerimage));
 $hascopyright = (empty($PAGE->theme->settings->copyright)) ? false : $PAGE->theme->settings->copyright;
 $hasfootnote = (empty($PAGE->theme->settings->footnote)) ? false : $PAGE->theme->settings->footnote;
 
+$showMoodleDocs = isset($PAGE->theme->settings->showmoodledocs) && isset($PAGE->theme->settings->showmoodledocs);
 $showFooterBlocks = isset($PAGE->theme->settings->footerblocks)
         && (
             $PAGE->theme->settings->footerblocks == 1
@@ -60,9 +61,13 @@ if(empty($PAGE->layout_options['noblocks'])){ ?>
         <?php } ?>
 
         <div class="footerlinks">
-            <?php if ($hascopyright) {
-                echo '<p class="copy">&copy; '.date("Y").' '.$hascopyright.'</p>';
-            } ?>
+            <?php if ($hascopyright) { ?>
+                <p class="copy">&copy; <?php echo date("Y").' '.$hascopyright; ?> </p>
+            <?php } ?>
+            
+            <?php if ($showMoodleDocs) { ?>
+                <p class="helplink"><?php echo page_doc_link(get_string('moodledocslink')); ?></p>
+            <?php } ?>
 
             <?php if ($hasfooterimage) { 
                     $footerUrl = $PAGE->theme->setting_file_url('footerimage', 'footerimage');

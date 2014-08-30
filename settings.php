@@ -127,6 +127,16 @@ $default = '';
 $setting = new admin_setting_configtext($name, $title, $description, $default);
 $temp->add($setting);
 
+// Moodle links setting.
+$name = 'theme_uikit/showmoodledocs';
+$title = get_string('showmoodledocs', 'theme_uikit');
+$description = '';
+$default = false;
+$setting = new admin_setting_configcheckbox($name, $title, $description, $default, true, false);
+$setting->set_updatedcallback('theme_reset_all_caches');
+$temp->add($setting);
+
+
 // Footnote setting.
 $name = 'theme_uikit/footnote';
 $title = get_string('footnote', 'theme_uikit');
