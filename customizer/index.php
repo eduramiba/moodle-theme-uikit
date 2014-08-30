@@ -207,7 +207,7 @@ if($current_theme->name === 'uikit'){
                 <h1 id="loadingIcon" class="uk-text-center">
                     <span class="uk-icon uk-icon-spinner uk-icon-spin"></span>
                 </h1>
-                <iframe id="embeddedSite" src="/">
+                <iframe id="embeddedSite" src="<?php echo $CFG->wwwroot; ?>">
                 </iframe>
             </div>
         </div>
