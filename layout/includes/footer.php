@@ -44,16 +44,14 @@ if(empty($PAGE->layout_options['noblocks'])){ ?>
     <footer id="page-footer">
         <?php if ($showFooterBlocks) { ?>
             <div id="footer-blocks">
-                <div class="uk-grid" data-uk-grid-margin>
-                    <div class="uk-width-1-1 uk-width-large-1-3">
+                <div class="uk-grid uk-grid-width-1 uk-grid-width-medium-1-2" data-uk-grid-margin>
+                    <div>
                         <?php echo $OUTPUT->uikitblocks($footerl, 'additional-block'); ?>
                     </div>
-
-                    <div class="uk-width-1-1 uk-width-large-1-3">
+                    <div>
                         <?php echo $OUTPUT->uikitblocks($footerm, 'additional-block'); ?>
                     </div>
-
-                    <div class="uk-width-1-1 uk-width-large-1-3">
+                    <div>
                         <?php echo $OUTPUT->uikitblocks($footerr, 'additional-block'); ?>
                     </div>
                 </div>
@@ -77,9 +75,23 @@ if(empty($PAGE->layout_options['noblocks'])){ ?>
                 </div>
             <?php } ?>
             
-            <?php if ($hasfootnote) {
-                echo '<div class="footnote">'.$hasfootnote.'</div>';
-            } ?>
+            <?php if ($hasfootnote) { ?>
+                <div class="footnote"><?php echo $hasfootnote; ?></div>;
+            <?php } ?>
         </div>
+        
+        <?php
+            global $CFG;
+            if(isset($CFG->themedesignermode) && $CFG->themedesignermode){
+                $context = context_system::instance();
+                if (has_capability("moodle/site:config", $context)){
+                    ?>
+                    <div class="uk-alert uk-alert-danger">
+                        <p><span class="uk-icon uk-icon-exclamation-triangle"></span> <?php echo get_string('warning_theme_designer_enabled', 'theme_uikit') ?></p>
+                        <p><a href="<?php echo $CFG->wwwroot; ?>/admin/settings.php?section=themesettings"><?php echo get_string('warning_theme_designer_disable', 'theme_uikit') ?></a></p>
+                    </div>
+             <?php 
+                } 
+            }?>
     </footer>
 <?php }

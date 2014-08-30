@@ -50,8 +50,8 @@ $PAGE->set_url($url);
 $PAGE->navigation->clear_cache();
 
 //Make sure theme designer mode is enabled:
-if($DB->get_field('config', 'value', array('name' => 'themedesignermode')) == 0){
-    $DB->set_field('config', 'value', 1, array('name' => 'themedesignermode'));
+if(!$CFG->themedesignermode){
+    set_config("themedesignermode", true);
     purge_all_caches();
     
     redirect($url, get_string('themedesignerenabled', 'theme_uikit'));
