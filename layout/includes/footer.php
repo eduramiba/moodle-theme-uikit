@@ -32,7 +32,7 @@ $hasfooterimage = (!empty($PAGE->theme->settings->footerimage));
 $hascopyright = (empty($PAGE->theme->settings->copyright)) ? false : $PAGE->theme->settings->copyright;
 $hasfootnote = (empty($PAGE->theme->settings->footnote)) ? false : $PAGE->theme->settings->footnote;
 
-$showMoodleDocs = isset($PAGE->theme->settings->showmoodledocs) && isset($PAGE->theme->settings->showmoodledocs);
+$showMoodleDocs = isset($PAGE->theme->settings->showmoodledocs) && $PAGE->theme->settings->showmoodledocs;
 $showFooterBlocks = isset($PAGE->theme->settings->footerblocks)
         && (
             $PAGE->theme->settings->footerblocks == 1
