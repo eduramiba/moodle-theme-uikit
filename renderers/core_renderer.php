@@ -66,8 +66,25 @@ class theme_uikit_core_renderer extends core_renderer {
 
         $loginpage = ((string)$this->page->url === get_login_url());
         $course = $this->page->course;
-        if (\core\session\manager::is_loggedinas()) {
-            $realuser = \core\session\manager::get_realuser();
+        
+        
+        if(class_exists('\\core\\session\\manager')){
+            //Moodle 2.6 or newer
+            $isLoggedInAs = \core\session\manager::is_loggedinas();
+            if($isLoggedInAs){
+                $realuser = \core\session\manager::get_realuser();
+            }
+        }else{
+            //Moodle 2.5 or older
+            $isLoggedInAs = session_is_loggedinas();
+            if($isLoggedInAs){
+                $realuser = session_get_realuser();
+            }
+        }
+        
+        
+        
+        if ($isLoggedInAs) {
             $fullname = fullname($realuser, true);
             if ($withlinks) {
                 $loginastitle = get_string('loginas');
