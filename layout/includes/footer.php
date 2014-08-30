@@ -44,7 +44,7 @@ if(empty($PAGE->layout_options['noblocks'])){ ?>
     <footer id="page-footer">
         <?php if ($showFooterBlocks) { ?>
             <div id="footer-blocks">
-                <div class="uk-grid uk-grid-width-1 uk-grid-width-medium-1-2" data-uk-grid-margin>
+                <div class="uk-grid uk-grid-width-1 uk-grid-width-medium-1-3" data-uk-grid-margin>
                     <div>
                         <?php echo $OUTPUT->uikitblocks($footerl, 'additional-block'); ?>
                     </div>
