@@ -1104,7 +1104,7 @@
                         .text(i18n['styles-saved']);
                 
                 showConfirmModal($successDiv, function(){
-                    window.location = '/';
+                    window.location = wwwroot;
                 }, i18n['home'] + ' <i class="uk-icon uk-icon-home"></i>', i18n['ok']);
             }
             
