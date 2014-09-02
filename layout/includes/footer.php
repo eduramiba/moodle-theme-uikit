@@ -76,7 +76,7 @@ if(empty($PAGE->layout_options['noblocks'])){ ?>
             <?php } ?>
             
             <?php if ($hasfootnote) { ?>
-                <div class="footnote"><?php echo $hasfootnote; ?></div>;
+                <div class="footnote"><?php echo $hasfootnote; ?></div>
             <?php } ?>
         </div>
         
