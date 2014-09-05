@@ -57,7 +57,9 @@ if(!$CFG->themedesignermode){
     redirect($url, get_string('themedesignerenabled', 'theme_uikit'));
 }
 
-$PAGE->requires->js(new moodle_url($CFG->wwwroot . '/theme/uikit/javascript/customizer.js'));
+$themeversion = $PAGE->theme->settings->version;
+
+$PAGE->requires->js(new moodle_url($CFG->wwwroot . '/theme/uikit/javascript/customizer.js?'.$themeversion));
 $PAGE->requires->js(new moodle_url($CFG->wwwroot . '/theme/uikit/javascript/less.js'));
 $PAGE->requires->js(new moodle_url($CFG->wwwroot . '/theme/uikit/javascript/jquery.less.js'));
 $PAGE->requires->js(new moodle_url($CFG->wwwroot . '/theme/uikit/javascript/spectrum.colorpicker.js'));
@@ -115,6 +117,7 @@ if($current_theme->name === 'uikit'){
                 window.currentSettings = <?php echo json_encode($aSettings); ?>;
             <?php } ?>
             window.customizerConfig = <?php echo json_encode($customizerConfig); ?>;
+            window.theme_uikit_version = <?php echo $themeversion; ?>;
         </script> 
         
     <?php 

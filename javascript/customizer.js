@@ -60,6 +60,8 @@
         
         var wwwroot = window.moodlewwwroot;
         
+        var themeVersion = window.theme_uikit_version;
+        
         function buildAbsoluteURL(relativeURL){
             return wwwroot + relativeURL;
         }
@@ -161,6 +163,8 @@
             
             $iframe.addClass('loaded');
             
+            $iframe.contents().find("#uikit-theme-designer-alert").remove();
+            
             //Make sure theme variables are loaded before first compile:
             $firstLoadDeferred.done(function(){
                 applyStylesCustomization($($iframe.contents()), false, initialVariables);
@@ -226,7 +230,7 @@
                 
                 function browserCompileLess(){
                     var lessCode = "@uikit-theme: "+currentTheme+';';
-                    var stylesURL = buildAbsoluteURL("/theme/uikit/less/theme/styles.less");
+                    var stylesURL = buildAbsoluteURL("/theme/uikit/less/theme/styles.less?"+themeVersion);
                     lessCode += '@import "'+stylesURL+'";';
                     
                     var parserCacheId = currentTheme;
@@ -265,12 +269,12 @@
                                 }
                             },
                             error: function(xhr, ajaxOptions, thrownError) {
-                                showErrorModal();
+                                showErrorModal("Post-process failed");
                                 enableControls();
                             }
                         });
-                    }).fail(function(){
-                        showErrorModal();
+                    }).fail(function(error){
+                        showErrorModal(error);
                         enableControls();
                     });
                 }
@@ -1071,6 +1075,7 @@
                 $checkUseCustomLess.prop('checked', true);
                 $checkUseCustomLess.change();
                 $customLessTextarea.val(customLessCode);
+                $customLessTextarea.attr('data-changed', new Date().getTime());
                 $customLessEditor.setValue(customLessCode);
             }else{
                 $checkUseCustomLess.prop('checked', false);

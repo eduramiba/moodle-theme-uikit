@@ -86,6 +86,7 @@
     }
 
     function resolveImports(source) {
+        var cacheKey = window.theme_uikit_version;
 
         var deferred = $.Deferred(), imports = {}, host = extractUrlParts(window.location.href).host, importRegex = /@import\s+url\s*\(['"]?(.+?)['"]?\)\s*;/g, urlRegex = /url\s*\(['"]?(.+?)['"]?\)/g;
 
@@ -124,7 +125,7 @@
                 if (!imports[url] && host == extractUrlParts(url).host) {
                     queue.push(
                         function() {
-                            return $.ajax({url: url, cache: true}).done(function(data) {
+                            return $.ajax({url: url, data: {cacheKey: cacheKey}, cache: true}).done(function(data) {
                                 imports[url] = rewrite(data.replace(/\/\*(?:[^*]|\*+[^\/*])*\*+\/|^((?!:).)?\/\/.*/g, ''), url);
                             }).fail(function(xhr, status, error) {
                                 imports[url] = "/* Can't resolve import '" + url + "' (" + status + ", " + error + ") */";

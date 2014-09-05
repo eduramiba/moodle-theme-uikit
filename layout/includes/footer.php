@@ -86,7 +86,7 @@ if(empty($PAGE->layout_options['noblocks'])){ ?>
                 $context = context_system::instance();
                 if (has_capability("moodle/site:config", $context)){
                     ?>
-                    <div class="uk-alert uk-alert-danger">
+                    <div id="uikit-theme-designer-alert" class="uk-alert uk-alert-danger">
                         <p><span class="uk-icon uk-icon-exclamation-triangle"></span> <?php echo get_string('warning_theme_designer_enabled', 'theme_uikit') ?></p>
                         <p><a href="<?php echo $CFG->wwwroot; ?>/admin/settings.php?section=themesettings"><?php echo get_string('warning_theme_designer_disable', 'theme_uikit') ?></a></p>
                     </div>
