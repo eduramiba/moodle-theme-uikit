@@ -32,9 +32,14 @@ function theme_uikit_set_fontwww($css) {
     if (!empty($theme->settings->bootstrapcdn)) {
         $css = str_replace($tag, '//netdna.bootstrapcdn.com/font-awesome/4.1.0/fonts/', $css);
     } else {
-        //Prepare local URL without http(s), so some browsers load the font even with mixed content.
-        $url = new moodle_url($CFG->wwwroot.'/theme/uikit/fonts/');
-        $localurl = '//'.$url->get_host().$url->out_as_local_url();
+        //Prepare local URL without http(s) and domain, so some browsers load the font even with mixed content.
+        $url = $CFG->wwwroot.'/theme/uikit/fonts/';
+        $localurl = parse_url($url, PHP_URL_PATH);
+        
+        if(empty($localurl)){
+            //Some error happened, at least try with the full URL
+            $localurl = $url;
+        }
         
         $css = str_replace($tag, $localurl, $css);
     }
