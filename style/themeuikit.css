@@ -5680,7 +5680,33 @@ a.uk-badge:hover {
 /* ========================================================================
    Component: Alert
  ========================================================================== */
-.uk-alert {
+.uk-alert,
+#page-admin-index .releasenoteslink,
+#page-admin-index .adminwarning,
+#page-admin-index .maturitywarning,
+#page-admin-index .testsitewarning,
+#page-admin-index .maturityinfo,
+#page-admin-index .maturitywarning,
+#page-admin-index .testsitewarning,
+#page-admin-index .adminwarning.maturityinfo.maturity50,
+#page-admin-index .adminwarning.availableupdatesinfo,
+#page-admin-index .releasenoteslink,
+#page-admin-roles-assign div.box.generalbox,
+#page-admin-roles-assign div.box.generalbox,
+.que .formulation,
+.que .outcome,
+.que .comment,
+.que .formulation,
+.que .comment,
+form .form-item.femptylabel .felement.fstatic,
+.mform .form-item.femptylabel .felement.fstatic,
+form .fitem.femptylabel .felement.fstatic,
+.mform .fitem.femptylabel .felement.fstatic,
+form .fld.femptylabel .felement.fstatic,
+.mform .fld.femptylabel .felement.fstatic,
+#fitem_id_availabilityconditionsjson .availability-plugincontrols,
+#fitem_id_availabilityconditionsjson .availability-childlist > .availability-inner,
+.message div.heading {
   margin-bottom: 15px;
   padding: 10px;
   background: #ebf7fd;
@@ -5692,13 +5718,65 @@ a.uk-badge:hover {
 /*
  * Add margin if adjacent element
  */
-* + .uk-alert {
+* + .uk-alert,
+* + #page-admin-index .releasenoteslink,
+* + #page-admin-index .adminwarning,
+* + #page-admin-index .maturitywarning,
+* + #page-admin-index .testsitewarning,
+* + #page-admin-index .maturityinfo,
+* + #page-admin-index .maturitywarning,
+* + #page-admin-index .testsitewarning,
+* + #page-admin-index .adminwarning.maturityinfo.maturity50,
+* + #page-admin-index .adminwarning.availableupdatesinfo,
+* + #page-admin-index .releasenoteslink,
+* + #page-admin-roles-assign div.box.generalbox,
+* + #page-admin-roles-assign div.box.generalbox,
+* + .que .formulation,
+* + .que .outcome,
+* + .que .comment,
+* + .que .formulation,
+* + .que .comment,
+* + form .form-item.femptylabel .felement.fstatic,
+* + .mform .form-item.femptylabel .felement.fstatic,
+* + form .fitem.femptylabel .felement.fstatic,
+* + .mform .fitem.femptylabel .felement.fstatic,
+* + form .fld.femptylabel .felement.fstatic,
+* + .mform .fld.femptylabel .felement.fstatic,
+* + #fitem_id_availabilityconditionsjson .availability-plugincontrols,
+* + #fitem_id_availabilityconditionsjson .availability-childlist > .availability-inner,
+* + .message div.heading {
   margin-top: 15px;
 }
 /*
  * Remove margin from the last-child
  */
-.uk-alert > :last-child {
+.uk-alert > :last-child,
+#page-admin-index .releasenoteslink > :last-child,
+#page-admin-index .adminwarning > :last-child,
+#page-admin-index .maturitywarning > :last-child,
+#page-admin-index .testsitewarning > :last-child,
+#page-admin-index .maturityinfo > :last-child,
+#page-admin-index .maturitywarning > :last-child,
+#page-admin-index .testsitewarning > :last-child,
+#page-admin-index .adminwarning.maturityinfo.maturity50 > :last-child,
+#page-admin-index .adminwarning.availableupdatesinfo > :last-child,
+#page-admin-index .releasenoteslink > :last-child,
+#page-admin-roles-assign div.box.generalbox > :last-child,
+#page-admin-roles-assign div.box.generalbox > :last-child,
+.que .formulation > :last-child,
+.que .outcome > :last-child,
+.que .comment > :last-child,
+.que .formulation > :last-child,
+.que .comment > :last-child,
+form .form-item.femptylabel .felement.fstatic > :last-child,
+.mform .form-item.femptylabel .felement.fstatic > :last-child,
+form .fitem.femptylabel .felement.fstatic > :last-child,
+.mform .fitem.femptylabel .felement.fstatic > :last-child,
+form .fld.femptylabel .felement.fstatic > :last-child,
+.mform .fld.femptylabel .felement.fstatic > :last-child,
+#fitem_id_availabilityconditionsjson .availability-plugincontrols > :last-child,
+#fitem_id_availabilityconditionsjson .availability-childlist > .availability-inner > :last-child,
+.message div.heading > :last-child {
   margin-bottom: 0;
 }
 /*
@@ -5709,18 +5787,226 @@ a.uk-badge:hover {
 .uk-alert h3,
 .uk-alert h4,
 .uk-alert h5,
-.uk-alert h6 {
+.uk-alert h6,
+#page-admin-index .releasenoteslink h1,
+#page-admin-index .releasenoteslink h2,
+#page-admin-index .releasenoteslink h3,
+#page-admin-index .releasenoteslink h4,
+#page-admin-index .releasenoteslink h5,
+#page-admin-index .releasenoteslink h6,
+#page-admin-index .adminwarning h1,
+#page-admin-index .adminwarning h2,
+#page-admin-index .adminwarning h3,
+#page-admin-index .adminwarning h4,
+#page-admin-index .adminwarning h5,
+#page-admin-index .adminwarning h6,
+#page-admin-index .maturitywarning h1,
+#page-admin-index .maturitywarning h2,
+#page-admin-index .maturitywarning h3,
+#page-admin-index .maturitywarning h4,
+#page-admin-index .maturitywarning h5,
+#page-admin-index .maturitywarning h6,
+#page-admin-index .testsitewarning h1,
+#page-admin-index .testsitewarning h2,
+#page-admin-index .testsitewarning h3,
+#page-admin-index .testsitewarning h4,
+#page-admin-index .testsitewarning h5,
+#page-admin-index .testsitewarning h6,
+#page-admin-index .maturityinfo h1,
+#page-admin-index .maturityinfo h2,
+#page-admin-index .maturityinfo h3,
+#page-admin-index .maturityinfo h4,
+#page-admin-index .maturityinfo h5,
+#page-admin-index .maturityinfo h6,
+#page-admin-index .maturitywarning h1,
+#page-admin-index .maturitywarning h2,
+#page-admin-index .maturitywarning h3,
+#page-admin-index .maturitywarning h4,
+#page-admin-index .maturitywarning h5,
+#page-admin-index .maturitywarning h6,
+#page-admin-index .testsitewarning h1,
+#page-admin-index .testsitewarning h2,
+#page-admin-index .testsitewarning h3,
+#page-admin-index .testsitewarning h4,
+#page-admin-index .testsitewarning h5,
+#page-admin-index .testsitewarning h6,
+#page-admin-index .adminwarning.maturityinfo.maturity50 h1,
+#page-admin-index .adminwarning.maturityinfo.maturity50 h2,
+#page-admin-index .adminwarning.maturityinfo.maturity50 h3,
+#page-admin-index .adminwarning.maturityinfo.maturity50 h4,
+#page-admin-index .adminwarning.maturityinfo.maturity50 h5,
+#page-admin-index .adminwarning.maturityinfo.maturity50 h6,
+#page-admin-index .adminwarning.availableupdatesinfo h1,
+#page-admin-index .adminwarning.availableupdatesinfo h2,
+#page-admin-index .adminwarning.availableupdatesinfo h3,
+#page-admin-index .adminwarning.availableupdatesinfo h4,
+#page-admin-index .adminwarning.availableupdatesinfo h5,
+#page-admin-index .adminwarning.availableupdatesinfo h6,
+#page-admin-index .releasenoteslink h1,
+#page-admin-index .releasenoteslink h2,
+#page-admin-index .releasenoteslink h3,
+#page-admin-index .releasenoteslink h4,
+#page-admin-index .releasenoteslink h5,
+#page-admin-index .releasenoteslink h6,
+#page-admin-roles-assign div.box.generalbox h1,
+#page-admin-roles-assign div.box.generalbox h2,
+#page-admin-roles-assign div.box.generalbox h3,
+#page-admin-roles-assign div.box.generalbox h4,
+#page-admin-roles-assign div.box.generalbox h5,
+#page-admin-roles-assign div.box.generalbox h6,
+#page-admin-roles-assign div.box.generalbox h1,
+#page-admin-roles-assign div.box.generalbox h2,
+#page-admin-roles-assign div.box.generalbox h3,
+#page-admin-roles-assign div.box.generalbox h4,
+#page-admin-roles-assign div.box.generalbox h5,
+#page-admin-roles-assign div.box.generalbox h6,
+.que .formulation h1,
+.que .formulation h2,
+.que .formulation h3,
+.que .formulation h4,
+.que .formulation h5,
+.que .formulation h6,
+.que .outcome h1,
+.que .outcome h2,
+.que .outcome h3,
+.que .outcome h4,
+.que .outcome h5,
+.que .outcome h6,
+.que .comment h1,
+.que .comment h2,
+.que .comment h3,
+.que .comment h4,
+.que .comment h5,
+.que .comment h6,
+.que .formulation h1,
+.que .formulation h2,
+.que .formulation h3,
+.que .formulation h4,
+.que .formulation h5,
+.que .formulation h6,
+.que .comment h1,
+.que .comment h2,
+.que .comment h3,
+.que .comment h4,
+.que .comment h5,
+.que .comment h6,
+form .form-item.femptylabel .felement.fstatic h1,
+form .form-item.femptylabel .felement.fstatic h2,
+form .form-item.femptylabel .felement.fstatic h3,
+form .form-item.femptylabel .felement.fstatic h4,
+form .form-item.femptylabel .felement.fstatic h5,
+form .form-item.femptylabel .felement.fstatic h6,
+.mform .form-item.femptylabel .felement.fstatic h1,
+.mform .form-item.femptylabel .felement.fstatic h2,
+.mform .form-item.femptylabel .felement.fstatic h3,
+.mform .form-item.femptylabel .felement.fstatic h4,
+.mform .form-item.femptylabel .felement.fstatic h5,
+.mform .form-item.femptylabel .felement.fstatic h6,
+form .fitem.femptylabel .felement.fstatic h1,
+form .fitem.femptylabel .felement.fstatic h2,
+form .fitem.femptylabel .felement.fstatic h3,
+form .fitem.femptylabel .felement.fstatic h4,
+form .fitem.femptylabel .felement.fstatic h5,
+form .fitem.femptylabel .felement.fstatic h6,
+.mform .fitem.femptylabel .felement.fstatic h1,
+.mform .fitem.femptylabel .felement.fstatic h2,
+.mform .fitem.femptylabel .felement.fstatic h3,
+.mform .fitem.femptylabel .felement.fstatic h4,
+.mform .fitem.femptylabel .felement.fstatic h5,
+.mform .fitem.femptylabel .felement.fstatic h6,
+form .fld.femptylabel .felement.fstatic h1,
+form .fld.femptylabel .felement.fstatic h2,
+form .fld.femptylabel .felement.fstatic h3,
+form .fld.femptylabel .felement.fstatic h4,
+form .fld.femptylabel .felement.fstatic h5,
+form .fld.femptylabel .felement.fstatic h6,
+.mform .fld.femptylabel .felement.fstatic h1,
+.mform .fld.femptylabel .felement.fstatic h2,
+.mform .fld.femptylabel .felement.fstatic h3,
+.mform .fld.femptylabel .felement.fstatic h4,
+.mform .fld.femptylabel .felement.fstatic h5,
+.mform .fld.femptylabel .felement.fstatic h6,
+#fitem_id_availabilityconditionsjson .availability-plugincontrols h1,
+#fitem_id_availabilityconditionsjson .availability-plugincontrols h2,
+#fitem_id_availabilityconditionsjson .availability-plugincontrols h3,
+#fitem_id_availabilityconditionsjson .availability-plugincontrols h4,
+#fitem_id_availabilityconditionsjson .availability-plugincontrols h5,
+#fitem_id_availabilityconditionsjson .availability-plugincontrols h6,
+#fitem_id_availabilityconditionsjson .availability-childlist > .availability-inner h1,
+#fitem_id_availabilityconditionsjson .availability-childlist > .availability-inner h2,
+#fitem_id_availabilityconditionsjson .availability-childlist > .availability-inner h3,
+#fitem_id_availabilityconditionsjson .availability-childlist > .availability-inner h4,
+#fitem_id_availabilityconditionsjson .availability-childlist > .availability-inner h5,
+#fitem_id_availabilityconditionsjson .availability-childlist > .availability-inner h6,
+.message div.heading h1,
+.message div.heading h2,
+.message div.heading h3,
+.message div.heading h4,
+.message div.heading h5,
+.message div.heading h6 {
   color: inherit;
 }
 /* Close in alert
  ========================================================================== */
-.uk-alert > .uk-close:first-child {
+.uk-alert > .uk-close:first-child,
+#page-admin-index .releasenoteslink > .uk-close:first-child,
+#page-admin-index .adminwarning > .uk-close:first-child,
+#page-admin-index .maturitywarning > .uk-close:first-child,
+#page-admin-index .testsitewarning > .uk-close:first-child,
+#page-admin-index .maturityinfo > .uk-close:first-child,
+#page-admin-index .maturitywarning > .uk-close:first-child,
+#page-admin-index .testsitewarning > .uk-close:first-child,
+#page-admin-index .adminwarning.maturityinfo.maturity50 > .uk-close:first-child,
+#page-admin-index .adminwarning.availableupdatesinfo > .uk-close:first-child,
+#page-admin-index .releasenoteslink > .uk-close:first-child,
+#page-admin-roles-assign div.box.generalbox > .uk-close:first-child,
+#page-admin-roles-assign div.box.generalbox > .uk-close:first-child,
+.que .formulation > .uk-close:first-child,
+.que .outcome > .uk-close:first-child,
+.que .comment > .uk-close:first-child,
+.que .formulation > .uk-close:first-child,
+.que .comment > .uk-close:first-child,
+form .form-item.femptylabel .felement.fstatic > .uk-close:first-child,
+.mform .form-item.femptylabel .felement.fstatic > .uk-close:first-child,
+form .fitem.femptylabel .felement.fstatic > .uk-close:first-child,
+.mform .fitem.femptylabel .felement.fstatic > .uk-close:first-child,
+form .fld.femptylabel .felement.fstatic > .uk-close:first-child,
+.mform .fld.femptylabel .felement.fstatic > .uk-close:first-child,
+#fitem_id_availabilityconditionsjson .availability-plugincontrols > .uk-close:first-child,
+#fitem_id_availabilityconditionsjson .availability-childlist > .availability-inner > .uk-close:first-child,
+.message div.heading > .uk-close:first-child {
   float: right;
 }
 /*
  * Remove margin from adjacent element
  */
-.uk-alert > .uk-close:first-child + * {
+.uk-alert > .uk-close:first-child + *,
+#page-admin-index .releasenoteslink > .uk-close:first-child + *,
+#page-admin-index .adminwarning > .uk-close:first-child + *,
+#page-admin-index .maturitywarning > .uk-close:first-child + *,
+#page-admin-index .testsitewarning > .uk-close:first-child + *,
+#page-admin-index .maturityinfo > .uk-close:first-child + *,
+#page-admin-index .maturitywarning > .uk-close:first-child + *,
+#page-admin-index .testsitewarning > .uk-close:first-child + *,
+#page-admin-index .adminwarning.maturityinfo.maturity50 > .uk-close:first-child + *,
+#page-admin-index .adminwarning.availableupdatesinfo > .uk-close:first-child + *,
+#page-admin-index .releasenoteslink > .uk-close:first-child + *,
+#page-admin-roles-assign div.box.generalbox > .uk-close:first-child + *,
+#page-admin-roles-assign div.box.generalbox > .uk-close:first-child + *,
+.que .formulation > .uk-close:first-child + *,
+.que .outcome > .uk-close:first-child + *,
+.que .comment > .uk-close:first-child + *,
+.que .formulation > .uk-close:first-child + *,
+.que .comment > .uk-close:first-child + *,
+form .form-item.femptylabel .felement.fstatic > .uk-close:first-child + *,
+.mform .form-item.femptylabel .felement.fstatic > .uk-close:first-child + *,
+form .fitem.femptylabel .felement.fstatic > .uk-close:first-child + *,
+.mform .fitem.femptylabel .felement.fstatic > .uk-close:first-child + *,
+form .fld.femptylabel .felement.fstatic > .uk-close:first-child + *,
+.mform .fld.femptylabel .felement.fstatic > .uk-close:first-child + *,
+#fitem_id_availabilityconditionsjson .availability-plugincontrols > .uk-close:first-child + *,
+#fitem_id_availabilityconditionsjson .availability-childlist > .availability-inner > .uk-close:first-child + *,
+.message div.heading > .uk-close:first-child + * {
   margin-top: 0;
 }
 /* Modifier: `uk-alert-success`
@@ -10919,13 +11205,6 @@ div.singlebutton {
 #page-admin-index .maturitywarning,
 #page-admin-index .testsitewarning,
 #page-admin-index .maturityinfo {
-  padding: 10px;
-  background: #ebf7fd;
-  color: #2d7091;
-  border: 1px solid rgba(45, 112, 145, 0.3);
-  border-radius: 4px;
-  text-shadow: 0 1px 0 #ffffff;
-  margin-top: 15px;
   background: #fffceb;
   color: #e28327;
   border-color: rgba(226, 131, 39, 0.3);
@@ -10942,17 +11221,6 @@ div.singlebutton {
   background: #fff1f0;
   color: #d85030;
   border-color: rgba(216, 80, 48, 0.3);
-}
-#page-admin-index .adminwarning.availableupdatesinfo,
-#page-admin-index .releasenoteslink {
-  margin-bottom: 15px;
-  padding: 10px;
-  background: #ebf7fd;
-  color: #2d7091;
-  border: 1px solid rgba(45, 112, 145, 0.3);
-  border-radius: 4px;
-  text-shadow: 0 1px 0 #ffffff;
-  margin-top: 15px;
 }
 #page-admin-index .adminwarning.availableupdatesinfo .moodleupdateinfo span {
   display: block;
@@ -11383,14 +11651,6 @@ div.singlebutton {
   padding-bottom: 0;
 }
 #page-admin-roles-assign div.box.generalbox {
-  margin-bottom: 15px;
-  padding: 10px;
-  background: #ebf7fd;
-  color: #2d7091;
-  border: 1px solid rgba(45, 112, 145, 0.3);
-  border-radius: 4px;
-  text-shadow: 0 1px 0 #ffffff;
-  margin-top: 15px;
   background: #fffceb;
   color: #e28327;
   border-color: rgba(226, 131, 39, 0.3);
@@ -12039,7 +12299,6 @@ span.editinstructions {
   line-height: 20px;
   box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.07), inset 0 2px 2px rgba(0, 0, 0, 0.07);
   border-radius: 4px;
-  margin-top: 15px;
 }
 .dndupload-progress-outer .bar {
   width: 0;
@@ -15720,27 +15979,11 @@ body.path-question-type .fitem_fgroup .accesshide {
 .que .formulation,
 .que .outcome,
 .que .comment {
-  margin-bottom: 15px;
-  padding: 10px;
-  background: #ebf7fd;
-  color: #2d7091;
-  border: 1px solid rgba(45, 112, 145, 0.3);
-  border-radius: 4px;
-  text-shadow: 0 1px 0 #ffffff;
-  margin-top: 15px;
   background: #fffceb;
   color: #e28327;
   border-color: rgba(226, 131, 39, 0.3);
 }
 .que .formulation {
-  margin-bottom: 15px;
-  padding: 10px;
-  background: #ebf7fd;
-  color: #2d7091;
-  border: 1px solid rgba(45, 112, 145, 0.3);
-  border-radius: 4px;
-  text-shadow: 0 1px 0 #ffffff;
-  margin-top: 15px;
   color: #444444;
 }
 .formulation input[type="text"],
@@ -16449,14 +16692,6 @@ form .fitem.femptylabel .felement.fstatic,
 .mform .fitem.femptylabel .felement.fstatic,
 form .fld.femptylabel .felement.fstatic,
 .mform .fld.femptylabel .felement.fstatic {
-  margin-bottom: 15px;
-  padding: 10px;
-  background: #ebf7fd;
-  color: #2d7091;
-  border: 1px solid rgba(45, 112, 145, 0.3);
-  border-radius: 4px;
-  text-shadow: 0 1px 0 #ffffff;
-  margin-top: 15px;
   background: #fffceb;
   color: #e28327;
   border-color: rgba(226, 131, 39, 0.3);
@@ -16805,14 +17040,6 @@ fieldset.coursesearchbox label {
   margin-bottom: 4px;
 }
 #fitem_id_availabilityconditionsjson .availability-plugincontrols {
-  margin-bottom: 15px;
-  padding: 10px;
-  background: #ebf7fd;
-  color: #2d7091;
-  border: 1px solid rgba(45, 112, 145, 0.3);
-  border-radius: 4px;
-  text-shadow: 0 1px 0 #ffffff;
-  margin-top: 15px;
   display: inline-block;
   margin-left: 5px;
   margin-right: 8px;
@@ -16833,14 +17060,6 @@ fieldset.coursesearchbox label {
   margin-left: 15px;
 }
 #fitem_id_availabilityconditionsjson .availability-childlist > .availability-inner {
-  margin-bottom: 15px;
-  padding: 10px;
-  background: #ebf7fd;
-  color: #2d7091;
-  border: 1px solid rgba(45, 112, 145, 0.3);
-  border-radius: 4px;
-  text-shadow: 0 1px 0 #ffffff;
-  margin-top: 15px;
   background: #fffceb;
   color: #e28327;
   border-color: rgba(226, 131, 39, 0.3);
@@ -16994,15 +17213,6 @@ select {
   height: 5px;
 }
 .forumpost {
-  /* 1 */
-  display: block;
-  /* 2 */
-  position: relative;
-  padding: 10px;
-  background: #fafafa;
-  color: #444444;
-  border: 1px solid #dddddd;
-  border-radius: 4px;
   padding: 6px;
 }
 .forumpost .header {
@@ -17153,14 +17363,6 @@ div#dock {
 }
 .message div.heading {
   font-weight: normal;
-  margin-bottom: 15px;
-  padding: 10px;
-  background: #ebf7fd;
-  color: #2d7091;
-  border: 1px solid rgba(45, 112, 145, 0.3);
-  border-radius: 4px;
-  text-shadow: 0 1px 0 #ffffff;
-  margin-top: 15px;
   background: #fffceb;
   color: #e28327;
   border-color: rgba(226, 131, 39, 0.3);
@@ -17214,6 +17416,7 @@ div#dock {
 }
 .forumpost {
   border: none;
+  margin-top: 10px;
   /* 1 */
   display: block;
   /* 2 */
@@ -17320,9 +17523,11 @@ input[type=button].closebutton,
   margin-right: auto;
 }
 #page-login-index #loginbtn {
-  display: block;
   margin-top: 14px;
   margin-bottom: 16px;
+}
+#page-login-index .form-input #loginbtn {
+  display: block;
 }
 #page-login-index #username,
 #page-login-index #password {
@@ -18329,7 +18534,33 @@ a.skip {
   text-align: center;
   line-height: 32px;
 }
-.hidden-blocks.uk-alert {
+.hidden-blocks.uk-alert,
+.hidden-blocks#page-admin-index .releasenoteslink,
+.hidden-blocks#page-admin-index .adminwarning,
+.hidden-blocks#page-admin-index .maturitywarning,
+.hidden-blocks#page-admin-index .testsitewarning,
+.hidden-blocks#page-admin-index .maturityinfo,
+.hidden-blocks#page-admin-index .maturitywarning,
+.hidden-blocks#page-admin-index .testsitewarning,
+.hidden-blocks#page-admin-index .adminwarning.maturityinfo.maturity50,
+.hidden-blocks#page-admin-index .adminwarning.availableupdatesinfo,
+.hidden-blocks#page-admin-index .releasenoteslink,
+.hidden-blocks#page-admin-roles-assign div.box.generalbox,
+.hidden-blocks#page-admin-roles-assign div.box.generalbox,
+.hidden-blocks.que .formulation,
+.hidden-blocks.que .outcome,
+.hidden-blocks.que .comment,
+.hidden-blocks.que .formulation,
+.hidden-blocks.que .comment,
+.hidden-blocksform .form-item.femptylabel .felement.fstatic,
+.hidden-blocks.mform .form-item.femptylabel .felement.fstatic,
+.hidden-blocksform .fitem.femptylabel .felement.fstatic,
+.hidden-blocks.mform .fitem.femptylabel .felement.fstatic,
+.hidden-blocksform .fld.femptylabel .felement.fstatic,
+.hidden-blocks.mform .fld.femptylabel .felement.fstatic,
+.hidden-blocks#fitem_id_availabilityconditionsjson .availability-plugincontrols,
+.hidden-blocks#fitem_id_availabilityconditionsjson .availability-childlist > .availability-inner,
+.hidden-blocks.message div.heading {
   text-shadow: none;
 }
 .block_news_items .header .uk-panel-title h2:before {

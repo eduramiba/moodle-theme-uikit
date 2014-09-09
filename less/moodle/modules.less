@@ -53,7 +53,6 @@ select {
 }
 
 .forumpost {
-    .well;
     padding: 6px;
     .header {
         margin-bottom: 3px;
@@ -230,8 +229,7 @@ div#dock {
 }
 .message div.heading {
     font-weight: normal;
-    .uk-alert;
-    .uk-alert-warning;
+    .alert-warning();
 }
 
 .userlist {
@@ -300,6 +298,7 @@ div#dock {
 .forumpost {
     border: none;//If the theme has border, it will be overriden by next mixins
     
+    margin-top: 10px;
     .uk-panel;
     .uk-panel-box;
     .uk-panel-box-primary;
@@ -448,9 +447,12 @@ button, input[type=submit], input[type=button],
     }
 
     #loginbtn {
-        display: block;
         margin-top: 14px;
         margin-bottom: 16px;
+    }
+    
+    .form-input #loginbtn {
+        display: block;
     }
 
     #username, #password  {

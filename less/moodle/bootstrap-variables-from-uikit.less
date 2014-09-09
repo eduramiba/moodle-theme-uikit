@@ -90,23 +90,31 @@
 }
 
 .alert() {
-    .uk-alert();
+    &:extend(.uk-alert all);
+    .uk-alert-warning();
+}
+
+.alert-warning() {
+    &:extend(.uk-alert all);
     .uk-alert-warning();
 }
 
 .alert-info() {
-    .uk-alert();
+    &:extend(.uk-alert all);
 }
 
 .alert-success() {
+    &:extend(.uk-alert all);
     .uk-alert-success();
 }
 
 .alert-error() {
+    &:extend(.uk-alert all);
     .uk-alert-danger();
 }
 
 .alert-danger() {
+    &:extend(.uk-alert all);
     .uk-alert-danger();
 }
 
