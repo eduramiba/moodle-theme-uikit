@@ -18253,16 +18253,9 @@ a.logo {
   float: right;
   padding-right: 20px;
 }
-ul,
-ol {
+ul.topics {
   padding-left: 0;
   padding-right: 0;
-}
-ul ul,
-ol ul,
-ul ol,
-ol ol {
-  padding-left: 30px;
 }
 /**
  * These styles are added because, at least in UIKit 2.9, there is no xlarge classes for the grid.
