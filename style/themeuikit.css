@@ -18253,7 +18253,7 @@ a.logo {
   float: right;
   padding-right: 20px;
 }
-ul.topics {
+.course-content > ul {
   padding-left: 0;
   padding-right: 0;
 }
