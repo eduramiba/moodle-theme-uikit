@@ -111,4 +111,13 @@ $setting = new admin_setting_configselect($name, $title, $description, $default,
 $setting->set_updatedcallback('theme_reset_all_caches');
 $temp->add($setting);
 
+// Choose position of theme navigation elements
+$name = 'theme_uikit/themenavigationelementsmode';
+$title = get_string('themenavigationelementsmode', 'theme_uikit');
+$default = '1';
+$choices = array('1' => get_string('themenavigationelementsmodeafter', 'theme_uikit'), '2' => get_string('themenavigationelementsmodebefore', 'theme_uikit'));
+$setting = new admin_setting_configselect($name, $title, '', $default, $choices);
+$setting->set_updatedcallback('theme_reset_all_caches');
+$temp->add($setting);
+
 $ADMIN->add('theme_uikit', $temp);

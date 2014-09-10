@@ -20,57 +20,8 @@
  * @package    theme
  * @subpackage uikit
  * @author     Eduardo Ramos
- * @author     Based on code originally written by Julian (@moodleman) Ridden, G J Bernard, Mary Evans, Bas Brands, Stuart Lamour and David Scotson.
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-    $hasheader = !isset($PAGE->theme->settings->loginpagehasheader) || $PAGE->theme->settings->loginpagehasheader;
-    $hasnavigation = !isset($PAGE->theme->settings->loginpagehasnavigation) || $PAGE->theme->settings->loginpagehasnavigation;
-    $hasfooter = !isset($PAGE->theme->settings->loginpagehasfooter) || $PAGE->theme->settings->loginpagehasfooter;
 
-    echo $OUTPUT->doctype()
-?>
-<html <?php echo $OUTPUT->htmlattributes(); ?>>
-    <head>
-        <title><?php echo $OUTPUT->page_title(); ?></title>
-        <link rel="shortcut icon" href="<?php echo $OUTPUT->favicon(); ?>" />
-        <?php echo $OUTPUT->standard_head_html() ?>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <!-- Google web fonts -->
-		<?php require_once(dirname(__FILE__).'/includes/googlefonts.php'); ?>
-        <!-- iOS Homescreen Icons -->
-        <?php require_once(dirname(__FILE__).'/includes/iosicons.php'); ?>
-    </head>
-
-    <body <?php echo $OUTPUT->body_attributes(); ?>>
-
-        <?php echo $OUTPUT->standard_top_of_body_html() ?>
-
-        <?php if($hasheader){ require_once(dirname(__FILE__) . '/includes/header.php'); } ?>
-
-        <?php if($hasnavigation){ require_once(dirname(__FILE__) . '/includes/navbar.php'); } ?>
-
-        <!-- Start Main Regions -->
-        <div id="page" class="page-login">
-            <div id="page-content" class="uk-grid">
-                <section id="region-main" class="uk-width-1-1 uk-width-medium-1-1 uk-width-large-1-1 uk-container-center">
-					<div id="main-content-box">
-						<?php
-							echo $OUTPUT->main_content();
-						?>
-					</div>
-                </section>
-            </div>
-        </div>
-        <!-- End Main Regions --> 
-
-        <?php if($hasfooter){ require_once(dirname(__FILE__) . '/includes/footer.php');} ?>
-
-        <?php echo $OUTPUT->standard_footer_html(); ?>
-
-        <?php echo $OUTPUT->standard_end_of_body_html() ?>
-
-        <!-- Start Google Analytics -->
-        <?php require_once(dirname(__FILE__).'/includes/analytics.php'); ?>
-        <!-- End Google Analytics -->
-    </body>
-</html>
+$layout = isset($PAGE->theme->settings->themelayout) ? $PAGE->theme->settings->themelayout : 1;
+require_once(dirname(__FILE__) . '/login'.$layout.'.php');

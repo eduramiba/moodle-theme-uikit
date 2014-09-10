@@ -202,6 +202,42 @@ a.logo {
 }
 
 
+#page-navbar {
+	.uk-overflow-container();
+
+	background-color: @mdl-page-navbar-background;
+	border: @mdl-border-width solid @mdl-page-navbar-border;
+	border-bottom: 0;
+
+	border-top-left-radius: @mdl-border-radius;
+	border-top-right-radius: @mdl-border-radius;
+
+	margin-top: 0;
+
+	.box-sizing(border-box);
+
+	padding-left: 10px;
+	padding-right: 10px;
+	padding-top: 0;
+	padding-bottom: 0;
+
+	.clearfix;
+	
+	.breadcrumb-nav {
+		margin-bottom: 0;
+	}
+	
+	.uk-breadcrumb {
+		margin-top: 5px;
+		margin-bottom: 5px;
+	}
+}
+
+.content-pre {
+	.box-sizing(border-box);
+	padding-right: 5px;
+}
+
 /*
  * Main page content:
  */
@@ -210,8 +246,11 @@ a.logo {
     
     background-color: @mdl-main-region-background;
     border: @mdl-border-width solid @mdl-main-region-border;
-    border-radius: @mdl-border-radius;
     
+    border-bottom-left-radius: @mdl-border-radius;
+    border-bottom-right-radius: @mdl-border-radius;
+	border-top-left-radius: 0;
+	border-top-right-radius: 0;
 	
     
 	.box-sizing(border-box);
@@ -219,6 +258,10 @@ a.logo {
     .clearfix;
 }
 
+.layout-option-nobreadcrumbs #main-content-box {
+	border-top-left-radius: @mdl-border-radius;
+	border-top-right-radius: @mdl-border-radius;
+}
 
 //This part is for re-ordering course columns for small devices so the course content appears before left sidebar, since this section uses full device width
 @media only screen and (max-width: @breakpoint-medium), only screen and (max-device-width: @breakpoint-medium){
@@ -241,6 +284,62 @@ a.logo {
             float: none;
         }
     }
+}
+
+/**
+ * Second layout specific styles
+ */
+body.layout2 {
+	#page-header {
+		padding-top: 0;
+		padding-bottom: 0;
+	}
+	
+	#page-header-content {
+		box-sizing: border-box;
+		max-width: 100%;
+		padding: 0;
+	}
+	
+	#page-header-content-logo #subtitle {
+		margin: 0;
+	}
+
+	#page-header-content-navigation {
+		.flexit(column);
+	}
+	
+	#page-navbar {
+		.flex(1);//Use all remaining space from #page-header-content-navigation flex
+		margin-top: 15px;
+	}
+	
+	#page-navigation {
+		text-align: end;
+	}
+	
+	//This part is for re-ordering course columns for small devices so the course content appears before left sidebar, since this section uses full device width
+	@media only screen and (max-width: @breakpoint-large), only screen and (max-device-width: @breakpoint-large){
+		#pre-and-content{
+			.boxit(vertical);
+			.flexit(column);
+
+			#region-main-uikit {
+				.box-order(1);
+				float: none;
+			}
+
+			.content-pre {
+				.box-order(2);
+				float: none;
+			}
+
+			#block-region-side-pre {
+				.box-order(2);
+				float: none;
+			}
+		}
+	}
 }
 
 

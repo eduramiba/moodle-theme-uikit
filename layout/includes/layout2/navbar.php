@@ -23,28 +23,27 @@
  * @copyright 2014 Eduardo Ramos
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
+
+$displaysitename = isset($PAGE->theme->settings->displaysitename) ? $PAGE->theme->settings->displaysitename : true;
+$displayloggedusermode = isset($PAGE->theme->settings->displayloggedusermode) ? $PAGE->theme->settings->displayloggedusermode : 0;
+
 ?>
-<div id="region-main-uikit" class="<?php echo $regionClasses; ?>"> 
-    <section id="region-main" class="uk-margin-bottom">
-		<div id="main-content-box">
-			<!-- Start Frontpage Content -->
-			<?php if(!empty($PAGE->theme->settings->usefrontcontent) && $PAGE->theme->settings->usefrontcontent == 1 && !empty($PAGE->theme->settings->frontcontentarea)) { 
-				echo $PAGE->theme->settings->frontcontentarea;
-				?>
-				<div class="bor mt10"></div>	
-			<?php }?>
-			<!-- End Frontpage Content -->
-            
-			<!-- Start Middle Blocks -->
-				<?php require_once(dirname(__FILE__).'/middleblocks.php'); ?>
-			<!-- End Middle Blocks -->
-			
-			<?php
-			
-				echo $OUTPUT->course_content_header();
-				echo $OUTPUT->main_content();
-				echo $OUTPUT->course_content_footer();
-			?>
-		</div>        
-    </section>
-</div>
+
+
+<header id="page-navigation" role="navigation">
+    <?php echo $OUTPUT->page_heading_menu(); ?>
+    
+    <?php echo $OUTPUT->custom_menu('', false); ?>
+    
+    <?php if (isloggedin() && $hasheaderprofilepic) { ?>
+        <div id="profilepic" style="display: inline-block;">
+            <p class="socialheading"><?php echo $USER->firstname; ?></p>
+            <ul class="socials unstyled">
+                <li>
+                    <?php echo $OUTPUT->user_picture($USER); ?>
+                </li>
+            </ul>            
+        </div>
+    <?php
+    }?>
+</header>

@@ -2,8 +2,8 @@
 @mdl-navbar-side-margin: 0;
 
 //Page margins:
-@mdl-page-side-margin: 20px;
-@mdl-page-top-margin: 15px;
+@mdl-page-side-margin: 10px;
+@mdl-page-top-margin: 10px;
 
 //Max widths for different page sections:
 @mdl-base-max-width-medium: 1200px;
@@ -15,6 +15,12 @@
 @mdl-base-max-width-large: 1920px;
 @mdl-max-page-content-width: @mdl-base-max-width-large;
 @mdl-max-page-footer-width: 100%;
+
+//Breadcrumbs
+@mdl-page-navbar-border: @global-border;
+@mdl-page-navbar-background: white;
+@mdl-breadcrumb-link-color: @base-link-color;
+@mdl-breadcrumb-link-hover-color: @base-link-hover-color;
 
 //Main region:
 @mdl-main-region-background: rgba(180, 180, 180, 0.1);
@@ -41,9 +47,6 @@
 @mdl-block-link-color: @global-link-color;
 @mdl-block-link-color-hover: @mdl-block-link-color;
 
-//Breadcrumbs
-@mdl-breadcrumb-link-color: @base-link-color;
-@mdl-breadcrumb-link-hover-color: @base-link-hover-color;
 
 //Go to top button
 @mdl-to-top-background: #00D2FF;
@@ -88,7 +91,7 @@
 
 
 /**
- * Overriden UIKit base variables for Moodle
+ * Overriden UIKit base variables for Moodle and other utility classes
  */
 @panel-box-padding: 10px;//Blocks padding
 @mdl-theme-base-font: "Bree Serif", "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -97,3 +100,8 @@
 @navbar-nav-font-family: @mdl-theme-base-font;
 @mdl-block-header-font-family: @mdl-theme-base-font;
 @mdl-block-menu-item-font-family: @mdl-theme-base-font;
+
+@mdl-grid-no-gutter-horizontal: 0;
+
+.uk-grid.uk-grid-no-gutter { margin-left: -@mdl-grid-no-gutter-horizontal; }
+.uk-grid.uk-grid-no-gutter > * { padding-left: @mdl-grid-no-gutter-horizontal; }

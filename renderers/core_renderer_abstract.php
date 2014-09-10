@@ -23,7 +23,7 @@
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 require_once($CFG->libdir. '/coursecatlib.php');
-class theme_uikit_core_renderer extends core_renderer {
+abstract class abstract_uikit_core_renderer extends core_renderer {
     
      /**
      * Extended login info to support modes in this theme settings.
@@ -53,8 +53,8 @@ class theme_uikit_core_renderer extends core_renderer {
     /**
      * Custom function similar to renderer_base::login_info but with more options for this theme.
      */
-    private function login_info_html($bDisplayName = true, $bDisplayLoggedInAsText = true, $bDisplayLogout = true, $withlinks = true) {
-       global $USER, $CFG, $DB, $SESSION;
+    protected function login_info_html($bDisplayName = true, $bDisplayLoggedInAsText = true, $bDisplayLogout = true, $withlinks = true) {
+       global $USER, $CFG, $DB;
 
         if (during_initial_install()) {
             return '';
@@ -207,8 +207,14 @@ class theme_uikit_core_renderer extends core_renderer {
         }else{
             $moodleVersionClass = 'moodle26prior';
         }
-
-        return ' id="'. $this->body_id().'" class="theme_uikit '.$moodleVersionClass. ' '.$this->body_css_classes($additionalclasses).'"';
+        
+        if(empty($additionalclasses)){
+            $additionalclasses = array();
+        }
+        
+        $aClasses = array_merge(array('theme_uikit', $moodleVersionClass), $additionalclasses);
+        
+        return ' id="'. $this->body_id().'" class="'.$this->body_css_classes($aClasses).'"';
     }
     
    
@@ -255,136 +261,21 @@ class theme_uikit_core_renderer extends core_renderer {
         $title = '<span class="accesshide">' . get_string('pagepath') . '</span>';
         return $title . "<ul class=\"uk-breadcrumb\">$list_items</ul>";
     }
-
-    /*
-     * This renders the uikit top menu.
-     *
-     * This renderer is needed to enable the UIkit style navigation.
+    
+    /**
+     * Processes a menu item text for responsive features.
+     * The text of the element will hide when the size of the viewport is small.
+     * Do not include icon of the item.
+     * @param string $text
+     * @param bool $isOffCanvas
+     * @return string
      */
-    protected function render_custom_menu_base(custom_menu $menu, $isOffCanvas = false) {
-        global $CFG;
-
-        // TODO: eliminate this duplicated logic, it belongs in core, not
-        // here. See MDL-39565.
-        $addlangmenu = true;
-        $langs = get_string_manager()->get_list_of_translations();
-        if (count($langs) < 2 or empty($CFG->langmenu) or ($this->page->course != SITEID and !empty($this->page->course->lang))) {
-            $addlangmenu = false;
-        }
-
-        if (!$menu->has_children() && $addlangmenu === false) {
-            return '';
-        }
-
-        if ($addlangmenu) {
-            $language = $menu->add(get_string('language'), new moodle_url('#'), get_string('language'), -3000);//We use negative branchsort so any custom elements appear after theme elements
-            foreach ($langs as $langtype => $langname) {
-                if($this->page->has_set_url()){
-                    $pageurl = $this->page->url;
-                }else{
-                    $pageurl = '/';
-                }
-                $language->add($langname, new moodle_url($pageurl, array('lang' => $langtype)), $langname);
-            }
-        }
-
-        if($isOffCanvas){
-            $content = '<ul class="uk-nav uk-nav-offcanvas uk-nav-parent-icon" data-uk-nav="{multiple:true}">';
+    protected function processMenuItemText($text, $isOffCanvas = false){
+        if(!$isOffCanvas){
+            return '<span class="uk-hidden-small">'.$text.'</span>';
         }else{
-            $content = '<ul class="uk-navbar-nav">';
+            return $text;
         }
-        foreach ($menu->get_children() as $item) {
-            $content .= $this->render_custom_menu_item($item, 0, $isOffCanvas);
-        }
-
-        return $content . '</ul>';
-    }
-
-    /*
-     * This code renders the custom menu items for the
-     * bootstrap dropdown menu.
-     */
-
-    protected function render_custom_menu_item(custom_menu_item $menunode, $level = 0, $isOffCanvas = false) {
-        if ($menunode->get_url() !== null) {
-            $url = $menunode->get_url();
-        } else {
-            $url = '#';
-        }
-        
-        // If the child has menus render it as a sub menu.
-        if ($menunode->has_children()) {
-            if($isOffCanvas){
-                $content = '<li class="uk-parent">';
-                $content .= html_writer::start_tag('a', array('href' => '#', 'title' => $menunode->get_title(), 'class' => 'uk-text-bold'));
-                $content .= $menunode->get_text();
-                $content .= html_writer::end_tag('a');
-                $content .= '<ul class="uk-nav-sub">';
-                
-                foreach ($menunode->get_children() as $menunode) {
-                    $content .= $this->render_custom_menu_item($menunode, $level + 1, $isOffCanvas);
-                }
-                
-                $content .= '</ul>';
-                $content .= '</li>';
-            }else{
-                //Dropdown (first parent)
-                if($level == 0){
-                    $content = '<li class="uk-parent" data-uk-dropdown>';
-                    $content .= html_writer::start_tag('a', array('href' => $url, 'title' => $menunode->get_title()));
-                    $content .= $menunode->get_text();
-                    $content .= ' <i class="uk-icon-caret-down"></i>';
-                    $content .= html_writer::end_tag('a');
-                    $content .= '<div class="uk-dropdown uk-dropdown-navbar">';
-                    
-                    $content .= '<ul class="uk-nav uk-nav-navbar uk-nav-parent uk-nav-parent-icon" data-uk-nav="{multiple:true}">';
-                    foreach ($menunode->get_children() as $menunode) {
-                        $content .= $this->render_custom_menu_item($menunode, $level + 1, $isOffCanvas);
-                    }
-                    $content .= '</ul>';
-                    
-                    $content .= '</div>';
-                    $content .= '</li>';
-                }else{
-                    //Sublist (not first parent)
-                    $content = html_writer::start_tag('li', array('class' => 'uk-parent'));
-                    
-                    $category_url = $url;
-                    if($level < 2){
-                        $category_url = '#';
-                    }
-                    
-                    $sublist_header_attributes = array('href' => $category_url, 'title' => $menunode->get_title(), 'class' => 'uk-text-bold');
-                    
-                    $content .= html_writer::start_tag('a', $sublist_header_attributes);
-                    $content .= html_writer::start_tag('span', array('class' => 'uikit-dropdown-menu-sublist'));//This is so the text never makes the submenu caret drop to the next line
-                    $content .= $menunode->get_text();
-                    $content .= html_writer::end_tag('span');
-                    $content .= html_writer::end_tag('a');
-                    
-                    if($level == 1){
-                        $sublist_attributes = array('class' => 'uk-nav-sub');
-                    }else{
-                        $sublist_attributes = null;
-                    }
-                    $content .= html_writer::start_tag('ul', $sublist_attributes);
-                    
-                    foreach ($menunode->get_children() as $menunode) {
-                        $content .= $this->render_custom_menu_item($menunode, $level + 1, $isOffCanvas);
-                    }
-                    $content .= html_writer::end_tag('ul');
-                    
-                    $content .= html_writer::end_tag('li');
-                }
-            }
-        } else {
-            // The node doesn't have children so produce a final menuitem.
-            $content = '<li>';
-            $content .= html_writer::link($url, $menunode->get_text(), array('title' => $menunode->get_title()));
-            $content .= '</li>';
-        }
-        
-        return $content;
     }
 
     /**
@@ -473,16 +364,57 @@ class theme_uikit_core_renderer extends core_renderer {
     }
 
     protected function render_custom_menu(custom_menu $menu, $isOffCanvas = false) {
+        global $CFG;
+        
+        
+        $themeMenuItemsMode = isset($this->page->theme->settings->themenavigationelementsmode) ? $this->page->theme->settings->themenavigationelementsmode : 1;
+        
+        if($themeMenuItemsMode == 2){
+            //We use negative branchsort so any site custom elements appear after theme elements
+            $langposition = -3000;
+            $dashboardposition = -2000;
+            $mycoursesposition = -1000;
+        }else{
+            //We use positive branchsort so any site custom elements appear before theme elements
+            $langposition = 1000;
+            $dashboardposition = 2000;
+            $mycoursesposition = 3000;
+        }
+        
+        // TODO: eliminate this duplicated logic, it belongs in core, not
+        // here. See MDL-39565.
+        $addlangmenu = true;
+        $langs = get_string_manager()->get_list_of_translations();
+        if (count($langs) < 2 or empty($CFG->langmenu) or ($this->page->course != SITEID and !empty($this->page->course->lang))) {
+            $addlangmenu = false;
+        }
+
+        if (!$menu->has_children() && $addlangmenu === false) {
+            return '';
+        }
+
+        if ($addlangmenu) {
+            $language = $menu->add('<i class="uk-icon uk-icon-language"></i> '.$this->processMenuItemText(get_string('language')), new moodle_url('#'), get_string('language'), $langposition);
+            foreach ($langs as $langtype => $langname) {
+                if($this->page->has_set_url()){
+                    $pageurl = $this->page->url;
+                }else{
+                    $pageurl = '/';
+                }
+                $language->add($langname, new moodle_url($pageurl, array('lang' => $langtype)), $langname);
+            }
+        }
+        
         /*
          * This code adds the My Dashboard
          * functionality to the custommenu.
          */
         $hasdisplaymydashboard = (empty($this->page->theme->settings->displaymydashboard)) ? false : $this->page->theme->settings->displaymydashboard;
         if (isloggedin() && $hasdisplaymydashboard) {
-            $branchlabel = '<i class="uk-icon-dashboard"></i> ' . get_string('mydashboard', 'theme_uikit');
+            $branchlabel = '<i class="uk-icon-dashboard"></i> ' . $this->processMenuItemText(get_string('mydashboard', 'theme_uikit'));
             $branchurl = new moodle_url('/my/index.php');
             $branchtitle = get_string('mydashboard', 'theme_uikit');
-            $branchsort = -2000;
+            $branchsort = $dashboardposition;
 
             $branch = $menu->add($branchlabel, $branchurl, $branchtitle, $branchsort);
             
@@ -507,36 +439,41 @@ class theme_uikit_core_renderer extends core_renderer {
         if (isloggedin() && $hasdisplaymycourses) {
             $mycoursetitle = $this->page->theme->settings->mycoursetitle;
             if ($mycoursetitle == 'module') {
-                $branchlabel = '<i class="uk-icon-briefcase"></i> ' . get_string('mymodules', 'theme_uikit');
+                $branchlabel = '<i class="uk-icon-briefcase"></i> ' . $this->processMenuItemText(get_string('mymodules', 'theme_uikit'));
                 $branchtitle = get_string('mymodules', 'theme_uikit');
             } else if ($mycoursetitle == 'unit') {
-                $branchlabel = '<i class="uk-icon-briefcase"></i> ' . get_string('myunits', 'theme_uikit');
+                $branchlabel = '<i class="uk-icon-briefcase"></i> ' . $this->processMenuItemText(get_string('myunits', 'theme_uikit'));
                 $branchtitle = get_string('myunits', 'theme_uikit');
             } else if ($mycoursetitle == 'class') {
-                $branchlabel = '<i class="uk-icon-briefcase"></i> ' . get_string('myclasses', 'theme_uikit');
+                $branchlabel = '<i class="uk-icon-briefcase"></i> ' . $this->processMenuItemText(get_string('myclasses', 'theme_uikit'));
                 $branchtitle = get_string('myclasses', 'theme_uikit');
             } else if ($mycoursetitle == 'subject') {
-                $branchlabel = '<i class="uk-icon-briefcase"></i> ' . get_string('mysubjects', 'theme_uikit');
+                $branchlabel = '<i class="uk-icon-briefcase"></i> ' . $this->processMenuItemText(get_string('mysubjects', 'theme_uikit'));
                 $branchtitle = get_string('mysubjects', 'theme_uikit');
             } else {
-                $branchlabel = '<i class="uk-icon-briefcase"></i> ' . get_string('mycourses', 'theme_uikit');
+                $branchlabel = '<i class="uk-icon-briefcase"></i> ' . $this->processMenuItemText(get_string('mycourses', 'theme_uikit'));
                 $branchtitle = get_string('mycourses', 'theme_uikit');
             }
             $branchurl = new moodle_url('/my/index.php');
 
-            $branch = $menu->add($branchlabel, $branchurl, $branchtitle, -1000);
+            $branch = $menu->add($branchlabel, $branchurl, $branchtitle, $mycoursesposition);
             
             $this->add_my_courses_subelements($branch);
         }
-
+        
         return $this->render_custom_menu_base($menu, $isOffCanvas);
     }
+    
+    /**
+     * 
+     */
+    protected abstract function render_custom_menu_base(custom_menu $menu, $isOffCanvas = false);
     
     /**
      * Prepares the my courses dropdown elements with simple or full categories hierarchy
      * @param custom_menu_item $branch
      */
-    private function add_my_courses_subelements(custom_menu_item $branch){
+    protected function add_my_courses_subelements(custom_menu_item $branch){
         $courses = enrol_get_my_courses(NULL, 'fullname ASC');
 
         if ($courses) {
@@ -590,7 +527,7 @@ class theme_uikit_core_renderer extends core_renderer {
      * @param coursecat $coursecat top category (this category's name and description will NOT be added to the tree)
      * @return string
      */
-    private function coursecat_dropdown_tree(custom_menu_item $branch, coursecat_helper $chelper, coursecat $coursecat) {
+    protected function coursecat_dropdown_tree(custom_menu_item $branch, coursecat_helper $chelper, coursecat $coursecat) {
         $options = $chelper->get_courses_display_options();
         $options['recursive'] = true;//Get all courses of categories and subcategories
         $courses_recursive = $coursecat->get_courses($options);
@@ -677,7 +614,7 @@ class theme_uikit_core_renderer extends core_renderer {
         }
     }
 
-    private static function replace_moodle_icon(pix_icon $icon) {
+    protected static function replace_moodle_icon(pix_icon $icon) {
         $name = $icon->pix;
         if(isset($icon->attributes) && !empty($icon->attributes['title'])){
             $title = sprintf(' title="%s"', $icon->attributes['title']);
@@ -829,7 +766,7 @@ class theme_uikit_core_renderer extends core_renderer {
             $icon = 'uk-icon-edit';
         }
         return html_writer::tag('a', html_writer::start_tag('i', array('class' => $icon)) .
-                        html_writer::end_tag('i'), array('href' => $url, 'class' => 'uk-button ' . $btn, 'title' => $title, 'data-uk-tooltip' => ''));
+                        html_writer::end_tag('i'), array('href' => $url, 'class' => 'uk-button uk-button-small ' . $btn, 'title' => $title, 'data-uk-tooltip' => ''));
     }
 
     /**

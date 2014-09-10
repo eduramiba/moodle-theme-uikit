@@ -40,6 +40,15 @@
     flex-direction:@flex-dir;
 }
 
+.flex (@grow: 1, @shrink: 1, @basis: 0%) {
+	-webkit-box-flex: @grow; // Webkit Old
+	-moz-box-flex: @grow; // Mozilla Old
+	-webkit-flex: @arguments; // Webkit Standard
+	-moz-flex: @arguments; // Mozilla Standard
+	-ms-flex: @arguments; // IE 10 Mid, IE 11 Standard
+	flex: @arguments; // Standard
+}
+
 .box-order(@box-order-number: 1) {
     -webkit-box-ordinal-group: @box-order-number;   
     -moz-box-ordinal-group: @box-order-number;

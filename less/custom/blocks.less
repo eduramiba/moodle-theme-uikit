@@ -155,9 +155,16 @@ a.skip-block, a.skip {
             }
         }
     }
+	
     .tree_item.branch[data-loaded="1"] {
         &:before{
             content: "\f07c ";//Folder-open
+        }
+    }
+	
+    &.collapsed > .tree_item.branch[data-loaded="1"] {
+        &:before{
+            content: "\f07b ";//Folder
         }
     }
 }

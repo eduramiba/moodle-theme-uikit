@@ -30,6 +30,10 @@ $string['pluginname'] = 'UIKit';
 $string['choosereadme'] = 'Tema construido con UIKit. Incluye un gestor de estilos visual avanzado';
 
 /* General */
+$string['themelayout'] = 'Diseño de página';
+$string['themelayoutdesc'] = 'Aquí puedes escoger entre los diferentes diseños de página para este tema';
+$string['themelayout1'] = 'Diseño original';
+$string['themelayout2'] = 'Diseño nuevo';
 $string['panel'] = 'Panel';
 $string['visualstylemanager'] = 'Gestor visual de estilos para UIKit';
 $string['geneicsettings'] = 'Ajustes generales';
@@ -116,6 +120,10 @@ $string['allmodules'] = 'Todos los Módulos';
 $string['allclasses'] = 'Todas las Clases';
 $string['allsubjects'] = 'Todas las Asignaturas';
 $string['noenrolments'] = 'No estás matriculado';
+
+$string['themenavigationelementsmode'] = 'Modo de mostrar los elementos del menú personalizado del tema UIkit';
+$string['themenavigationelementsmodebefore'] = 'Antes de los elementos del menú personalizado del sitio';
+$string['themenavigationelementsmodeafter'] = 'Después de los elementos del menú personalizado del sitio';
 
 /* My Dashboard custommenu dropdown */
 $string['mydashboard'] = 'Mi panel de control';
@@ -548,6 +556,8 @@ $string['mdl-max-additional-frontpage-content-width'] = 'Sección de marketing d
 
 /* Breadcrumbs */
 $string['group-breadcrumbs'] = 'Migas de Pan';
+$string['mdl-page-navbar-background'] = 'Color de fondo';
+$string['mdl-page-navbar-border'] = 'Color del borde';
 $string['mdl-breadcrumb-link-color'] = 'Color de enlaces';
 $string['mdl-breadcrumb-link-hover-color'] = 'Color de enlaces (hover)';
 

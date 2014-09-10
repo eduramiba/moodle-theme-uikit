@@ -572,6 +572,12 @@
             "defaultType": "color",
             "elements": [
                 {
+                    "var": "mdl-page-navbar-border"
+                },
+                {
+                    "var": "mdl-page-navbar-background"
+                },
+                {
                     "var": "mdl-breadcrumb-link-color"
                 },
                 {

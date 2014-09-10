@@ -31,6 +31,10 @@ $string['choosereadme'] = 'Theme built with UIKit. It includes an advanced Visua
 
 
 /* General */
+$string['themelayout'] = 'Layout Mode';
+$string['themelayoutdesc'] = 'Here you can choose between different layout modes for this theme';
+$string['themelayout1'] = 'Original layout';
+$string['themelayout2'] = 'New layout';
 $string['panel'] = 'Panel';
 $string['visualstylemanager'] = 'UIKit Visual Style Manager';
 $string['geneicsettings'] = 'General Settings';
@@ -117,6 +121,10 @@ $string['allmodules'] = 'All Modules';
 $string['allclasses'] = 'All Classes';
 $string['allsubjects'] = 'All Subjects';
 $string['noenrolments'] = 'You have no current enrolments';
+
+$string['themenavigationelementsmode'] = 'Display mode of theme UIkit custom menu items';
+$string['themenavigationelementsmodebefore'] = 'Before site custom menu items';
+$string['themenavigationelementsmodeafter'] = 'After site custom menu items';
 
 /* My Dashboard custommenu dropdown */
 $string['mydashboard'] = 'My Dashboard';
@@ -553,6 +561,8 @@ $string['mdl-max-additional-frontpage-content-width'] = 'Frontpage Marketing Sec
 
 /* Breadcrumbs */
 $string['group-breadcrumbs'] = 'Breadcrumbs';
+$string['mdl-page-navbar-background'] = 'Background Color';
+$string['mdl-page-navbar-border'] = 'Border Color';
 $string['mdl-breadcrumb-link-color'] = 'Link Color';
 $string['mdl-breadcrumb-link-hover-color'] = 'Link Hover Color';
 

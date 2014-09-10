@@ -10925,7 +10925,6 @@ div.singlebutton {
   border: 1px solid rgba(45, 112, 145, 0.3);
   border-radius: 4px;
   text-shadow: 0 1px 0 #ffffff;
-  margin-top: 15px;
   background: #fffceb;
   color: #e28327;
   border-color: rgba(226, 131, 39, 0.3);
@@ -10952,7 +10951,6 @@ div.singlebutton {
   border: 1px solid rgba(45, 112, 145, 0.3);
   border-radius: 4px;
   text-shadow: 0 1px 0 #ffffff;
-  margin-top: 15px;
 }
 #page-admin-index .adminwarning.availableupdatesinfo .moodleupdateinfo span {
   display: block;
@@ -11390,7 +11388,6 @@ div.singlebutton {
   border: 1px solid rgba(45, 112, 145, 0.3);
   border-radius: 4px;
   text-shadow: 0 1px 0 #ffffff;
-  margin-top: 15px;
   background: #fffceb;
   color: #e28327;
   border-color: rgba(226, 131, 39, 0.3);
@@ -12039,7 +12036,6 @@ span.editinstructions {
   line-height: 20px;
   box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.07), inset 0 2px 2px rgba(0, 0, 0, 0.07);
   border-radius: 4px;
-  margin-top: 15px;
 }
 .dndupload-progress-outer .bar {
   width: 0;
@@ -15727,7 +15723,6 @@ body.path-question-type .fitem_fgroup .accesshide {
   border: 1px solid rgba(45, 112, 145, 0.3);
   border-radius: 4px;
   text-shadow: 0 1px 0 #ffffff;
-  margin-top: 15px;
   background: #fffceb;
   color: #e28327;
   border-color: rgba(226, 131, 39, 0.3);
@@ -15740,7 +15735,6 @@ body.path-question-type .fitem_fgroup .accesshide {
   border: 1px solid rgba(45, 112, 145, 0.3);
   border-radius: 4px;
   text-shadow: 0 1px 0 #ffffff;
-  margin-top: 15px;
   color: #444444;
 }
 .formulation input[type="text"],
@@ -16456,7 +16450,6 @@ form .fld.femptylabel .felement.fstatic,
   border: 1px solid rgba(45, 112, 145, 0.3);
   border-radius: 4px;
   text-shadow: 0 1px 0 #ffffff;
-  margin-top: 15px;
   background: #fffceb;
   color: #e28327;
   border-color: rgba(226, 131, 39, 0.3);
@@ -16812,7 +16805,6 @@ fieldset.coursesearchbox label {
   border: 1px solid rgba(45, 112, 145, 0.3);
   border-radius: 4px;
   text-shadow: 0 1px 0 #ffffff;
-  margin-top: 15px;
   display: inline-block;
   margin-left: 5px;
   margin-right: 8px;
@@ -16840,7 +16832,6 @@ fieldset.coursesearchbox label {
   border: 1px solid rgba(45, 112, 145, 0.3);
   border-radius: 4px;
   text-shadow: 0 1px 0 #ffffff;
-  margin-top: 15px;
   background: #fffceb;
   color: #e28327;
   border-color: rgba(226, 131, 39, 0.3);
@@ -17068,9 +17059,8 @@ select {
 }
 #page-navbar .breadcrumb-button {
   float: right;
-  margin-top: 10px;
+  margin-top: 5px;
   margin-bottom: 5px;
-  margin-right: 5px;
 }
 .ie .row-fluid .desktop-first-column {
   margin-left: 0;
@@ -17160,7 +17150,6 @@ div#dock {
   border: 1px solid rgba(45, 112, 145, 0.3);
   border-radius: 4px;
   text-shadow: 0 1px 0 #ffffff;
-  margin-top: 15px;
   background: #fffceb;
   color: #e28327;
   border-color: rgba(226, 131, 39, 0.3);
@@ -17638,8 +17627,18 @@ input[type=button].closebutton,
   margin-right: 0px;
 }
 /**
- * Overriden UIKit base variables for Moodle
+ * Overriden UIKit base variables for Moodle and other utility classes
  */
+.uk-grid.uk-grid-no-gutter,
+.grid-row-r.uk-grid-no-gutter,
+.row-fluid.uk-grid-no-gutter {
+  margin-left: 0;
+}
+.uk-grid.uk-grid-no-gutter > *,
+.grid-row-r.uk-grid-no-gutter > *,
+.row-fluid.uk-grid-no-gutter > * {
+  padding-left: 0;
+}
 /* Flexible boxes http://alwaystwisted.com/post.php?s=2012-05-17-content-choreography-mixins-in-less */
 /*
 * Old deprecated standard for flex box
@@ -17743,9 +17742,9 @@ div#dock {
   display: none;
 }
 #page {
-  margin-top: 15px;
-  margin-left: 20px;
-  margin-right: 20px;
+  margin-top: 10px;
+  margin-left: 10px;
+  margin-right: 10px;
 }
 #page-header-content {
   max-width: 1200px;
@@ -17923,6 +17922,46 @@ a.logo {
 .uk-modal-dialog {
   color: #333333;
 }
+#page-navbar {
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+  background-color: #ffffff;
+  border: 1px solid #dddddd;
+  border-bottom: 0;
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+  margin-top: 0;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 0;
+  padding-bottom: 0;
+  *zoom: 1;
+}
+#page-navbar:before,
+#page-navbar:after {
+  display: table;
+  content: "";
+  line-height: 0;
+}
+#page-navbar:after {
+  clear: both;
+}
+#page-navbar .breadcrumb-nav {
+  margin-bottom: 0;
+}
+#page-navbar .uk-breadcrumb {
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+.content-pre {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  padding-right: 5px;
+}
 /*
  * Main page content:
  */
@@ -17931,7 +17970,10 @@ a.logo {
   -webkit-overflow-scrolling: touch;
   background-color: rgba(180, 180, 180, 0.1);
   border: 1px solid #dddddd;
-  border-radius: 4px;
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
@@ -17946,6 +17988,10 @@ a.logo {
 }
 #main-content-box:after {
   clear: both;
+}
+.layout-option-nobreadcrumbs #main-content-box {
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
 }
 @media only screen and (max-width: 768px), only screen and (max-device-width: 768px) {
   #pre-and-content {
@@ -17990,6 +18036,99 @@ a.logo {
     float: none;
   }
   #pre-and-content #block-region-side-pre {
+    -webkit-box-ordinal-group: 2;
+    -moz-box-ordinal-group: 2;
+    box-ordinal-group: 2;
+    -webkit-box-order: 2;
+    -moz-order: 2;
+    -ms-order: 2;
+    -o-order: 2;
+    order: 2;
+    float: none;
+  }
+}
+/**
+ * Second layout specific styles
+ */
+body.layout2 #page-header {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+body.layout2 #page-header-content {
+  box-sizing: border-box;
+  max-width: 100%;
+  padding: 0;
+}
+body.layout2 #page-header-content-logo #subtitle {
+  margin: 0;
+}
+body.layout2 #page-header-content-navigation {
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flex;
+  display: -o-flex;
+  display: flex;
+  -webkit-flex-direction: column;
+  -moz-flex-direction: column;
+  -ms-flex-direction: column;
+  -o-flex-direction: column;
+  flex-direction: column;
+}
+body.layout2 #page-navbar {
+  -webkit-box-flex: 1;
+  -moz-box-flex: 1;
+  -webkit-flex: 1 1 0%;
+  -moz-flex: 1 1 0%;
+  -ms-flex: 1 1 0%;
+  flex: 1 1 0%;
+  margin-top: 15px;
+}
+body.layout2 #page-navigation {
+  text-align: end;
+}
+@media only screen and (max-width: 960px), only screen and (max-device-width: 960px) {
+  body.layout2 #pre-and-content {
+    display: -webkit-box;
+    display: -moz-box;
+    display: box;
+    -webkit-box-orient: vertical;
+    -moz-box-orient: vertical;
+    -ms-box-orient: vertical;
+    box-orient: vertical;
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flex;
+    display: -o-flex;
+    display: flex;
+    -webkit-flex-direction: column;
+    -moz-flex-direction: column;
+    -ms-flex-direction: column;
+    -o-flex-direction: column;
+    flex-direction: column;
+  }
+  body.layout2 #pre-and-content #region-main-uikit {
+    -webkit-box-ordinal-group: 1;
+    -moz-box-ordinal-group: 1;
+    box-ordinal-group: 1;
+    -webkit-box-order: 1;
+    -moz-order: 1;
+    -ms-order: 1;
+    -o-order: 1;
+    order: 1;
+    float: none;
+  }
+  body.layout2 #pre-and-content .content-pre {
+    -webkit-box-ordinal-group: 2;
+    -moz-box-ordinal-group: 2;
+    box-ordinal-group: 2;
+    -webkit-box-order: 2;
+    -moz-order: 2;
+    -ms-order: 2;
+    -o-order: 2;
+    order: 2;
+    float: none;
+  }
+  body.layout2 #pre-and-content #block-region-side-pre {
     -webkit-box-ordinal-group: 2;
     -moz-box-ordinal-group: 2;
     box-ordinal-group: 2;
@@ -18279,6 +18418,9 @@ a.skip {
 }
 .block_navigation.block li.depth_2 .tree_item.branch[data-loaded="1"]:before {
   content: "\f07c ";
+}
+.block_navigation.block li.depth_2.collapsed > .tree_item.branch[data-loaded="1"]:before {
+  content: "\f07b ";
 }
 .block_navigation.block li.depth_2 .tree_item.emptybranch:before {
   content: "\f114 ";

@@ -22,7 +22,22 @@
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-require_once('lib/utils.php');
-require_once('renderers/core_renderer.php');
-require_once('renderers/core_course_renderer.php');
+global $PAGE;
+$layout = isset($PAGE->theme->settings->themelayout) ? $PAGE->theme->settings->themelayout : 1;
+
+require_once dirname(__FILE__).'/lib/utils.php';
+
+require_once dirname(__FILE__).'/renderers/core_renderer_abstract.php';
+
+switch($layout){
+    case 2:
+        require_once dirname(__FILE__).'/renderers/core_renderer_layout2.php';
+        break;
+    case 1:
+    default:
+        require_once dirname(__FILE__).'/renderers/core_renderer_layout1.php';
+        break;
+}
+
+require_once dirname(__FILE__).'/renderers/core_course_renderer.php';
 

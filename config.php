@@ -52,7 +52,8 @@ $generated_css_file = $fs->get_file($fileinfo['contextid'], $fileinfo['component
     $fileinfo['itemid'], $fileinfo['filepath'], $fileinfo['filename']);
 
 $THEME->sheets = array();
-if ($generated_css_file) {
+$debug = true;
+if (!$debug && $generated_css_file) {
     $THEME->sheets[]= 'generated';//Load a file with just a placeholder where the real saved styles will be put by the theme post-process function
 }else{
     $THEME->sheets[]= 'themeuikit';//Load base styles for theme uikit
@@ -73,75 +74,86 @@ $THEME->plugins_exclude_sheets = array(
     ),
 );
 
-$THEME->rendererfactory = 'theme_overridden_renderer_factory';
+//Make sure we have a valid layout:
+$layout = isset($THEME->settings->themelayout) ? $THEME->settings->themelayout : 1;
+$aValidLayouts = array(1, 2);
+if(!in_array($layout, $aValidLayouts)){
+    $layout = reset($aValidLayouts);
+    set_config('themelayout', $layout, 'theme_uikit');
+}
 
+$generallayout = 'general.php';
+$frontpagelayout = 'frontpage.php';
+$loginlayout = 'login.php';
+
+$THEME->rendererfactory = 'theme_overridden_renderer_factory';
 $THEME->layouts = array(
     // Most backwards compatible layout without the blocks - this is the layout used by default
     'base' => array(
-        'file' => 'general.php',
+        'file' => $generallayout,
         'regions' => array('side-pre', 'side-post', 'footer-left', 'footer-middle', 'footer-right'),
         'defaultregion' => 'side-post',
     ),
     // Front page.
     'frontpage' => array(
-        'file' => 'frontpage.php',
+        'file' => $frontpagelayout,
         'regions' => array('side-pre', 'home-up', 'home-left', 'home-middle', 'home-right', 'home-down', 'footer-left', 'footer-middle', 'footer-right', 'hidden-dock'),
         'defaultregion' => 'hidden-dock'
     ),
     // Standard layout with blocks, this is recommended for most pages with general information.
     'standard' => array(
-        'file' => 'general.php',
+        'file' => $generallayout,
         'regions' => array('side-pre', 'side-post', 'footer-left', 'footer-middle', 'footer-right', 'hidden-dock'),
         'defaultregion' => 'side-post',
     ),
     // Course page.
     'course' => array(
-        'file' => 'general.php',
+        'file' => $generallayout,
         'regions' => array('side-pre', 'side-post', 'footer-left', 'footer-middle', 'footer-right'),
         'defaultregion' => 'side-post'
     ),
     // Page content and modules.
     'incourse' => array(
-        'file' => 'general.php',
+        'file' => $generallayout,
         'regions' => array('side-pre', 'side-post', 'footer-left', 'footer-middle', 'footer-right'),
         'defaultregion' => 'side-post',
     ),
     // Category listing page.
     	'coursecategory' => array(
-        'file' => 'general.php',
+        'file' => $generallayout,
         'regions' => array('side-pre', 'side-post', 'footer-left', 'footer-middle', 'footer-right'),
         'defaultregion' => 'side-post',
     ),
     // My dashboard page.
     'mydashboard' => array(
-        'file' => 'general.php',
+        'file' => $generallayout,
         'regions' => array('side-pre', 'side-post', 'footer-left', 'footer-middle', 'footer-right'),
         'defaultregion' => 'side-post',
         'options' => array('langmenu'=>true),
     ),
     // My public page.
     'mypublic' => array(
-        'file' => 'general.php',
+        'file' => $generallayout,
         'regions' => array('side-pre', 'side-post', 'footer-left', 'footer-middle', 'footer-right'),
         'defaultregion' => 'side-post',
         'options' => array('langmenu'=>true),
     ),
     // Public Login page.
     'login' => array(
-        'file' => 'login.php',
+        'file' => $loginlayout,
         'regions' => array('footer-left', 'footer-middle', 'footer-right', 'hidden-dock'),
         'defaultregion' => 'hidden-dock',
-        'options' => array('langmenu'=>true),
+        'options' => array('langmenu'=>true, 'noblocks' => true, 'nobreadcrumbs' => true),
     ),
     // Server administration scripts.
     'admin' => array(
-        'file' => 'general.php',
+        'file' => $generallayout,
         'regions' => array('side-pre', 'footer-left', 'footer-middle', 'footer-right'),
         'defaultregion' => 'side-pre',
     ),
     // Report Pages.
     'report' => array(
-        'file' => 'general.php',
+        'file' => $generallayout,
         'regions' => array('side-pre', 'footer-left', 'footer-middle', 'footer-right'),
         'defaultregion' => 'side-pre',
     ),
@@ -149,31 +161,31 @@ $THEME->layouts = array(
 	
 	// Embeded pages, like iframe/object embeded in moodleform - it needs as much space as possible.
     'embedded' => array(
-        'file' => 'general.php',
+        'file' => $generallayout,
         'regions' => array(),
         'options' => array('noblocks' => true, 'nobreadcrumbs' => true, 'noheader' => true)
     ),
     // Maintenance page
     'maintenance' => array(
-        'file' => 'general.php',
+        'file' => $generallayout,
         'regions' => array(),
         'options' => array('noblocks' => true, 'nobreadcrumbs' => true, 'noheader' => true)
     ),
     // Popup layout with only content and header
     'popup' => array(
-        'file' => 'general.php',
+        'file' => $generallayout,
         'regions' => array(),
         'options' => array('noblocks' => true, 'nobreadcrumbs' => true, 'noheader' => true)
     ),
 	// Should display the content and basic headers only.
     'print' => array(
-        'file' => 'general.php',
+        'file' => $generallayout,
         'regions' => array(),
         'options' => array('noblocks' => true, 'nobreadcrumbs' => true, 'noheader' => true)
     ),
     // Redirect page
     'redirect' => array(
-        'file' => 'general.php',
+        'file' => $generallayout,
         'regions' => array(),
         'options' => array('noblocks' => true, 'nobreadcrumbs' => true, 'noheader' => true)
     )
