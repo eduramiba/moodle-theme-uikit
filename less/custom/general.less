@@ -370,15 +370,15 @@ body.layout2 {
     padding-top: 10px;
     text-align: left;
 	
-	.page-footer-background (default) {
+	.page-footer-background (default) when (alpha(@mdl-page-footer-background) > 0) {
 		background: @mdl-page-footer-background;
 	}
 
-	.page-footer-background (almost-flat) {
+	.page-footer-background (almost-flat) when (alpha(@mdl-page-footer-background) > 0) {
 		background: @mdl-page-footer-background;
 	}
 
-	.page-footer-background (gradient) {
+	.page-footer-background (gradient) when ((alpha(@mdl-page-footer-background-gradient-top) + alpha(@mdl-page-footer-background-gradient-bottom)) > 0) {
 		background-image: -webkit-linear-gradient(top, @mdl-page-footer-background-gradient-top, @mdl-page-footer-background-gradient-bottom);
 		background-image: linear-gradient(to bottom, @mdl-page-footer-background-gradient-top, @mdl-page-footer-background-gradient-bottom);
 	}
