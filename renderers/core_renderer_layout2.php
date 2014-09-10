@@ -202,10 +202,8 @@ class theme_uikit_core_renderer extends abstract_uikit_core_renderer {
             if($bDisplayName){
                 if (isguestuser()) {
                     $loggedinas = $realuserinfo . get_string('guest');
-                        
-                    if (!$loginpage) {
-                        $loggedinas .= "<a class=\"$buttonsclasses\" href=\"$loginurl\">" . $loginIcon . $this->processMenuItemText(get_string('login')) . '</a>';
-                    }
+                    
+                    $loggedinas .= "<a class=\"$buttonsclasses\" href=\"$loginurl\">" . $loginIcon . $this->processMenuItemText(get_string('login')) . '</a>';
                 } else if (is_role_switched($course->id)) { // Has switched roles
                     $rolename = '';
                     if ($role = $DB->get_record('role', array('id' => $USER->access['rsw'][$context->path]))) {
@@ -215,7 +213,8 @@ class theme_uikit_core_renderer extends abstract_uikit_core_renderer {
                     $loggedinas = $username . $rolename;
                     
                     $url = new moodle_url('/course/switchrole.php', array('id' => $course->id, 'sesskey' => sesskey(), 'switchrole' => 0, 'returnurl' => $this->page->url->out_as_local_url(false)));
-                    $loggedinas .= html_writer::tag('a', get_string('switchrolereturn'), array('href' => $url, 'class' => $buttonsclasses));
+                    $switchRoleReturnIcon = ' <i class="uk-icon uk-icon-random"></i> ';
+                    $loggedinas .= html_writer::tag('a', $switchRoleReturnIcon . get_string('switchrolereturn'), array('href' => $url, 'class' => $buttonsclasses));
                 } else {
                     $loggedinas = $realuserinfo . $username;
                     
