@@ -30,10 +30,6 @@ $string['pluginname'] = 'UIKit';
 $string['choosereadme'] = 'Tema construido con UIKit. Incluye un gestor de estilos visual avanzado';
 
 /* General */
-$string['themelayout'] = 'Diseño de página';
-$string['themelayoutdesc'] = 'Aquí puedes escoger entre los diferentes diseños de página para este tema';
-$string['themelayout1'] = 'Diseño original';
-$string['themelayout2'] = 'Diseño nuevo';
 $string['panel'] = 'Panel';
 $string['visualstylemanager'] = 'Gestor visual de estilos para UIKit';
 $string['geneicsettings'] = 'Ajustes generales';
@@ -132,6 +128,11 @@ $string['mydashboard'] = 'Mi panel de control';
 
 $string['layoutheading'] = 'Opciones del diseño';
 
+$string['themelayout'] = 'Diseño de página';
+$string['themelayoutdesc'] = 'Aquí puedes escoger entre los diferentes diseños de página para este tema';
+$string['themelayout1'] = 'Diseño original';
+$string['themelayout2'] = 'Diseño nuevo';
+
 $string['navigationbuttonssize'] = 'Tamaño de los botones de navegación';
 $string['navigationbuttonssize-mini'] = 'Mini';
 $string['navigationbuttonssize-small'] = 'Pequeño';
@@ -148,6 +149,11 @@ $string['navigationbuttonsclass-link'] = 'Enlace';
 $string['footerplacement'] = 'Posicionamiento del pié de página';
 $string['footerplacementpageend'] = 'Al final de la página';
 $string['footerplacementaftermaincontent'] = 'Después del contenido principal de la página';
+
+$string['stickynavigationbar'] = 'Activar barra de navegación adherida a la parte superior de la página (sticky)';
+$string['stickynavigationbardesc'] = 'Hace que la barra de navegación permanezca en la parte superior de la sección de página visualizada';
+$string['stickynavigationbardelay'] = 'Retraso de la adherencia de la barra de navegación (px)';
+$string['stickynavigationbardelaydesc'] = 'Añade un retraso a la barra de navegación, de forma que permanecerá en la parte superior después de haber desplazado la página una cantidad específica de pixels';
 
 /* Regions */
 $string['region-side-post'] = 'Derecha';

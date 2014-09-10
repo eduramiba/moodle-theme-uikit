@@ -31,10 +31,6 @@ $string['choosereadme'] = 'Theme built with UIKit. It includes an advanced Visua
 
 
 /* General */
-$string['themelayout'] = 'Layout Mode';
-$string['themelayoutdesc'] = 'Here you can choose between different layout modes for this theme';
-$string['themelayout1'] = 'Original layout';
-$string['themelayout2'] = 'New layout';
 $string['panel'] = 'Panel';
 $string['visualstylemanager'] = 'UIKit Visual Style Manager';
 $string['geneicsettings'] = 'General Settings';
@@ -133,6 +129,10 @@ $string['mydashboard'] = 'My Dashboard';
 
 $string['layoutheading'] = 'Layout options';
 
+$string['themelayout'] = 'Layout Mode';
+$string['themelayoutdesc'] = 'Here you can choose between different layout modes for this theme';
+$string['themelayout1'] = 'Original layout';
+$string['themelayout2'] = 'New layout';
 
 $string['navigationbuttonssize'] = 'Navigation buttons size';
 $string['navigationbuttonssize-mini'] = 'Mini';
@@ -150,6 +150,11 @@ $string['navigationbuttonsclass-link'] = 'Link';
 $string['footerplacement'] = 'Footer placement';
 $string['footerplacementpageend'] = 'At the end of the page';
 $string['footerplacementaftermaincontent'] = 'After main content of the page';
+
+$string['stickynavigationbar'] = 'Enable sticky navigation bar';
+$string['stickynavigationbardesc'] = 'Make the navigation bar remain at the top of the viewport';
+$string['stickynavigationbardelay'] = 'Sticky navigation bar delay (px)';
+$string['stickynavigationbardelaydesc'] = 'Add a delay to the navigation bar, so it becomes sticky only after scrolling a specified distance in pixels';
 
 /* Regions */
 $string['region-side-post'] = 'Right';

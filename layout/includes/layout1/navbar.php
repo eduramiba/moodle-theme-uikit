@@ -27,9 +27,26 @@
 $displaysitename = isset($PAGE->theme->settings->displaysitename) ? $PAGE->theme->settings->displaysitename : true;
 $displayloggedusermode = isset($PAGE->theme->settings->displayloggedusermode) ? $PAGE->theme->settings->displayloggedusermode : 0;
 
+if(!isset($this->page->theme->settings->stickynavigationbar) || $this->page->theme->settings->stickynavigationbar){
+    $stickyAttrs = array(
+        'clsactive' => 'uk-active'
+    );
+
+    if(!empty($this->page->theme->settings->stickynavigationbardelay)){
+        $delayInPx = abs((int) $this->page->theme->settings->stickynavigationbardelay);
+
+        $stickyAttrs['top']= '-'.$delayInPx;
+        $stickyAttrs['animation']= 'uk-animation-slide-top';
+    }
+
+    $sticky = 'data-uk-sticky=\''.  json_encode($stickyAttrs).'\'';
+}else{
+    $sticky = '';
+}
+
 ?>
 <header id="page-navigation" role="navigation">
-    <nav id="navbar-uikit-theme" role="navigation" class="uk-navbar" data-uk-sticky>
+    <nav id="navbar-uikit-theme" role="navigation" class="uk-navbar" <?php echo $sticky; ?>>
         <div id="navbar-uikit-theme-content">
             <div class="uk-visible-large">
                 <?php if($displaysitename){ ?>

@@ -52,7 +52,7 @@ $temp->add($setting);
 $chosenlayout = get_config('theme_uikit', 'themelayout');
 
 if($chosenlayout == 1){
-    
+    //No settings for the moment
 }elseif($chosenlayout == 2){
     //Navigation buttons size
     $name = 'theme_uikit/navigationbuttonssize';
@@ -89,6 +89,30 @@ if($chosenlayout == 1){
     $default = 1;
     $choices = array(1 => get_string('footerplacementpageend', 'theme_uikit'), 2 => get_string('footerplacementaftermaincontent', 'theme_uikit'));
     $setting = new admin_setting_configselect($name, $title, '', $default, $choices);
+    $setting->set_updatedcallback('theme_reset_all_caches');
+    $temp->add($setting);
+}
+
+//Sticky navigation bar
+$name = 'theme_uikit/stickynavigationbar';
+$title = get_string('stickynavigationbar', 'theme_uikit');
+$description = get_string('stickynavigationbardesc', 'theme_uikit');
+$default = true;
+$setting = new admin_setting_configcheckbox($name, $title, $description, $default, true, false);
+$setting->set_updatedcallback('theme_reset_all_caches');
+$temp->add($setting);
+
+$stickynavigationbar = get_config('theme_uikit', 'stickynavigationbar');
+
+/**
+ * Sticky navigation options
+ */
+if($stickynavigationbar){
+    $name = 'theme_uikit/stickynavigationbardelay';
+    $title = get_string('stickynavigationbardelay', 'theme_uikit');
+    $description = get_string('stickynavigationbardelaydesc', 'theme_uikit');
+    $default = '';
+    $setting = new admin_setting_configtext($name, $title, $description, $default, PARAM_INT);
     $setting->set_updatedcallback('theme_reset_all_caches');
     $temp->add($setting);
 }

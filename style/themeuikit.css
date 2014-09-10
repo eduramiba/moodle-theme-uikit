@@ -18048,7 +18048,15 @@ div#dock {
 #navbar-uikit-theme {
   z-index: 500;
 }
+/**
+ * Sticky navigation bars
+ */
 #navbar-uikit-theme.uk-active {
+  -webkit-box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.1);
+  -moz-box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.1);
+  box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.1);
+}
+#navbar-buttongroup-uikit-theme.uk-active > * {
   -webkit-box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.1);
   -moz-box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.1);
   box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.1);

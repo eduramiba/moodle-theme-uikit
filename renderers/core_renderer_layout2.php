@@ -30,7 +30,25 @@ class theme_uikit_core_renderer extends abstract_uikit_core_renderer {
     }
     
     protected function render_custom_menu_base(custom_menu $menu, $isOffCanvas = false){
-        $content = '<div class="uk-button-group theme-uikit-navigation-button-group">';
+        if(!isset($this->page->theme->settings->stickynavigationbar) || $this->page->theme->settings->stickynavigationbar){
+            $stickyAttrs = array(
+                'clsactive' => 'uk-active uk-margin-top'
+            );
+            
+            if(!empty($this->page->theme->settings->stickynavigationbardelay)){
+                $delayInPx = abs((int) $this->page->theme->settings->stickynavigationbardelay);
+                
+                $stickyAttrs['top']= '-'.$delayInPx;
+                $stickyAttrs['animation']= 'uk-animation-slide-top';
+            }
+            
+            $sticky = 'data-uk-sticky=\''.  json_encode($stickyAttrs).'\'';
+        }else{
+            $sticky = '';
+        }
+        
+        
+        $content = '<div id="navbar-buttongroup-uikit-theme" class="uk-button-group navbar-buttongroup-uikit-theme" '.$sticky.'>';
         
         foreach ($menu->get_children() as $item) {
             $content .= $this->render_custom_menu_item($item, 0, $isOffCanvas);
