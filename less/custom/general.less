@@ -221,8 +221,10 @@ a.logo {
 	.uk-overflow-container();
 
 	background-color: @mdl-page-navbar-background;
-	border: @mdl-border-width solid @mdl-page-navbar-border;
-	border-bottom: 0;
+	border-top: @mdl-border-width solid @mdl-main-region-border;
+	border-left: @mdl-border-width solid @mdl-main-region-border;
+	border-right: @mdl-border-width solid @mdl-main-region-border;
+	border-bottom: @mdl-border-width solid @mdl-page-navbar-border;
 
 	border-top-left-radius: @mdl-border-radius;
 	border-top-right-radius: @mdl-border-radius;
@@ -260,7 +262,9 @@ a.logo {
     .uk-overflow-container();
     
     background-color: @mdl-main-region-background;
-    border: @mdl-border-width solid @mdl-main-region-border;
+    border-left: @mdl-border-width solid @mdl-main-region-border;
+    border-right: @mdl-border-width solid @mdl-main-region-border;
+    border-bottom: @mdl-border-width solid @mdl-main-region-border;
     
     border-bottom-left-radius: @mdl-border-radius;
     border-bottom-right-radius: @mdl-border-radius;
@@ -328,6 +332,11 @@ body.layout2 {
 		.flex(1);//Use all remaining space from #page-header-content-navigation flex
 		margin-top: 15px;
 	}
+    
+    #socialicons {
+		padding-right: 20px;
+		text-align: end;
+    }
 	
 	#page-navigation {
 		padding-right: 20px;
@@ -335,7 +344,7 @@ body.layout2 {
 	}
 	
 	//This part is for re-ordering course columns for small devices so the course content appears before left sidebar, since this section uses full device width
-	@media only screen and (max-width: @breakpoint-large), only screen and (max-device-width: @breakpoint-large){
+	@media only screen and (max-width: @breakpoint-medium), only screen and (max-device-width: @breakpoint-medium){
 		#pre-and-content{
 			.boxit(vertical);
 			.flexit(column);
@@ -356,6 +365,13 @@ body.layout2 {
 			}
 		}
 	}
+    
+    @media only screen and (min-width: @breakpoint-xlarge){
+        //Content and post-content separation
+        .content + .post-content {
+            padding-left: 10px;
+        }
+    }
 }
 
 

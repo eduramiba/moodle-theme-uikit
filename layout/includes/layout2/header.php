@@ -38,7 +38,7 @@ if(!empty($PAGE->theme->settings->siteicon)){
         <div id="page-header-content">
             <div class="uk-grid uk-grid-no-gutter" data-uk-grid-match>
                 <!-- HEADER: LOGO AREA -->
-                <div id="page-header-content-logo" class="uk-width-1-1 uk-width-large-2-10">
+                <div id="page-header-content-logo" class="uk-width-1-1 uk-width-medium-3-10 uk-width-large-1-4 mdl-width-xlarge-2-10">
                     <?php
                     if (!$haslogo) { ?>
                         <div>
@@ -60,7 +60,7 @@ if(!empty($PAGE->theme->settings->siteicon)){
                     <?php
                     } ?>
                 </div>
-                <div id="page-header-content-navigation" class="uk-width-1-1 uk-width-large-8-10">
+                <div id="page-header-content-navigation" class="uk-width-1-1 uk-width-medium-7-10 uk-width-large-3-4 mdl-width-xlarge-8-10">
                     <?php require_once(dirname(__FILE__) . '/navbar.php');?>
                     
                     <?php require_once(dirname(__FILE__) . '/../socialicons.php');?>

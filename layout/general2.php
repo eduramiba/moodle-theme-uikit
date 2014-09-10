@@ -40,8 +40,8 @@ if ($rtl) {
 $hassidepre = (empty($PAGE->layout_options['noblocks']) && $PAGE->blocks->region_has_content('side-pre', $OUTPUT));
 $hassidepost = (empty($PAGE->layout_options['noblocks']) && $PAGE->blocks->region_has_content('side-post', $OUTPUT));
 
-$preClass = 'uk-width-1-1 uk-width-large-2-10';
-$contentClass = 'uk-width-1-1 uk-width-large-8-10';
+$preClass = 'uk-width-1-1 uk-width-medium-3-10 uk-width-large-1-4 mdl-width-xlarge-2-10';
+$contentClass = 'uk-width-1-1 uk-width-medium-7-10 uk-width-large-3-4 mdl-width-xlarge-8-10';
 
 $preClass .= ' content-pre';
 
@@ -50,8 +50,8 @@ if(!$hassidepre){
 }
 
 if($hassidepost){
-    $regionClass = 'uk-width-1-1 uk-width-medium-1-1 uk-width-large-1-1 mdl-width-xlarge-7-10';
-    $postClass = 'uk-width-1-1 uk-width-medium-1-1 uk-width-large-1-1 mdl-width-xlarge-3-10';
+    $regionClass = 'uk-width-1-1 uk-width-medium-1-1 uk-width-large-1-1 mdl-width-xlarge-7-10 content';
+    $postClass = 'uk-width-1-1 uk-width-medium-1-1 uk-width-large-1-1 mdl-width-xlarge-3-10 post-content';
 }else{
     $regionClass = 'uk-width-1-1';
     $postClass = '';
