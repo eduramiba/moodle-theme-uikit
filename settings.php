@@ -47,16 +47,6 @@ if ($hassiteconfig) { // needs this condition or there is error on login page
 $temp = new admin_settingpage('theme_uikit_generic', get_string('geneicsettings', 'theme_uikit'));
 
 
-// Layout mode setting
-$name = 'theme_uikit/themelayout';
-$title = get_string('themelayout', 'theme_uikit');
-$description = get_string('themelayoutdesc', 'theme_uikit');
-$default = 1;
-$choices = array(1 => get_string('themelayout1', 'theme_uikit'), 2 => get_string('themelayout2', 'theme_uikit'));
-$setting = new admin_setting_configselect($name, $title, $description, $default, $choices);
-$setting->set_updatedcallback('theme_reset_all_caches');
-$temp->add($setting);
-
 // Default Site icon setting.
 $name = 'theme_uikit/siteicon';
 $title = get_string('siteicon', 'theme_uikit');
@@ -186,6 +176,8 @@ $ADMIN->add('theme_uikit', $temp);
 
 
 
+/* Layout Settings */
+include dirname(__FILE__).'/settings/layout.php';
 
 /* Custom Menu Settings */
 include dirname(__FILE__).'/settings/navigationbar.php';

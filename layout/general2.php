@@ -57,6 +57,8 @@ if($hassidepost){
     $postClass = '';
 }
 
+$footerplacement = isset($PAGE->theme->settings->footerplacement) ? $PAGE->theme->settings->footerplacement : 1;
+
 echo $OUTPUT->doctype()
 ?>
 <html <?php echo $OUTPUT->htmlattributes(); ?>>
@@ -100,9 +102,13 @@ echo $OUTPUT->doctype()
                                 </div>
                             </section>
                             
-                            <?php require_once(dirname(__FILE__) . '/includes/footer.php'); ?>
-
-                            <?php echo $OUTPUT->standard_footer_html(); ?>
+                            <?php 
+                                    if($footerplacement == 2){
+                                        require_once(dirname(__FILE__) . '/includes/footer.php');
+                                        
+                                        echo $OUTPUT->standard_footer_html();
+                                    }
+                                ?>
                         </div>
                     </div>
                 </div>
@@ -115,6 +121,14 @@ echo $OUTPUT->doctype()
                 <i class="uk-icon-chevron-circle-up"></i>
             </div>
 		</a>
+        
+        <?php 
+                if($footerplacement == 1){
+                    require_once(dirname(__FILE__) . '/includes/footer.php');
+
+                    echo $OUTPUT->standard_footer_html();
+                }
+            ?>
 
         <?php echo $OUTPUT->standard_end_of_body_html(); ?>
         

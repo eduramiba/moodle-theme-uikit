@@ -75,6 +75,16 @@ echo $OUTPUT->doctype()
             </div>
         </div>
 
+        <?php 
+                $footerplacement = isset($PAGE->theme->settings->footerplacement) ? $PAGE->theme->settings->footerplacement : 1;
+                
+                if($footerplacement == 1){
+                    require_once(dirname(__FILE__) . '/includes/footer.php');
+
+                    echo $OUTPUT->standard_footer_html();
+                }
+            ?>
+        
         <?php echo $OUTPUT->standard_end_of_body_html() ?>
         
         <!-- Start Google Analytics -->

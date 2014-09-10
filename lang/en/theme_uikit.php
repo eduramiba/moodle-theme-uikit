@@ -129,6 +129,28 @@ $string['themenavigationelementsmodeafter'] = 'After site custom menu items';
 /* My Dashboard custommenu dropdown */
 $string['mydashboard'] = 'My Dashboard';
 
+/* Theme Layout */
+
+$string['layoutheading'] = 'Layout options';
+
+
+$string['navigationbuttonssize'] = 'Navigation buttons size';
+$string['navigationbuttonssize-mini'] = 'Mini';
+$string['navigationbuttonssize-small'] = 'Small';
+$string['navigationbuttonssize-normal'] = 'Normal';
+$string['navigationbuttonssize-large'] = 'Large';
+
+$string['navigationbuttonsclass'] = 'Navigation buttons class';
+$string['navigationbuttonsclass-normal'] = 'Normal';
+$string['navigationbuttonsclass-primary'] = 'Primary';
+$string['navigationbuttonsclass-success'] = 'Success';
+$string['navigationbuttonsclass-danger'] = 'Danger';
+$string['navigationbuttonsclass-link'] = 'Link';
+
+$string['footerplacement'] = 'Footer placement';
+$string['footerplacementpageend'] = 'At the end of the page';
+$string['footerplacementaftermaincontent'] = 'After main content of the page';
+
 /* Regions */
 $string['region-side-post'] = 'Right';
 $string['region-side-pre'] = 'Left';

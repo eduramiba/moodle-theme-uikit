@@ -58,7 +58,11 @@
 		</div>        
     </section>
     
-    <?php require_once(dirname(__FILE__) . '/../footer.php'); ?>
+    <?php 
+            if($footerplacement == 2){
+                require_once(dirname(__FILE__) . '/includes/footer.php');
 
-    <?php echo $OUTPUT->standard_footer_html(); ?>
+                echo $OUTPUT->standard_footer_html();
+            }
+        ?>
 </div>

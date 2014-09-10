@@ -62,6 +62,8 @@ class theme_uikit_core_renderer extends abstract_uikit_core_renderer {
             $url = '#';
         }
         
+        $buttonsclasses = $this->get_navigationbar_buttons_classes();
+        
         // If the child has menus render it as a sub menu.
         if ($menunode->has_children()) {
             //Dropdown (first parent)
@@ -69,7 +71,7 @@ class theme_uikit_core_renderer extends abstract_uikit_core_renderer {
                 $content .= html_writer::start_tag('div', array('class' => 'uk-button-dropdown', 'data-uk-dropdown' => "{mode:'click'}"));
                 
                 //Button
-                $content .= html_writer::start_tag('a', array('href' => $url, 'class' => 'uk-button uk-button-small', 'href' => '#', 'title' => $menunode->get_title()));
+                $content .= html_writer::start_tag('a', array('href' => $url, 'class' => $buttonsclasses, 'href' => '#', 'title' => $menunode->get_title()));
                 $content .= $menunode->get_text() . ' <i class="uk-icon-caret-down"></i>';
                 $content .= html_writer::end_tag('a');
                 
@@ -103,7 +105,7 @@ class theme_uikit_core_renderer extends abstract_uikit_core_renderer {
             // The node doesn't have children so produce a final menuitem.
             if($level === 0){
                 //First level element:
-                $content .= html_writer::link($url, $menunode->get_text(), array('class' => 'uk-button uk-button-small', 'title' => $menunode->get_title()));
+                $content .= html_writer::link($url, $menunode->get_text(), array('class' => $buttonsclasses, 'title' => $menunode->get_title()));
             }else{
                 //Subelement:
                 $content .= html_writer::start_tag('li');
@@ -129,6 +131,8 @@ class theme_uikit_core_renderer extends abstract_uikit_core_renderer {
         $course = $this->page->course;
         
         
+        $buttonsclasses = $this->get_navigationbar_buttons_classes();
+        
         if(class_exists('\\core\\session\\manager')){
             //Moodle 2.6 or newer
             $isLoggedInAs = \core\session\manager::is_loggedinas();
@@ -152,7 +156,7 @@ class theme_uikit_core_renderer extends abstract_uikit_core_renderer {
         if ($isLoggedInAs) {
             $fullname = fullname($realuser, true);
             $loginastitle = get_string('loginas');
-            $realuserinfo = "<a class=\"uk-button uk-button-small\" href=\"$CFG->wwwroot/course/loginas.php?id=$course->id&amp;sesskey=".sesskey()."\"";
+            $realuserinfo = "<a class=\"$buttonsclasses\" href=\"$CFG->wwwroot/course/loginas.php?id=$course->id&amp;sesskey=".sesskey()."\"";
             $realuserinfo .= "title =\"".$loginastitle."\">$fullname</a>";
         } else {
             $realuserinfo = '';
@@ -171,7 +175,7 @@ class theme_uikit_core_renderer extends abstract_uikit_core_renderer {
 
                 // Since Moodle 2.0 this link always goes to the public profile page (not the course profile page)
                 $linktitle = get_string('viewprofile');
-                $username = "<a class=\"uk-button uk-button-small\" href=\"$CFG->wwwroot/user/profile.php?id=$USER->id\" title=\"$linktitle\">$profileIcon ".$this->processMenuItemText($username)."</a>";
+                $username = "<a class=\"$buttonsclasses\" href=\"$CFG->wwwroot/user/profile.php?id=$USER->id\" title=\"$linktitle\">$profileIcon ".$this->processMenuItemText($username)."</a>";
                 if (is_mnet_remote_user($USER) and $idprovider = $DB->get_record('mnet_host', array('id' => $USER->mnethostid))) {
                     $username .= " from <a href=\"{$idprovider->wwwroot}\">{$idprovider->name}</a>";
                 }
@@ -182,7 +186,7 @@ class theme_uikit_core_renderer extends abstract_uikit_core_renderer {
                     $loggedinas = $realuserinfo . get_string('guest');
                         
                     if (!$loginpage) {
-                        $loggedinas .= "<a class=\"uk-button uk-button-small\" href=\"$loginurl\">" . $loginIcon . $this->processMenuItemText(get_string('login')) . '</a>';
+                        $loggedinas .= "<a class=\"$buttonsclasses\" href=\"$loginurl\">" . $loginIcon . $this->processMenuItemText(get_string('login')) . '</a>';
                     }
                 } else if (is_role_switched($course->id)) { // Has switched roles
                     $rolename = '';
@@ -193,25 +197,36 @@ class theme_uikit_core_renderer extends abstract_uikit_core_renderer {
                     $loggedinas = $username . $rolename;
                     
                     $url = new moodle_url('/course/switchrole.php', array('id' => $course->id, 'sesskey' => sesskey(), 'switchrole' => 0, 'returnurl' => $this->page->url->out_as_local_url(false)));
-                    $loggedinas .= html_writer::tag('a', get_string('switchrolereturn'), array('href' => $url, 'class' => 'uk-button uk-button-small'));
+                    $loggedinas .= html_writer::tag('a', get_string('switchrolereturn'), array('href' => $url, 'class' => $buttonsclasses));
                 } else {
                     $loggedinas = $realuserinfo . $username;
                     
                     if ($bDisplayLogout) {
-                        $loggedinas .= " <a class=\"uk-button uk-button-small\" href=\"$CFG->wwwroot/login/logout.php?sesskey=" . sesskey() . "\">".$logoutIcon." " . $this->processMenuItemText(get_string('logout')) . '</a>';
+                        $loggedinas .= " <a class=\"$buttonsclasses\" href=\"$CFG->wwwroot/login/logout.php?sesskey=" . sesskey() . "\">".$logoutIcon." " . $this->processMenuItemText(get_string('logout')) . '</a>';
                     }
                 }
             }else{
                 if($bDisplayLogout){
-                    $loggedinas = "<a class=\"uk-button uk-button-small\" href=\"$CFG->wwwroot/login/logout.php?sesskey=" . sesskey() . "\">".$logoutIcon." " . $this->processMenuItemText(get_string('logout')) . '</a>';
+                    $loggedinas = "<a class=\"$buttonsclasses\" href=\"$CFG->wwwroot/login/logout.php?sesskey=" . sesskey() . "\">".$logoutIcon." " . $this->processMenuItemText(get_string('logout')) . '</a>';
                 }else{
                     $loggedinas = '';
                 }
             }
         } else {
-            $loggedinas = "<a class=\"uk-button uk-button-small\" href=\"$loginurl\">" . $loginIcon . $this->processMenuItemText($this->processMenuItemText(get_string('login'))) . '</a>';
+            $loggedinas = "<a class=\"$buttonsclasses\" href=\"$loginurl\">" . $loginIcon . $this->processMenuItemText($this->processMenuItemText(get_string('login'))) . '</a>';
         }
 
         return $loggedinas;
     }
+
+    protected function get_navigationbar_buttons_classes() {
+        $buttonsclasses = join(' ', array(
+            'uk-button',
+            isset($this->page->theme->settings->navigationbuttonssize) ? $this->page->theme->settings->navigationbuttonssize : 'uk-button-small',
+            isset($this->page->theme->settings->navigationbuttonsclass) ? $this->page->theme->settings->navigationbuttonsclass : ''
+        ));
+        
+        return $buttonsclasses;
+    }
+
 }

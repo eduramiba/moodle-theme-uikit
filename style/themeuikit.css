@@ -18209,6 +18209,7 @@ a.logo {
   clear: both;
 }
 .layout-option-nobreadcrumbs #main-content-box {
+  border-top: 1px solid #dddddd;
   border-top-left-radius: 4px;
   border-top-right-radius: 4px;
 }

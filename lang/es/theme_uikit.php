@@ -128,6 +128,27 @@ $string['themenavigationelementsmodeafter'] = 'Después de los elementos del men
 /* My Dashboard custommenu dropdown */
 $string['mydashboard'] = 'Mi panel de control';
 
+/* Theme Layout */
+
+$string['layoutheading'] = 'Opciones del diseño';
+
+$string['navigationbuttonssize'] = 'Tamaño de los botones de navegación';
+$string['navigationbuttonssize-mini'] = 'Mini';
+$string['navigationbuttonssize-small'] = 'Pequeño';
+$string['navigationbuttonssize-normal'] = 'Normal';
+$string['navigationbuttonssize-large'] = 'Grande';
+
+$string['navigationbuttonsclass'] = 'Clase de los botones de navegación';
+$string['navigationbuttonsclass-normal'] = 'Normal';
+$string['navigationbuttonsclass-primary'] = 'Primario';
+$string['navigationbuttonsclass-success'] = 'Éxito';
+$string['navigationbuttonsclass-danger'] = 'Peligro';
+$string['navigationbuttonsclass-link'] = 'Enlace';
+
+$string['footerplacement'] = 'Posicionamiento del pié de página';
+$string['footerplacementpageend'] = 'Al final de la página';
+$string['footerplacementaftermaincontent'] = 'Después del contenido principal de la página';
+
 /* Regions */
 $string['region-side-post'] = 'Derecha';
 $string['region-side-pre'] = 'Izquierda';
