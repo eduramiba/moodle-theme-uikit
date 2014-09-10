@@ -61,7 +61,11 @@ if(!empty($PAGE->theme->settings->siteicon)){
                     } ?>
                 </div>
                 <div id="page-header-content-navigation" class="uk-width-1-1 uk-width-medium-7-10 uk-width-large-3-4 mdl-width-xlarge-8-10">
-                    <?php require_once(dirname(__FILE__) . '/navbar.php');?>
+                    <?php
+                            if(!isset($hasnavigation) || $hasnavigation){
+                                require_once(dirname(__FILE__) . '/navbar.php');
+                            }
+                        ?>
                     
                     <?php require_once(dirname(__FILE__) . '/../socialicons.php');?>
                     

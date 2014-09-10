@@ -27,7 +27,6 @@ $slideshowenabled =
         ($PAGE->theme->settings->toggleslideshow == 1 
             || ($PAGE->theme->settings->toggleslideshow == 2 && !isloggedin()) 
             || ($PAGE->theme->settings->toggleslideshow == 3 && isloggedin()))
-        && !strpos($checkuseragent, 'MSIE 7')// Hide slideshow for IE7
         ;
 
 if ($slideshowenabled) {
