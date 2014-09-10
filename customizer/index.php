@@ -60,12 +60,12 @@ if(!$CFG->themedesignermode){
 $themeversion = $PAGE->theme->settings->version;
 
 $PAGE->requires->js(new moodle_url($CFG->wwwroot . '/theme/uikit/javascript/customizer.js?'.$themeversion));
-$PAGE->requires->js(new moodle_url($CFG->wwwroot . '/theme/uikit/javascript/less.js'));
-$PAGE->requires->js(new moodle_url($CFG->wwwroot . '/theme/uikit/javascript/jquery.less.js'));
+$PAGE->requires->js(new moodle_url($CFG->wwwroot . '/theme/uikit/javascript/less.js?'.$themeversion));
+$PAGE->requires->js(new moodle_url($CFG->wwwroot . '/theme/uikit/javascript/jquery.less.js?'.$themeversion));
 $PAGE->requires->js(new moodle_url($CFG->wwwroot . '/theme/uikit/javascript/spectrum.colorpicker.js'));
 $PAGE->requires->js(new moodle_url($CFG->wwwroot . '/theme/uikit/javascript/Blob.js'));
 $PAGE->requires->js(new moodle_url($CFG->wwwroot . '/theme/uikit/javascript/FileSaver.js'));
-$PAGE->requires->js(new moodle_url($CFG->wwwroot . '/theme/uikit/javascript/uikit-addons/autocomplete.js'));
+$PAGE->requires->js(new moodle_url($CFG->wwwroot . '/theme/uikit/javascript/uikit-addons/autocomplete.js?'.$themeversion));
 
 $PAGE->requires->css(new moodle_url($CFG->wwwroot . '/theme/uikit/style/spectrum.colorpicker.css'));
 $PAGE->requires->css(new moodle_url($CFG->wwwroot . '/theme/uikit/style/spectrum.colorpicker.custom.css'));
