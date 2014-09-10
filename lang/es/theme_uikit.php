@@ -396,6 +396,11 @@ $string['group-global'] = 'Global';
 $string['base-body-background'] = 'Color de fondo';
 $string['base-body-gradient-inner'] = 'Color de fondo - Degradado (interior)';
 $string['base-body-gradient-outer'] = 'Color de fondo - Degradado (exterior)';
+$string['mdl-page-header-background'] = 'Cabecera - Color de fondo';
+$string['mdl-page-header-background-gradient-top'] = 'Cabecera - Degradado superior';
+$string['mdl-page-header-background-gradient-bottom'] = 'Cabecera - Degradado inferior';
+$string['mdl-page-footer-background-gradient-top'] = 'Pie de página - Degradado superior';
+$string['mdl-page-footer-background-gradient-bottom'] = 'Pie de página - Degradado inferior';
 $string['global-border'] = 'Color de bordes';
 $string['global-border-radius'] = 'Radio de bordes';
 

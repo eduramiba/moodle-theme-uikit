@@ -57,4 +57,8 @@
 			?>
 		</div>        
     </section>
+    
+    <?php require_once(dirname(__FILE__) . '/../footer.php'); ?>
+
+    <?php echo $OUTPUT->standard_footer_html(); ?>
 </div>

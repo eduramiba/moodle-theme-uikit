@@ -401,6 +401,11 @@ $string['group-global'] = 'Global';
 $string['base-body-background'] = 'Background Color';
 $string['base-body-gradient-inner'] = 'Background Color - Gradient (inner)';
 $string['base-body-gradient-outer'] = 'Background Color - Gradient (outer)';
+$string['mdl-page-header-background'] = 'Page Header - Background Color';
+$string['mdl-page-header-background-gradient-top'] = 'Page Header - Top Gradient';
+$string['mdl-page-header-background-gradient-bottom'] = 'Page Header - Bottom Gradient';
+$string['mdl-page-footer-background-gradient-top'] = 'Page Footer - Top Gradient';
+$string['mdl-page-footer-background-gradient-bottom'] = 'Page Footer - Bottom Gradient';
 $string['global-border'] = 'Border color';
 $string['global-border-radius'] = 'Border radius';
 

@@ -187,7 +187,7 @@ $THEME->layouts = array(
     'redirect' => array(
         'file' => $generallayout,
         'regions' => array(),
-        'options' => array('noblocks' => true, 'nobreadcrumbs' => true, 'noheader' => true)
+        'options' => array('noblocks' => true, 'nobreadcrumbs' => true)
     )
 );
 

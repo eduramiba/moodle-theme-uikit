@@ -41,6 +41,30 @@
                     "var": "base-body-gradient-outer"
                 },
                 {
+                    "themes": ["default", "almost-flat"],
+                    "var": "mdl-page-header-background"
+                },
+                {
+                    "theme": "gradient",
+                    "var": "mdl-page-header-background-gradient-top"
+                },
+                {
+                    "theme": "gradient",
+                    "var": "mdl-page-header-background-gradient-bottom"
+                },
+                {
+                    "themes": ["default", "almost-flat"],
+                    "var": "mdl-page-footer-background"
+                },
+                {
+                    "theme": "gradient",
+                    "var": "mdl-page-footer-background-gradient-top"
+                },
+                {
+                    "theme": "gradient",
+                    "var": "mdl-page-footer-background-gradient-bottom"
+                },
+                {
                     "var": "global-border",
                     "themes": ["default", "almost-flat"]
                 },

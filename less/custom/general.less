@@ -180,6 +180,21 @@ a.logo {
 #page-header {
     padding-top: 10px;
     padding-bottom: 10px;
+	
+	.page-header-background (default) when (alpha(@mdl-page-header-background) > 0) {
+		background: @mdl-page-header-background;
+	}
+
+	.page-header-background (almost-flat) when (alpha(@mdl-page-header-background) > 0) {
+		background: @mdl-page-header-background;
+	}
+
+	.page-header-background (gradient) when ((alpha(@mdl-page-header-background-gradient-top) + alpha(@mdl-page-header-background-gradient-bottom)) > 0) {
+		background-image: -webkit-linear-gradient(top, @mdl-page-header-background-gradient-top, @mdl-page-header-background-gradient-bottom);
+		background-image: linear-gradient(to bottom, @mdl-page-header-background-gradient-top, @mdl-page-header-background-gradient-bottom);
+	}
+	
+	.page-header-background(@uikit-theme);
 }
 
 /* Navigation: */
@@ -291,7 +306,7 @@ a.logo {
  */
 body.layout2 {
 	#page-header {
-		padding-top: 0;
+		padding-top: 5px;
 		padding-bottom: 0;
 	}
 	
@@ -315,6 +330,7 @@ body.layout2 {
 	}
 	
 	#page-navigation {
+		padding-right: 20px;
 		text-align: end;
 	}
 	
@@ -353,6 +369,21 @@ body.layout2 {
     padding-right: 10px;
     padding-top: 10px;
     text-align: left;
+	
+	.page-footer-background (default) {
+		background: @mdl-page-footer-background;
+	}
+
+	.page-footer-background (almost-flat) {
+		background: @mdl-page-footer-background;
+	}
+
+	.page-footer-background (gradient) {
+		background-image: -webkit-linear-gradient(top, @mdl-page-footer-background-gradient-top, @mdl-page-footer-background-gradient-bottom);
+		background-image: linear-gradient(to bottom, @mdl-page-footer-background-gradient-top, @mdl-page-footer-background-gradient-bottom);
+	}
+	
+	.page-footer-background(@uikit-theme);
     
     .copy {
         margin-top: 0px;
