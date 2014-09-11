@@ -18587,11 +18587,11 @@ body.layout2 #page-navbar {
 }
 body.layout2 #socialicons {
   padding-right: 20px;
-  text-align: end;
+  text-align: right;
 }
 body.layout2 #page-navigation {
   padding-right: 20px;
-  text-align: end;
+  text-align: right;
 }
 body.layout2 #block-region-side-pre {
   min-width: 275px;

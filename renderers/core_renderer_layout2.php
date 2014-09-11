@@ -203,7 +203,7 @@ class theme_uikit_core_renderer extends abstract_uikit_core_renderer {
                 if (isguestuser()) {
                     $loggedinas = $realuserinfo . get_string('guest');
                     
-                    $loggedinas .= "<a class=\"$buttonsclasses\" href=\"$loginurl\">" . $loginIcon . $this->processMenuItemText(get_string('login')) . '</a>';
+                    $loggedinas .= "<a class=\"$buttonsclasses\" href=\"$loginurl\">" . $loginIcon . get_string('login') . '</a>';
                 } else if (is_role_switched($course->id)) { // Has switched roles
                     $rolename = '';
                     if ($role = $DB->get_record('role', array('id' => $USER->access['rsw'][$context->path]))) {
@@ -219,18 +219,18 @@ class theme_uikit_core_renderer extends abstract_uikit_core_renderer {
                     $loggedinas = $realuserinfo . $username;
                     
                     if ($bDisplayLogout) {
-                        $loggedinas .= " <a class=\"$buttonsclasses\" href=\"$CFG->wwwroot/login/logout.php?sesskey=" . sesskey() . "\">".$logoutIcon." " . $this->processMenuItemText(get_string('logout', 'theme_uikit')) . '</a>';
+                        $loggedinas .= " <a class=\"$buttonsclasses\" href=\"$CFG->wwwroot/login/logout.php?sesskey=" . sesskey() . "\">".$logoutIcon." " . get_string('logout', 'theme_uikit') . '</a>';
                     }
                 }
             }else{
                 if($bDisplayLogout){
-                    $loggedinas = "<a class=\"$buttonsclasses\" href=\"$CFG->wwwroot/login/logout.php?sesskey=" . sesskey() . "\">".$logoutIcon." " . $this->processMenuItemText(get_string('logout', 'theme_uikit')) . '</a>';
+                    $loggedinas = "<a class=\"$buttonsclasses\" href=\"$CFG->wwwroot/login/logout.php?sesskey=" . sesskey() . "\">".$logoutIcon." " . get_string('logout', 'theme_uikit') . '</a>';
                 }else{
                     $loggedinas = '';
                 }
             }
         } else {
-            $loggedinas = "<a class=\"$buttonsclasses\" href=\"$loginurl\">" . $loginIcon . $this->processMenuItemText($this->processMenuItemText(get_string('login'))) . '</a>';
+            $loggedinas = "<a class=\"$buttonsclasses\" href=\"$loginurl\">" . $loginIcon . get_string('login') . '</a>';
         }
 
         return $loggedinas;
