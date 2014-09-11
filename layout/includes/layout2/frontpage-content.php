@@ -61,7 +61,7 @@
     <?php 
             $footerplacement = isset($PAGE->theme->settings->footerplacement) ? $PAGE->theme->settings->footerplacement : 1;
             if($footerplacement == 2){
-                require_once(dirname(__FILE__) . '/includes/footer.php');
+                require_once(dirname(__FILE__) . '/../footer.php');
 
                 echo $OUTPUT->standard_footer_html();
             }
