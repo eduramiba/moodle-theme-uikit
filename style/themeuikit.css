@@ -18360,53 +18360,6 @@ a.logo {
   border-top-left-radius: 4px;
   border-top-right-radius: 4px;
 }
-@media only screen and (max-width: 768px), only screen and (max-device-width: 768px) {
-  #pre-and-content {
-    display: -webkit-flex;
-    display: -moz-flex;
-    display: -ms-flex;
-    display: -o-flex;
-    display: flex;
-    -webkit-flex-direction: column;
-    -moz-flex-direction: column;
-    -ms-flex-direction: column;
-    -o-flex-direction: column;
-    flex-direction: column;
-  }
-  #pre-and-content #region-main-uikit {
-    -webkit-box-ordinal-group: 1;
-    -moz-box-ordinal-group: 1;
-    box-ordinal-group: 1;
-    -webkit-box-order: 1;
-    -moz-order: 1;
-    -ms-order: 1;
-    -o-order: 1;
-    order: 1;
-    float: none;
-  }
-  #pre-and-content .content-pre {
-    -webkit-box-ordinal-group: 2;
-    -moz-box-ordinal-group: 2;
-    box-ordinal-group: 2;
-    -webkit-box-order: 2;
-    -moz-order: 2;
-    -ms-order: 2;
-    -o-order: 2;
-    order: 2;
-    float: none;
-  }
-  #pre-and-content #block-region-side-pre {
-    -webkit-box-ordinal-group: 2;
-    -moz-box-ordinal-group: 2;
-    box-ordinal-group: 2;
-    -webkit-box-order: 2;
-    -moz-order: 2;
-    -ms-order: 2;
-    -o-order: 2;
-    order: 2;
-    float: none;
-  }
-}
 /* Footer */
 #page-footer {
   -webkit-box-sizing: border-box;
@@ -18556,6 +18509,53 @@ body.theme_uikit , h2.pagetitle span {
     display: block;
     visibility: visible;
     content: url("[[setting:loginheaderimageurl]]");
+}
+@media only screen and (max-width: 768px), only screen and (max-device-width: 768px) {
+  body.layout1 #pre-and-content {
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flex;
+    display: -o-flex;
+    display: flex;
+    -webkit-flex-direction: column;
+    -moz-flex-direction: column;
+    -ms-flex-direction: column;
+    -o-flex-direction: column;
+    flex-direction: column;
+  }
+  body.layout1 #pre-and-content #region-main-uikit {
+    -webkit-box-ordinal-group: 1;
+    -moz-box-ordinal-group: 1;
+    box-ordinal-group: 1;
+    -webkit-box-order: 1;
+    -moz-order: 1;
+    -ms-order: 1;
+    -o-order: 1;
+    order: 1;
+    float: none;
+  }
+  body.layout1 #pre-and-content .content-pre {
+    -webkit-box-ordinal-group: 2;
+    -moz-box-ordinal-group: 2;
+    box-ordinal-group: 2;
+    -webkit-box-order: 2;
+    -moz-order: 2;
+    -ms-order: 2;
+    -o-order: 2;
+    order: 2;
+    float: none;
+  }
+  body.layout1 #pre-and-content #block-region-side-pre {
+    -webkit-box-ordinal-group: 2;
+    -moz-box-ordinal-group: 2;
+    box-ordinal-group: 2;
+    -webkit-box-order: 2;
+    -moz-order: 2;
+    -ms-order: 2;
+    -o-order: 2;
+    order: 2;
+    float: none;
+  }
 }
 /**
  * Second layout specific styles

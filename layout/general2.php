@@ -50,7 +50,7 @@ if(!$hassidepre){
 if($hassidepost){
     $maincontentclass = 'flex-grid-horizontal flex-grid-large-horizontal-wrap';
     $regionClass = 'flexgrow';
-    $postClass = 'flexgrow';
+    $postClass = '';
 }else{
     $maincontentclass = '';
     $regionClass = '';
