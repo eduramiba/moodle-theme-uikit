@@ -52,7 +52,7 @@ $generated_css_file = $fs->get_file($fileinfo['contextid'], $fileinfo['component
     $fileinfo['itemid'], $fileinfo['filepath'], $fileinfo['filename']);
 
 $THEME->sheets = array();
-$debug = true;
+$debug = false;
 if (!$debug && $generated_css_file) {
     $THEME->sheets[]= 'generated';//Load a file with just a placeholder where the real saved styles will be put by the theme post-process function
 }else{
@@ -98,7 +98,8 @@ $THEME->layouts = array(
     'frontpage' => array(
         'file' => $frontpagelayout,
         'regions' => array('side-pre', 'home-up', 'home-left', 'home-middle', 'home-right', 'home-down', 'footer-left', 'footer-middle', 'footer-right', 'hidden-dock'),
-        'defaultregion' => 'hidden-dock'
+        'defaultregion' => 'hidden-dock',
+        'options' => array('nobreadcrumbs' => $layout == 1)
     ),
     // Standard layout with blocks, this is recommended for most pages with general information.
     'standard' => array(
