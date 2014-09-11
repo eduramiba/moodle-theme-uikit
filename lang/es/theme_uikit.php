@@ -31,6 +31,7 @@ $string['choosereadme'] = 'Tema construido con UIKit. Incluye un gestor de estil
 
 /* General */
 $string['panel'] = 'Panel';
+$string['logout'] = 'Cerrar Sesión';
 $string['visualstylemanager'] = 'Gestor visual de estilos para UIKit';
 $string['geneicsettings'] = 'Ajustes generales';
 $string['autohide'] = 'Incluir funcionalidad de ocultamiento automático';

@@ -166,7 +166,7 @@ class theme_uikit_core_renderer extends abstract_uikit_core_renderer {
         }
         
         
-        $logoutIcon = ' <i class="uk-icon uk-icon-sign-out"></i> ';
+        $logoutIcon = ' <i class="uk-icon uk-icon-mail-forward"></i> ';
         $loginIcon = ' <i class="uk-icon uk-icon-sign-in"></i> ';
         $profileIcon = ' <i class="uk-icon uk-icon-user"></i> ';
         
@@ -219,12 +219,12 @@ class theme_uikit_core_renderer extends abstract_uikit_core_renderer {
                     $loggedinas = $realuserinfo . $username;
                     
                     if ($bDisplayLogout) {
-                        $loggedinas .= " <a class=\"$buttonsclasses\" href=\"$CFG->wwwroot/login/logout.php?sesskey=" . sesskey() . "\">".$logoutIcon." " . $this->processMenuItemText(get_string('logout')) . '</a>';
+                        $loggedinas .= " <a class=\"$buttonsclasses\" href=\"$CFG->wwwroot/login/logout.php?sesskey=" . sesskey() . "\">".$logoutIcon." " . $this->processMenuItemText(get_string('logout', 'theme_uikit')) . '</a>';
                     }
                 }
             }else{
                 if($bDisplayLogout){
-                    $loggedinas = "<a class=\"$buttonsclasses\" href=\"$CFG->wwwroot/login/logout.php?sesskey=" . sesskey() . "\">".$logoutIcon." " . $this->processMenuItemText(get_string('logout')) . '</a>';
+                    $loggedinas = "<a class=\"$buttonsclasses\" href=\"$CFG->wwwroot/login/logout.php?sesskey=" . sesskey() . "\">".$logoutIcon." " . $this->processMenuItemText(get_string('logout', 'theme_uikit')) . '</a>';
                 }else{
                     $loggedinas = '';
                 }

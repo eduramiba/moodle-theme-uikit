@@ -36,46 +36,46 @@ if(!empty($PAGE->theme->settings->siteicon)){
 <?php if(empty($PAGE->layout_options['noheader'])){ ?>
     <header id="page-header" role="banner">
         <div id="page-header-content">
-            <div class="uk-grid uk-grid-no-gutter" data-uk-grid-match>
-                <!-- HEADER: LOGO AREA -->
-                <div id="page-header-content-logo" class="uk-width-1-1 uk-width-medium-3-10 uk-width-large-1-4 mdl-width-xlarge-2-10">
-                    <?php
-                    if (!$haslogo) { ?>
-                        <div>
-                            <i id="headerlogo" class="uk-icon uk-icon-<?php echo $icon; ?>"></i>
-                            <h1 id="title" class="uk-display-inline">
-                                <a href="<?php echo $CFG->wwwroot; ?>" class="headerLink"><?php echo $SITE->shortname; ?></a>
-                            </h1>
-                            <h2 id="subtitle" class="uk-text-muted">
-                                <?php p(strip_tags(format_text($SITE->summary, FORMAT_HTML))) ?>
-                            </h2>
-                        </div>
-                    <?php
-                    } else {
-						$backgroundUrl = $PAGE->theme->setting_file_url('logo', 'logo');
-					?>
-                        <a class="logo" href="<?php echo $CFG->wwwroot; ?>" title="<?php print_string('home'); ?>">
-                            <img src="<?php echo $backgroundUrl; ?>" alt="">
-                       </a>
-                    <?php
-                    } ?>
-                </div>
-                <div id="page-header-content-navigation" class="uk-width-1-1 uk-width-medium-7-10 uk-width-large-3-4 mdl-width-xlarge-8-10">
+            <!-- HEADER: LOGO AREA -->
+            <div id="page-header-content-logo">
+                <?php
+                if (!$haslogo) { ?>
+                    <div>
+                        <i id="headerlogo" class="uk-icon uk-icon-<?php echo $icon; ?>"></i>
+                        <h1 id="title" class="uk-display-inline">
+                            <a href="<?php echo $CFG->wwwroot; ?>" class="headerLink"><?php echo $SITE->shortname; ?></a>
+                        </h1>
+                        <h2 id="subtitle" class="uk-text-muted">
+                            <?php p(strip_tags(format_text($SITE->summary, FORMAT_HTML))) ?>
+                        </h2>
+                    </div>
+                <?php
+                } else {
+                    $backgroundUrl = $PAGE->theme->setting_file_url('logo', 'logo');
+                ?>
+                    <a class="logo" href="<?php echo $CFG->wwwroot; ?>" title="<?php print_string('home'); ?>">
+                        <img src="<?php echo $backgroundUrl; ?>" alt="">
+                   </a>
+                <?php
+                } ?>
+            </div>
+            <div id="page-header-content-navigation">
+                <div>
                     <?php
                             if(!isset($hasnavigation) || $hasnavigation){
                                 require_once(dirname(__FILE__) . '/navbar.php');
                             }
                         ?>
-                    
-                    <?php require_once(dirname(__FILE__) . '/../socialicons.php');?>
-                    
-                    <?php if(empty($PAGE->layout_options['nobreadcrumbs'])){ ?>
-                        <div id="page-navbar">
-                            <div class="breadcrumb-nav"><?php echo $OUTPUT->navbar(); ?></div>
-                            <nav class="breadcrumb-button"><?php echo $OUTPUT->page_heading_button(); ?></nav>
-                        </div>
-                    <?php } ?>
                 </div>
+
+                <?php require_once(dirname(__FILE__) . '/../socialicons.php');?>
+
+                <?php if(empty($PAGE->layout_options['nobreadcrumbs'])){ ?>
+                    <div id="page-navbar">
+                        <div class="breadcrumb-nav"><?php echo $OUTPUT->navbar(); ?></div>
+                        <nav class="breadcrumb-button"><?php echo $OUTPUT->page_heading_button(); ?></nav>
+                    </div>
+                <?php } ?>
             </div>
         </div>
     </header>
