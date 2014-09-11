@@ -199,11 +199,6 @@ $THEME->javascripts = array(
 	'cslider'
 );
 
-$useragent = '';
-if (!empty($_SERVER['HTTP_USER_AGENT'])) {
-    $useragent = $_SERVER['HTTP_USER_AGENT'];
-}
-
 if(class_exists('core_useragent')){
     if (core_useragent::is_ie() && !core_useragent::check_ie_version('9.0')) {
         $THEME->javascripts[] = 'html5shiv';

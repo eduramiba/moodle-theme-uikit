@@ -30,7 +30,7 @@ $displayloggedusermode = isset($PAGE->theme->settings->displayloggedusermode) ? 
 ?>
 
 
-<header id="page-navigation" role="navigation">
+<header id="page-navigation" class="flexgrow" role="navigation">
     <?php echo $OUTPUT->page_heading_menu(); ?>
     
     <?php echo $OUTPUT->custom_menu('', false); ?>

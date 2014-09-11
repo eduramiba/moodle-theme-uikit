@@ -40,13 +40,83 @@
     flex-direction:@flex-dir;
 }
 
-.flex (@grow: 1, @shrink: 1, @basis: 0%) {
+.flex (@grow: 1, @shrink: 1, @basis: auto) {
 	-webkit-box-flex: @grow; // Webkit Old
 	-moz-box-flex: @grow; // Mozilla Old
 	-webkit-flex: @arguments; // Webkit Standard
 	-moz-flex: @arguments; // Mozilla Standard
 	-ms-flex: @arguments; // IE 10 Mid, IE 11 Standard
 	flex: @arguments; // Standard
+}
+
+.flex-grid-horizontal {
+    .flexit(row);
+    min-width: 100%;
+    width: 100%;
+    max-width: 100%;
+    
+    & > * {
+        box-sizing: border-box;
+    }
+}
+
+.flex-grid-vertical {
+    .flexit(column);
+    
+    & > * {
+        box-sizing: border-box;
+    }
+}
+
+.flexgrow {
+    //Use all remaining space from container
+    .flex(1, 1, auto);
+}
+
+.flex-full-width {
+    max-width: 100%;
+    width: 100%;
+    float: none;
+}
+
+.flex-forced-width(@width){
+    min-width: @width;
+    width: @width;
+    max-width: @width;
+    .flex(0, 0);
+}
+
+.flex-grid-horizontal-wrap {
+    .flexit(column);
+    
+    & > * {
+        .flex-full-width();
+    }
+}
+
+
+@media only screen and (max-width: @breakpoint-small), only screen and (max-device-width: @breakpoint-small){
+    .flex-grid-xsmall-horizontal-wrap {
+        .flex-grid-horizontal-wrap();
+    }
+}
+
+@media only screen and (max-width: @breakpoint-medium), only screen and (max-device-width: @breakpoint-medium){
+    .flex-grid-small-horizontal-wrap {
+        .flex-grid-horizontal-wrap();
+    }
+}
+
+@media only screen and (max-width: @breakpoint-large), only screen and (max-device-width: @breakpoint-large){
+    .flex-grid-medium-horizontal-wrap {
+        .flex-grid-horizontal-wrap();
+    }
+}
+
+@media only screen and (max-width: @breakpoint-xlarge), only screen and (max-device-width: @breakpoint-xlarge){
+    .flex-grid-large-horizontal-wrap {
+        .flex-grid-horizontal-wrap();
+    }
 }
 
 .box-order(@box-order-number: 1) {
@@ -59,7 +129,6 @@
     -ms-order: @box-order-number;
     -o-order: @box-order-number;
     order: @box-order-number;
-
 }
 
 .drop-shadow (@x: 0, @y: 1px, @blur: 2px, @spread: 0, @alpha: 0.25) {

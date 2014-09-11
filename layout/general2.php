@@ -40,22 +40,26 @@ if ($rtl) {
 $hassidepre = (empty($PAGE->layout_options['noblocks']) && $PAGE->blocks->region_has_content('side-pre', $OUTPUT));
 $hassidepost = (empty($PAGE->layout_options['noblocks']) && $PAGE->blocks->region_has_content('side-post', $OUTPUT));
 
-$preClass = 'uk-width-1-1 uk-width-medium-3-10 uk-width-large-1-4 mdl-width-xlarge-2-10';
-$contentClass = 'uk-width-1-1 uk-width-medium-7-10 uk-width-large-3-4 mdl-width-xlarge-8-10';
-
-$preClass .= ' content-pre';
+$preClass = 'content-pre';
+$contentClass = 'flexgrow';
 
 if(!$hassidepre){
-    $contentClass = 'uk-width-1-1';
+    $contentClass = 'flex-full-width';
 }
 
 if($hassidepost){
-    $regionClass = 'uk-width-1-1 uk-width-medium-1-1 uk-width-large-1-1 mdl-width-xlarge-7-10 content';
-    $postClass = 'uk-width-1-1 uk-width-medium-1-1 uk-width-large-1-1 mdl-width-xlarge-3-10 post-content';
+    $maincontentclass = 'flex-grid-horizontal flex-grid-large-horizontal-wrap';
+    $regionClass = 'flexgrow';
+    $postClass = 'flexgrow';
 }else{
-    $regionClass = 'uk-width-1-1';
+    $maincontentclass = '';
+    $regionClass = '';
     $postClass = '';
 }
+
+
+$regionClass .= ' content';
+$postClass .= ' post-content';
 
 $footerplacement = isset($PAGE->theme->settings->footerplacement) ? $PAGE->theme->settings->footerplacement : 1;
 
@@ -84,11 +88,11 @@ echo $OUTPUT->doctype()
             
             <div id="page-content">
                 <div id="<?php echo $regionbsid ?>" class="uk-margin-bottom">
-                    <div id="pre-and-content" class="uk-grid uk-grid-no-gutter">
+                    <div id="pre-and-content" class="flex-grid-horizontal">
                         <?php if($hassidepre){echo $OUTPUT->uikitblocks($pre, $preClass);} ?>
                         <div id="region-main-uikit" class="<?php echo $contentClass; ?>">
                             <section id="region-main" class="uk-margin-bottom">
-                                <div id="main-content-box" class="uk-grid uk-grid-no-gutter">
+                                <div id="main-content-box" class="<?php echo $maincontentclass; ?>">
                                     <div class="<?php echo $regionClass; ?>">
                                         <?php
                                                     echo $OUTPUT->course_content_header();

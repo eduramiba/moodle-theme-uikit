@@ -49,15 +49,15 @@ echo $OUTPUT->doctype()
             
             <div id="page-content">
                 <div id="<?php echo $regionbsid ?>">
-                    <div id="pre-and-content" class="uk-grid uk-grid-no-gutter">
+                    <div id="pre-and-content" class="flex-grid-horizontal">
                         <?php 
-                                $sidePreClasses = 'uk-width-1-1 uk-width-medium-3-10 uk-width-large-1-4 mdl-width-xlarge-2-10 content-pre';
-                                $regionClasses = 'uk-width-1-1 uk-width-medium-7-10 uk-width-large-3-4 mdl-width-xlarge-8-10';
+                                $sidePreClasses = 'content-pre';
+                                $regionClasses = 'flexgrow';
                                 
                                 $hassidepre = (empty($PAGE->layout_options['noblocks']) && $PAGE->blocks->region_has_content('side-pre', $OUTPUT));
                                 
                                 if(!$hassidepre && !$PAGE->user_is_editing()){
-                                    $regionClasses = 'uk-width-1-1';
+                                    $regionClasses = 'flex-full-width';
                                 }
                         
                                 if(empty($PAGE->theme->settings->frontpageblocks) || $PAGE->theme->settings->frontpageblocks === 'left'){

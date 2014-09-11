@@ -50,8 +50,8 @@
         <div id="page" class="page-login">
             <?php if($hasheader){require_once(dirname(__FILE__) . '/includes/layout2/header.php');} ?>
             
-            <div id="page-content" class="uk-grid">
-                <section id="region-main" class="uk-width-1-1 uk-width-medium-1-1 uk-width-large-1-1 uk-container-center">
+            <div id="page-content">
+                <section id="region-main" class="uk-container-center">
                     <div id="main-content-box">
                         <?php
                             echo $OUTPUT->main_content();

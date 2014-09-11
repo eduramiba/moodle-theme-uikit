@@ -2,7 +2,7 @@
  * Second layout specific styles
  */
 body.layout2 {
-    
+    //Header:
 	#page-header {
 		padding-top: 5px;
 		padding-bottom: 0;
@@ -10,38 +10,20 @@ body.layout2 {
 	
 	#page-header-content {
 		box-sizing: border-box;
-		max-width: 100%;
 		padding: 0;
-        
-        .flexit(row);
-        
-        #page-header-content-logo{
-            min-width: @mdl-layout2-left-width;
-            width: @mdl-layout2-left-width;
-        }
-        
-        #page-header-content-navigation {
-            .flex(1);//Use all remaining space from #page-header-content
-        }
 	}
+    
+    #page-header-content-logo {
+        .flex-forced-width(@mdl-layout2-left-width);
+    }
     
 	
 	#page-header-content-logo #subtitle {
 		margin: 0;
 	}
 
-	#page-header-content-navigation {
-		.flexit(column);
-	}
-	
 	#page-navbar {
-        .flex(1);//Use all remaining space from #page-header-content-navigation flex
-		overflow: visible;
 		margin-top: 15px;
-        
-        > * {
-            float: none;
-        }
 	}
     
     #socialicons {
@@ -54,42 +36,24 @@ body.layout2 {
 		text-align: end;
 	}
     
-    #pre-and-content {
-        box-sizing: border-box;
-		max-width: 100%;
-        .flexit(row);
-        
-        #block-region-side-pre {
-            min-width: @mdl-layout2-left-width;
-            width: @mdl-layout2-left-width;
-        }
-        
-        #region-main-uikit {
-            .flex(1);//Use all remaining space from #pre-and-content
-        }
+
+    //Pre and content:
+    #block-region-side-pre {
+        .flex-forced-width(@mdl-layout2-left-width);
     }
 	
 	//This part is for re-ordering pages for small devices
 	@media only screen and (max-width: @breakpoint-medium), only screen and (max-device-width: @breakpoint-medium){
         #page-header-content {
-            .flexit(column);
+			.flex-grid-horizontal-wrap();
             
-            #page-header-content-logo{
-                width: 100%;
+            #page-header-content-logo {
                 text-align: center;
                 margin-bottom: 10px;
-                
-                float: none;
                 
                 a {
                     float: none;
                 }
-            }
-
-            #page-header-content-navigation {
-                width: 100%;
-                .flex(1);//Use all remaining space from #page-header-content
-                float: none;
             }
             
             #page-navigation {
@@ -99,24 +63,14 @@ body.layout2 {
         
         
 		#pre-and-content{
-			.flexit(column);
+			.flex-grid-horizontal-wrap();
 
 			#region-main-uikit {
 				.box-order(1);
-                width: 100%;
-				float: none;
-			}
-
-			.content-pre {
-				.box-order(2);
-                width: 100%;
-				float: none;
 			}
 
 			#block-region-side-pre {
 				.box-order(2);
-                width: 100%;
-				float: none;
 			}
 		}
 	}

@@ -35,7 +35,7 @@ if(!empty($PAGE->theme->settings->siteicon)){
 
 <?php if(empty($PAGE->layout_options['noheader'])){ ?>
     <header id="page-header" role="banner">
-        <div id="page-header-content">
+        <div id="page-header-content" class="flex-grid-horizontal">
             <!-- HEADER: LOGO AREA -->
             <div id="page-header-content-logo">
                 <?php
@@ -59,14 +59,12 @@ if(!empty($PAGE->theme->settings->siteicon)){
                 <?php
                 } ?>
             </div>
-            <div id="page-header-content-navigation">
-                <div>
-                    <?php
-                            if(!isset($hasnavigation) || $hasnavigation){
-                                require_once(dirname(__FILE__) . '/navbar.php');
-                            }
-                        ?>
-                </div>
+            <div id="page-header-content-navigation" class="flexgrow flex-grid-vertical">
+                <?php
+                        if(!isset($hasnavigation) || $hasnavigation){
+                            require_once(dirname(__FILE__) . '/navbar.php');
+                        }
+                    ?>
 
                 <?php require_once(dirname(__FILE__) . '/../socialicons.php');?>
 
