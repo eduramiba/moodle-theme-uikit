@@ -394,7 +394,7 @@ abstract class abstract_uikit_core_renderer extends core_renderer {
         }
 
         if ($addlangmenu) {
-            $language = $menu->add('<i class="uk-icon uk-icon-language"></i> '.$this->processMenuItemText(get_string('language')), new moodle_url('#'), get_string('language'), $langposition);
+            $language = $menu->add('<i class="uk-icon uk-icon-language"></i> '.$this->processMenuItemText(get_string('language'), $isOffCanvas), new moodle_url('#'), get_string('language'), $langposition);
             foreach ($langs as $langtype => $langname) {
                 if($this->page->has_set_url()){
                     $pageurl = $this->page->url;
@@ -411,7 +411,7 @@ abstract class abstract_uikit_core_renderer extends core_renderer {
          */
         $hasdisplaymydashboard = (empty($this->page->theme->settings->displaymydashboard)) ? false : $this->page->theme->settings->displaymydashboard;
         if (isloggedin() && $hasdisplaymydashboard) {
-            $branchlabel = '<i class="uk-icon-dashboard"></i> ' . $this->processMenuItemText(get_string('mydashboard', 'theme_uikit'));
+            $branchlabel = '<i class="uk-icon-dashboard"></i> ' . $this->processMenuItemText(get_string('mydashboard', 'theme_uikit'), $isOffCanvas);
             $branchurl = new moodle_url('/my/index.php');
             $branchtitle = get_string('mydashboard', 'theme_uikit');
             $branchsort = $dashboardposition;
@@ -439,19 +439,19 @@ abstract class abstract_uikit_core_renderer extends core_renderer {
         if (isloggedin() && $hasdisplaymycourses) {
             $mycoursetitle = $this->page->theme->settings->mycoursetitle;
             if ($mycoursetitle == 'module') {
-                $branchlabel = '<i class="uk-icon-briefcase"></i> ' . $this->processMenuItemText(get_string('mymodules', 'theme_uikit'));
+                $branchlabel = '<i class="uk-icon-briefcase"></i> ' . $this->processMenuItemText(get_string('mymodules', 'theme_uikit'), $isOffCanvas);
                 $branchtitle = get_string('mymodules', 'theme_uikit');
             } else if ($mycoursetitle == 'unit') {
-                $branchlabel = '<i class="uk-icon-briefcase"></i> ' . $this->processMenuItemText(get_string('myunits', 'theme_uikit'));
+                $branchlabel = '<i class="uk-icon-briefcase"></i> ' . $this->processMenuItemText(get_string('myunits', 'theme_uikit'), $isOffCanvas);
                 $branchtitle = get_string('myunits', 'theme_uikit');
             } else if ($mycoursetitle == 'class') {
-                $branchlabel = '<i class="uk-icon-briefcase"></i> ' . $this->processMenuItemText(get_string('myclasses', 'theme_uikit'));
+                $branchlabel = '<i class="uk-icon-briefcase"></i> ' . $this->processMenuItemText(get_string('myclasses', 'theme_uikit'), $isOffCanvas);
                 $branchtitle = get_string('myclasses', 'theme_uikit');
             } else if ($mycoursetitle == 'subject') {
-                $branchlabel = '<i class="uk-icon-briefcase"></i> ' . $this->processMenuItemText(get_string('mysubjects', 'theme_uikit'));
+                $branchlabel = '<i class="uk-icon-briefcase"></i> ' . $this->processMenuItemText(get_string('mysubjects', 'theme_uikit'), $isOffCanvas);
                 $branchtitle = get_string('mysubjects', 'theme_uikit');
             } else {
-                $branchlabel = '<i class="uk-icon-briefcase"></i> ' . $this->processMenuItemText(get_string('mycourses', 'theme_uikit'));
+                $branchlabel = '<i class="uk-icon-briefcase"></i> ' . $this->processMenuItemText(get_string('mycourses', 'theme_uikit'), $isOffCanvas);
                 $branchtitle = get_string('mycourses', 'theme_uikit');
             }
             $branchurl = new moodle_url('/my/index.php');
