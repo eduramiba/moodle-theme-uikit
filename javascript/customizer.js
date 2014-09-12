@@ -162,12 +162,20 @@
             }
             
             $iframe.addClass('loaded');
-            
+
             $iframe.contents().find("#uikit-theme-designer-alert").remove();
-            
+
             //Make sure theme variables are loaded before first compile:
             $firstLoadDeferred.done(function(){
                 applyStylesCustomization($($iframe.contents()), false, initialVariables);
+            });
+            
+            //Disallow going to a different page than this moodle site
+            $iframe.contents().on('click', 'a', function(event){
+                if(this.href && this.href !== "#" && this.href.indexOf(wwwroot) !== 0){
+                    showModal(i18n['externalpage-disallowed']);
+                    event.preventDefault();
+                }
             });
         });
         

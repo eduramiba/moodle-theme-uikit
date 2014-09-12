@@ -212,8 +212,10 @@ abstract class abstract_uikit_core_renderer extends core_renderer {
             $additionalclasses = array();
         }
         
+        $nopagenavbar = (isset($this->page->theme->settings->breadcrumbsplacement) && $this->page->theme->settings->breadcrumbsplacement == 2)
+                && (isset($this->page->theme->settings->pagenavbarcontent) && $this->page->theme->settings->pagenavbarcontent == 'dontshow');
         $pagenavbarclass = '';
-        if($this->page->theme->settings->pagenavbarcontent == 'dontshow'){
+        if($nopagenavbar){
             $pagenavbarclass = 'nopagenavbar';
         }
         
