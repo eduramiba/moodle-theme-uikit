@@ -464,8 +464,8 @@ $string['base-heading-color'] = 'Cabeceras - Color';
 $string['base-heading-font-weight'] = 'Cabeceras - Peso de la letra';
 
 
-/* Navigation */
-$string['group-navbar'] = 'Navegación';
+/* Navigation grid layout */
+$string['group-navbar'] = 'Navegación (Diseño basado en grid)';
 $string['mdl-navbar-side-margin'] = 'Margen lateral';
 $string['navbar-background'] = 'Color de fondo';
 $string['navbar-gradient-top'] = 'Color de fondo - Degradado superior';
@@ -496,6 +496,15 @@ $string['nav-navbar-nested-color'] = 'Menú desplegable - Enlaces anidados';
 $string['nav-navbar-nested-hover-color'] = 'Menú desplegable - Enlaces anidados (hover)';
 $string['navbar-toggle-color'] = 'Botón menú lateral - Color';
 $string['navbar-toggle-hover-color'] = 'Botón menú lateral - Color (hover)';
+
+/* Navigation flex layout */
+$string['group-navbar-layout2'] = 'Navegación (Diseño basado en flex)';
+$string['dropdown-background'] = 'Menú desplegable - Fondo';
+$string['nav-dropdown-color'] = 'Menú desplegable - Texto';
+$string['nav-dropdown-hover-background'] = 'Menú desplegable - Fondo (hover)';
+$string['nav-dropdown-hover-color'] = 'Menú desplegable - Texto (hover)';
+$string['nav-dropdown-nested-color'] = 'Menú desplegable - Enlaces anidados';
+$string['nav-dropdown-nested-hover-color'] = 'Menú desplegable - Enlaces anidados (hover)';
 
 
 /* Main Content */

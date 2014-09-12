@@ -469,8 +469,8 @@ $string['base-heading-color'] = 'Headings Text Color';
 $string['base-heading-font-weight'] = 'Headings font weight';
 
 
-/* Navigation */
-$string['group-navbar'] = 'Navigation';
+/* Navigation grid layout */
+$string['group-navbar'] = 'Navigation (Grid layout)';
 $string['mdl-navbar-side-margin'] = 'Side Margin';
 $string['navbar-background'] = 'Background Color';
 $string['navbar-gradient-top'] = 'Background Color - Top Gradient';
@@ -501,6 +501,16 @@ $string['nav-navbar-nested-color'] = 'Dropdown Nested Link';
 $string['nav-navbar-nested-hover-color'] = 'Dropdown Hover Nested Link';
 $string['navbar-toggle-color'] = 'Offcanvas Navigation Toggle';
 $string['navbar-toggle-hover-color'] = 'Offcanvas Navigation Toggle Hover';
+
+
+/* Navigation flex layout */
+$string['group-navbar-layout2'] = 'Navigation (Flex layout)';
+$string['dropdown-background'] = 'Dropdown Background Color';
+$string['nav-dropdown-color'] = 'Dropdown Text Color';
+$string['nav-dropdown-hover-background'] = 'Dropdown Background Hover Color';
+$string['nav-dropdown-hover-color'] = 'Dropdown Text Hover Color';
+$string['nav-dropdown-nested-color'] = 'Dropdown Nested Link';
+$string['nav-dropdown-nested-hover-color'] = 'Dropdown Hover Nested Link';
 
 
 /* Main Content */

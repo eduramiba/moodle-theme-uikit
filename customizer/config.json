@@ -249,6 +249,30 @@
             ]
         },
         {
+            "id": "navbar-layout2",
+            "defaultType": "color",
+            "elements": [
+                {
+                    "var": "dropdown-background"
+                },
+                {
+                    "var": "nav-dropdown-color"
+                },
+                {
+                    "var": "nav-dropdown-hover-background"
+                },
+                {
+                    "var": "nav-dropdown-hover-color"
+                },
+                {
+                    "var": "nav-dropdown-nested-color"
+                },
+                {
+                    "var": "nav-dropdown-nested-hover-color"
+                }
+            ]
+        },
+        {
             "id": "main-region",
             "defaultType": "color",
             "elements": [
