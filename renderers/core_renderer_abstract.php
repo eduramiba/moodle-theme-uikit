@@ -718,8 +718,6 @@ abstract class abstract_uikit_core_renderer extends core_renderer {
             't/right' => 'arrow-right',
             't/up' => 'arrow-up',
             't/user' => 'user',
-            't/hide' => 'eye',
-            't/show' => 'eye-slash',
             't/print' => 'print',
         );
         
