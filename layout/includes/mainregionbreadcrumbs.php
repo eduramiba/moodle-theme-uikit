@@ -15,18 +15,19 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Theme version info
+ * This code was written and released by Bas Brands and is added as a
+ * value add to the uikit theme.
+ * 
+ * Main region breadcrumbs
  *
- * @package    theme_uikit
- * @copyright  2014 Eduardo Ramos
- * @authors    Eduardo Ramos
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ *
+ * @package   theme_uikit
+ * @copyright 2014 Eduardo Ramos
+ * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
-defined('MOODLE_INTERNAL') || die;
-
-$plugin->version   = 2014091201;        // YYYYMMDDXX
-$plugin->maturity = MATURITY_STABLE;             // this version's maturity level.
-$plugin->release = '2.7 (Build: 2014091201)';
-$plugin->requires  = 2013051401;        // Requires Moodle 2.5.1.
-$plugin->component = 'theme_uikit';
+if(empty($PAGE->layout_options['nobreadcrumbs']) && isset($this->page->theme->settings->breadcrumbsplacement) && $this->page->theme->settings->breadcrumbsplacement == 2){ ?>
+    <div id="page-breadcrumbs">
+        <div class="breadcrumb-nav"><?php echo $OUTPUT->navbar(); ?></div>
+        <nav class="breadcrumb-button"><?php echo $OUTPUT->page_heading_button(); ?></nav>
+    </div>
+<?php }

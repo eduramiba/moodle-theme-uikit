@@ -588,6 +588,9 @@
                 },
                 {
                     "var": "mdl-max-page-footer-width"
+                },
+                {
+                    "var": "mdl-layout2-left-width"
                 }
             ]
         },
@@ -600,6 +603,12 @@
                 },
                 {
                     "var": "mdl-page-navbar-background"
+                },
+                {
+                    "var": "mdl-page-breadcrumbs-border"
+                },
+                {
+                    "var": "mdl-page-breadcrumbs-background"
                 },
                 {
                     "var": "mdl-breadcrumb-link-color"

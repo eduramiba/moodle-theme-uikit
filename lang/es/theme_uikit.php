@@ -131,8 +131,8 @@ $string['layoutheading'] = 'Opciones del diseño';
 
 $string['themelayout'] = 'Diseño de página';
 $string['themelayoutdesc'] = 'Aquí puedes escoger entre los diferentes diseños de página para este tema';
-$string['themelayout1'] = 'Diseño original';
-$string['themelayout2'] = 'Diseño nuevo';
+$string['themelayout1'] = 'Diseño basado en grid';
+$string['themelayout2'] = 'Diseño basado en flex';
 
 $string['navigationbuttonssize'] = 'Tamaño de los botones de navegación';
 $string['navigationbuttonssize-mini'] = 'Mini';
@@ -155,6 +155,20 @@ $string['stickynavigationbar'] = 'Activar barra de navegación adherida a la par
 $string['stickynavigationbardesc'] = 'Hace que la barra de navegación permanezca en la parte superior de la sección de página visualizada';
 $string['stickynavigationbardelay'] = 'Retraso de la adherencia de la barra de navegación (px)';
 $string['stickynavigationbardelaydesc'] = 'Añade un retraso a la barra de navegación, de forma que permanecerá en la parte superior después de haber desplazado la página una cantidad específica de pixels';
+
+$string['breadcrumbsplacement'] = 'Posicionamiento de las migas de pan';
+$string['breadcrumbsplacement-pagenavbar'] = 'Barra de navegación superior';
+$string['breadcrumbsplacement-mainregion'] = 'Región principal';
+
+$string['pagenavbarcontent'] = 'Contenido de la barra de navegación superior';
+$string['pagenavbarcontent-pageheading'] = 'Cabecera de la página';
+$string['pagenavbarcontent-pagetitle'] = 'Título de la página';
+$string['pagenavbarcontent-sitename'] = 'Nombre del sitio';
+$string['pagenavbarcontent-siteshortname'] = 'Nombre corto del sitio';
+$string['pagenavbarcontent-sitessummary'] = 'Resumen del sitio';
+$string['pagenavbarcontent-custom'] = 'Personalizado';
+$string['pagenavbarcontent-dontshow'] = 'No mostrar';
+$string['pagenavbarcustomcontent'] = 'Contenido personalizado de la barra de navegación superior';
 
 /* Regions */
 $string['region-side-post'] = 'Derecha';
@@ -585,12 +599,15 @@ $string['mdl-page-top-margin'] = 'Contenido de Página - Márgen superior';
 $string['mdl-page-side-margin'] = 'Contenido de Página - Márgen lateral';
 $string['mdl-max-page-footer-width'] = 'Pie de página - Ancho máximo';
 $string['mdl-max-additional-frontpage-content-width'] = 'Sección de marketing de la página principal - Ancho máximo';
+$string['mdl-layout2-left-width'] = 'Diseño flex - Ancho de la columna izquierda';
 
 
 /* Breadcrumbs */
 $string['group-breadcrumbs'] = 'Migas de Pan';
-$string['mdl-page-navbar-background'] = 'Color de fondo';
-$string['mdl-page-navbar-border'] = 'Color del borde';
+$string['mdl-page-navbar-background'] = 'Color de fondo (región superior)';
+$string['mdl-page-navbar-border'] = 'Color del borde (región superior)';
+$string['mdl-page-breadcrumbs-background'] = 'Color de fondo (región principal)';
+$string['mdl-page-breadcrumbs-border'] = 'Color del borde (región principal)';
 $string['mdl-breadcrumb-link-color'] = 'Color de enlaces';
 $string['mdl-breadcrumb-link-hover-color'] = 'Color de enlaces (hover)';
 

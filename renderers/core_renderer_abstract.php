@@ -212,7 +212,12 @@ abstract class abstract_uikit_core_renderer extends core_renderer {
             $additionalclasses = array();
         }
         
-        $aClasses = array_merge(array('theme_uikit', $moodleVersionClass), $additionalclasses);
+        $pagenavbarclass = '';
+        if($this->page->theme->settings->pagenavbarcontent == 'dontshow'){
+            $pagenavbarclass = 'nopagenavbar';
+        }
+        
+        $aClasses = array_merge(array('theme_uikit', $moodleVersionClass, $pagenavbarclass), $additionalclasses);
         
         return ' id="'. $this->body_id().'" class="'.$this->body_css_classes($aClasses).'"';
     }

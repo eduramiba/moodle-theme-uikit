@@ -24,9 +24,10 @@
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 ?>
-<div id="region-main-uikit" class="<?php echo $regionClasses; ?>"> 
-    <section id="region-main" class="uk-margin-bottom">
-		<div id="main-content-box">
+<div id="region-main-uikit" class="<?php echo $regionClasses; ?> flex-grid-horizontal-wrap"> 
+    <section id="region-main" class="uk-margin-bottom flexgrow flex-grid-vertical">
+        <?php require_once(dirname(__FILE__).'/../mainregionbreadcrumbs.php'); ?>
+        <div id="main-content-box" class="flexgrow">
             <div id="aditional-frontpage-content">
                 <!-- Start Slideshow -->
                 <?php require_once(dirname(__FILE__).'/../slideshow.php'); ?>

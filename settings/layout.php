@@ -57,11 +57,11 @@ if($chosenlayout == 1){
     //Navigation buttons size
     $name = 'theme_uikit/navigationbuttonssize';
     $title = get_string('navigationbuttonssize', 'theme_uikit');
-    $default = 'uk-button-small';
+    $default = '';
     $choices = array(
         'uk-button-mini' => get_string('navigationbuttonssize-mini', 'theme_uikit'),
         'uk-button-small' => get_string('navigationbuttonssize-small', 'theme_uikit'),
-        'uk-button' => get_string('navigationbuttonssize-normal', 'theme_uikit'),
+        '' => get_string('navigationbuttonssize-normal', 'theme_uikit'),
         'uk-button-large' => get_string('navigationbuttonssize-large', 'theme_uikit'),
     );
     $setting = new admin_setting_configselect($name, $title, '', $default, $choices);
@@ -116,5 +116,46 @@ if($stickynavigationbar){
     $setting->set_updatedcallback('theme_reset_all_caches');
     $temp->add($setting);
 }
+
+
+//Breadcrumbs placement
+$name = 'theme_uikit/breadcrumbsplacement';
+$title = get_string('breadcrumbsplacement', 'theme_uikit');
+$default = 1;
+$choices = array(1 => get_string('breadcrumbsplacement-pagenavbar', 'theme_uikit'), 2 => get_string('breadcrumbsplacement-mainregion', 'theme_uikit'));
+$setting = new admin_setting_configselect($name, $title, '', $default, $choices);
+$setting->set_updatedcallback('theme_reset_all_caches');
+$temp->add($setting);
+
+$breadcrumbsplacement = get_config('theme_uikit', 'breadcrumbsplacement');
+
+if($breadcrumbsplacement == 2){
+    $name = 'theme_uikit/pagenavbarcontent';
+    $title = get_string('pagenavbarcontent', 'theme_uikit');
+    $default = 'pageheading';
+    $choices = array(
+        'pageheading' => get_string('pagenavbarcontent-pageheading', 'theme_uikit'),
+        'pagetitle' => get_string('pagenavbarcontent-pagetitle', 'theme_uikit'),
+        'sitename' => get_string('pagenavbarcontent-sitename', 'theme_uikit'),
+        'siteshortname' => get_string('pagenavbarcontent-siteshortname', 'theme_uikit'),
+        'sitessummary' => get_string('pagenavbarcontent-sitessummary', 'theme_uikit'),
+        'custom' => get_string('pagenavbarcontent-custom', 'theme_uikit'),
+        'dontshow' => get_string('pagenavbarcontent-dontshow', 'theme_uikit')
+    );
+    $setting = new admin_setting_configselect($name, $title, '', $default, $choices);
+    $setting->set_updatedcallback('theme_reset_all_caches');
+    $temp->add($setting);
+    
+    $pagenavbarcontent = get_config('theme_uikit', 'pagenavbarcontent');
+    if($pagenavbarcontent == 'custom'){
+        $name = 'theme_uikit/pagenavbarcustomcontent';
+        $title = get_string('pagenavbarcustomcontent', 'theme_uikit');
+        $default = '';
+        $setting = new admin_setting_configtext($name, $title, '', $default, PARAM_RAW_TRIMMED);
+        $setting->set_updatedcallback('theme_reset_all_caches');
+        $temp->add($setting);
+    }
+}
+
 
 $ADMIN->add('theme_uikit', $temp);

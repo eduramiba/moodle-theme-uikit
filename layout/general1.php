@@ -92,19 +92,15 @@ echo $OUTPUT->doctype()
                             <?php if($hassidepre){echo $OUTPUT->uikitblocks($pre, $preClass);} ?>
                             <div id="region-main-uikit" class="<?php echo $contentClass; ?>">
                                 <section id="region-main" class="uk-margin-bottom">
-                                    <?php if(empty($PAGE->layout_options['nobreadcrumbs'])){ ?>
-                                        <div id="page-navbar">
-                                            <div class="breadcrumb-nav"><?php echo $OUTPUT->navbar(); ?></div>
-                                            <nav class="breadcrumb-button"><?php echo $OUTPUT->page_heading_button(); ?></nav>
-                                        </div>
-                                    <?php } ?>
-										<div id="main-content-box">
-											<?php
-												echo $OUTPUT->course_content_header();
-												echo $OUTPUT->main_content();
-												echo $OUTPUT->course_content_footer();
-											?>
-										</div>
+                                    <?php require_once(dirname(__FILE__) . '/includes/pagenavbarbreadcrumbs.php');?>
+                                    <?php require_once(dirname(__FILE__) . '/includes/mainregionbreadcrumbs.php');?>
+                                    <div id="main-content-box">
+                                        <?php
+                                            echo $OUTPUT->course_content_header();
+                                            echo $OUTPUT->main_content();
+                                            echo $OUTPUT->course_content_footer();
+                                        ?>
+                                    </div>
                                 </section>
                             </div>
                         </div>

@@ -68,12 +68,7 @@ if(!empty($PAGE->theme->settings->siteicon)){
 
                 <?php require_once(dirname(__FILE__) . '/../socialicons.php');?>
 
-                <?php if(empty($PAGE->layout_options['nobreadcrumbs'])){ ?>
-                    <div id="page-navbar">
-                        <div class="breadcrumb-nav"><?php echo $OUTPUT->navbar(); ?></div>
-                        <nav class="breadcrumb-button"><?php echo $OUTPUT->page_heading_button(); ?></nav>
-                    </div>
-                <?php } ?>
+                <?php require_once(dirname(__FILE__) . '/../pagenavbarbreadcrumbs.php');?>
             </div>
         </div>
     </header>

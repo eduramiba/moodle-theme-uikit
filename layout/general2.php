@@ -92,6 +92,7 @@ echo $OUTPUT->doctype()
                         <?php if($hassidepre){echo $OUTPUT->uikitblocks($pre, $preClass);} ?>
                         <div id="region-main-uikit" class="<?php echo $contentClass; ?>">
                             <section id="region-main" class="uk-margin-bottom">
+                                <?php require_once(dirname(__FILE__).'/includes/mainregionbreadcrumbs.php'); ?>
                                 <div id="main-content-box" class="<?php echo $maincontentclass; ?>">
                                     <div class="<?php echo $regionClass; ?>">
                                         <?php

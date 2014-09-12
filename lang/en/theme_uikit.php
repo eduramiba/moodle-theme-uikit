@@ -132,8 +132,8 @@ $string['layoutheading'] = 'Layout options';
 
 $string['themelayout'] = 'Layout Mode';
 $string['themelayoutdesc'] = 'Here you can choose between different layout modes for this theme';
-$string['themelayout1'] = 'Original layout';
-$string['themelayout2'] = 'New layout';
+$string['themelayout1'] = 'Grid layout';
+$string['themelayout2'] = 'Flex layout';
 
 $string['navigationbuttonssize'] = 'Navigation buttons size';
 $string['navigationbuttonssize-mini'] = 'Mini';
@@ -156,6 +156,20 @@ $string['stickynavigationbar'] = 'Enable sticky navigation bar';
 $string['stickynavigationbardesc'] = 'Make the navigation bar remain at the top of the viewport';
 $string['stickynavigationbardelay'] = 'Sticky navigation bar delay (px)';
 $string['stickynavigationbardelaydesc'] = 'Add a delay to the navigation bar, so it becomes sticky only after scrolling a specified distance in pixels';
+
+$string['breadcrumbsplacement'] = 'Breadcrumbs placement';
+$string['breadcrumbsplacement-pagenavbar'] = 'Page top navbar';
+$string['breadcrumbsplacement-mainregion'] = 'Main region';
+
+$string['pagenavbarcontent'] = 'Page top navbar content';
+$string['pagenavbarcontent-pageheading'] = 'Page heading';
+$string['pagenavbarcontent-pagetitle'] = 'Page title';
+$string['pagenavbarcontent-sitename'] = 'Site name';
+$string['pagenavbarcontent-siteshortname'] = 'Site short name';
+$string['pagenavbarcontent-sitessummary'] = 'Site summary';
+$string['pagenavbarcontent-custom'] = 'Custom';
+$string['pagenavbarcontent-dontshow'] = 'Don\'t show';
+$string['pagenavbarcustomcontent'] = 'Page top navbar custom content';
 
 /* Regions */
 $string['region-side-post'] = 'Right';
@@ -590,12 +604,15 @@ $string['mdl-page-top-margin'] = 'Page Content - Top margin';
 $string['mdl-page-side-margin'] = 'Page Content - Side margin';
 $string['mdl-max-page-footer-width'] = 'Page Footer - Maximum width';
 $string['mdl-max-additional-frontpage-content-width'] = 'Frontpage Marketing Section - Maximum width';
+$string['mdl-layout2-left-width'] = 'Flex Layout - Left column width';
 
 
 /* Breadcrumbs */
 $string['group-breadcrumbs'] = 'Breadcrumbs';
-$string['mdl-page-navbar-background'] = 'Background Color';
-$string['mdl-page-navbar-border'] = 'Border Color';
+$string['mdl-page-navbar-background'] = 'Background Color (top region)';
+$string['mdl-page-navbar-border'] = 'Border Color (top region)';
+$string['mdl-page-breadcrumbs-background'] = 'Background Color (main region)';
+$string['mdl-page-breadcrumbs-border'] = 'Border Color (main region)';
 $string['mdl-breadcrumb-link-color'] = 'Link Color';
 $string['mdl-breadcrumb-link-hover-color'] = 'Link Hover Color';
 
