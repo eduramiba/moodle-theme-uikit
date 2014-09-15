@@ -90,10 +90,10 @@ echo $OUTPUT->doctype()
                 <div id="<?php echo $regionbsid ?>" class="uk-margin-bottom">
                     <div id="pre-and-content" class="flex-grid-horizontal">
                         <?php if($hassidepre){echo $OUTPUT->uikitblocks($pre, $preClass);} ?>
-                        <div id="region-main-uikit" class="<?php echo $contentClass; ?>">
-                            <section id="region-main" class="uk-margin-bottom">
+                        <div id="region-main-uikit" class="<?php echo $contentClass; ?> flex-grid-horizontal-wrap">
+                            <section id="region-main" class="uk-margin-bottom flexgrow flex-grid-vertical">
                                 <?php require_once(dirname(__FILE__).'/includes/mainregionbreadcrumbs.php'); ?>
-                                <div id="main-content-box" class="<?php echo $maincontentclass; ?>">
+                                <div id="main-content-box" class="<?php echo $maincontentclass; ?> flexgrow">
                                     <div class="<?php echo $regionClass; ?>">
                                         <?php
                                                     echo $OUTPUT->course_content_header();
