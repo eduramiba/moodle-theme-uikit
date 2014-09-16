@@ -90,7 +90,7 @@ class theme_uikit_core_renderer extends abstract_uikit_core_renderer {
                 
                 //Button
                 $content .= html_writer::start_tag('a', array('href' => $url, 'class' => $buttonsclasses, 'href' => '#', 'title' => $menunode->get_title()));
-                $content .= $menunode->get_text() . ' <i class="uk-icon-caret-down"></i>';
+                $content .= $menunode->get_text() . ' <i class="uk-icon uk-icon-caret-down"></i>';
                 $content .= html_writer::end_tag('a');
                 
                 //Subelements
