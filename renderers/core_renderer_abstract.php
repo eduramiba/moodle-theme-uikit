@@ -259,6 +259,9 @@ abstract class abstract_uikit_core_renderer extends core_renderer {
 
     public function navbar() {
         $items = $this->page->navbar->get_items();
+        if(empty($items)){
+            return '';
+        }
         $breadcrumbs = array();
         foreach ($items as $item) {
             $item->hideicon = true;
