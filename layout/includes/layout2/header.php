@@ -34,7 +34,7 @@ if(!empty($PAGE->theme->settings->siteicon)){
 ?>
 
 <?php if(empty($PAGE->layout_options['noheader'])){ ?>
-    <header id="page-header" role="banner">
+    <header id="page-header" role="banner" class="flexauto">
         <div id="page-header-content" class="flex-grid-horizontal">
             <!-- HEADER: LOGO AREA -->
             <div id="page-header-content-logo">

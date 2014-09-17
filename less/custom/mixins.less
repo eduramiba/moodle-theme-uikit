@@ -71,6 +71,11 @@
 .flexgrow {
     //Use all remaining space from container
     .flex(1, 1, auto);
+
+}
+.flexauto {
+    //Use all remaining space from container
+    .flex(0, 0, auto);
 }
 
 .flex-full-width {
@@ -94,6 +99,16 @@
     }
 }
 
+.flex-grid-vertical, .flex-grid-horizontal-wrap {
+    //Never shrink vertically:
+    
+    .flexgrow {
+        -webkit-flex-shrink: 0; // Webkit Standard
+        -moz-flex-shrink: 0; // Mozilla Standard
+        -ms-flex-shrink: 0; // IE 10 Mid, IE 11 Standard
+        flex-shrink: 0;
+    }
+}
 
 @media only screen and (max-width: @breakpoint-small), only screen and (max-device-width: @breakpoint-small){
     .flex-grid-xsmall-horizontal-wrap {

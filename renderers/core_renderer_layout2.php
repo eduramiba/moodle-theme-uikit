@@ -25,7 +25,7 @@
 class theme_uikit_core_renderer extends abstract_uikit_core_renderer {
     
     public function body_attributes($additionalclasses = array()) {
-        $additionalclasses[]= 'layout2';
+        $additionalclasses[]= 'layout2 flex-grid-vertical';
         return parent::body_attributes($additionalclasses);
     }
     

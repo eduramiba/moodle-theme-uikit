@@ -44,12 +44,12 @@ echo $OUTPUT->doctype()
         <?php echo $OUTPUT->standard_top_of_body_html() ?>
 
 
-        <div id="page">
+        <div id="page" class="flex-grid-horizontal-wrap flexgrow">
             <?php require_once(dirname(__FILE__) . '/includes/layout2/header.php'); ?>
             
-            <div id="page-content">
-                <div id="<?php echo $regionbsid ?>">
-                    <div id="pre-and-content" class="flex-grid-horizontal">
+            <div id="page-content" class="flex-grid-horizontal-wrap flexgrow">
+                <div id="<?php echo $regionbsid ?>" class="flex-grid-horizontal-wrap flexgrow">
+                    <div id="pre-and-content" class="flex-grid-horizontal flexgrow">
                         <?php 
                                 $sidePreClasses = 'content-pre';
                                 $regionClasses = 'flexgrow';

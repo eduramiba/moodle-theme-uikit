@@ -83,12 +83,12 @@ echo $OUTPUT->doctype()
 
 
         <!-- Start Main Regions -->
-        <div id="page">
+        <div id="page" class="flex-grid-horizontal-wrap flexgrow">
             <?php require_once(dirname(__FILE__) . '/includes/layout2/header.php'); ?>
             
-            <div id="page-content">
-                <div id="<?php echo $regionbsid ?>" class="uk-margin-bottom">
-                    <div id="pre-and-content" class="flex-grid-horizontal">
+            <div id="page-content" class="flex-grid-horizontal-wrap flexgrow">
+                <div id="<?php echo $regionbsid ?>" class="flex-grid-horizontal-wrap flexgrow uk-margin-bottom">
+                    <div id="pre-and-content" class="flex-grid-horizontal flexgrow">
                         <?php if($hassidepre){echo $OUTPUT->uikitblocks($pre, $preClass);} ?>
                         <div id="region-main-uikit" class="<?php echo $contentClass; ?> flex-grid-horizontal-wrap">
                             <section id="region-main" class="uk-margin-bottom flexgrow flex-grid-vertical">
