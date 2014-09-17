@@ -244,12 +244,12 @@ class theme_uikit_core_renderer extends abstract_uikit_core_renderer {
                     $loggedinas = $realuserinfo . $username;
                     
                     if ($bDisplayLogout) {
-                        $loggedinas .= " <a class=\"$buttonsclasses\" href=\"$CFG->wwwroot/login/logout.php?sesskey=" . sesskey() . "\">".$logoutIcon." " . get_string('logout', 'theme_uikit') . '</a>';
+                        $loggedinas .= " <a class=\"$buttonsclasses\" href=\"$CFG->wwwroot/login/logout.php?sesskey=" . sesskey() . "\">".$logoutIcon." " . $this->processMenuItemText(get_string('logout', 'theme_uikit')) . '</a>';
                     }
                 }
             }else{
                 if($bDisplayLogout){
-                    $loggedinas = "<a class=\"$buttonsclasses\" href=\"$CFG->wwwroot/login/logout.php?sesskey=" . sesskey() . "\">".$logoutIcon." " . get_string('logout', 'theme_uikit') . '</a>';
+                    $loggedinas = "<a class=\"$buttonsclasses\" href=\"$CFG->wwwroot/login/logout.php?sesskey=" . sesskey() . "\">".$logoutIcon." " . $this->processMenuItemText(get_string('logout', 'theme_uikit')) . '</a>';
                 }else{
                     $loggedinas = '';
                 }
