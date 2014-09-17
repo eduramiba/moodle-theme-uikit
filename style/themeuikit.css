@@ -17950,8 +17950,8 @@ input[type=button].closebutton,
   width: 100%;
   float: none;
 }
-.flex-grid-vertical .flexgrow,
-.flex-grid-horizontal-wrap .flexgrow {
+.flex-grid-vertical > .flexgrow,
+.flex-horizontal-wrap > .flexgrow {
   -webkit-flex-shrink: 0;
   -moz-flex-shrink: 0;
   -ms-flex-shrink: 0;
@@ -17975,12 +17975,6 @@ input[type=button].closebutton,
     width: 100%;
     float: none;
   }
-  .flex-grid-xsmall-horizontal-wrap .flexgrow {
-    -webkit-flex-shrink: 0;
-    -moz-flex-shrink: 0;
-    -ms-flex-shrink: 0;
-    flex-shrink: 0;
-  }
 }
 @media only screen and (max-width: 768px), only screen and (max-device-width: 768px) {
   .flex-grid-small-horizontal-wrap {
@@ -17999,12 +17993,6 @@ input[type=button].closebutton,
     max-width: 100%;
     width: 100%;
     float: none;
-  }
-  .flex-grid-small-horizontal-wrap .flexgrow {
-    -webkit-flex-shrink: 0;
-    -moz-flex-shrink: 0;
-    -ms-flex-shrink: 0;
-    flex-shrink: 0;
   }
 }
 @media only screen and (max-width: 960px), only screen and (max-device-width: 960px) {
@@ -18025,12 +18013,6 @@ input[type=button].closebutton,
     width: 100%;
     float: none;
   }
-  .flex-grid-medium-horizontal-wrap .flexgrow {
-    -webkit-flex-shrink: 0;
-    -moz-flex-shrink: 0;
-    -ms-flex-shrink: 0;
-    flex-shrink: 0;
-  }
 }
 @media only screen and (max-width: 1220px), only screen and (max-device-width: 1220px) {
   .flex-grid-large-horizontal-wrap {
@@ -18049,12 +18031,6 @@ input[type=button].closebutton,
     max-width: 100%;
     width: 100%;
     float: none;
-  }
-  .flex-grid-large-horizontal-wrap .flexgrow {
-    -webkit-flex-shrink: 0;
-    -moz-flex-shrink: 0;
-    -ms-flex-shrink: 0;
-    flex-shrink: 0;
   }
 }
 /* Margins */
@@ -18555,12 +18531,6 @@ body.layout2 #block-region-side-pre {
     width: 100%;
     float: none;
   }
-  body.layout2 #page-header-content .flexgrow {
-    -webkit-flex-shrink: 0;
-    -moz-flex-shrink: 0;
-    -ms-flex-shrink: 0;
-    flex-shrink: 0;
-  }
   body.layout2 #page-header-content #page-header-content-logo {
     text-align: center;
     margin-bottom: 10px;
@@ -18587,12 +18557,6 @@ body.layout2 #block-region-side-pre {
     max-width: 100%;
     width: 100%;
     float: none;
-  }
-  body.layout2 #pre-and-content .flexgrow {
-    -webkit-flex-shrink: 0;
-    -moz-flex-shrink: 0;
-    -ms-flex-shrink: 0;
-    flex-shrink: 0;
   }
   body.layout2 #block-region-side-pre {
     margin-top: 5px;

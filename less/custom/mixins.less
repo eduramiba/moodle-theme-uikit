@@ -99,10 +99,10 @@
     }
 }
 
-.flex-grid-vertical, .flex-grid-horizontal-wrap {
+.flex-grid-vertical, .flex-horizontal-wrap {
     //Never shrink vertically:
     
-    .flexgrow {
+    & > .flexgrow {
         -webkit-flex-shrink: 0; // Webkit Standard
         -moz-flex-shrink: 0; // Mozilla Standard
         -ms-flex-shrink: 0; // IE 10 Mid, IE 11 Standard
