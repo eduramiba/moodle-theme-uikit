@@ -40,7 +40,7 @@ class theme_uikit_core_renderer extends abstract_uikit_core_renderer {
         if($region === 'side-pre'){
             $responsivehtml = '
                 <ul id="navigationAccordionNav" class="uk-nav uk-nav-side uk-visible-small">
-                    <li><a id="navigationAccordionToggle" href="#"><span class="uk-icon uk-icon-home"></span> '.get_string('navigation').'</a></li>
+                    <li><a id="navigationAccordionToggle" href="#"><span class="uk-icon uk-icon-home"></span> '.get_string('navigationtoggletext', 'theme_uikit').'</a></li>
                 </ul>
                 ';
             

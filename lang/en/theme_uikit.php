@@ -33,6 +33,7 @@ $string['choosereadme'] = 'Theme built with UIKit. It includes an advanced Visua
 /* General */
 $string['logout'] = 'Logout';
 $string['panel'] = 'Panel';
+$string['navigationtoggletext'] = 'Navigation';
 $string['visualstylemanager'] = 'UIKit Visual Style Manager';
 $string['geneicsettings'] = 'General Settings';
 $string['autohide'] = 'Include Autohide Functionality';
