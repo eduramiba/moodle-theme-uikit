@@ -18859,6 +18859,11 @@ a.skip {
   color: #999999;
   margin-right: 5px;
 }
+.hidden-blocks {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
 .hidden-blocks .block {
   margin-top: 15px;
   float: right;
