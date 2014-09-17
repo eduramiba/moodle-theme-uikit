@@ -6,19 +6,36 @@
  *
  */
 
-(function($){
-	$(document).ready(function() {
-		$(window).scroll(function() {
-			if ( $(this).scrollTop() > 550) {
-				$('#toTop').fadeIn();
-			} else {
-				$('#toTop').fadeOut();
-			}
-		});
-		
-		$('#da-slider').cslider({
-			autoplay	: true,
-			interval : 6000
-		});
-	});
+(function($) {
+    $(document).ready(function() {
+        $(window).scroll(function() {
+            if ($(this).scrollTop() > 550) {
+                $('#toTop').fadeIn();
+            } else {
+                $('#toTop').fadeOut();
+            }
+        });
+
+        $('#da-slider').cslider({
+            autoplay: true,
+            interval: 6000
+        });
+
+        $("#navigationAccordionToggle").click(function(event) {
+            event.preventDefault();
+            $("#navigationAccordion").slideToggle();
+        });
+        
+        $(window).resize(function() {
+            if(this.resizeTO) clearTimeout(this.resizeTO);
+            this.resizeTO = setTimeout(function() {
+                $(this).trigger('resizeEnd');
+            }, 300);
+        });
+        
+        //Restore accordion visibility on window resize:
+        $(window).bind('resizeEnd', function() {
+            $("#navigationAccordion").attr('style', null);//Remove slideToggle display rule
+        });
+    });
 })(jQuery);

@@ -29,6 +29,31 @@ class theme_uikit_core_renderer extends abstract_uikit_core_renderer {
         return parent::body_attributes($additionalclasses);
     }
     
+    /**
+     * Activate navigation slide toggle display.
+     * @param string $region
+     * @return string
+     */
+    public function blocks_for_region($region) {
+        $content = parent::blocks_for_region($region);
+        
+        if($region === 'side-pre'){
+            $responsivehtml = '
+                <ul id="navigationAccordionNav" class="uk-nav uk-nav-side uk-visible-small">
+                    <li><a id="navigationAccordionToggle" href="#"><span class="uk-icon uk-icon-home"></span> '.get_string('navigation').'</a></li>
+                </ul>
+                ';
+            
+            $responsivehtml .= '<div id="navigationAccordion">'
+                    . $content
+                    . '</div>';
+            
+            return $responsivehtml;
+        }else{
+            return $content;
+        }
+    }
+    
     protected function render_custom_menu_base(custom_menu $menu, $isOffCanvas = false){
         if(!isset($this->page->theme->settings->stickynavigationbar) || $this->page->theme->settings->stickynavigationbar){
             $stickyAttrs = array(

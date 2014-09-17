@@ -88,15 +88,33 @@ body.layout2 {
         
 		#pre-and-content{
 			.flex-grid-horizontal-wrap();
-
-			#region-main-uikit {
-				.box-order(1);
-			}
-
-			#block-region-side-pre {
-				.box-order(2);
-			}
 		}
+        
+        #block-region-side-pre {
+            margin-top: 5px;
+            border-top: @mdl-border-width solid @mdl-main-region-border;
+            border-left: @mdl-border-width solid @mdl-main-region-border;
+            border-right: @mdl-border-width solid @mdl-main-region-border;
+            
+            border-top-left-radius: @mdl-border-radius;
+            border-top-right-radius: @mdl-border-radius;
+            padding: 0;
+        }
+        
+        #page-navbar {
+            display: none;
+        }
+        
+        #navigationAccordionNav {
+            border-bottom: @mdl-border-width solid @mdl-main-region-border;
+        }
+        
+        #navigationAccordion {
+            display: none;
+            padding-top: 5px;
+            padding-left: 5px;
+            padding-right: 5px;
+        }
 	}
     
     @media only screen and (min-width: @breakpoint-xlarge){
