@@ -73,8 +73,6 @@ class theme_uikit_core_course_renderer extends core_course_renderer {
         
         if(empty($course_cat_tree)){
             $course_cat_tree = html_writer::tag('div', get_string('noenrolments', 'theme_uikit'), array('class' => 'uk-alert uk-alert-danger', 'style' => 'clear: both;'));
-
-            $course_cat_tree .= html_writer::end_tag('div');
         }
         return $course_cat_tree;
     }
