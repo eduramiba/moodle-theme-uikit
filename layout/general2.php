@@ -91,7 +91,7 @@ echo $OUTPUT->doctype()
                     <div id="pre-and-content" class="flex-grid-horizontal flexgrow">
                         <?php if($hassidepre){echo $OUTPUT->uikitblocks($pre, $preClass);} ?>
                         <div id="region-main-uikit" class="<?php echo $contentClass; ?> flex-grid-horizontal-wrap">
-                            <section id="region-main" class="uk-margin-bottom flexgrow flex-grid-vertical">
+                            <section id="region-main" class="uk-margin-bottom flexgrow  flex-grid-horizontal-wrap">
                                 <?php require_once(dirname(__FILE__).'/includes/mainregionbreadcrumbs.php'); ?>
                                 <div id="main-content-box" class="<?php echo $maincontentclass; ?> flexgrow">
                                     <div class="<?php echo $regionClass; ?>">

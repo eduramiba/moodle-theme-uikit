@@ -25,7 +25,7 @@
  */
 ?>
 <div id="region-main-uikit" class="<?php echo $regionClasses; ?> flex-grid-horizontal-wrap"> 
-    <section id="region-main" class="uk-margin-bottom flexgrow flex-grid-vertical">
+    <section id="region-main" class="uk-margin-bottom flexgrow flex-grid-horizontal-wrap">
         <?php require_once(dirname(__FILE__).'/../mainregionbreadcrumbs.php'); ?>
         <div id="main-content-box" class="flexgrow">
             <div id="aditional-frontpage-content">
@@ -57,14 +57,13 @@
 				echo $OUTPUT->course_content_footer();
 			?>
 		</div>        
-    </section>
-    
-    <?php 
-            $footerplacement = isset($PAGE->theme->settings->footerplacement) ? $PAGE->theme->settings->footerplacement : 1;
-            if($footerplacement == 2){
-                require_once(dirname(__FILE__) . '/../footer.php');
+        <?php 
+                $footerplacement = isset($PAGE->theme->settings->footerplacement) ? $PAGE->theme->settings->footerplacement : 1;
+                if($footerplacement == 2){
+                    require_once(dirname(__FILE__) . '/../footer.php');
 
-                echo $OUTPUT->standard_footer_html();
-            }
-        ?>
+                    echo $OUTPUT->standard_footer_html();
+                }
+            ?>
+    </section>
 </div>

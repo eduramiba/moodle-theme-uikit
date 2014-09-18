@@ -60,13 +60,8 @@ echo $OUTPUT->doctype()
                                     $regionClasses = 'flex-full-width';
                                 }
                         
-                                if(empty($PAGE->theme->settings->frontpageblocks) || $PAGE->theme->settings->frontpageblocks === 'left'){
-                                    require_once(dirname(__FILE__) . '/includes/layout2/frontpage-content.php');
-                                    echo $OUTPUT->uikitblocks('side-pre', $sidePreClasses);
-                                }else{
-                                    echo $OUTPUT->uikitblocks('side-pre', $sidePreClasses);
-                                    require_once(dirname(__FILE__) . '/includes/layout2/frontpage-content.php');
-                                }
+                                echo $OUTPUT->uikitblocks('side-pre', $sidePreClasses);
+                                require_once(dirname(__FILE__) . '/includes/layout2/frontpage-content.php');
                             ?>
                     </div>
                 </div>
