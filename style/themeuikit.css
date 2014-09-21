@@ -18126,6 +18126,7 @@ div#dock {
   margin-right: 10px;
 }
 #page-header-content {
+  width: 100%;
   max-width: 1200px;
   margin-left: auto;
   margin-right: auto;
@@ -18143,6 +18144,7 @@ div#dock {
   clear: both;
 }
 #navbar-uikit-theme-content {
+  width: 100%;
   max-width: 1200px;
   margin-left: auto;
   margin-right: auto;
@@ -18159,6 +18161,7 @@ div#dock {
   clear: both;
 }
 #aditional-frontpage-content {
+  width: 100%;
   max-width: 1200px;
   margin-left: auto;
   margin-right: auto;
@@ -18175,6 +18178,7 @@ div#dock {
   clear: both;
 }
 #page-content {
+  width: 100%;
   max-width: 1920px;
   margin-left: auto;
   margin-right: auto;
@@ -18194,6 +18198,7 @@ div#dock {
   max-width: none;
 }
 #page-footer {
+  width: 100%;
   max-width: 100%;
   margin-left: auto;
   margin-right: auto;
