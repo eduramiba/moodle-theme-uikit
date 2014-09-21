@@ -18469,6 +18469,9 @@ body {
 /**
  * Second layout specific styles
  */
+body.layout2 #headerlogo {
+  font-size: 2.5em;
+}
 body.layout2 #page-header {
   padding-top: 5px;
   padding-bottom: 0;
