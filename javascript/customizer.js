@@ -8,7 +8,7 @@
 
 (function($){
     if (window !== window.top) {
-        //Detect if this window is an iframe (the user may enter de UIKit style manager from the manager itself):
+        //Detect if this window is an iframe (the user may enter to UIKit style manager from the manager itself):
         $("#page-content").html(
                 '<blockquote class="uk-margin-top uk-margin-left">'
                     +'<p>In order to understand recursion, one must first understand recursion.</p>'
@@ -1231,7 +1231,7 @@
         
         var customCodeChanged = false;
         
-        $customLessEditor.on('change', function(){
+        $customLessEditor.on('change input propertychange', function(){
             customCodeChanged = true;
         });
         
