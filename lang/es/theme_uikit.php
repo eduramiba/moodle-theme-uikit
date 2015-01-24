@@ -261,19 +261,19 @@ $string['websitedesc'] = 'Introduzca el URL de su sitio web institucional. (ej. 
 
 /* iOS Icons */
 $string['iosicon'] = 'Iconos para iOS';
-$string['iosicondesc'] = 'El tema proporciona un icono por defecto para los menús principales de iOS y Android. Puedes subir uno personalizado si lo deseas.';
+$string['iosicondesc'] = 'El tema proporciona un icono por defecto para los menús principales de iOS, Android y Windows. Puedes subir uno personalizado si lo deseas.';
 
 $string['iphoneicon'] = 'iPhone/iPod Touch Icon (No Retina)';
-$string['iphoneicondesc'] = 'El icono debería ser una imagen PN de 57px por 57px';
+$string['iphoneicondesc'] = 'El icono debería ser una imagen PNG de 57px por 57px';
 
 $string['iphoneretinaicon'] = 'iPhone/iPod Touch Icon (Retina)';
-$string['iphoneretinaicondesc'] = 'El icono debería ser una imagen PN de 114px por 114px';
+$string['iphoneretinaicondesc'] = 'El icono debería ser una imagen PNG de 114px por 114px';
 
 $string['ipadicon'] = 'iPad Icon (No Retina)';
-$string['ipadicondesc'] = 'El icono debería ser una imagen PN de 72px por 72px';
+$string['ipadicondesc'] = 'El icono debería ser una imagen PNG de 72px por 72px';
 
 $string['ipadretinaicon'] = 'iPad Icon (Retina)';
-$string['ipadretinaicondesc'] = 'El icono debería ser una imagen PN de 144px por 144px';
+$string['ipadretinaicondesc'] = 'El icono debería ser una imagen PNG de 144px por 144px';
 
 /* Mobile Apps */
 $string['mobileappsheading'] = 'Aplicaciones móviles';
