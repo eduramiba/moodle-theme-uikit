@@ -1065,4 +1065,23 @@ class theme_uikit_core_renderer extends core_renderer {
             return $this->pix_url('favicon', 'theme');//Default favicon
         }
     }
+    
+    /**
+     * Checks if there are customizer saved styles and they were saved in an old version.
+     */
+    public function check_stale_savedstyles(){
+        global $DB;
+        $table = "theme_uikit_less_settings";
+        
+        $saved_theme = $DB->get_field($table, 'value', array('setting' => 'theme'));
+        
+        if(!empty($saved_theme)){//Any styles saved?
+            $current_theme_version = $this->page->theme->settings->version;
+            $saved_styles_version = $saved_theme = $DB->get_field($table, 'value', array('setting' => 'version'));
+            
+            return $current_theme_version !== $saved_styles_version;
+        }
+        
+        return false;
+    }
 }

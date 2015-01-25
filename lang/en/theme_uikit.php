@@ -354,6 +354,8 @@ $string['custom_less_default'] =
 $string['themedesignerenabled'] = 'Theme designer mode has been enabled';
 $string['warning_theme_designer_enabled'] = 'Theme designer mode has been automatically enabled. Make sure to disable theme designer mode for better performance when you are done customizing styles.';
 $string['warning_theme_designer_disable'] = 'You can disable it here';
+$string['warning_saved_styles_different_theme_version'] = 'It seems that you saved custom styles for this site with an old version of theme UIKit';
+$string['warning_saved_styles_different_theme_version_action'] = 'Please update the theme styles by going to the customizer and clicking on save';
 $string['page_description'] = 'This page is for customizing the look and feel of your site.';
 $string['page_description_sub'] = 'You can configure the logo, favicon and many other options here.';
 

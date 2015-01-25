@@ -34,7 +34,6 @@ $THEME->supportscssoptimisation = false;
 
 //Load current style settings:
 global $DB;
-$table = "theme_uikit_less_settings";
 
 //Check if generated styles are available for the site and load them
 $context = context_system::instance();
@@ -69,8 +68,8 @@ $THEME->plugins_exclude_sheets = array(
         'html'
     ),
     'gradereport' => array(
-        'grader',
-    ),
+        'grader'
+    )
 );
 
 $THEME->rendererfactory = 'theme_overridden_renderer_factory';

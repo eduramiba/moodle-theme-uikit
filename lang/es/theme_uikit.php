@@ -350,6 +350,8 @@ $string['custom_less_default'] =
 $string['themedesignerenabled'] = 'El modo de diseño de temas ha sido activado';
 $string['warning_theme_designer_enabled'] = 'El modo de diseño de temas ha sido activado automáticamente. Asegúrate de desactivarlo para mejorar el rendimiento cuando hayas acabado de personalizar los estilos.';
 $string['warning_theme_designer_disable'] = 'Lo puedes desactivar aquí';
+$string['warning_saved_styles_different_theme_version'] = 'Parece que existen estilos personalizados para el sitio guardados con una versión antigua del tema UIKit';
+$string['warning_saved_styles_different_theme_version_action'] = 'Por favor actualiza los estilos del tema entrando en el gestor visual de estilos y pulsando en guardar';
 $string['page_description'] = 'Esta página permite personalizar el estilo y comportamiento de tu sitio.';
 $string['page_description_sub'] = 'Puedes configurar el logo, favicon y otras muchas opciones aquí.';
 
