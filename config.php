@@ -66,9 +66,6 @@ $THEME->editor_sheets = array();
 $THEME->plugins_exclude_sheets = array(
     'block' => array(
         'html'
-    ),
-    'gradereport' => array(
-        'grader'
     )
 );
 
