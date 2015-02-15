@@ -42,6 +42,30 @@ $setting = new admin_setting_configselect($name, $title, $description, $default,
 $setting->set_updatedcallback('theme_reset_all_caches');
 $temp->add($setting);
 
+// Slideshow height:
+$name = 'theme_uikit/slideshowheight';
+$title = get_string('slideshowheight', 'theme_uikit');
+$description = '';
+$default = '300px';
+$choices = array(
+    'auto' => get_string('auto', 'theme_uikit')
+);
+for($i = 100; $i <= 500; $i+=25){
+    $choices[$i.'px'] = $i.'px';
+}
+$temp->add(new admin_setting_configselect($name, $title, $description, $default, $choices));
+
+// Image sizing:
+$name = 'theme_uikit/slideshowsizingmode';
+$title = get_string('slideshowsizingmode', 'theme_uikit');
+$description = '';
+$default = 'width';
+$choices = array(
+    'auto' => get_string('auto', 'theme_uikit'),
+    'height' => get_string('slideshowsizingmode-fullheight', 'theme_uikit'),
+    'width' => get_string('slideshowsizingmode-fullwidth', 'theme_uikit')
+);
+$temp->add(new admin_setting_configselect($name, $title, $description, $default, $choices));
 
 // Number of slides.
 $name = 'theme_uikit/slideshownumber';

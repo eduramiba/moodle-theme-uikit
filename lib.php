@@ -118,6 +118,23 @@ function theme_uikit_set_loginheaderimage($css, $loginheaderimage) {
     return $css;
 }
 
+function theme_uikit_set_slideshow_sizing($css, &$theme) {
+    //Replace slideshow colors:
+    $setting = 'slideshowsizingmode';
+
+    $modecss = 'auto';
+    if (isset($theme->settings->$setting)) {
+        if ($theme->settings->$setting === 'height') {
+            $modecss = 'auto 100%';
+        } elseif ($theme->settings->$setting === 'width') {
+            $modecss = '100% auto';
+        }
+    }
+    $tag = "[[setting:$setting]]";
+
+    return str_replace($tag, $modecss, $css);
+}
+
 function theme_uikit_set_slideshow_colors($css, &$theme) {
     //Replace slideshow colors:
     $defaults = array(
@@ -276,6 +293,7 @@ function theme_uikit_process_css($css, $theme) {
         $css = theme_uikit_set_loginheaderimage($css, $loginheaderimage);
 
         // Set the slideshow colors
+        $css = theme_uikit_set_slideshow_sizing($css, $theme);
         $css = theme_uikit_set_slideshow_colors($css, $theme);
 
         // Set the font path.

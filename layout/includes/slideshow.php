@@ -30,6 +30,7 @@ $slideshowenabled =
         && !strpos($checkuseragent, 'MSIE 7')// Hide slideshow for IE7
         ;
 
+$slideshowheight = isset($PAGE->theme->settings->slideshowheight) ? $PAGE->theme->settings->slideshowheight : 'auto';
 $slideshowautoplay = isset($PAGE->theme->settings->slideshowautoplay) ? $PAGE->theme->settings->slideshowautoplay : true;
 $slideshowanimation = isset($PAGE->theme->settings->slideshowanimation) ? $PAGE->theme->settings->slideshowanimation : 'swipe';
 $slideshowkenburns = isset($PAGE->theme->settings->slideshowkenburns) ? $PAGE->theme->settings->slideshowkenburns : false;
@@ -69,7 +70,7 @@ if ($slideshowenabled) {
                 if (empty($urlText)) {
                     $urlText = get_string('readmore', 'theme_uikit');
                 }
-                $html .= '<a href="' . $url . '" class="uk-button '.$slideshowbuttontype.'">' . $urlText . '</a>';
+                $html .= '<a href="' . $url . '" class="uk-button uk-button-small '.$slideshowbuttontype.'">' . $urlText . '</a>';
             }
             $html .= '</div>';
             $html .= '</div>';
@@ -94,14 +95,14 @@ if ($slideshowenabled) {
 
     if(!empty($slidesHtml)){
         ?>
-        <div id="themeuikit-slideshow" class="uk-slidenav-position uk-margin-bottom" data-uk-slideshow="{autoplay: <?php echo $slideshowautoplay ? 'true' : 'false'; ?>, animation: '<?php echo $slideshowanimation; ?>', kenburns: <?php echo $slideshowkenburns ? 'true' : 'false'?>}">
+        <div id="themeuikit-slideshow" class="uk-slidenav-position uk-margin-bottom" data-uk-slideshow="{height: '<?php echo $slideshowheight; ?>', autoplay: <?php echo $slideshowautoplay ? 'true' : 'false'; ?>, animation: '<?php echo $slideshowanimation; ?>', kenburns: <?php echo $slideshowkenburns ? 'true' : 'false'?>}">
             <ul class="uk-slideshow">
                 <?php echo $slidesHtml; ?>
             </ul>
             <?php if($slidesWithInfoCount > 1){ ?>
                 <a href="" class="uk-slidenav uk-slidenav-contrast uk-slidenav-previous" data-uk-slideshow-item="previous"></a>
                 <a href="" class="uk-slidenav uk-slidenav-contrast uk-slidenav-next" data-uk-slideshow-item="next"></a>
-                <ul class="uk-dotnav uk-dotnav-contrast uk-position-bottom uk-text-center">
+                <ul class="uk-dotnav uk-dotnav-contrast uk-position-bottom uk-text-center uk-hidden-small">
                     <?php foreach (range(0, $slidesWithInfoCount - 1) as $i) { ?>
                         <li data-uk-slideshow-item="<?php echo $i; ?>"><a href=""></a></li>
                     <?php } ?>

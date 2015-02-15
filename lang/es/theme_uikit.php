@@ -184,6 +184,13 @@ $string['slideshowheading'] = 'Diapositivas de Página Inicial';
 $string['slideshowheadingsub'] = 'Diapositivas Dinámicas para la Página Inicial';
 $string['slideshowdesc'] = 'Esto genera un carrusel de hasta 4 diapositivas que le permiten promover elementos importantes de su sitio.';
 
+$string['slideshowheight'] = 'Altura del carrusel de diapositivas';
+
+$string['slideshowsizingmode'] = 'Modo de tamaño de diapositivas';
+$string['slideshowsizingmode-auto'] = 'Auto';
+$string['slideshowsizingmode-fullwidth'] = 'Utilizar ancho completo';
+$string['slideshowsizingmode-fullheight'] = 'Utilizar altura completa';
+
 $string['slideshownumber'] = 'Número de diapositivas';
 
 $string['toggleslideshow'] = 'Mostrar/Ocultar diapositivas';

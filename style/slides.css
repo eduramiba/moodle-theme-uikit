@@ -1,5 +1,5 @@
 #themeuikit-slideshow .uk-cover-background {
-    background-size: 100%; /* Use full width if possible */
+    background-size: [[setting:slideshowsizingmode]];
 	background-repeat: no-repeat;
 	background-position: center;
 }

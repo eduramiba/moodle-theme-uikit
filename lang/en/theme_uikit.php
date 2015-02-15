@@ -185,6 +185,14 @@ $string['slideshowheading'] = 'Frontpage Slideshow';
 $string['slideshowheadingsub'] = 'Dynamic Slideshow for the frontpage';
 $string['slideshowdesc'] = 'This creates a dynamic slideshow of up to 4 slides for you to promote important elements of your site.';
 
+$string['slideshowheight'] = 'Slideshow height';
+$string['slideshowsizingmode'] = 'Slide sizing mode';
+
+$string['auto'] = 'Auto';
+
+$string['slideshowsizingmode-fullwidth'] = 'Use full width';
+$string['slideshowsizingmode-fullheight'] = 'Use full height';
+
 $string['slideshownumber'] = 'Number of slides';
 
 $string['toggleslideshow'] = 'Toggle Slideshow display';
