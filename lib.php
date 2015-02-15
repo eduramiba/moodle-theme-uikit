@@ -60,8 +60,7 @@ function theme_uikit_set_logo($css, $logo) {
     if (is_null($replacement)) {
         $replacement = '';
     }
-    $css = str_replace($tag, $replacement, $css);
-    return $css;
+    return str_replace($tag, $replacement, $css);
 }
 
 function theme_uikit_set_pagebackground($css, $pagebackground) {
@@ -71,9 +70,7 @@ function theme_uikit_set_pagebackground($css, $pagebackground) {
     }else{
         $replacement = "/* No image */";
     }
-    $css = str_replace($tag, $replacement, $css);
-    
-    return $css;
+    return str_replace($tag, $replacement, $css);
 }
 
 function theme_uikit_set_headerbackground($css, $headerbackground) {
@@ -83,9 +80,7 @@ function theme_uikit_set_headerbackground($css, $headerbackground) {
     }else{
         $replacement = "/* No image */";
     }
-    $css = str_replace($tag, $replacement, $css);
-    
-    return $css;
+    return str_replace($tag, $replacement, $css);
 }
 
 function theme_uikit_set_footerbackground($css, $footerbackground) {
@@ -95,9 +90,7 @@ function theme_uikit_set_footerbackground($css, $footerbackground) {
     }else{
         $replacement = "/* No image */";
     }
-    $css = str_replace($tag, $replacement, $css);
-    
-    return $css;
+    return str_replace($tag, $replacement, $css);
 }
 
 function theme_uikit_set_loginheaderimage($css, $loginheaderimage) {
@@ -113,7 +106,6 @@ function theme_uikit_set_loginheaderimage($css, $loginheaderimage) {
     //Replace url:
     $url_tag = '[[setting:loginheaderimageurl]]';
     $css = str_replace($url_tag, $loginheaderimage, $css);
-    
     
     return $css;
 }

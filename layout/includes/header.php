@@ -24,12 +24,6 @@
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-/* Modified to check for IE 7/8. Switch headers to remove backgound-size CSS (in Custom CSS) functionality if true */
-$checkuseragent = '';
-if (!empty($_SERVER['HTTP_USER_AGENT'])) {
-    $checkuseragent = $_SERVER['HTTP_USER_AGENT'];
-}
-
 $haslogo = (!empty($PAGE->theme->settings->logo));
 $hasheaderprofilepic = (empty($PAGE->theme->settings->headerprofilepic)) ? false : $PAGE->theme->settings->headerprofilepic;
 $icon = 'pencil-square-o';
