@@ -76,6 +76,18 @@ $string['dontdisplay'] = 'Nunca mostrar';
 $string['footerblocks'] = 'Activar bloques del pie de página';
 $string['footerblocksdesc'] = 'Si se activa muestra 3 lugares adicionales donde colocar bloques en el pie de página';
 
+$string['componentclass-normal'] = 'Normal';
+$string['componentclass-primary'] = 'Primario';
+$string['componentclass-success'] = 'Éxito';
+$string['componentclass-danger'] = 'Peligro';
+$string['componentclass-link'] = 'Enlace';
+
+$string['componentplacement-center'] = 'Centrado';
+$string['componentplacement-top'] = 'Superior';
+$string['componentplacement-bottom'] = 'Inferior';
+$string['componentplacement-left'] = 'Izquierda';
+$string['componentplacement-right'] = 'Derecha';
+
 /* CustomMenu */
 $string['custommenuheading'] = 'Menú Personalizado';
 $string['custommenuheadingsub'] = 'Añadir funcionalidad personalizada tu menú.';
@@ -173,7 +185,6 @@ $string['slideshowheadingsub'] = 'Diapositivas Dinámicas para la Página Inicia
 $string['slideshowdesc'] = 'Esto genera un carrusel de hasta 4 diapositivas que le permiten promover elementos importantes de su sitio.';
 
 $string['slideshownumber'] = 'Número de diapositivas';
-$string['slideshowcolor'] = 'Color principal de las diapositivas';
 
 $string['toggleslideshow'] = 'Mostrar/Ocultar diapositivas';
 $string['toggleslideshowdesc'] = 'Elige si quieres ocultar o mostrar las diapositivas.';
@@ -189,12 +200,29 @@ $string['slideimage'] = 'Imagen de la Diapositiva';
 $string['slidecaption'] = 'Subtítulo de la Diapositiva';
 $string['slideurl'] = 'Enlace del botón de la diapositiva';
 $string['slideurltext'] = 'Texto del botón de la diapositiva';
+$string['slidecaptionplacement'] = 'Disposición de la leyenda de la diapositiva';
 
-$string['slideshowbordercolor'] = 'Color del borde de las diapositivas';
 $string['slideshowtitlecolor'] = 'Color del título de las diapositivas';
-$string['slideshowcaptioncolor'] = 'Color del subtítulos de las diapositivas';
-$string['slideshowbuttoncolor'] = 'Color del botón de las diapositivas';
-$string['slideshowbuttontextcolor'] = 'Color del texto del botón de las diapositivas';
+$string['slideshowcaptioncolor'] = 'Color del subtítulo de las diapositivas';
+$string['slideshowarrowscolor'] = 'Color de las flechas de navegación';
+$string['slideshowbuttontype'] = 'Tipo de botón de las diapositivas';
+
+$string['slideshowautoplay'] = 'Activar avance automático';
+$string['slideshowanimation'] = 'Animación del carrusel de diapositivas';
+$string['slideshowkenburns'] = 'Activar efecto ken burns';
+
+$string['slideshowanimation-fade'] = 'Desvanecer';
+$string['slideshowanimation-scroll'] = 'Desplazar';
+$string['slideshowanimation-scale'] = 'Escalar';
+$string['slideshowanimation-swipe'] = 'Pasar';
+$string['slideshowanimation-slice-down'] = 'Trocear hacia abajo';
+$string['slideshowanimation-slice-up'] = 'Trocear hacia arriba';
+$string['slideshowanimation-slice-up-down'] = 'Trocear hacia arriba y abajo';
+$string['slideshowanimation-fold'] = 'Plegar';
+$string['slideshowanimation-puzzle'] = 'Puzzle';
+$string['slideshowanimation-boxes'] = 'Cajas';
+$string['slideshowanimation-boxes-reverse'] = 'Cajas inverso';
+$string['slideshowanimation-random-fx'] = 'Aleatorio';
 
 /* Marketing Spots */
 $string['marketingheading'] = 'Spots Publicitarios';

@@ -30,6 +30,10 @@ $slideshowenabled =
         && !strpos($checkuseragent, 'MSIE 7')// Hide slideshow for IE7
         ;
 
+$slideshowautoplay = isset($PAGE->theme->settings->slideshowautoplay) ? $PAGE->theme->settings->slideshowautoplay : true;
+$slideshowanimation = isset($PAGE->theme->settings->slideshowanimation) ? $PAGE->theme->settings->slideshowanimation : 'swipe';
+$slideshowkenburns = isset($PAGE->theme->settings->slideshowkenburns) ? $PAGE->theme->settings->slideshowkenburns : false;
+
 if ($slideshowenabled) {
     $hideonphone = $PAGE->theme->settings->hideonphone;
 
@@ -38,15 +42,23 @@ if ($slideshowenabled) {
         $captionSetting = "slide{$i}caption";
         $urlSetting = "slide{$i}url";
         $urlTextSetting = "slide{$i}urltext";
+        $captionPlacementSetting= "slide{$i}captionplacement";
 
         $title = $PAGE->theme->settings->$titleSetting;
         $caption = $PAGE->theme->settings->$captionSetting;
         $url = $PAGE->theme->settings->$urlSetting;
         $urlText = $PAGE->theme->settings->$urlTextSetting;
         $image = $PAGE->theme->setting_file_url("slide{$i}image", "slide{$i}image");
+        $slideshowbuttontype = empty($PAGE->theme->settings->slideshowbuttontype) ? '' : $PAGE->theme->settings->slideshowbuttontype;
+        $slideshowcaptionplacement = empty($PAGE->theme->settings->$captionPlacementSetting) ? 'center' : $PAGE->theme->settings->$captionPlacementSetting;
 
         if (!empty($title) || !empty($caption) || !empty($url) || !empty($image)) {
-            $html = '<div class="da-slide">';
+            $html = '<li class="slide-'.$i.'">';
+            if (!empty($image)) {
+                $html .= '<img src="' . $image . '" alt="' . $title . '">';
+            }
+            $html .= '<div class="uk-caption uk-caption-'.$slideshowcaptionplacement.' uk-caption-panel uk-animation-fade uk-flex uk-flex-center uk-flex-middle uk-text-center">';
+            $html .= '<div>';
             if (!empty($title)) {
                 $html .= '<h2>' . $title . '</h2>';
             }
@@ -57,12 +69,11 @@ if ($slideshowenabled) {
                 if (empty($urlText)) {
                     $urlText = get_string('readmore', 'theme_uikit');
                 }
-                $html .= '<a href="' . $url . '" class="da-link">' . $urlText . '</a>';
-            }
-            if (!empty($image)) {
-                $html .= '<div class="da-img"><img src="' . $image . '" alt="' . $title . '"></div>';
+                $html .= '<a href="' . $url . '" class="uk-button '.$slideshowbuttontype.'">' . $urlText . '</a>';
             }
             $html .= '</div>';
+            $html .= '</div>';
+            $html .= '</li>';
         } else {
             $html = '';
         }
@@ -72,18 +83,30 @@ if ($slideshowenabled) {
 
     $slidesHtml = '';
     $slides = isset($PAGE->theme->settings->slideshownumber) ? $PAGE->theme->settings->slideshownumber : 4;
+    $slidesWithInfoCount = 0;
     foreach (range(1, $slides) as $i) {
-        $slidesHtml .= theme_uikit_get_slide_html($PAGE, $i);
+        $slide = theme_uikit_get_slide_html($PAGE, $i);
+        if(!empty($slide)){
+            $slidesHtml .= $slide;
+            $slidesWithInfoCount++;
+        }
     }
 
     if(!empty($slidesHtml)){
         ?>
-        <div id="da-slider" class="da-slider variant2 <?php echo $hideonphone ?>" style="background-position: 8650% 0%;">
-            <?php echo $slidesHtml; ?>
-            <nav class="da-arrows">
-                <span class="da-arrows-prev"></span>
-                <span class="da-arrows-next"></span>
-            </nav>
+        <div id="themeuikit-slideshow" class="uk-slidenav-position uk-margin-bottom" data-uk-slideshow="{autoplay: <?php echo $slideshowautoplay ? 'true' : 'false'; ?>, animation: '<?php echo $slideshowanimation; ?>', kenburns: <?php echo $slideshowkenburns ? 'true' : 'false'?>}">
+            <ul class="uk-slideshow">
+                <?php echo $slidesHtml; ?>
+            </ul>
+            <?php if($slidesWithInfoCount > 1){ ?>
+                <a href="" class="uk-slidenav uk-slidenav-contrast uk-slidenav-previous" data-uk-slideshow-item="previous"></a>
+                <a href="" class="uk-slidenav uk-slidenav-contrast uk-slidenav-next" data-uk-slideshow-item="next"></a>
+                <ul class="uk-dotnav uk-dotnav-contrast uk-position-bottom uk-text-center">
+                    <?php foreach (range(0, $slidesWithInfoCount - 1) as $i) { ?>
+                        <li data-uk-slideshow-item="<?php echo $i; ?>"><a href=""></a></li>
+                    <?php } ?>
+                </ul>
+            <?php } ?>
         </div>
         <?php
     }

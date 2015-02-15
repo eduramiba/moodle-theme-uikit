@@ -178,9 +178,10 @@ $THEME->layouts = array(
 $THEME->javascripts = array(
     'uikit',
     'uikit-addons/sticky',
+    'uikit-addons/slideshow',
+    'uikit-addons/slideshow-fx',
     'general',
-    'modernizr',
-	'cslider'
+    'modernizr'
 );
 
 $useragent = '';

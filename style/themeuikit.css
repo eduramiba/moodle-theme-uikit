@@ -8374,6 +8374,667 @@ a.uk-thumbnail:focus {
   }
 }
 /* ========================================================================
+   Component: Flex
+ ========================================================================== */
+.uk-flex {
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+}
+.uk-flex-inline {
+  display: -ms-inline-flexbox;
+  display: -webkit-inline-flex;
+  display: inline-flex;
+}
+/*
+ * Fixes initial flex-shrink value in IE10
+ */
+.uk-flex > *,
+.uk-flex-inline > * {
+  -ms-flex-negative: 1;
+}
+/* Alignment
+ ========================================================================== */
+/*
+ * Vertical alignment
+ * Default value is `stretch`
+ */
+.uk-flex-top {
+  -ms-flex-align: start;
+  -webkit-align-items: flex-start;
+  align-items: flex-start;
+}
+.uk-flex-middle {
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+}
+.uk-flex-bottom {
+  -ms-flex-align: end;
+  -webkit-align-items: flex-end;
+  align-items: flex-end;
+}
+/*
+ * Horizontal alignment
+ * Default value is `flex-start`
+ */
+.uk-flex-center {
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+}
+.uk-flex-right {
+  -ms-flex-pack: end;
+  -webkit-justify-content: flex-end;
+  justify-content: flex-end;
+}
+.uk-flex-space-between {
+  -ms-flex-pack: justify;
+  -webkit-justify-content: space-between;
+  justify-content: space-between;
+}
+.uk-flex-space-around {
+  -ms-flex-pack: distribute;
+  -webkit-justify-content: space-around;
+  justify-content: space-around;
+}
+/* Direction
+ ========================================================================== */
+.uk-flex-row-reverse {
+  -ms-flex-direction: row-reverse;
+  -webkit-flex-direction: row-reverse;
+  flex-direction: row-reverse;
+}
+.uk-flex-column {
+  -ms-flex-direction: column;
+  -webkit-flex-direction: column;
+  flex-direction: column;
+}
+.uk-flex-column-reverse {
+  -ms-flex-direction: column-reverse;
+  -webkit-flex-direction: column-reverse;
+  flex-direction: column-reverse;
+}
+/* Wrap
+ ========================================================================== */
+.uk-flex-wrap {
+  -ms-flex-wrap: wrap;
+  -webkit-flex-wrap: wrap;
+  flex-wrap: wrap;
+}
+.uk-flex-wrap-reverse {
+  -ms-flex-wrap: wrap-reverse;
+  -webkit-flex-wrap: wrap-reverse;
+  flex-wrap: wrap-reverse;
+}
+/*
+ * Horizontal alignment
+ * Default value is `stretch`
+ */
+.uk-flex-wrap-top {
+  -ms-flex-line-pack: start;
+  -webkit-align-content: flex-start;
+  align-content: flex-start;
+}
+.uk-flex-wrap-middle {
+  -ms-flex-line-pack: center;
+  -webkit-align-content: center;
+  align-content: center;
+}
+.uk-flex-wrap-bottom {
+  -ms-flex-line-pack: end;
+  -webkit-align-content: flex-end;
+  align-content: flex-end;
+}
+.uk-flex-wrap-space-between {
+  -ms-flex-line-pack: justify;
+  -webkit-align-content: space-between;
+  align-content: space-between;
+}
+.uk-flex-wrap-space-around {
+  -ms-flex-line-pack: distribute;
+  -webkit-align-content: space-around;
+  align-content: space-around;
+}
+/* Item ordering
+ ========================================================================== */
+/*
+ * Default is 0
+ */
+.uk-flex-order-first {
+  -ms-flex-order: -1;
+  -webkit-order: -1;
+  order: -1;
+}
+.uk-flex-order-last {
+  -ms-flex-order: 99;
+  -webkit-order: 99;
+  order: 99;
+}
+/* Phone landscape and bigger */
+@media (min-width: 480px) {
+  .uk-flex-order-first-small {
+    -ms-flex-order: -1;
+    -webkit-order: -1;
+    order: -1;
+  }
+  .uk-flex-order-last-small {
+    -ms-flex-order: 99;
+    -webkit-order: 99;
+    order: 99;
+  }
+}
+/* Tablet and bigger */
+@media (min-width: 768px) {
+  .uk-flex-order-first-medium {
+    -ms-flex-order: -1;
+    -webkit-order: -1;
+    order: -1;
+  }
+  .uk-flex-order-last-medium {
+    -ms-flex-order: 99;
+    -webkit-order: 99;
+    order: 99;
+  }
+}
+/* Desktop and bigger */
+@media (min-width: 960px) {
+  .uk-flex-order-first-large {
+    -ms-flex-order: -1;
+    -webkit-order: -1;
+    order: -1;
+  }
+  .uk-flex-order-last-large {
+    -ms-flex-order: 99;
+    -webkit-order: 99;
+    order: 99;
+  }
+}
+/* Large screen and bigger */
+@media (min-width: 1220px) {
+  .uk-flex-order-first-xlarge {
+    -ms-flex-order: -1;
+    -webkit-order: -1;
+    order: -1;
+  }
+  .uk-flex-order-last-xlarge {
+    -ms-flex-order: 99;
+    -webkit-order: 99;
+    order: 99;
+  }
+}
+/* Item dimensions
+ ========================================================================== */
+/*
+ * Initial: 0 1 auto
+ * Content dimensions, but shrinks
+ */
+/*
+ * No Flex: 0 0 auto
+ * Content dimensions
+ */
+.uk-flex-item-none {
+  -ms-flex: none;
+  -webkit-flex: none;
+  flex: none;
+}
+/*
+ * Relative Flex: 1 1 auto
+ * Space is allocated considering content
+ * 1. Fixes flex-shrink value in IE10
+ */
+.uk-flex-item-auto {
+  -ms-flex: auto;
+  -webkit-flex: auto;
+  flex: auto;
+  /* 1 */
+  -ms-flex-negative: 1;
+}
+/*
+ * Absolute Flex: 1 1 0%
+ * Space is allocated solely based on flex
+ */
+.uk-flex-item-1 {
+  -ms-flex: 1;
+  -webkit-flex: 1;
+  flex: 1;
+}
+/* ========================================================================
+   Component: Dotnav
+ ========================================================================== */
+/*
+ * 1. Remove default list style
+ * 2. Remove whitespace between child elements when using `inline-block`
+ */
+.uk-dotnav {
+  /* 1 */
+  padding: 0;
+  list-style: none;
+  /* 2 */
+  font-size: 0.001px;
+}
+/* Items
+ ========================================================================== */
+/*
+ * 1. Reset whitespace hack
+ * 2. Remove the gap at the bottom of it container
+ */
+.uk-dotnav > li {
+  display: inline-block;
+  /* 1 */
+  font-size: 1rem;
+  /* 2 */
+  vertical-align: top;
+}
+.uk-dotnav > li:nth-child(n+2) {
+  margin-left: 15px;
+}
+/*
+ * Items
+ * 1. Remove the gap at the bottom of it container
+ * 2. Hide text if present
+ */
+.uk-dotnav > li > a {
+  display: inline-block;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: rgba(50, 50, 50, 0.1);
+  /* 1 */
+  vertical-align: top;
+  /* 2 */
+  text-indent: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}
+/*
+ * Hover
+ * 1. Apply hover style also to focus state
+ * 2. Remove default focus style
+ */
+.uk-dotnav > li > a:hover,
+.uk-dotnav > li > a:focus {
+  background: rgba(50, 50, 50, 0.4);
+  /* 2 */
+  outline: none;
+}
+/* OnClick */
+.uk-dotnav > li > a:active {
+  background: rgba(50, 50, 50, 0.6);
+}
+/* Active */
+.uk-dotnav > li.uk-active > a {
+  background: rgba(50, 50, 50, 0.4);
+  -webkit-transform: scale(1.3);
+  transform: scale(1.3);
+}
+/* Modifier: `uk-dotnav-contrast`
+ ========================================================================== */
+.uk-dotnav-contrast > li > a {
+  background: rgba(255, 255, 255, 0.4);
+}
+/*
+ * Hover
+ * 1. Apply hover style also to focus state
+ */
+.uk-dotnav-contrast > li > a:hover,
+.uk-dotnav-contrast > li > a:focus {
+  background: rgba(255, 255, 255, 0.7);
+}
+/* OnClick */
+.uk-dotnav-contrast > li > a:active {
+  background: rgba(255, 255, 255, 0.9);
+}
+/* Active */
+.uk-dotnav-contrast > li.uk-active > a {
+  background: rgba(255, 255, 255, 0.9);
+}
+/* Modifier: 'uk-dotnav-vertical'
+ ========================================================================== */
+.uk-dotnav-vertical > li {
+  display: block;
+}
+.uk-dotnav-vertical > li:nth-child(n+2) {
+  margin-left: 0;
+  margin-top: 15px;
+}
+/* ========================================================================
+   Component: Slidenav
+ ========================================================================== */
+/*
+ * 1. Required for `a` elements
+ * 2. Dimension
+ * 3. Style
+ */
+.uk-slidenav {
+  /* 1 */
+  display: inline-block;
+  /* 2 */
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  width: 60px;
+  height: 60px;
+  /* 3 */
+  line-height: 60px;
+  color: rgba(50, 50, 50, 0.4);
+  font-size: 60px;
+  text-align: center;
+}
+/*
+ * Hover
+ * 1. Apply hover style also to focus state
+ * 2. Remove default focus style
+ * 3. Required for `a` elements
+ * 4. Style
+ */
+.uk-slidenav:hover,
+.uk-slidenav:focus {
+  /* 2 */
+  outline: none;
+  /* 3 */
+  text-decoration: none;
+  /* 4 */
+  color: rgba(50, 50, 50, 0.7);
+  cursor: pointer;
+}
+/* Active */
+.uk-slidenav:active {
+  color: rgba(50, 50, 50, 0.9);
+}
+/*
+ * Icons
+ */
+.uk-slidenav-previous:before {
+  content: "\f104";
+  font-family: FontAwesome;
+}
+.uk-slidenav-next:before {
+  content: "\f105";
+  font-family: FontAwesome;
+}
+/* Sub-object: `uk-slidenav-position`
+ ========================================================================== */
+/*
+ * Create position context
+ */
+.uk-slidenav-position {
+  position: relative;
+}
+/*
+ * Center vertically
+ */
+.uk-slidenav-position .uk-slidenav {
+  display: none;
+  position: absolute;
+  top: 50%;
+  z-index: 1;
+  margin-top: -30px;
+}
+.uk-slidenav-position:hover .uk-slidenav {
+  display: block;
+}
+.uk-slidenav-position .uk-slidenav-previous {
+  left: 20px;
+}
+.uk-slidenav-position .uk-slidenav-next {
+  right: 20px;
+}
+/* Modifier: `uk-slidenav-contrast`
+ ========================================================================== */
+.uk-slidenav-contrast {
+  color: rgba(255, 255, 255, 0.5);
+}
+/*
+ * Hover
+ * 1. Apply hover style also to focus state
+ */
+.uk-slidenav-contrast:hover,
+.uk-slidenav-contrast:focus {
+  color: rgba(255, 255, 255, 0.7);
+}
+/* Active */
+.uk-slidenav-contrast:active {
+  color: rgba(255, 255, 255, 0.9);
+}
+/* ========================================================================
+   Component: Caption
+ ========================================================================== */
+/*
+ * 1. Hide by default
+ * 2. Position cover
+ * 3. Style
+ */
+.uk-caption {
+  /* 1 */
+  display: none;
+  /* 2 */
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  /* 3 */
+  padding: 20px;
+  color: #ffffff;
+}
+/*
+ * Show caption
+ * 1. `uk-hover` to support touch devices
+ */
+.uk-caption-toggle:hover .uk-caption,
+.uk-caption-toggle.uk-hover .uk-caption,
+.uk-active > .uk-caption {
+  display: block;
+}
+.uk-caption-toggle:hover .uk-caption.uk-flex,
+.uk-caption-toggle.uk-hover .uk-caption.uk-flex,
+.uk-active > .uk-caption.uk-flex {
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+}
+/*
+ * Remove margin from the last-child
+ */
+.uk-caption > :last-child {
+  margin-bottom: 0;
+}
+/*
+ * Keep color for headings if the default heading color is changed
+ */
+.uk-caption h1,
+.uk-caption h2,
+.uk-caption h3,
+.uk-caption h4,
+.uk-caption h5,
+.uk-caption h6 {
+  color: inherit;
+}
+/* Sub-object: `uk-caption-toggle`
+ ========================================================================== */
+/*
+ * 1. Container width fits its content
+ * 2. Create position context
+ * 3. Set max-width for responsive images to prevent `inline-block` consequences
+ * 4. Remove the gap between the container and its child element
+ * 5. Fixed wrong scaling calculation for images in Chrome
+ */
+.uk-caption-toggle {
+  /* 1 */
+  display: inline-block;
+  /* 2 */
+  position: relative;
+  /* 3 */
+  max-width: 100%;
+  /* 4 */
+  vertical-align: middle;
+  /* 5 */
+  overflow: hidden;
+}
+/* Position modifiers
+ ========================================================================== */
+.uk-caption-top {
+  bottom: auto;
+}
+.uk-caption-bottom {
+  top: auto;
+}
+.uk-caption-left {
+  right: auto;
+}
+.uk-caption-right {
+  left: auto;
+}
+/* Sub-object: `uk-caption-panel`
+ ========================================================================== */
+.uk-caption-panel {
+  color: #ffffff;
+  background: rgba(0, 0, 0, 0.2);
+}
+/* ========================================================================
+   Component: Slideshow
+ ========================================================================== */
+/*
+ * 1. Create position context
+ * 2. Create stacking context to prevent z-index issues with other components
+ * 3. Set width because child elements are positioned absolute. Height is set via JS
+ * 4. Reset list style
+ * 5. Clip child elements
+ * 6. Deactivate browser history navigation in IE11
+ */
+.uk-slideshow {
+  /* 1 */
+  position: relative;
+  /* 2 */
+  z-index: 0;
+  /* 3 */
+  width: 100%;
+  /* 4 */
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  /* 5 */
+  overflow: hidden;
+  /* 6 */
+  touch-action: pan-y;
+}
+/*
+ * Sub-object slides
+ * 1. Position items above each other
+ * 2. Expand to parent container width
+ * 3. Hide by default
+ */
+.uk-slideshow > li {
+  /* 1 */
+  position: absolute;
+  top: 0;
+  left: 0;
+  /* 2 */
+  width: 100%;
+  /* 3 */
+  opacity: 0;
+}
+/*
+ * Active
+ * 1. Stack at first
+ * 2. Show slide
+ */
+.uk-slideshow > .uk-active {
+  /* 1 */
+  z-index: 10;
+  /* 2 */
+  opacity: 1;
+}
+/*
+ * Hide default images which is only relevant to keep existing proportions
+ */
+.uk-slideshow > li > img {
+  visibility: hidden;
+}
+/*
+ * Pointer for controls
+ */
+[data-uk-slideshow-slide] {
+  cursor: pointer;
+}
+/* Modifier: `uk-slideshow-fullscreen`
+ ========================================================================== */
+.uk-slideshow-fullscreen,
+.uk-slideshow-fullscreen > li {
+  height: 100vh;
+}
+/* Animations
+ ========================================================================== */
+/*
+ * Fade
+ */
+.uk-slideshow-fade-out {
+  -webkit-animation: uk-fade 0.5s linear reverse;
+  animation: uk-fade 0.5s linear reverse;
+}
+/*
+ * Scroll
+ */
+.uk-slideshow-scroll-forward-in {
+  -webkit-animation: uk-slide-right 0.5s ease-in-out;
+  animation: uk-slide-right 0.5s ease-in-out;
+}
+.uk-slideshow-scroll-forward-out {
+  -webkit-animation: uk-slide-left 0.5s ease-in-out reverse;
+  animation: uk-slide-left 0.5s ease-in-out reverse;
+}
+.uk-slideshow-scroll-backward-in {
+  -webkit-animation: uk-slide-left 0.5s ease-in-out;
+  animation: uk-slide-left 0.5s ease-in-out;
+}
+.uk-slideshow-scroll-backward-out {
+  -webkit-animation: uk-slide-right 0.5s ease-in-out reverse;
+  animation: uk-slide-right 0.5s ease-in-out reverse;
+}
+/*
+ * Scale
+ */
+.uk-slideshow-scale-out {
+  -webkit-animation: uk-fade-scale-15 0.5s ease-in-out reverse;
+  animation: uk-fade-scale-15 0.5s ease-in-out reverse;
+}
+/*
+ * Swipe
+ */
+.uk-slideshow-swipe-forward-in {
+  -webkit-animation: uk-slide-left-33 0.5s ease-in-out;
+  animation: uk-slide-left-33 0.5s ease-in-out;
+}
+.uk-slideshow-swipe-forward-out {
+  -webkit-animation: uk-slide-left 0.5s ease-in-out reverse;
+  animation: uk-slide-left 0.5s ease-in-out reverse;
+}
+.uk-slideshow-swipe-backward-in {
+  -webkit-animation: uk-slide-right-33 0.5s ease-in-out;
+  animation: uk-slide-right-33 0.5s ease-in-out;
+}
+.uk-slideshow-swipe-backward-out {
+  -webkit-animation: uk-slide-right 0.5s ease-in-out reverse;
+  animation: uk-slide-right 0.5s ease-in-out reverse;
+}
+.uk-slideshow-swipe-forward-in:before,
+.uk-slideshow-swipe-backward-in:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;
+  background: rgba(0, 0, 0, 0.6);
+  -webkit-animation: uk-fade 0.5s ease-in-out reverse;
+  animation: uk-fade 0.5s ease-in-out reverse;
+}
+/* ========================================================================
    Component: Sticky
  ========================================================================== */
 /*

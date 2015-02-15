@@ -77,6 +77,18 @@ $string['dontdisplay'] = 'Never Show';
 $string['footerblocks'] = 'Enable Footer Blocks';
 $string['footerblocksdesc'] = 'If enabled this will display 3 new block locations in the page footer';
 
+$string['componentclass-normal'] = 'Normal';
+$string['componentclass-primary'] = 'Primary';
+$string['componentclass-success'] = 'Success';
+$string['componentclass-danger'] = 'Danger';
+$string['componentclass-link'] = 'Link';
+
+$string['componentplacement-center'] = 'Center';
+$string['componentplacement-top'] = 'Top';
+$string['componentplacement-bottom'] = 'Bottom';
+$string['componentplacement-left'] = 'Left';
+$string['componentplacement-right'] = 'Right';
+
 /* CustomMenu */
 $string['custommenuheading'] = 'Custom Menu';
 $string['custommenuheadingsub'] = 'Add additional functionality to your custommenu.';
@@ -174,7 +186,6 @@ $string['slideshowheadingsub'] = 'Dynamic Slideshow for the frontpage';
 $string['slideshowdesc'] = 'This creates a dynamic slideshow of up to 4 slides for you to promote important elements of your site.';
 
 $string['slideshownumber'] = 'Number of slides';
-$string['slideshowcolor'] = 'Slideshow main color';
 
 $string['toggleslideshow'] = 'Toggle Slideshow display';
 $string['toggleslideshowdesc'] = 'Choose if you wish to hide or show the Slideshow.';
@@ -190,12 +201,29 @@ $string['slideimage'] = 'Slide Image';
 $string['slidecaption'] = 'Slide Caption';
 $string['slideurl'] = 'Slide Button Link';
 $string['slideurltext'] = 'Slide Button Text';
+$string['slidecaptionplacement'] = 'Slide caption placement';
 
-$string['slideshowbordercolor'] = 'Slide Border Color';
 $string['slideshowtitlecolor'] = 'Slide Title Color';
 $string['slideshowcaptioncolor'] = 'Slide Caption Color';
-$string['slideshowbuttoncolor'] = 'Slide Button Background';
-$string['slideshowbuttontextcolor'] = 'Slide Button Text Color';
+$string['slideshowarrowscolor'] = 'Navigation Arrows Color';
+$string['slideshowbuttontype'] = 'Slide Button Type';
+
+$string['slideshowautoplay'] = 'Enable autoplay';
+$string['slideshowanimation'] = 'Slideshow animation';
+$string['slideshowkenburns'] = 'Enable ken burns effect';
+
+$string['slideshowanimation-fade'] = 'Fade';
+$string['slideshowanimation-scroll'] = 'Scroll';
+$string['slideshowanimation-scale'] = 'Scale';
+$string['slideshowanimation-swipe'] = 'Swipe';
+$string['slideshowanimation-slice-down'] = 'Slice down';
+$string['slideshowanimation-slice-up'] = 'Slice up';
+$string['slideshowanimation-slice-up-down'] = 'Slice up & down';
+$string['slideshowanimation-fold'] = 'Fold';
+$string['slideshowanimation-puzzle'] = 'Puzzle';
+$string['slideshowanimation-boxes'] = 'Boxes';
+$string['slideshowanimation-boxes-reverse'] = 'Boxes reverse';
+$string['slideshowanimation-random-fx'] = 'Random';
 
 /* Marketing Spots */
 $string['marketingheading'] = 'Marketing Spots';

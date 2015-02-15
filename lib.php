@@ -121,11 +121,9 @@ function theme_uikit_set_loginheaderimage($css, $loginheaderimage) {
 function theme_uikit_set_slideshow_colors($css, &$theme) {
     //Replace slideshow colors:
     $defaults = array(
-        'slideshowbordercolor' => '#777',
-        'slideshowtitlecolor' => '#777',
-        'slideshowcaptioncolor' => '#777',
-        'slideshowbuttoncolor' => '#777',
-        'slideshowbuttontextcolor' => '#777'
+        'slideshowtitlecolor' => '#fff',
+        'slideshowcaptioncolor' => '#fff',
+        'slideshowarrowscolor' => '#fff'
     );
     
     foreach ($defaults as $setting => $default) {

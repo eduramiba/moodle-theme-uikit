@@ -64,21 +64,11 @@ $setting = new admin_setting_configselect($name, $title, $description, $default,
 $setting->set_updatedcallback('theme_reset_all_caches');
 $temp->add($setting);
 
-$default = '#777';
-
-// Slideshow border color
-$name = 'theme_uikit/slideshowbordercolor';
-$title = get_string('slideshowbordercolor', 'theme_uikit');
-$previewconfig = null;
-$setting = new admin_setting_configcolourpicker($name, $title, '', $default, $previewconfig);
-$setting->set_updatedcallback('theme_reset_all_caches');
-$temp->add($setting);
-
 // Slideshow header color
 $name = 'theme_uikit/slideshowtitlecolor';
 $title = get_string('slideshowtitlecolor', 'theme_uikit');
 $previewconfig = null;
-$setting = new admin_setting_configcolourpicker($name, $title, '', $default, $previewconfig);
+$setting = new admin_setting_configcolourpicker($name, $title, '', '#fff', $previewconfig);
 $setting->set_updatedcallback('theme_reset_all_caches');
 $temp->add($setting);
 
@@ -86,29 +76,89 @@ $temp->add($setting);
 $name = 'theme_uikit/slideshowcaptioncolor';
 $title = get_string('slideshowcaptioncolor', 'theme_uikit');
 $previewconfig = null;
-$setting = new admin_setting_configcolourpicker($name, $title, '', $default, $previewconfig);
+$setting = new admin_setting_configcolourpicker($name, $title, '', '#fff', $previewconfig);
 $setting->set_updatedcallback('theme_reset_all_caches');
 $temp->add($setting);
 
-// Slideshow button color
-$name = 'theme_uikit/slideshowbuttoncolor';
-$title = get_string('slideshowbuttoncolor', 'theme_uikit');
+// Slideshow button type
+$name = 'theme_uikit/slideshowbuttontype';
+$title = get_string('slideshowbuttontype', 'theme_uikit');
 $previewconfig = null;
-$setting = new admin_setting_configcolourpicker($name, $title, '', $default, $previewconfig);
+$default = '';
+
+$class_normal = get_string('componentclass-normal', 'theme_uikit');
+$class_primary = get_string('componentclass-primary', 'theme_uikit');
+$class_success = get_string('componentclass-success', 'theme_uikit');
+$class_danger = get_string('componentclass-danger', 'theme_uikit');
+$class_link = get_string('componentclass-link', 'theme_uikit');
+
+$choices = array(
+    '' => $class_normal, 
+    'uk-button-primary' => $class_primary, 
+    'uk-button-success' => $class_success,
+    'uk-button-danger' => $class_danger,
+    'uk-button-link' => $class_link
+);
+$setting = new admin_setting_configselect($name, $title, '', $default, $choices); 
 $setting->set_updatedcallback('theme_reset_all_caches');
 $temp->add($setting);
 
-// Slideshow button text color
-$name = 'theme_uikit/slideshowbuttontextcolor';
-$title = get_string('slideshowbuttontextcolor', 'theme_uikit');
+// Toggle slideshow autoplay
+$name = 'theme_uikit/slideshowautoplay';
+$title = get_string('slideshowautoplay', 'theme_uikit');
+$description = '';
+$default = true;
+$setting = new admin_setting_configcheckbox($name, $title, $description, $default, true, false);
+$setting->set_updatedcallback('theme_reset_all_caches');
+$temp->add($setting);
+
+// Slideshow animation
+$name = 'theme_uikit/slideshowanimation';
+$title = get_string('slideshowanimation', 'theme_uikit');
+$description = '';
+$default = 'swipe';
+$choices = array(
+    'fade',
+    'scroll',
+    'scale',
+    'swipe',
+    'slice-down',
+    'slice-up',
+    'slice-up-down',
+    'fold',
+    'puzzle',
+    'boxes',
+    'boxes-reverse',
+    'random-fx',
+);
+$choices = array_combine($choices, array_map(function($choice){
+    return get_string('slideshowanimation-'.$choice, 'theme_uikit');
+}, $choices));
+
+
+$setting = new admin_setting_configselect($name, $title, '', $default, $choices); 
+$setting->set_updatedcallback('theme_reset_all_caches');
+$temp->add($setting);
+
+// Slideshow caption color
+$name = 'theme_uikit/slideshowarrowscolor';
+$title = get_string('slideshowarrowscolor', 'theme_uikit');
 $previewconfig = null;
-$default = '#FFF';
-$setting = new admin_setting_configcolourpicker($name, $title, '', $default, $previewconfig);
+$setting = new admin_setting_configcolourpicker($name, $title, '', '#fff', $previewconfig);
+$setting->set_updatedcallback('theme_reset_all_caches');
+$temp->add($setting);
+
+// Toggle slideshow ken burns effect
+$name = 'theme_uikit/slideshowkenburns';
+$title = get_string('slideshowkenburns', 'theme_uikit');
+$description = '';
+$default = false;
+$setting = new admin_setting_configcheckbox($name, $title, $description, $default, true, false);
 $setting->set_updatedcallback('theme_reset_all_caches');
 $temp->add($setting);
 
 $addSlideSettings = function($i, &$temp) {
-    //This is the descriptor for Slide One
+    //This is the descriptor for Slide i
     $name = "theme_uikit/slide{$i}info";
     $params = new stdClass();
     $params->n = $i;
@@ -149,6 +199,21 @@ $addSlideSettings = function($i, &$temp) {
     $name = "theme_uikit/slide{$i}urltext";
     $title = get_string('slideurltext', 'theme_uikit');
     $setting = new admin_setting_configtext($name, $title, '', '');
+    $setting->set_updatedcallback('theme_reset_all_caches');
+    $temp->add($setting);
+    
+    // Caption placement
+    $name = "theme_uikit/slide{$i}captionplacement";
+    $title = get_string('slidecaptionplacement', 'theme_uikit');
+    $default = 'center';
+    $choices = array(
+        'center' => get_string('componentplacement-center', 'theme_uikit'),
+        'top' => get_string('componentplacement-top', 'theme_uikit'),
+        'bottom' => get_string('componentplacement-bottom', 'theme_uikit'),
+        'left' => get_string('componentplacement-left', 'theme_uikit'),
+        'right' => get_string('componentplacement-right', 'theme_uikit'),
+    );
+    $setting = new admin_setting_configselect($name, $title, '', $default, $choices); 
     $setting->set_updatedcallback('theme_reset_all_caches');
     $temp->add($setting);
 };

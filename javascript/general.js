@@ -15,10 +15,5 @@
 				$('#toTop').fadeOut();
 			}
 		});
-		
-		$('#da-slider').cslider({
-			autoplay	: true,
-			interval : 6000
-		});
 	});
 })(jQuery);
