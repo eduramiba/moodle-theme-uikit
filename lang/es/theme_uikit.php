@@ -40,6 +40,7 @@ $string['footnotedesc'] = 'Cualquier texto que agregue en este campo se mostará
 
 $string['logo'] = 'Logotipo';
 $string['logodesc'] = 'Por favor suba su logotipo personalizado aquí si quiere agregarlo a la cabecera de la página.<br>Si usted sube un logotipo, este reemplazará el ícono y texto mostrado por defecto.';
+$string['logoshowsummary'] = 'Mostrar la descripción del sitio bajo el logotipo';
 $string['footerimage'] = 'Imagen del Pie';
 $string['footerimagedesc'] = 'Por favor suba su imagen personalizada aquí si quiere añadirla al pie de página. <br>Si sube una imagen aparecerá encima del HTML personalizado del pie (si lo hay).';
 $string['favicon'] = 'Favicon';

@@ -41,6 +41,7 @@ $string['footnotedesc'] = 'Whatever you add to this textarea will be displayed i
 
 $string['logo'] = 'Logo';
 $string['logodesc'] = 'Please upload your custom logo here if you want to add it to the header.<br>If you upload a logo it will replace the standard icon and name that was displayed by default.';
+$string['logoshowsummary'] = 'Show site summary under the logo';
 $string['footerimage'] = 'Footer';
 $string['footerimagedesc'] = 'Please upload your custom footer image here if you want to add it to the footer.<br>If you upload a footer it will be placed above footer HTML (if any).';
 $string['favicon'] = 'Favicon';

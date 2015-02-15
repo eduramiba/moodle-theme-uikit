@@ -25,6 +25,7 @@
  */
 
 $haslogo = (!empty($PAGE->theme->settings->logo));
+$logoshowsummary = isset($PAGE->theme->settings->logoshowsummary) && $PAGE->theme->settings->logoshowsummary;
 $hasheaderprofilepic = (empty($PAGE->theme->settings->headerprofilepic)) ? false : $PAGE->theme->settings->headerprofilepic;
 $icon = 'pencil-square-o';
 if(!empty($PAGE->theme->settings->siteicon)){
@@ -77,8 +78,11 @@ $hasmobileapps = ($hasios || $hasandroid);
 						$backgroundUrl = $PAGE->theme->setting_file_url('logo', 'logo');
 					?>
                         <a class="logo" href="<?php echo $CFG->wwwroot; ?>" title="<?php print_string('home'); ?>">
-								<img src="<?php echo $backgroundUrl; ?>" alt="">
-						   </a>
+                            <img src="<?php echo $backgroundUrl; ?>" alt="">
+                        </a>
+                        <?php if ($logoshowsummary){ ?>
+                            <h2 id="subtitle" class="uk-text-muted clear"><?php p(strip_tags(format_text($SITE->summary, FORMAT_HTML))) ?></h2>
+                        <?php } ?>
                     <?php
                     } ?>
                 </div>

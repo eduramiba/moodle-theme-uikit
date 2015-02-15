@@ -18866,6 +18866,9 @@ margin-auto {
 .clearfix:after {
   clear: both;
 }
+.clear {
+  clear: both;
+}
 html[xmlns] .clearfix {
   display: block;
 }
