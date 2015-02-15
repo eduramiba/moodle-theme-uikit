@@ -30,7 +30,7 @@ function theme_uikit_set_fontwww($css) {
 	
     $theme = theme_config::load('uikit');
     if (!empty($theme->settings->bootstrapcdn)) {
-        $css = str_replace($tag, '//netdna.bootstrapcdn.com/font-awesome/4.1.0/fonts/', $css);
+        $css = str_replace($tag, '//netdna.bootstrapcdn.com/font-awesome/4.3.0/fonts/', $css);
     } else {
         //Prepare local URL without http(s) and domain, so some browsers load the font even with mixed content.
         $url = $CFG->wwwroot.'/theme/uikit/fonts/';
