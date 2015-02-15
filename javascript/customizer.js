@@ -433,7 +433,7 @@
         function loadStyle(theme) {
             var deferred = $.Deferred();
             
-            var themeStylesURL = buildAbsoluteURL('/theme/uikit/less/uikit/themes/default/'+currentTheme+'/uikit.less?'+themeVersion);
+            var themeStylesURL = buildAbsoluteURL('/theme/uikit/less/uikit/themes/'+currentTheme+'/uikit.less?'+themeVersion);
             var variablesURL = buildAbsoluteURL('/theme/uikit/less/custom/variables.less?'+themeVersion);
             
             var imports = '@import "'+themeStylesURL+'";';
