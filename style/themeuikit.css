@@ -18490,7 +18490,7 @@ input[type=button].closebutton,
   max-width: 250px;
   width: 60%;
 }
-@media only screen and (max-width: 768px), only screen and (max-device-width: 768px) {
+@media only screen and (max-width: 767px), only screen and (max-device-width: 767px) {
   #page-login-index #main-content-box {
     width: 100%;
     min-width: 100%;
@@ -19111,7 +19111,7 @@ a.logo {
 #main-content-box:after {
   clear: both;
 }
-@media only screen and (max-width: 768px), only screen and (max-device-width: 768px) {
+@media only screen and (max-width: 767px), only screen and (max-device-width: 767px) {
   #pre-and-content {
     display: -webkit-box;
     display: -moz-box;
