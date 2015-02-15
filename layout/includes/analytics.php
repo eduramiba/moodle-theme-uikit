@@ -26,7 +26,7 @@
  
 //Check for theme settings 
 
-function analytics_trackurl() {
+function themeuikit_analytics_trackurl() {
     global $DB, $PAGE, $COURSE;
     $pageinfo = get_context_info_array($PAGE->context->id);
     $trackurl = "'/";
@@ -63,7 +63,7 @@ function analytics_trackurl() {
     return $trackurl;
 }
  
-function insert_analytics_tracking() {
+function themeuikit_insert_analytics_tracking() {
     global $PAGE;
     $enabled = (empty($PAGE->theme->settings->useanalytics)) ? false : $PAGE->theme->settings->useanalytics;
     $siteid = (empty($PAGE->theme->settings->analyticsid)) ? false : $PAGE->theme->settings->analyticsid;
@@ -73,7 +73,7 @@ function insert_analytics_tracking() {
     if ($cleanurl) {
         $addition = 
             "{'hitType' : 'pageview',
-            'page' : ".analytics_trackurl().",
+            'page' : ".themeuikit_analytics_trackurl().",
             'title' : '".addslashes($PAGE->heading)."'
             }";
     } else {
@@ -96,4 +96,4 @@ function insert_analytics_tracking() {
     }
 }
 
-insert_analytics_tracking();
+themeuikit_insert_analytics_tracking();
