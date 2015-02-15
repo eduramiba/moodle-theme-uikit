@@ -59,7 +59,7 @@ $temp->add(new admin_setting_configselect($name, $title, $description, $default,
 $name = 'theme_uikit/slideshowsizingmode';
 $title = get_string('slideshowsizingmode', 'theme_uikit');
 $description = '';
-$default = 'width';
+$default = 'auto';
 $choices = array(
     'auto' => get_string('auto', 'theme_uikit'),
     'height' => get_string('slideshowsizingmode-fullheight', 'theme_uikit'),

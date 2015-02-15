@@ -29,7 +29,7 @@ $slideshowenabled =
             || ($PAGE->theme->settings->toggleslideshow == 3 && isloggedin()))
         ;
 
-$slideshowheight = isset($PAGE->theme->settings->slideshowheight) ? $PAGE->theme->settings->slideshowheight : 'auto';
+$slideshowheight = isset($PAGE->theme->settings->slideshowheight) ? $PAGE->theme->settings->slideshowheight : '300px';
 $slideshowautoplay = isset($PAGE->theme->settings->slideshowautoplay) ? $PAGE->theme->settings->slideshowautoplay : true;
 $slideshowanimation = isset($PAGE->theme->settings->slideshowanimation) ? $PAGE->theme->settings->slideshowanimation : 'swipe';
 $slideshowkenburns = isset($PAGE->theme->settings->slideshowkenburns) ? $PAGE->theme->settings->slideshowkenburns : false;
