@@ -627,7 +627,6 @@ body.moodle26prior {
         margin-top: 3em;
     }
     .file-picker .fp-login-form .fp-login-input label {
-        text-align: right;
         display: block;
     }
     .file-picker .fp-login-form .fp-login-input .input {
@@ -1170,5 +1169,20 @@ body.moodle26prior {
     }
     .dir-rtl .filepicker .yui-layout-unit-center {
         left: 0;
+    }
+    
+    //Fix file picker on mobile (https://github.com/eduramiba/moodle-theme-uikit/issues/4)
+    @media all and (max-width: 872px){
+        .file-picker .fp-repo-area, body.moodle26plus .file-picker .fp-repo-items {
+            width:100%;
+        }
+        
+        .file-picker .fp-repo-area {
+            height: 325
+        }
+        
+        .filepicker {
+            z-index:999;
+        }
     }
 }
