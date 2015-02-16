@@ -29,7 +29,7 @@ $displayloggedusermode = isset($PAGE->theme->settings->displayloggedusermode) ? 
 
 ?>
 <header id="page-navigation" role="navigation">
-    <nav id="navbar-uikit-theme" role="navigation" class="uk-navbar navbar navbar-fixed-top" data-uk-sticky>
+    <nav id="navbar-uikit-theme" role="navigation" class="uk-navbar navbar navbar-fixed-top moodle-has-zindex" data-uk-sticky>
         <div id="navbar-uikit-theme-content">
             <div class="uk-visible-large">
                 <?php if($displaysitename){ ?>

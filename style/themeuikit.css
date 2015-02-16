@@ -15315,7 +15315,7 @@ body.moodle26plus .dir-rtl .filepicker .fp-formset .controls {
 }
 @media all and (max-width: 872px) {
   body.moodle26plus .file-picker .fp-repo-area,
-  body.moodle26plus body.moodle26plus .file-picker .fp-repo-items {
+  body.moodle26plus .file-picker .fp-repo-items {
     width: 100%;
   }
   body.moodle26plus .file-picker .fp-repo-area {
