@@ -73,7 +73,7 @@ class theme_uikit_core_renderer extends abstract_uikit_core_renderer {
         }
         
         
-        $content = '<div id="navbar-buttongroup-uikit-theme" class="uk-button-group navbar-buttongroup-uikit-theme" '.$sticky.'>';
+        $content = '<div id="navbar-buttongroup-uikit-theme" class="uk-button-group navbar-buttongroup-uikit-theme navbar navbar-fixed-top moodle-has-zindex" '.$sticky.'>';
         
         foreach ($menu->get_children() as $item) {
             $content .= $this->render_custom_menu_item($item, 0, $isOffCanvas);

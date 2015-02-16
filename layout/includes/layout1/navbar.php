@@ -46,7 +46,7 @@ if(!isset($this->page->theme->settings->stickynavigationbar) || $this->page->the
 
 ?>
 <header id="page-navigation" role="navigation">
-    <nav id="navbar-uikit-theme" role="navigation" class="uk-navbar" <?php echo $sticky; ?>>
+    <nav id="navbar-uikit-theme" role="navigation" class="uk-navbar navbar navbar-fixed-top moodle-has-zindex" <?php echo $sticky; ?>>
         <div id="navbar-uikit-theme-content">
             <div class="uk-visible-large">
                 <?php if($displaysitename){ ?>

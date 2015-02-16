@@ -71,6 +71,14 @@ $setting = new admin_setting_configstoredfile($name, $title, $description, 'logo
 $setting->set_updatedcallback('theme_reset_all_caches');
 $temp->add($setting);
 
+// Logo and site description
+$name = 'theme_uikit/logoshowsummary';
+$title = get_string('logoshowsummary', 'theme_uikit');
+$description = '';
+$setting = new admin_setting_configcheckbox($name, $title, $description, 0);
+$setting->set_updatedcallback('theme_reset_all_caches');
+$temp->add($setting);
+
 // Page Background Image.
 $name = 'theme_uikit/pagebackground';
 $title = get_string('pagebackground', 'theme_uikit');

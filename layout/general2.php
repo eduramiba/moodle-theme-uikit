@@ -75,6 +75,8 @@ echo $OUTPUT->doctype()
 		<?php require_once(dirname(__FILE__).'/includes/googlefonts.php'); ?>
         <!-- iOS Homescreen Icons -->
         <?php require_once(dirname(__FILE__) . '/includes/iosicons.php'); ?>
+        
+        <meta name="application-name" content="<?php echo $SITE->shortname; ?>"/>
     </head>
 
     <body <?php echo $OUTPUT->body_attributes(); ?>>
@@ -96,10 +98,10 @@ echo $OUTPUT->doctype()
                                 <div id="main-content-box" class="<?php echo $maincontentclass; ?> flexgrow">
                                     <div class="<?php echo $regionClass; ?>">
                                         <?php
-                                                    echo $OUTPUT->course_content_header();
-                                                    echo $OUTPUT->main_content();
-                                                    echo $OUTPUT->course_content_footer();
-                                                ?>
+                                                                                                            echo $OUTPUT->course_content_header();
+                                                                                                            echo $OUTPUT->main_content();
+                                                                                                            echo $OUTPUT->course_content_footer();
+                                                                                                        ?>
                                     </div>
                                     <div class="<?php echo $postClass; ?>">
                                         <?php if($hassidepost) {echo $OUTPUT->uikitblocks($post);} ?>

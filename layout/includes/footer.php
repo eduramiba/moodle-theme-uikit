@@ -81,10 +81,19 @@ if(empty($PAGE->layout_options['noblocks'])){ ?>
         </div>
         
         <?php
-            global $CFG;
-            if(isset($CFG->themedesignermode) && $CFG->themedesignermode){
-                $context = context_system::instance();
-                if (has_capability("moodle/site:config", $context)){
+            $context = context_system::instance();
+            if (has_capability("moodle/site:config", $context)){
+                if($OUTPUT->check_stale_savedstyles()){
+                    ?>
+                    <div id="uikit-stale-saved-styles-alert" class="uk-alert uk-alert-danger">
+                        <p><span class="uk-icon uk-icon-exclamation-triangle"></span> <?php echo get_string('warning_saved_styles_different_theme_version', 'theme_uikit') ?></p>
+                        <p><a href="<?php echo $CFG->wwwroot; ?>/theme/uikit/customizer/index.php"><?php echo get_string('warning_saved_styles_different_theme_version_action', 'theme_uikit') ?></a></p>
+                    </div>
+              <?php 
+                }
+                
+                global $CFG;
+                if(isset($CFG->themedesignermode) && $CFG->themedesignermode){
                     ?>
                     <div id="uikit-theme-designer-alert" class="uk-alert uk-alert-danger">
                         <p><span class="uk-icon uk-icon-exclamation-triangle"></span> <?php echo get_string('warning_theme_designer_enabled', 'theme_uikit') ?></p>

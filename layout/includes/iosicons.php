@@ -28,32 +28,30 @@ $hasipadicon = (!empty($PAGE->theme->settings->ipadicon));
 $hasiphoneretinaicon = (!empty($PAGE->theme->settings->iphoneretinaicon));
 $hasipadretinaicon = (!empty($PAGE->theme->settings->ipadretinaicon));
 
+function theme_uikit_meta_homeicon($url, $size){
+    ?>
+    <link rel="icon" sizes="<?php echo $size; ?>" href="<?php echo $url //Android and others ?>" />
+    <link rel="apple-touch-icon-precomposed" sizes="<?php echo $size; ?>" href="<?php echo $url //iOS ?>" />
+    <meta name="msapplication-square<?php echo $size; ?>ogo" content="<?php echo $url //Windows ?>"/>
+<?php
+}
+
 if ($hasiphoneicon) {
     $iphoneicon = $PAGE->theme->setting_file_url('iphoneicon', 'iphoneicon');
-} else {
-	$iphoneicon = $OUTPUT->pix_url('homeicon/iphone', 'theme');
+    theme_uikit_meta_homeicon($iphoneicon, "57x57");
 }
 
 if ($hasipadicon) {
     $ipadicon = $PAGE->theme->setting_file_url('ipadicon', 'ipadicon');
-} else {
-	$ipadicon = $OUTPUT->pix_url('homeicon/ipad', 'theme');
+    theme_uikit_meta_homeicon($ipadicon, "72x72");
 }
 
 if ($hasiphoneretinaicon) {
     $iphoneretinaicon = $PAGE->theme->setting_file_url('iphoneretinaicon', 'iphoneretinaicon');
-} else {
-	$iphoneretinaicon = $OUTPUT->pix_url('homeicon/iphone_retina', 'theme');
+    theme_uikit_meta_homeicon($iphoneretinaicon, "114x114");
 }
 
 if ($hasipadretinaicon) {
     $ipadretinaicon = $PAGE->theme->setting_file_url('ipadretinaicon', 'ipadretinaicon');
-} else {
-	$ipadretinaicon = $OUTPUT->pix_url('homeicon/ipad_retina', 'theme');
+    theme_uikit_meta_homeicon($ipadretinaicon, "144x144");
 }
-?>
-
-<link rel="apple-touch-icon-precomposed" sizes="57x57" href="<?php echo $iphoneicon ?>" />
-<link rel="apple-touch-icon-precomposed" sizes="72x72" href="<?php echo $ipadicon ?>" />
-<link rel="apple-touch-icon-precomposed" sizes="114x114" href="<?php echo $iphoneretinaicon ?>" />
-<link rel="apple-touch-icon-precomposed" sizes="144x144" href="<?php echo $ipadretinaicon ?>" />

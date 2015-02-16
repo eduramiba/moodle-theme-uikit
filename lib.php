@@ -30,7 +30,7 @@ function theme_uikit_set_fontwww($css) {
 	
     $theme = theme_config::load('uikit');
     if (!empty($theme->settings->bootstrapcdn)) {
-        $css = str_replace($tag, '//netdna.bootstrapcdn.com/font-awesome/4.1.0/fonts/', $css);
+        $css = str_replace($tag, '//netdna.bootstrapcdn.com/font-awesome/4.3.0/fonts/', $css);
     } else {
         //Prepare local URL without http(s) and domain, so some browsers load the font even with mixed content.
         $url = $CFG->wwwroot.'/theme/uikit/fonts/';
@@ -60,8 +60,7 @@ function theme_uikit_set_logo($css, $logo) {
     if (is_null($replacement)) {
         $replacement = '';
     }
-    $css = str_replace($tag, $replacement, $css);
-    return $css;
+    return str_replace($tag, $replacement, $css);
 }
 
 function theme_uikit_set_pagebackground($css, $pagebackground) {
@@ -71,9 +70,7 @@ function theme_uikit_set_pagebackground($css, $pagebackground) {
     }else{
         $replacement = "/* No image */";
     }
-    $css = str_replace($tag, $replacement, $css);
-    
-    return $css;
+    return str_replace($tag, $replacement, $css);
 }
 
 function theme_uikit_set_headerbackground($css, $headerbackground) {
@@ -83,9 +80,7 @@ function theme_uikit_set_headerbackground($css, $headerbackground) {
     }else{
         $replacement = "/* No image */";
     }
-    $css = str_replace($tag, $replacement, $css);
-    
-    return $css;
+    return str_replace($tag, $replacement, $css);
 }
 
 function theme_uikit_set_footerbackground($css, $footerbackground) {
@@ -95,9 +90,7 @@ function theme_uikit_set_footerbackground($css, $footerbackground) {
     }else{
         $replacement = "/* No image */";
     }
-    $css = str_replace($tag, $replacement, $css);
-    
-    return $css;
+    return str_replace($tag, $replacement, $css);
 }
 
 function theme_uikit_set_loginheaderimage($css, $loginheaderimage) {
@@ -114,18 +107,32 @@ function theme_uikit_set_loginheaderimage($css, $loginheaderimage) {
     $url_tag = '[[setting:loginheaderimageurl]]';
     $css = str_replace($url_tag, $loginheaderimage, $css);
     
-    
     return $css;
+}
+
+function theme_uikit_set_slideshow_sizing($css, &$theme) {
+    //Replace slideshow colors:
+    $setting = 'slideshowsizingmode';
+
+    $modecss = 'auto';
+    if (isset($theme->settings->$setting)) {
+        if ($theme->settings->$setting === 'height') {
+            $modecss = 'auto 100%';
+        } elseif ($theme->settings->$setting === 'width') {
+            $modecss = '100% auto';
+        }
+    }
+    $tag = "[[setting:$setting]]";
+
+    return str_replace($tag, $modecss, $css);
 }
 
 function theme_uikit_set_slideshow_colors($css, &$theme) {
     //Replace slideshow colors:
     $defaults = array(
-        'slideshowbordercolor' => '#777',
-        'slideshowtitlecolor' => '#777',
-        'slideshowcaptioncolor' => '#777',
-        'slideshowbuttoncolor' => '#777',
-        'slideshowbuttontextcolor' => '#777'
+        'slideshowtitlecolor' => '#fff',
+        'slideshowcaptioncolor' => '#fff',
+        'slideshowarrowscolor' => '#fff'
     );
     
     foreach ($defaults as $setting => $default) {
@@ -278,6 +285,7 @@ function theme_uikit_process_css($css, $theme) {
         $css = theme_uikit_set_loginheaderimage($css, $loginheaderimage);
 
         // Set the slideshow colors
+        $css = theme_uikit_set_slideshow_sizing($css, $theme);
         $css = theme_uikit_set_slideshow_colors($css, $theme);
 
         // Set the font path.

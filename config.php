@@ -34,7 +34,6 @@ $THEME->supportscssoptimisation = false;
 
 //Load current style settings:
 global $DB;
-$table = "theme_uikit_less_settings";
 
 //Check if generated styles are available for the site and load them
 $context = context_system::instance();
@@ -68,10 +67,7 @@ $THEME->editor_sheets = array();
 $THEME->plugins_exclude_sheets = array(
     'block' => array(
         'html'
-    ),
-    'gradereport' => array(
-        'grader',
-    ),
+    )
 );
 
 //Make sure we have a valid layout:
@@ -195,9 +191,10 @@ $THEME->layouts = array(
 $THEME->javascripts = array(
     'uikit',
     'uikit-addons/sticky',
+    'uikit-addons/slideshow',
+    'uikit-addons/slideshow-fx',
     'general',
-    'modernizr',
-	'cslider'
+    'modernizr'
 );
 
 if(class_exists('core_useragent')){

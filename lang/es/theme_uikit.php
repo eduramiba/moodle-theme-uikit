@@ -42,6 +42,7 @@ $string['footnotedesc'] = 'Cualquier texto que agregue en este campo se mostará
 
 $string['logo'] = 'Logotipo';
 $string['logodesc'] = 'Por favor suba su logotipo personalizado aquí si quiere agregarlo a la cabecera de la página.<br>Si usted sube un logotipo, este reemplazará el ícono y texto mostrado por defecto.';
+$string['logoshowsummary'] = 'Mostrar la descripción del sitio bajo el logotipo';
 $string['footerimage'] = 'Imagen del Pie';
 $string['footerimagedesc'] = 'Por favor suba su imagen personalizada aquí si quiere añadirla al pie de página. <br>Si sube una imagen aparecerá encima del HTML personalizado del pie (si lo hay).';
 $string['favicon'] = 'Favicon';
@@ -77,6 +78,18 @@ $string['dontdisplay'] = 'Nunca mostrar';
 
 $string['footerblocks'] = 'Activar bloques del pie de página';
 $string['footerblocksdesc'] = 'Si se activa muestra 3 lugares adicionales donde colocar bloques en el pie de página';
+
+$string['componentclass-normal'] = 'Normal';
+$string['componentclass-primary'] = 'Primario';
+$string['componentclass-success'] = 'Éxito';
+$string['componentclass-danger'] = 'Peligro';
+$string['componentclass-link'] = 'Enlace';
+
+$string['componentplacement-center'] = 'Centrado';
+$string['componentplacement-top'] = 'Superior';
+$string['componentplacement-bottom'] = 'Inferior';
+$string['componentplacement-left'] = 'Izquierda';
+$string['componentplacement-right'] = 'Derecha';
 
 /* CustomMenu */
 $string['custommenuheading'] = 'Menú Personalizado';
@@ -223,8 +236,14 @@ $string['slideshowheading'] = 'Diapositivas de Página Inicial';
 $string['slideshowheadingsub'] = 'Diapositivas Dinámicas para la Página Inicial';
 $string['slideshowdesc'] = 'Esto genera un carrusel de hasta 4 diapositivas que le permiten promover elementos importantes de su sitio.';
 
+$string['slideshowheight'] = 'Altura del carrusel de diapositivas';
+
+$string['slideshowsizingmode'] = 'Modo de tamaño de diapositivas';
+$string['slideshowsizingmode-auto'] = 'Auto';
+$string['slideshowsizingmode-fullwidth'] = 'Utilizar ancho completo';
+$string['slideshowsizingmode-fullheight'] = 'Utilizar altura completa';
+
 $string['slideshownumber'] = 'Número de diapositivas';
-$string['slideshowcolor'] = 'Color principal de las diapositivas';
 
 $string['toggleslideshow'] = 'Mostrar/Ocultar diapositivas';
 $string['toggleslideshowdesc'] = 'Elige si quieres ocultar o mostrar las diapositivas.';
@@ -240,12 +259,29 @@ $string['slideimage'] = 'Imagen de la Diapositiva';
 $string['slidecaption'] = 'Subtítulo de la Diapositiva';
 $string['slideurl'] = 'Enlace del botón de la diapositiva';
 $string['slideurltext'] = 'Texto del botón de la diapositiva';
+$string['slidecaptionplacement'] = 'Disposición de la leyenda de la diapositiva';
 
-$string['slideshowbordercolor'] = 'Color del borde de las diapositivas';
 $string['slideshowtitlecolor'] = 'Color del título de las diapositivas';
-$string['slideshowcaptioncolor'] = 'Color del subtítulos de las diapositivas';
-$string['slideshowbuttoncolor'] = 'Color del botón de las diapositivas';
-$string['slideshowbuttontextcolor'] = 'Color del texto del botón de las diapositivas';
+$string['slideshowcaptioncolor'] = 'Color del subtítulo de las diapositivas';
+$string['slideshowarrowscolor'] = 'Color de las flechas de navegación';
+$string['slideshowbuttontype'] = 'Tipo de botón de las diapositivas';
+
+$string['slideshowautoplay'] = 'Activar avance automático';
+$string['slideshowanimation'] = 'Animación del carrusel de diapositivas';
+$string['slideshowkenburns'] = 'Activar efecto ken burns';
+
+$string['slideshowanimation-fade'] = 'Desvanecer';
+$string['slideshowanimation-scroll'] = 'Desplazar';
+$string['slideshowanimation-scale'] = 'Escalar';
+$string['slideshowanimation-swipe'] = 'Pasar';
+$string['slideshowanimation-slice-down'] = 'Trocear hacia abajo';
+$string['slideshowanimation-slice-up'] = 'Trocear hacia arriba';
+$string['slideshowanimation-slice-up-down'] = 'Trocear hacia arriba y abajo';
+$string['slideshowanimation-fold'] = 'Plegar';
+$string['slideshowanimation-puzzle'] = 'Puzzle';
+$string['slideshowanimation-boxes'] = 'Cajas';
+$string['slideshowanimation-boxes-reverse'] = 'Cajas inverso';
+$string['slideshowanimation-random-fx'] = 'Aleatorio';
 
 /* Marketing Spots */
 $string['marketingheading'] = 'Spots Publicitarios';
@@ -312,19 +348,19 @@ $string['websitedesc'] = 'Introduzca el URL de su sitio web institucional. (ej. 
 
 /* iOS Icons */
 $string['iosicon'] = 'Iconos para iOS';
-$string['iosicondesc'] = 'El tema proporciona un icono por defecto para los menús principales de iOS y Android. Puedes subir uno personalizado si lo deseas.';
+$string['iosicondesc'] = 'El tema proporciona un icono por defecto para los menús principales de iOS, Android y Windows. Puedes subir uno personalizado si lo deseas.';
 
 $string['iphoneicon'] = 'iPhone/iPod Touch Icon (No Retina)';
-$string['iphoneicondesc'] = 'El icono debería ser una imagen PN de 57px por 57px';
+$string['iphoneicondesc'] = 'El icono debería ser una imagen PNG de 57px por 57px';
 
 $string['iphoneretinaicon'] = 'iPhone/iPod Touch Icon (Retina)';
-$string['iphoneretinaicondesc'] = 'El icono debería ser una imagen PN de 114px por 114px';
+$string['iphoneretinaicondesc'] = 'El icono debería ser una imagen PNG de 114px por 114px';
 
 $string['ipadicon'] = 'iPad Icon (No Retina)';
-$string['ipadicondesc'] = 'El icono debería ser una imagen PN de 72px por 72px';
+$string['ipadicondesc'] = 'El icono debería ser una imagen PNG de 72px por 72px';
 
 $string['ipadretinaicon'] = 'iPad Icon (Retina)';
-$string['ipadretinaicondesc'] = 'El icono debería ser una imagen PN de 144px por 144px';
+$string['ipadretinaicondesc'] = 'El icono debería ser una imagen PNG de 144px por 144px';
 
 /* Mobile Apps */
 $string['mobileappsheading'] = 'Aplicaciones móviles';
@@ -401,6 +437,8 @@ $string['custom_less_default'] =
 $string['themedesignerenabled'] = 'El modo de diseño de temas ha sido activado';
 $string['warning_theme_designer_enabled'] = 'El modo de diseño de temas ha sido activado automáticamente. Asegúrate de desactivarlo para mejorar el rendimiento cuando hayas acabado de personalizar los estilos.';
 $string['warning_theme_designer_disable'] = 'Lo puedes desactivar aquí';
+$string['warning_saved_styles_different_theme_version'] = 'Parece que existen estilos personalizados para el sitio guardados con una versión antigua del tema UIKit';
+$string['warning_saved_styles_different_theme_version_action'] = 'Por favor actualiza los estilos del tema entrando en el gestor visual de estilos y pulsando en guardar';
 $string['page_description'] = 'Esta página permite personalizar el estilo y comportamiento de tu sitio.';
 $string['page_description_sub'] = 'Puedes configurar el logo, favicon y otras muchas opciones aquí.';
 

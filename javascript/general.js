@@ -16,11 +16,6 @@
             }
         });
 
-        $('#da-slider').cslider({
-            autoplay: true,
-            interval: 6000
-        });
-
         $("#navigationAccordionToggle").click(function(event) {
             event.preventDefault();
             $("#navigationAccordion").slideToggle();
