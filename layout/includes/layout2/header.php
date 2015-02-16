@@ -25,6 +25,7 @@
  */
 
 $haslogo = (!empty($PAGE->theme->settings->logo));
+$logoshowsummary = isset($PAGE->theme->settings->logoshowsummary) && $PAGE->theme->settings->logoshowsummary;
 $hasheaderprofilepic = (empty($PAGE->theme->settings->headerprofilepic)) ? false : $PAGE->theme->settings->headerprofilepic;
 $icon = 'pencil-square-o';
 if(!empty($PAGE->theme->settings->siteicon)){
@@ -39,7 +40,7 @@ if(!empty($PAGE->theme->settings->siteicon)){
             <!-- HEADER: LOGO AREA -->
             <div id="page-header-content-logo">
                 <?php
-                if (!$haslogo) { ?>
+                                            if (!$haslogo) { ?>
                     <div>
                         <i id="headerlogo" class="uk-icon uk-icon-<?php echo $icon; ?>"></i>
                         <h1 id="title" class="uk-display-inline">
@@ -50,21 +51,24 @@ if(!empty($PAGE->theme->settings->siteicon)){
                         </h2>
                     </div>
                 <?php
-                } else {
-                    $backgroundUrl = $PAGE->theme->setting_file_url('logo', 'logo');
-                ?>
+                                            } else {
+                                                $backgroundUrl = $PAGE->theme->setting_file_url('logo', 'logo');
+                                            ?>
                     <a class="logo" href="<?php echo $CFG->wwwroot; ?>" title="<?php print_string('home'); ?>">
                         <img src="<?php echo $backgroundUrl; ?>" alt="">
                    </a>
+                   <?php if ($logoshowsummary){ ?>
+                        <h2 id="subtitle" class="uk-text-muted clear"><?php p(strip_tags(format_text($SITE->summary, FORMAT_HTML))) ?></h2>
+                   <?php } ?>
                 <?php
-                } ?>
+                                            } ?>
             </div>
             <div id="page-header-content-navigation" class="flexgrow flex-grid-vertical">
                 <?php
-                        if(!isset($hasnavigation) || $hasnavigation){
-                            require_once(dirname(__FILE__) . '/navbar.php');
-                        }
-                    ?>
+                                                if(!isset($hasnavigation) || $hasnavigation){
+                                                    require_once(dirname(__FILE__) . '/navbar.php');
+                                                }
+                                            ?>
 
                 <?php require_once(dirname(__FILE__) . '/../socialicons.php');?>
 

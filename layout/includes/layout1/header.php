@@ -25,6 +25,7 @@
  */
 
 $haslogo = (!empty($PAGE->theme->settings->logo));
+$logoshowsummary = isset($PAGE->theme->settings->logoshowsummary) && $PAGE->theme->settings->logoshowsummary;
 $hasheaderprofilepic = (empty($PAGE->theme->settings->headerprofilepic)) ? false : $PAGE->theme->settings->headerprofilepic;
 $icon = 'pencil-square-o';
 if(!empty($PAGE->theme->settings->siteicon)){
@@ -40,7 +41,7 @@ if(!empty($PAGE->theme->settings->siteicon)){
             <!-- HEADER: LOGO AREA -->
                 <div class="uk-width-7-10">
                     <?php
-                    if (!$haslogo) { ?>
+                                        if (!$haslogo) { ?>
                         <div class="uk-grid uk-grid-small">
                             <div class="uk-width-3-10 uk-width-medium-2-10 uk-width-large-1-10">
                                 <i id="headerlogo" class="uk-icon uk-icon-<?php echo $icon; ?>"></i>
@@ -53,14 +54,17 @@ if(!empty($PAGE->theme->settings->siteicon)){
                             </div>
                         </div>
                     <?php
-                    } else {
+                                        } else {
 						$backgroundUrl = $PAGE->theme->setting_file_url('logo', 'logo');
 					?>
                         <a class="logo" href="<?php echo $CFG->wwwroot; ?>" title="<?php print_string('home'); ?>">
-								<img src="<?php echo $backgroundUrl; ?>" alt="">
-						   </a>
+                            <img src="<?php echo $backgroundUrl; ?>" alt="">
+                        </a>
+                        <?php if ($logoshowsummary){ ?>
+                            <h2 id="subtitle" class="uk-text-muted clear"><?php p(strip_tags(format_text($SITE->summary, FORMAT_HTML))) ?></h2>
+                        <?php } ?>
                     <?php
-                    } ?>
+                                        } ?>
                 </div>
                 <?php if (isloggedin() && $hasheaderprofilepic) { ?>
                     <div class="uk-width-3-10" id="profilepic">
@@ -72,12 +76,12 @@ if(!empty($PAGE->theme->settings->siteicon)){
                         </ul>            
                     </div>
                 <?php
-                }
+                                        }
                 
-                require_once(dirname(__FILE__) . '/../socialicons.php');
+                                        require_once(dirname(__FILE__) . '/../socialicons.php');
 
-                if (!empty($courseheader)) { ?>
-                <div id="course-header"><?php echo $courseheader; ?></div>
+                                        if (!empty($courseheader)) { ?>
+                    <div id="course-header"><?php echo $courseheader; ?></div>
                 <?php } ?>
             </div>
         </div>
