@@ -19647,21 +19647,7 @@ body.layout2 #block-region-side-pre {
   }
   body.layout2 #block-region-side-pre {
     margin-top: 5px;
-    border-top: 1px solid #dddddd;
-    border-left: 1px solid #dddddd;
-    border-right: 1px solid #dddddd;
-    border-top-left-radius: 4px;
-    border-top-right-radius: 4px;
     padding: 0;
-  }
-  body.layout2 #navigationAccordionNav {
-    border-bottom: 1px solid #dddddd;
-  }
-  body.layout2 #navigationAccordion {
-    display: none;
-    padding-top: 5px;
-    padding-left: 5px;
-    padding-right: 5px;
   }
 }
 @media only screen and (min-width: 1220px) {
