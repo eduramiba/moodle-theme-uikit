@@ -205,8 +205,9 @@ body.layout2 {
     .clearfix;
 }
 
+
 //Add top border to top main region depending on breadcrumbs placement and visibility:
-body.layout1{
+body.layout1 {
     &.layout-option-nobreadcrumbs #main-content-box,
     &.nopagenavbar #page-breadcrumbs {
         border-top: @mdl-border-width solid @mdl-main-region-border;
@@ -215,12 +216,25 @@ body.layout1{
     }
 }
 
-body.layout2{
+body.layout2 {
     &.layout-option-nobreadcrumbs #region-main,
     &.nopagenavbar #page-breadcrumbs {
         border-top: @mdl-border-width solid @mdl-main-region-border;
         border-top-left-radius: @mdl-border-radius;
         border-top-right-radius: @mdl-border-radius;
+    }
+}
+
+body.layout1, body.layout2 {
+    .page-login {
+        #region-main, layout-option-nobreadcrumbs #region-main {
+            border: none;
+        }
+
+        #main-content-box {
+            border-top-left-radius: @mdl-border-radius;
+            border-top-right-radius: @mdl-border-radius;
+        }
     }
 }
 

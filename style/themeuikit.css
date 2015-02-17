@@ -19761,6 +19761,17 @@ body.layout2.nopagenavbar #page-breadcrumbs {
   border-top-left-radius: 4px;
   border-top-right-radius: 4px;
 }
+body.layout1 .page-login #region-main,
+body.layout2 .page-login #region-main,
+body.layout1 .page-login layout-option-nobreadcrumbs #region-main,
+body.layout2 .page-login layout-option-nobreadcrumbs #region-main {
+  border: none;
+}
+body.layout1 .page-login #main-content-box,
+body.layout2 .page-login #main-content-box {
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+}
 /* Footer */
 #page-footer {
   -webkit-box-sizing: border-box;
