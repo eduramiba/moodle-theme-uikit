@@ -40,34 +40,34 @@ if (empty($PAGE->layout_options['nobreadcrumbs'])) {
                 <div id="page-navbar">
                     <div>
                         <?php
-                            switch($pagenavbarcontentmode){
-                                case 'custom':
-                                    $pagenavbartext = !empty($this->page->theme->settings->pagenavbarcustomcontent) ? $this->page->theme->settings->pagenavbarcustomcontent : '';
-                                    break;
-                                case 'sitename':
-                                    $pagenavbartext = $SITE->fullname;
-                                    break;
-                                case 'siteshortname':
-                                    $pagenavbartext = $SITE->shortname;
-                                    break;
-                                case 'sitesummary':
-                                    $pagenavbartext = $SITE->summary;
-                                    break;
-                                case 'pagetitle':
-                                    $pagenavbartext = $PAGE->title;
-                                    break;
-                                case 'pageheading':
-                                default:
-                                    $pagenavbartext = $PAGE->heading;
-                                    break;
-                            }
+                                                                switch($pagenavbarcontentmode){
+                                                                    case 'custom':
+                                                                        $pagenavbartext = !empty($this->page->theme->settings->pagenavbarcustomcontent) ? $this->page->theme->settings->pagenavbarcustomcontent : '';
+                                                                        break;
+                                                                    case 'sitename':
+                                                                        $pagenavbartext = $SITE->fullname;
+                                                                        break;
+                                                                    case 'siteshortname':
+                                                                        $pagenavbartext = $SITE->shortname;
+                                                                        break;
+                                                                    case 'sitesummary':
+                                                                        $pagenavbartext = $SITE->summary;
+                                                                        break;
+                                                                    case 'pagetitle':
+                                                                        $pagenavbartext = $PAGE->title;
+                                                                        break;
+                                                                    case 'pageheading':
+                                                                    default:
+                                                                        $pagenavbartext = $PAGE->heading;
+                                                                        break;
+                                                                }
 
-                            if (empty($pagenavbartext)) {
-                                $pagenavbartext = '&nbsp;';
-                            }
+                                                                if (empty($pagenavbartext)) {
+                                                                    $pagenavbartext = '&nbsp;';
+                                                                }
 
-                            echo $pagenavbartext;
-                            ?>
+                                                                echo $pagenavbartext;
+                                                                ?>
                     </div>
                 </div>
             <?php } ?>

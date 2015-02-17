@@ -245,30 +245,6 @@ a.logo {
 }
 
 
-//This part is for re-ordering course columns for small devices so the course content appears before left sidebar, since this section uses full device width
-@media only screen and (max-width: @mdl-maxwidth-singlecolumn), only screen and (max-device-width: @mdl-maxwidth-singlecolumn){
-    #pre-and-content{
-        .boxit(vertical);
-        .flexit(column);
-        
-        #region-main-uikit {
-            .box-order(1);
-            float: none;
-        }
-        
-        .content-pre {
-            .box-order(2);
-            float: none;
-        }
-        
-        #block-region-side-pre {
-            .box-order(2);
-            float: none;
-        }
-    }
-}
-
-
 /* Footer */
 
 #page-footer {

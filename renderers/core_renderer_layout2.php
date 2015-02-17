@@ -25,8 +25,39 @@
 class theme_uikit_core_renderer extends abstract_uikit_core_renderer {
     
     public function body_attributes($additionalclasses = array()) {
-        $additionalclasses[]= 'layout2 flex-grid-vertical';
+        $additionalclasses[]= 'layout2 flex-grid-vertical page-navbar';
+        
+        if (isset($this->page->theme->settings->breadcrumbsplacement) && $this->page->theme->settings->breadcrumbsplacement != 1 
+                && isset($this->page->theme->settings->pagenavbarcontent) && $this->page->theme->settings->pagenavbarcontent === 'dontshow') {
+            $additionalclasses[]= 'no-page-navbar';
+        }
+        
         return parent::body_attributes($additionalclasses);
+    }
+    
+    /**
+     * Activate navigation slide toggle display.
+     * @param string $region
+     * @return string
+     */
+    public function blocks_for_region($region) {
+        $content = parent::blocks_for_region($region);
+        
+        if($region === 'side-pre'){
+            $responsivehtml = '
+                <ul id="navigationAccordionNav" class="uk-nav uk-nav-side uk-visible-small">
+                    <li><a id="navigationAccordionToggle" href="#"><span class="uk-icon uk-icon-bars"></span> '.get_string('navigationtoggletext', 'theme_uikit').'</a></li>
+                </ul>
+                ';
+            
+            $responsivehtml .= '<div id="navigationAccordion">'
+                    . $content
+                    . '</div>';
+            
+            return $responsivehtml;
+        }else{
+            return $content;
+        }
     }
     
     protected function render_custom_menu_base(custom_menu $menu, $isOffCanvas = false){

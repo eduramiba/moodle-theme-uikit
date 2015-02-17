@@ -86,7 +86,7 @@ if(empty($PAGE->layout_options['noblocks'])){ ?>
                 if($OUTPUT->check_stale_savedstyles()){
                     ?>
                     <div id="uikit-stale-saved-styles-alert" class="uk-alert uk-alert-danger">
-                        <p><span class="uk-icon uk-icon-exclamation-triangle"></span> <?php echo get_string('warning_saved_styles_different_theme_version', 'theme_uikit') ?></p>
+                        <p><span class="uk-icon uk-icon-exclamation-circle uk-text-large"></span> <?php echo get_string('warning_saved_styles_different_theme_version', 'theme_uikit') ?></p>
                         <p><a href="<?php echo $CFG->wwwroot; ?>/theme/uikit/customizer/index.php"><?php echo get_string('warning_saved_styles_different_theme_version_action', 'theme_uikit') ?></a></p>
                     </div>
               <?php 
@@ -96,7 +96,7 @@ if(empty($PAGE->layout_options['noblocks'])){ ?>
                 if(isset($CFG->themedesignermode) && $CFG->themedesignermode){
                     ?>
                     <div id="uikit-theme-designer-alert" class="uk-alert uk-alert-danger">
-                        <p><span class="uk-icon uk-icon-exclamation-triangle"></span> <?php echo get_string('warning_theme_designer_enabled', 'theme_uikit') ?></p>
+                        <p><span class="uk-icon uk-icon-exclamation-triangle uk-text-large"></span> <?php echo get_string('warning_theme_designer_enabled', 'theme_uikit') ?></p>
                         <p><a href="<?php echo $CFG->wwwroot; ?>/admin/settings.php?section=themesettings"><?php echo get_string('warning_theme_designer_disable', 'theme_uikit') ?></a></p>
                     </div>
              <?php 

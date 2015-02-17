@@ -1,5 +1,13 @@
+//Use full page height:
+html, body {
+    height: 100%;
+}
+
+/**
+ * First layout specific styles (grid based)
+ */
 body.layout1 {
-    //This part is for re-ordering course columns for small devices so the course content appears before left sidebar, since this section uses full device width
+    //This part is for re-ordering course columns for small devices in layout 1 (grid based) so the course content appears before left sidebar, since this section uses full device width
     @media only screen and (max-width: @mdl-maxwidth-singlecolumn), only screen and (max-device-width: @mdl-maxwidth-singlecolumn){
         #pre-and-content{
             .flexit(column);
@@ -8,7 +16,7 @@ body.layout1 {
                 .box-order(1);
                 float: none;
             }
-
+            
             .content-pre {
                 .box-order(2);
                 float: none;
@@ -22,15 +30,25 @@ body.layout1 {
     }
 }
 
-//Use full page height:
-html, body {
-    height: 100%;
-}
-
-/**
- * Second layout specific styles
- */
 body.layout2 {
+    //This part is for re-ordering course columns for small devices in layout 2 (flex based) so the course content appears after left sidebar, but left sidebar is initially hidden with an accordion toggle for navigation
+    @media only screen and (max-width: @mdl-maxwidth-singlecolumn), only screen and (max-device-width: @mdl-maxwidth-singlecolumn){
+        #pre-and-content{
+            .boxit(vertical);
+            .flexit(column);
+
+            #region-main-uikit {
+                .box-order(2);
+                float: none;
+            }
+
+            #block-region-side-pre, .content-pre {
+                .box-order(2);
+                float: none;
+            }
+        }
+    }
+    
     //Header:
 	#headerlogo {
 		font-size: 2.5em;
@@ -52,7 +70,8 @@ body.layout2 {
     
 	
 	#page-header-content-logo #subtitle {
-		margin: 0;
+		margin-top: 0;
+		margin-bottom: 5px;
 	}
 
 	#page-navbar {
@@ -94,14 +113,31 @@ body.layout2 {
             }
         }
         
+        #page-header-content-logo #subtitle {
+            margin: 0;
+        }
         
 		#pre-and-content{
 			.flex-grid-horizontal-wrap();
 		}
         
         #block-region-side-pre {
-            margin-top: 5px;
+            margin-top: 0;
+            border-radius: 0;
             padding: 0;
+            
+            border-top: @mdl-border-width solid @mdl-main-region-border;
+            border-left: @mdl-border-width solid @mdl-main-region-border;
+            border-right: @mdl-border-width solid @mdl-main-region-border;
+        }
+        
+        #navigationAccordionNav {
+            border-bottom: @mdl-border-width solid @mdl-main-region-border;
+        }
+        
+        #navigationAccordion {
+            display: none;/* Initially hidden */
+            padding: 5px;
         }
 	}
     
@@ -217,12 +253,30 @@ body.layout1 {
 }
 
 body.layout2 {
-    &.layout-option-nobreadcrumbs #region-main,
-    &.nopagenavbar #page-breadcrumbs {
-        border-top: @mdl-border-width solid @mdl-main-region-border;
-        border-top-left-radius: @mdl-border-radius;
-        border-top-right-radius: @mdl-border-radius;
+    
+    &.layout-option-nobreadcrumbs,
+    &.nopagenavbar {
+        
+        #page-breadcrumbs {
+            border-top: @mdl-border-width solid @mdl-main-region-border;
+            border-top-left-radius: @mdl-border-radius;
+            border-top-right-radius: @mdl-border-radius;
+        }
+        
+        @media only screen and (max-width: @mdl-maxwidth-singlecolumn), only screen and (max-device-width: @mdl-maxwidth-singlecolumn){
+            #block-region-side-pre, .content-pre {
+                border-top: @mdl-border-width solid @mdl-main-region-border;
+                border-top-left-radius: @mdl-border-radius;
+                border-top-right-radius: @mdl-border-radius;
+            }
+            
+            #page-breadcrumbs {
+                border-top-left-radius: 0;
+                border-top-right-radius: 0;
+            }
+        }
     }
+    
 }
 
 body.layout1, body.layout2 {
