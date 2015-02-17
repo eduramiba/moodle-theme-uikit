@@ -73,10 +73,11 @@ class theme_uikit_core_renderer extends abstract_uikit_core_renderer {
         }
         
         
-        $content = '<div id="navbar-buttongroup-uikit-theme" class="uk-button-group navbar-buttongroup-uikit-theme navbar navbar-fixed-top moodle-has-zindex" '.$sticky.'>';
+        
+        $menu_items_html = '';
         
         foreach ($menu->get_children() as $item) {
-            $content .= $this->render_custom_menu_item($item, 0, $isOffCanvas);
+            $menu_items_html .= $this->render_custom_menu_item($item, 0, $isOffCanvas);
         }
         
         $displayloggedusermode = isset($this->page->theme->settings->displayloggedusermode) ? $this->page->theme->settings->displayloggedusermode : 0;
@@ -85,9 +86,20 @@ class theme_uikit_core_renderer extends abstract_uikit_core_renderer {
         $bDisplayLogout = in_array($displayloggedusermode, array(0, 1, 2));
         
         if($bDisplayName || $bDisplayLogout){
-            $content .= $this->login_info_html_for_layout2_navigationbar($bDisplayName, $bDisplayLogout);
+            $menu_items_html .= $this->login_info_html_for_layout2_navigationbar($bDisplayName, $bDisplayLogout);
         }
         
+        $buttonsclasses = $this->get_navigationbar_buttons_classes();
+       $button_count = substr_count($menu_items_html, $buttonsclasses);
+        
+       if($button_count > 1){
+           $buttongroup_class = 'uk-button-group';
+       }else{
+           $buttongroup_class = '';
+       }
+       
+        $content = '<div id="navbar-buttongroup-uikit-theme" class="'.$buttongroup_class.' navbar-buttongroup-uikit-theme navbar navbar-fixed-top moodle-has-zindex" '.$sticky.'>';
+        $content .= $menu_items_html;
         $content .= '</div>';
         
         return $content;
@@ -170,9 +182,7 @@ class theme_uikit_core_renderer extends abstract_uikit_core_renderer {
             return '';
         }
 
-        $loginpage = ((string)$this->page->url === get_login_url());
         $course = $this->page->course;
-        
         
         $buttonsclasses = $this->get_navigationbar_buttons_classes();
         
@@ -191,8 +201,6 @@ class theme_uikit_core_renderer extends abstract_uikit_core_renderer {
         }
         
         
-        $logoutIcon = ' <i class="uk-icon uk-icon-mail-forward"></i> ';
-        $loginIcon = ' <i class="uk-icon uk-icon-sign-in"></i> ';
         $profileIcon = ' <i class="uk-icon uk-icon-user"></i> ';
         
         
@@ -205,8 +213,6 @@ class theme_uikit_core_renderer extends abstract_uikit_core_renderer {
             $realuserinfo = '';
         }
 
-        $loginurl = get_login_url();
-        
         if (empty($course->id)) {
             // $course->id is not defined during installation
             return '';
@@ -228,7 +234,7 @@ class theme_uikit_core_renderer extends abstract_uikit_core_renderer {
                 if (isguestuser()) {
                     $loggedinas = $realuserinfo . get_string('guest');
                     
-                    $loggedinas .= "<a class=\"$buttonsclasses\" href=\"$loginurl\">" . $loginIcon . get_string('login') . '</a>';
+                    $loggedinas .= $this->get_login_navigationbar_button($buttonsclasses);
                 } else if (is_role_switched($course->id)) { // Has switched roles
                     $rolename = '';
                     if ($role = $DB->get_record('role', array('id' => $USER->access['rsw'][$context->path]))) {
@@ -244,21 +250,42 @@ class theme_uikit_core_renderer extends abstract_uikit_core_renderer {
                     $loggedinas = $realuserinfo . $username;
                     
                     if ($bDisplayLogout) {
-                        $loggedinas .= " <a class=\"$buttonsclasses\" href=\"$CFG->wwwroot/login/logout.php?sesskey=" . sesskey() . "\">".$logoutIcon." " . $this->processMenuItemText(get_string('logout', 'theme_uikit')) . '</a>';
+                        $loggedinas .= $this->get_logout_navigationbar_button($buttonsclasses);
                     }
                 }
             }else{
                 if($bDisplayLogout){
-                    $loggedinas = "<a class=\"$buttonsclasses\" href=\"$CFG->wwwroot/login/logout.php?sesskey=" . sesskey() . "\">".$logoutIcon." " . $this->processMenuItemText(get_string('logout', 'theme_uikit')) . '</a>';
+                    $loggedinas = $this->get_logout_navigationbar_button($buttonsclasses);
                 }else{
                     $loggedinas = '';
                 }
             }
         } else {
-            $loggedinas = "<a class=\"$buttonsclasses\" href=\"$loginurl\">" . $loginIcon . get_string('login') . '</a>';
+            $loggedinas = $this->get_login_navigationbar_button($buttonsclasses);
         }
 
         return $loggedinas;
+    }
+    
+    protected function get_logout_navigationbar_button($buttonsclasses){
+        global $CFG;
+        $logoutIcon = ' <i class="uk-icon uk-icon-mail-forward"></i> ';
+        $text = get_string('logout', 'theme_uikit');
+        
+        return "<a class=\"$buttonsclasses\" title=\"$text\" href=\"$CFG->wwwroot/login/logout.php?sesskey=" . sesskey() . "\">".$logoutIcon." " . $this->processMenuItemText($text) . '</a>';
+    }
+    
+    protected function get_login_navigationbar_button($buttonsclasses){
+        $is_loginpage = ((string)$this->page->url === get_login_url());
+        if($is_loginpage){
+            return '';
+        }
+        
+        $loginurl = get_login_url();
+        $loginIcon = ' <i class="uk-icon uk-icon-sign-in"></i> ';
+        $text = get_string('login');
+        
+        return "<a class=\"$buttonsclasses\" title=\"$text\" href=\"$loginurl\">" . $loginIcon . $text . '</a>';
     }
 
     protected function get_navigationbar_buttons_classes() {
@@ -271,4 +298,19 @@ class theme_uikit_core_renderer extends abstract_uikit_core_renderer {
         return $buttonsclasses;
     }
 
+    /**
+     * Processes a menu item text for responsive features.
+     * The text of the element will hide when the size of the viewport is small.
+     * Do not include icon of the item.
+     * @param string $text
+     * @param bool $isOffCanvas
+     * @return string
+     */
+    protected function processMenuItemText($text, $isOffCanvas = false){
+        if(!$isOffCanvas){
+            return '<span class="uk-visible-large">'.$text.'</span>';
+        }else{
+            return $text;
+        }
+    }
 }

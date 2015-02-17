@@ -18922,7 +18922,7 @@ input[type=button].closebutton,
   -ms-flex-shrink: 0;
   flex-shrink: 0;
 }
-@media only screen and (max-width: 480px), only screen and (max-device-width: 480px) {
+@media only screen and (max-width: 479px), only screen and (max-device-width: 479px) {
   .flex-grid-xsmall-horizontal-wrap {
     display: -webkit-flex;
     display: -moz-flex;
@@ -18941,7 +18941,7 @@ input[type=button].closebutton,
     float: none;
   }
 }
-@media only screen and (max-width: 768px), only screen and (max-device-width: 768px) {
+@media only screen and (max-width: 959px), only screen and (max-device-width: 959px) {
   .flex-grid-small-horizontal-wrap {
     display: -webkit-flex;
     display: -moz-flex;
@@ -18960,7 +18960,7 @@ input[type=button].closebutton,
     float: none;
   }
 }
-@media only screen and (max-width: 960px), only screen and (max-device-width: 960px) {
+@media only screen and (max-width: 1219px), only screen and (max-device-width: 1219px) {
   .flex-grid-medium-horizontal-wrap {
     display: -webkit-flex;
     display: -moz-flex;
@@ -19499,7 +19499,7 @@ body.theme_uikit , h2.pagetitle span {
     visibility: visible;
     content: url("[[setting:loginheaderimageurl]]");
 }
-@media only screen and (max-width: 768px), only screen and (max-device-width: 768px) {
+@media only screen and (max-width: 767px), only screen and (max-device-width: 767px) {
   body.layout1 #pre-and-content {
     display: -webkit-flex;
     display: -moz-flex;
@@ -19600,7 +19600,7 @@ body.layout2 #block-region-side-pre {
   -ms-flex: 0 0 auto;
   flex: 0 0 auto;
 }
-@media only screen and (max-width: 768px), only screen and (max-device-width: 768px) {
+@media only screen and (max-width: 767px), only screen and (max-device-width: 767px) {
   body.layout2 #page-header-content {
     display: -webkit-flex;
     display: -moz-flex;
@@ -19653,9 +19653,6 @@ body.layout2 #block-region-side-pre {
     border-top-left-radius: 4px;
     border-top-right-radius: 4px;
     padding: 0;
-  }
-  body.layout2 #page-navbar {
-    display: none;
   }
   body.layout2 #navigationAccordionNav {
     border-bottom: 1px solid #dddddd;

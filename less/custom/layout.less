@@ -1,6 +1,6 @@
 body.layout1 {
     //This part is for re-ordering course columns for small devices so the course content appears before left sidebar, since this section uses full device width
-    @media only screen and (max-width: @breakpoint-medium), only screen and (max-device-width: @breakpoint-medium){
+    @media only screen and (max-width: @mdl-maxwidth-singlecolumn), only screen and (max-device-width: @mdl-maxwidth-singlecolumn){
         #pre-and-content{
             .flexit(column);
 
@@ -76,7 +76,7 @@ body.layout2 {
     }
 	
 	//This part is for re-ordering pages for small devices
-	@media only screen and (max-width: @breakpoint-medium), only screen and (max-device-width: @breakpoint-medium){
+	@media only screen and (max-width: @mdl-maxwidth-singlecolumn), only screen and (max-device-width: @mdl-maxwidth-singlecolumn){
         #page-header-content {
 			.flex-grid-horizontal-wrap();
             
@@ -108,10 +108,6 @@ body.layout2 {
             border-top-left-radius: @mdl-border-radius;
             border-top-right-radius: @mdl-border-radius;
             padding: 0;
-        }
-        
-        #page-navbar {
-            display: none;
         }
         
         #navigationAccordionNav {

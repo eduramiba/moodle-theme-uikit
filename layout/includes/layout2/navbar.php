@@ -36,6 +36,7 @@ $displayloggedusermode = isset($PAGE->theme->settings->displayloggedusermode) ? 
     <?php echo $OUTPUT->custom_menu('', false); ?>
     
     <?php if (isloggedin() && $hasheaderprofilepic) { ?>
+        <div class="uk-visible-small">&nbsp;</div>
         <div id="profilepic" style="display: inline-block;">
             <p class="socialheading"><?php echo $USER->firstname; ?></p>
             <ul class="socials unstyled">
