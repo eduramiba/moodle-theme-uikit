@@ -273,7 +273,7 @@ $string['slideshowkenburns'] = 'Activar efecto ken burns';
 $string['slideshowanimation-fade'] = 'Desvanecer';
 $string['slideshowanimation-scroll'] = 'Desplazar';
 $string['slideshowanimation-scale'] = 'Escalar';
-$string['slideshowanimation-swipe'] = 'Pasar';
+$string['slideshowanimation-swipe'] = 'Empujar';
 $string['slideshowanimation-slice-down'] = 'Trocear hacia abajo';
 $string['slideshowanimation-slice-up'] = 'Trocear hacia arriba';
 $string['slideshowanimation-slice-up-down'] = 'Trocear hacia arriba y abajo';
@@ -281,7 +281,7 @@ $string['slideshowanimation-fold'] = 'Plegar';
 $string['slideshowanimation-puzzle'] = 'Puzzle';
 $string['slideshowanimation-boxes'] = 'Cajas';
 $string['slideshowanimation-boxes-reverse'] = 'Cajas inverso';
-$string['slideshowanimation-random-fx'] = 'Aleatorio';
+$string['slideshowanimation-random-fx'] = 'Efecto aleatorio';
 
 /* Marketing Spots */
 $string['marketingheading'] = 'Spots Publicitarios';

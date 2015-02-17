@@ -283,7 +283,7 @@ $string['slideshowanimation-fold'] = 'Fold';
 $string['slideshowanimation-puzzle'] = 'Puzzle';
 $string['slideshowanimation-boxes'] = 'Boxes';
 $string['slideshowanimation-boxes-reverse'] = 'Boxes reverse';
-$string['slideshowanimation-random-fx'] = 'Random';
+$string['slideshowanimation-random-fx'] = 'Random effect';
 
 /* Marketing Spots */
 $string['marketingheading'] = 'Marketing Spots';
