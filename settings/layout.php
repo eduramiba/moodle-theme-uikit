@@ -30,14 +30,16 @@ $temp = new admin_settingpage('theme_uikit_layout', get_string('layoutheading', 
 
 if(!function_exists('theme_uikit_redirect_to_layout_settings')){
     /**
-     * We need to reload this page after a layout change or it could look weird.
-     */
+    * We need to reload this page after a layout change or it could look weird.
+    */
     function theme_uikit_redirect_to_layout_settings(){
         global $CFG;
         theme_reset_all_caches();
         redirect($CFG->wwwroot.'/admin/settings.php?section=theme_uikit_layout');
     }
 }
+
+global $PAGE;
 
 // Layout mode setting
 $name = 'theme_uikit/themelayout';
@@ -46,8 +48,16 @@ $description = get_string('themelayoutdesc', 'theme_uikit');
 $default = 1;
 $choices = array(1 => get_string('themelayout1', 'theme_uikit'), 2 => get_string('themelayout2', 'theme_uikit'));
 $setting = new admin_setting_configselect($name, $title, $description, $default, $choices);
-$setting->set_updatedcallback('theme_uikit_redirect_to_layout_settings');
+
+if($PAGE->pagelayout !== 'maintenance'){
+    $setting->set_updatedcallback('theme_uikit_redirect_to_layout_settings');
+}else{
+    $setting->set_updatedcallback('theme_reset_all_caches');
+}
+
 $temp->add($setting);
+
+
 
 $chosenlayout = get_config('theme_uikit', 'themelayout');
 
