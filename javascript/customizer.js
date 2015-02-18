@@ -291,7 +291,7 @@
                             error = "";
                         }
                         
-                        var helpText = i18n['clear-cache'];
+                        var helpText = i18n['less-error-help'];
                         
                         showErrorModal(error, helpText);
                         enableControls();

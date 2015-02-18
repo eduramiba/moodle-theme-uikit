@@ -464,7 +464,7 @@ $string['js-styles-saved'] = 'Styles saved successfully!';
 $string['js-styles-saved-error'] = 'An error happened while saving the styles';
 $string['js-font-family-placeholder'] = 'Type your font or list of fonts';
 $string['js-externalpage-disallowed'] = 'Going to an external page is not allowed';
-$string['js-clear-cache'] = 'Please try to clear your browser cache';
+$string['js-less-error-help'] = 'Please try to clear your browser cache and make sure that your custom CSS/LESS is correct';
 
 
 

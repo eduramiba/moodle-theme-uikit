@@ -78,6 +78,7 @@ $PAGE->requires->js(new moodle_url($CFG->wwwroot . '/theme/uikit/javascript/code
 $PAGE->requires->js(new moodle_url($CFG->wwwroot . '/theme/uikit/javascript/codemirror/mode/css.js?'.$themeversion));
 $PAGE->requires->js(new moodle_url($CFG->wwwroot . '/theme/uikit/javascript/codemirror/addons/matchbrackets.js?'.$themeversion));
 $PAGE->requires->js(new moodle_url($CFG->wwwroot . '/theme/uikit/javascript/codemirror/addons/closebrackets.js?'.$themeversion));
+$PAGE->requires->js(new moodle_url($CFG->wwwroot . '/theme/uikit/javascript/codemirror/addons/active-line.js?'.$themeversion));
 
 //Load current settings:
 $table = "theme_uikit_less_settings";
