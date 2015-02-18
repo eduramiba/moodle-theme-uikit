@@ -221,14 +221,19 @@
                 var hasThemeChanged = currentTheme !== $themeSelector.val();
                 currentTheme = $themeSelector.val();
                 
-                function showErrorModal(text) {
+                function showErrorModal(errorText, helpText) {
                     var $errorDiv = $("<div>")
                             .addClass('uk-alert uk-alert-danger uk-margin-top');
 
-                    if (text) {
-                        $errorDiv.text(i18n['compile-error']+": " + text);
+                    if (errorText) {
+                        $errorDiv.text(i18n['compile-error']+": " + errorText);
                     } else {
                         $errorDiv.text(i18n['compile-error']);
+                    }
+                    
+                    if(helpText){
+                        $errorDiv.append("<br />");
+                        $errorDiv.append(helpText);
                     }
                     
                     $("#uikit-modal-dialog").find('.content').html($errorDiv);
@@ -286,9 +291,9 @@
                             error = "";
                         }
                         
-                        error += "<br />" + i18n['clear-cache'];
+                        var helpText = i18n['clear-cache'];
                         
-                        showErrorModal(error);
+                        showErrorModal(error, helpText);
                         enableControls();
                     });
                 }
@@ -1142,6 +1147,8 @@
                 modal.show();
             }
             
+            
+            
 
             //Prepare data:
             var saveParams = {
@@ -1213,6 +1220,7 @@
             theme: 'solarized light',
             lineNumbers: true,
             matchBrackets: true,
+            autoCloseBrackets: true,
             styleActiveLine: true,
             mode: "text/x-less"
         });

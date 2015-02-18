@@ -77,6 +77,7 @@ $PAGE->requires->css(new moodle_url($CFG->wwwroot . '/theme/uikit/style/codemirr
 $PAGE->requires->js(new moodle_url($CFG->wwwroot . '/theme/uikit/javascript/codemirror/codemirror.js?'.$themeversion));
 $PAGE->requires->js(new moodle_url($CFG->wwwroot . '/theme/uikit/javascript/codemirror/mode/css.js?'.$themeversion));
 $PAGE->requires->js(new moodle_url($CFG->wwwroot . '/theme/uikit/javascript/codemirror/addons/matchbrackets.js?'.$themeversion));
+$PAGE->requires->js(new moodle_url($CFG->wwwroot . '/theme/uikit/javascript/codemirror/addons/closebrackets.js?'.$themeversion));
 
 //Load current settings:
 $table = "theme_uikit_less_settings";
@@ -161,7 +162,7 @@ if($current_theme->name === 'uikit'){
         <p class="uk-text-center"><?php echo get_string('continue_refreshing', 'theme_uikit') ?></p>
     </div>
 
-    <form id="customizerForm" class="uk-form">
+    <form id="customizerForm" class="uk-form" autocomplete="off">
         <div class="uk-grid uk-grid-small uk-grid-preserve" data-uk-grid-match>
             <div class="uk-width-1-1 uk-width-medium-3-10 uk-width-large-1-4">
                 <div class="uk-panel uk-panel-box">
