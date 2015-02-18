@@ -230,7 +230,7 @@
                     } else {
                         $errorDiv.text(i18n['compile-error']);
                     }
-
+                    
                     $("#uikit-modal-dialog").find('.content').html($errorDiv);
                     var modal = $.UIkit.modal("#uikit-modal-dialog");
                     modal.show();
@@ -282,6 +282,12 @@
                             }
                         });
                     }).fail(function(error){
+                        if(!error){
+                            error = "";
+                        }
+                        
+                        error += "'<br />'" + i18n['clear-cache'];
+                        
                         showErrorModal(error);
                         enableControls();
                     });

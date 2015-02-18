@@ -458,6 +458,7 @@ $string['js-styles-saved'] = '¡Estilos guardados con éxito!';
 $string['js-styles-saved-error'] = 'Un error ocurrió al guardar los estilos';
 $string['js-font-family-placeholder'] = 'Escribe el tipo o tipos de letra deseados';
 $string['js-externalpage-disallowed'] = 'No está permitido ir a una página externa';
+$string['js-clear-cache'] = 'Por favor intenta limpiar la cache de tu navegador.';
 
 
 
