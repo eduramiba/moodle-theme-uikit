@@ -2,86 +2,34 @@
 * This code has been obtained and adapted from http://www.getuikit.com/docs/customizer.html
 */
 (function($) {
-
-    var cache = {};
-
     function getCSS(source, options) {
 
         var deferred = $.Deferred(), opts = options || {};
 
         (opts.imports ? resolveImports(source) : $.Deferred().resolve(source)).done(function(source) {
-
-            if (opts.id && cache[opts.id]) {
-
-                createCSS(cache[opts.id]);
-
-            } else {
-
-                new(less.Parser)().parse(source, function(error, tree) {
-
-                    if (error) {
-                        return deferred.reject(error);
-                    }
-
-                    if (opts.id) {
-                        cache[opts.id] = tree;
-                    }
-
-                    createCSS(tree);
-
-                });
-
-            }
+            createCSS();
         });
 
-        function createCSS(tree) {
-
-            var variables = "";
-
-            if (opts.variables) {
-                $.each(opts.variables, function(name, value) {
-                    variables += ((name.slice(0,1) === "@") ? "" : "@") + name + ": " + ((value.slice(-1) === ";") ? value : value + ";");
-                });
+        function createCSS() {
+            
+            var lessInput = source;
+            var lessOptions = {};
+            
+            if(opts.variables && !$.isEmptyObject(opts.variables)){
+                lessOptions.modifyVars = opts.variables;
             }
-
-            if (variables) {
-
-                new(less.Parser)().parse(variables, function(error, vars) {
-
-                    if (error) {
-                        return deferred.reject(error);
-                    }
-
-                    var rules = tree.rules;
-
-                    tree.rules = tree.rules.concat(vars.rules);
-                    toCSS(tree);
-                    tree.rules = rules;
-
-                });
-
-            } else {
-
-                toCSS(tree);
-
-            }
+            
+            less.render(lessInput, lessOptions)
+            .then(function(output) {
+                // output.css = string of css
+                // output.map = string of sourcemap
+                // output.imports = array of string filenames of the imports referenced
+                deferred.resolve(output.css);
+            },
+            function(error) {
+                deferred.reject(error);
+            });
         }
-
-        function toCSS(tree) {
-
-            try {
-                deferred.resolve(tree.toCSS(opts));
-            } catch (e) {
-
-                if (opts.id && cache[opts.id]) {
-                    delete cache[opts.id];
-                }
-
-                deferred.reject(e);
-            }
-
-        }
-
         return deferred.promise();
     }
 

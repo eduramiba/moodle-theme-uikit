@@ -507,33 +507,47 @@
 
             var lessVariables = {};
             
-            var loadStyleDeferred = loadStyle(theme);
-            loadStyleDeferred.done(function(variables) {
+            var $loadAllDeferred = $.Deferred();
+            loadStyle(theme).done(function(variables) {
                 $customizerVariablesDiv.show();
                 $loadingVariablesIconSpinner.hide();
 
                 lessVariables = variables;
-            });
-
-            //Build controls:
-            var deferreds = [loadStyleDeferred];
-
-            var allDoneDeferred = $.Deferred();
-
-            $.when.apply($, deferreds).done(function() {
+                
                 if (config['groups']) {
-                    //Evaluate and cache expressions:
-                    if(!variablesCacheByStyleAreExpressionsEvaluated[theme]){
-                        lessVariables = evaluateNecessaryLessExpressionsForTheme(config['groups'], lessVariables);
-                        variablesCacheByStyle[theme] = lessVariables;
-                        variablesCacheByStyleAreExpressionsEvaluated[theme] = true;
+                    function buildGroupsAndResolve(){
+                        $.each(config['groups'], function(_, group) {
+                            buildGroup(group, lessVariables);
+                        });
+                        
+                        $loadAllDeferred.resolve();
                     }
                     
-                    $.each(config['groups'], function(_, group) {
-                        buildGroup(group, lessVariables);
-                    });
+                    //Evaluate and cache expressions:
+                    if(!variablesCacheByStyleAreExpressionsEvaluated[theme]){
+                        console.log(1);
+                        evaluateNecessaryLessExpressionsForTheme(config['groups'], lessVariables).done(function(evaluatedVariablesExpressions){
+                            variablesCacheByStyle[theme] = evaluatedVariablesExpressions;
+                            variablesCacheByStyleAreExpressionsEvaluated[theme] = true;
+                            
+                            buildGroupsAndResolve();
+                        });
+                    }else{
+                        console.log(2);
+                        buildGroupsAndResolve();
+                    }
+                }else{
+                    console.log(3);
+                    $loadAllDeferred.resolve();
                 }
+            });
+            
+            
 
+            //Build controls:
+            var allDoneDeferred = $.Deferred();
+
+            $.when($loadAllDeferred).done(function() {
                 //Initialize color pickers:
                 initializeColorPickers();
                 
@@ -737,6 +751,7 @@
          * @returns {object}
          */
         function evaluateNecessaryLessExpressionsForTheme(groups, lessVariables){
+            var $deferred = $.Deferred();
             if(groups){
                 var expressions = {};
                 
@@ -757,15 +772,21 @@
                 });
                 
                 if(!$.isEmptyObject(expressions)){
-                    expressions = evalLessExpressions(lessVariables, expressions);
-                    
-                    $.each(expressions, function(name, value){
-                        lessVariables[name] = value;
+                    evalLessExpressions(lessVariables, expressions).done(function(evaluatedVariablesExpressions){
+                        $.each(evaluatedVariablesExpressions, function(name, value){
+                            lessVariables[name] = value;
+                        });
+                        
+                        $deferred.resolve(lessVariables);
                     });
+                }else{
+                    $deferred.resolve(lessVariables);
                 }
+            }else{
+                $deferred.resolve(lessVariables);
             }
             
-            return lessVariables;
+            return $deferred;
         }
         
         /**
@@ -775,46 +796,39 @@
          * @returns {string}
          */
         function evalLessExpressions(lessVariables, expressions){
+            var $deferred = $.Deferred();
+            
             if(!expressions || $.isEmptyObject(expressions)){
-                return expressions;
+                $deferred.resolve(expressions);
             }
             
             var EXPR_EVAL_REGEX = 'result-eval-expr-(\\d+) *:([^;]*);';
             
-            var isSingleExpression = typeof expressions !== 'object';
-            
-            if(isSingleExpression){
-                expressions = {0 : expressions};//Single string as epression
-            }
-            
-            var result = null;
             try {
-                var lessParser = new less.Parser();
+                
+                function doneFunction(css){
+                    var result = {};
+                    var globalMatches = css.match(new RegExp(EXPR_EVAL_REGEX, 'g'));
 
-                var $deferred = $.Deferred();
+                    console.log(globalMatches);
+                    console.log(globalMatches.length);
+                    console.log(Object.keys(expressions).length);
+                    if(globalMatches && globalMatches.length === Object.keys(expressions).length){
+                        var singleRegexp = new RegExp(EXPR_EVAL_REGEX);
 
-                function doneFunction(err, tree){
-                    $deferred.resolve();
-                    if(!err){
-                        var css = tree.toCSS();
-                        var globalMatches = css.match(new RegExp(EXPR_EVAL_REGEX, 'g'));
+                        var i = 0;
+                        $.each(globalMatches, function(_, singleMatch){
+                            var name = namesIndex[i];
+
+                            var matches = singleMatch.match(singleRegexp);
+                            result[name] = $.trim(matches[2]);
+
+                            i++;
+                        });
                         
-                        if(globalMatches && globalMatches.length === Object.keys(expressions).length){
-                            result = {};
-                            var singleRegexp = new RegExp(EXPR_EVAL_REGEX);
-                            
-                            var i = 0;
-                            $.each(globalMatches, function(_, singleMatch){
-                                var name = namesIndex[i];
-                                
-                                var matches = singleMatch.match(singleRegexp);
-                                result[name] = $.trim(matches[2]);
-                                
-                                i++;
-                            });
-                        }else{
-                            result = expressions;//Could not evaluate expressions
-                        }
+                        $deferred.resolve(result);
+                    }else{
+                        $deferred.resolve(expressions);//Could not evaluate expressions
                     }
                 }
 
@@ -828,18 +842,18 @@
                     codeForEval += '.result-eval-expr{result-eval-expr-'+i+':'+expr+';}';
                     i++;
                 });
-                lessParser.parse(codeForEval, doneFunction, {globalVars: lessVariables});
-
-                $.when($deferred);//Wait for result
+                
+                var options = {
+                    variables: lessVariables
+                };
+                $.less.getCSS(codeForEval, options).done(doneFunction).fail(function(error){
+                    $deferred.resolve(expressions);//Could not evaluate expressions
+                });
             }catch(ex){
-                result = expressions;//Could not evalueate
+                $deferred.resolve(expressions);//Could not evaluate expressions
             }
             
-            if(isSingleExpression){
-                return result[0];
-            }
-            
-            return result;
+            return $deferred;
         }
 
         function extractLessVariableValue(lessVariables, key) {
