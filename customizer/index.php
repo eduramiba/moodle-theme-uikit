@@ -72,10 +72,11 @@ $PAGE->requires->css(new moodle_url($CFG->wwwroot . '/theme/uikit/style/spectrum
 $PAGE->requires->css(new moodle_url($CFG->wwwroot . '/theme/uikit/style/customizer.css'));
 
 //Codemirror editor for custom LESS
-$PAGE->requires->css(new moodle_url($CFG->wwwroot . '/theme/uikit/style/codemirror/codemirror.css'));
-$PAGE->requires->css(new moodle_url($CFG->wwwroot . '/theme/uikit/style/codemirror/theme/solarized.css'));
-$PAGE->requires->js(new moodle_url($CFG->wwwroot . '/theme/uikit/javascript/codemirror/codemirror.js'));
-$PAGE->requires->js(new moodle_url($CFG->wwwroot . '/theme/uikit/javascript/codemirror/mode/less/less.js'));
+$PAGE->requires->css(new moodle_url($CFG->wwwroot . '/theme/uikit/style/codemirror/codemirror.css?'.$themeversion));
+$PAGE->requires->css(new moodle_url($CFG->wwwroot . '/theme/uikit/style/codemirror/theme/solarized.css?'.$themeversion));
+$PAGE->requires->js(new moodle_url($CFG->wwwroot . '/theme/uikit/javascript/codemirror/codemirror.js?'.$themeversion));
+$PAGE->requires->js(new moodle_url($CFG->wwwroot . '/theme/uikit/javascript/codemirror/mode/css.js?'.$themeversion));
+$PAGE->requires->js(new moodle_url($CFG->wwwroot . '/theme/uikit/javascript/codemirror/addons/matchbrackets.js?'.$themeversion));
 
 //Load current settings:
 $table = "theme_uikit_less_settings";

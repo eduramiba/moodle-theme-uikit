@@ -286,7 +286,7 @@
                             error = "";
                         }
                         
-                        error += "'<br />'" + i18n['clear-cache'];
+                        error += "<br />" + i18n['clear-cache'];
                         
                         showErrorModal(error);
                         enableControls();
@@ -1208,10 +1208,13 @@
         
         
         //Setup custom code textarea:
+        
         var $customLessEditor = CodeMirror.fromTextArea(document.getElementById("customLess"), {
             theme: 'solarized light',
             lineNumbers: true,
-            styleActiveLine: true
+            matchBrackets: true,
+            styleActiveLine: true,
+            mode: "text/x-less"
         });
         
         var $checkUseCustomLess = $("#useCustomLess");
@@ -1245,7 +1248,7 @@
         
         var customCodeChanged = false;
         
-        $customLessEditor.on('change input propertychange', function(){
+        $customLessEditor.on('change', function(){
             customCodeChanged = true;
         });
         
