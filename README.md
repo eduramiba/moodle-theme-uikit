@@ -6,20 +6,21 @@ Key features of this theme
 
 * **Contains a very advanced and interactive visual styles customizer**
 * 3 base themes to build your site appearance
+* 2 different page layouts: grid based and flex based
 * Fully responsive design
 * Support of Google fonts
 * Integrates Fontawesome for displaying most icons in Moodle
 * Slideshow, marketing spots and social networks for your site frontpage like in the essential theme
 * Many other cool features such as: login page and navigation menu customization, possibility of showing only enrolled courses in combo lists and google analytics integration
 
-It supports Moodle 2.5, 2.6 and 2.7
+It supports Moodle versions from 2.5 to 2.8
 
 * package   Moodle UIkit theme (theme_uikit)
-* copyright 2013-2014 Eduardo Ramos
+* copyright 2013-2015 Eduardo Ramos
 * authors   Eduardo Ramos
 * license   [GNU GPL v3 or later](http://www.gnu.org/copyleft/gpl.html)
 
-This theme is based on the UIkit CSS framework version 2.9 (http://www.getuikit.com)
+This theme is based on the UIkit CSS framework version 2.16.2 (http://www.getuikit.com)
 It contains all unmodified less* CSS sources from the UIKit framework in folder /less/uikit, except for FontAwesome url in icon.less.
 
 It is inspired by bootstrapbase theme and essential theme (https://moodle.org/plugins/view.php?plugin=theme_essential). A big thank you to the creators of these two themes.
@@ -64,7 +65,7 @@ https://github.com/aFarkas/html5shiv/blob/master/src/html5shiv.js
 
 less.js
 -------
-LESS - Leaner CSS v1.7.4
+LESS - Leaner CSS v2.4.0
 Javascript official LESS compiler
 Used to compile styles from LESS code in the browser in the customizer
 
@@ -74,7 +75,7 @@ Spectrum Colorpicker v1.2.0 for the customizer color variables
 
 codemirror.js and codemirror less.js mode
 --------------------
-CodeMirror version 3.21
+CodeMirror version 4.12
 Library for advanced source code edition in a text area
 Used to edit custom LESS code in the customizer
 
