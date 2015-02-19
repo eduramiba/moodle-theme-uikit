@@ -76,9 +76,12 @@ if(!empty($PAGE->theme->settings->siteicon)){
                         </ul>            
                     </div>
                 <?php
-                                        }
+                                        } ?>
                 
-                                        require_once(dirname(__FILE__) . '/../socialicons.php');
+                <div class="uk-width-1-1">
+                    <?php require_once(dirname(__FILE__) . '/../socialicons.php'); ?>
+                </div>           
+            <?php
 
                                         if (!empty($courseheader)) { ?>
                     <div id="course-header"><?php echo $courseheader; ?></div>

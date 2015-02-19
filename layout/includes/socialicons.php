@@ -102,4 +102,4 @@ if ($hasmobileapps || $hassocialnetworks) {
         <?php } ?>
 </div>
 <?php 
-}?>
+}
