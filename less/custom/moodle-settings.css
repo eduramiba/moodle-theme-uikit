@@ -1,7 +1,7 @@
 /* These are settings that need to be in a separate CSS file so LESS doesn't complain about syntax errors */
 
 /* Page background */
-body.theme_uikit , h2.pagetitle span {
+html {
     [[setting:pagebackground]];
 }
 

@@ -25,8 +25,8 @@
 
 defined('MOODLE_INTERNAL') || die;
 
-$plugin->version   = 2015021901;        // YYYYMMDDXX
+$plugin->version   = 2015031200;        // YYYYMMDDXX
 $plugin->maturity = MATURITY_STABLE;             // this version's maturity level.
-$plugin->release = '2.8 (Build: 2015021901)';
+$plugin->release = '2.8 (Build: 2015031200)';
 $plugin->requires  = 2013051401;        // Requires Moodle 2.5.1.
 $plugin->component = 'theme_uikit';
