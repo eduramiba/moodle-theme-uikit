@@ -254,7 +254,7 @@ abstract class abstract_uikit_core_renderer extends core_renderer {
 
     /*
      * This renders the navbar.
-     * Uses bootstrap compatible html.
+     * Uses uikit compatible html.
      */
 
     public function navbar() {
@@ -397,10 +397,6 @@ abstract class abstract_uikit_core_renderer extends core_renderer {
         $langs = get_string_manager()->get_list_of_translations();
         if (count($langs) < 2 or empty($CFG->langmenu) or ($this->page->course != SITEID and !empty($this->page->course->lang))) {
             $addlangmenu = false;
-        }
-
-        if (!$menu->has_children() && $addlangmenu === false) {
-            return '';
         }
 
         if ($addlangmenu) {
