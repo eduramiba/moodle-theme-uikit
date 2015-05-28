@@ -65,7 +65,9 @@ $choices = array(
     'height' => get_string('slideshowsizingmode-fullheight', 'theme_uikit'),
     'width' => get_string('slideshowsizingmode-fullwidth', 'theme_uikit')
 );
-$temp->add(new admin_setting_configselect($name, $title, $description, $default, $choices));
+$setting = new admin_setting_configselect($name, $title, $description, $default, $choices);
+$setting->set_updatedcallback('theme_reset_all_caches');
+$temp->add($setting);
 
 // Number of slides.
 $name = 'theme_uikit/slideshownumber';

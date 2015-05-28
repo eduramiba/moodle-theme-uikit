@@ -10,16 +10,19 @@
 //                  `uk-height-*`
 //                  `uk-responsive-*`
 //                  `uk-margin-*`
+//                  `uk-padding-*`
 //                  `uk-border-*`
 //                  `uk-heading-*`
 //                  `uk-link-*`
 //                  `uk-scrollable-*`
-//                  `uk-overflow-container`
+//                  `uk-overflow-*`
 //                  `uk-position-*`
 //                  `uk-display-*`
 //                  `uk-visible-*`
 //                  `uk-hidden-*`
 //                  `uk-invisible`
+//
+// Used by:         Overlay
 //
 // ========================================================================
 
@@ -44,6 +47,8 @@
 
 @utility-border-rounded:                        5px;
 
+@utility-heading-large-small-font-size:         36px;
+@utility-heading-large-small-line-height:       42px;
 @utility-heading-large-font-size:               52px;
 @utility-heading-large-line-height:             64px;
 
@@ -348,6 +353,18 @@
 .uk-margin-bottom-remove { margin-bottom: 0 !important; }
 
 
+/* Padding
+ ========================================================================== */
+
+.uk-padding-remove { padding: 0 !important; }
+.uk-padding-top-remove { padding-top: 0 !important; }
+.uk-padding-bottom-remove { padding-bottom: 0 !important; }
+
+.uk-padding-vertical-remove {
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+}
+
 /* Border
  ========================================================================== */
 
@@ -357,6 +374,11 @@
 
 /* Headings
  ========================================================================== */
+
+.uk-heading-large {
+    font-size: @utility-heading-large-small-font-size;
+    line-height: @utility-heading-large-small-line-height;
+}
 
 /* Tablet and bigger */
 @media (min-width: @breakpoint-medium) {
@@ -389,7 +411,9 @@
 .uk-link-reset,
 .uk-link-reset a,
 .uk-link-reset:hover,
-.uk-link-reset a:hover {
+.uk-link-reset a:hover,
+.uk-link-reset:focus,
+.uk-link-reset a:focus {
     color: inherit;
     text-decoration: none;
 }
@@ -431,6 +455,8 @@
 /* Overflow
  ========================================================================== */
 
+.uk-overflow-hidden { overflow: hidden; }
+
 /*
  * Enable scrollbars if content is clipped
  */
@@ -446,15 +472,43 @@
 /* Position
  ========================================================================== */
 
-.uk-position-top,
-.uk-position-bottom {
-    position: absolute !important;
+.uk-position-absolute,
+[class*='uk-position-top'],
+[class*='uk-position-bottom'] { position: absolute !important; }
+
+.uk-position-top {
+    top: 0;
     width: 100%;
 }
 
-.uk-position-top { top: 0; }
+.uk-position-bottom {
+    bottom: 0;
+    width: 100%;
+}
 
-.uk-position-bottom { bottom: 0; }
+.uk-position-top-left {
+    top: 0;
+    left: 0;
+}
+
+.uk-position-top-right {
+    top: 0;
+    right: 0;
+}
+
+.uk-position-bottom-left {
+    bottom: 0;
+    left: 0;
+}
+
+.uk-position-bottom-right {
+    bottom: 0;
+    right: 0;
+}
+
+/*
+ * Cover
+ */
 
 .uk-position-cover {
     position: absolute;
@@ -464,7 +518,17 @@
     right: 0;
 }
 
+/*
+ * Relative
+ */
+
 .uk-position-relative { position: relative !important; }
+
+/*
+ * Z-index
+ */
+
+.uk-position-z-index { z-index: 1; }
 
 
 /* Display

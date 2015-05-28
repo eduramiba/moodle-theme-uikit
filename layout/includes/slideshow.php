@@ -57,22 +57,26 @@ if ($slideshowenabled) {
             if (!empty($image)) {
                 $html .= '<img src="' . $image . '" alt="' . $title . '">';
             }
-            $html .= '<div class="uk-caption uk-caption-'.$slideshowcaptionplacement.' uk-caption-panel uk-animation-fade uk-flex uk-flex-center uk-flex-middle uk-text-center">';
-            $html .= '<div>';
-            if (!empty($title)) {
-                $html .= '<h2>' . $title . '</h2>';
-            }
-            if (!empty($caption)) {
-                $html .= '<p>' . $caption . '</p>';
-            }
-            if (!empty($url)) {
-                if (empty($urlText)) {
-                    $urlText = get_string('readmore', 'theme_uikit');
+            
+            if(!empty($title) || !empty($caption) || !empty($url)){
+                $html .= '<div class="uk-overlay-panel uk-overlay-background uk-overlay-fade uk-overlay-'.$slideshowcaptionplacement.' uk-flex uk-flex-center uk-flex-middle uk-text-center">';
+                $html .= '<div>';
+                if (!empty($title)) {
+                    $html .= '<h2>' . $title . '</h2>';
                 }
-                $html .= '<a href="' . $url . '" class="uk-button uk-button-small '.$slideshowbuttontype.'">' . $urlText . '</a>';
+                if (!empty($caption)) {
+                    $html .= '<p>' . $caption . '</p>';
+                }
+                if (!empty($url)) {
+                    if (empty($urlText)) {
+                        $urlText = get_string('readmore', 'theme_uikit');
+                    }
+                    $html .= '<a href="' . $url . '" class="uk-button uk-button-small '.$slideshowbuttontype.'">' . $urlText . '</a>';
+                }
+                $html .= '</div>';
+                $html .= '</div>';
             }
-            $html .= '</div>';
-            $html .= '</div>';
+            
             $html .= '</li>';
         } else {
             $html = '';
@@ -95,13 +99,13 @@ if ($slideshowenabled) {
     if(!empty($slidesHtml)){
         ?>
         <div id="themeuikit-slideshow" class="uk-slidenav-position uk-margin-bottom" data-uk-slideshow="{height: '<?php echo $slideshowheight; ?>', autoplay: <?php echo $slideshowautoplay ? 'true' : 'false'; ?>, animation: '<?php echo $slideshowanimation; ?>', kenburns: <?php echo $slideshowkenburns ? 'true' : 'false'?>}">
-            <ul class="uk-slideshow">
+            <ul class="uk-slideshow uk-overlay-active">
                 <?php echo $slidesHtml; ?>
             </ul>
             <?php if($slidesWithInfoCount > 1){ ?>
                 <a href="" class="uk-slidenav uk-slidenav-contrast uk-slidenav-previous" data-uk-slideshow-item="previous"></a>
                 <a href="" class="uk-slidenav uk-slidenav-contrast uk-slidenav-next" data-uk-slideshow-item="next"></a>
-                <ul class="uk-dotnav uk-dotnav-contrast uk-position-bottom uk-text-center uk-hidden-small">
+                <ul class="uk-dotnav uk-dotnav-contrast uk-flex-center uk-position-bottom uk-text-center uk-hidden-small">
                     <?php foreach (range(0, $slidesWithInfoCount - 1) as $i) { ?>
                         <li data-uk-slideshow-item="<?php echo $i; ?>"><a href=""></a></li>
                     <?php } ?>
