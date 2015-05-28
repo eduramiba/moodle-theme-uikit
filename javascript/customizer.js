@@ -525,7 +525,6 @@
                     
                     //Evaluate and cache expressions:
                     if(!variablesCacheByStyleAreExpressionsEvaluated[theme]){
-                        console.log(1);
                         evaluateNecessaryLessExpressionsForTheme(config['groups'], lessVariables).done(function(evaluatedVariablesExpressions){
                             variablesCacheByStyle[theme] = evaluatedVariablesExpressions;
                             variablesCacheByStyleAreExpressionsEvaluated[theme] = true;
@@ -533,11 +532,9 @@
                             buildGroupsAndResolve();
                         });
                     }else{
-                        console.log(2);
                         buildGroupsAndResolve();
                     }
                 }else{
-                    console.log(3);
                     $loadAllDeferred.resolve();
                 }
             });
@@ -810,9 +807,6 @@
                     var result = {};
                     var globalMatches = css.match(new RegExp(EXPR_EVAL_REGEX, 'g'));
 
-                    console.log(globalMatches);
-                    console.log(globalMatches.length);
-                    console.log(Object.keys(expressions).length);
                     if(globalMatches && globalMatches.length === Object.keys(expressions).length){
                         var singleRegexp = new RegExp(EXPR_EVAL_REGEX);
 
