@@ -65,7 +65,7 @@ https://github.com/aFarkas/html5shiv/blob/master/src/html5shiv.js
 
 less.js
 -------
-LESS - Leaner CSS v2.4.0
+LESS - Leaner CSS v2.5.1
 Javascript official LESS compiler
 Used to compile styles from LESS code in the browser in the customizer
 
