@@ -150,7 +150,6 @@ img {
   max-width: 100%;
   height: auto;
   /* 2 */
-  -moz-box-sizing: border-box;
   box-sizing: border-box;
   /* 3 */
   border: 0;
@@ -293,7 +292,6 @@ dd {
  */
 hr {
   /* 1 */
-  -moz-box-sizing: content-box;
   box-sizing: content-box;
   height: 0;
   /* 2 */
@@ -624,30 +622,29 @@ iframe {
 }
 /* Match panels in grids
  ========================================================================== */
+/*
+ * 1. Behave like a block element
+ */
 .uk-grid-match > * {
   display: -ms-flexbox;
   display: -webkit-flex;
   display: flex;
+  /* 1 */
+  -ms-flex-wrap: wrap;
+  -webkit-flex-wrap: wrap;
+  flex-wrap: wrap;
 }
-/*
- * 1. Behave like a block element
- */
 .uk-grid-match > * > * {
   /* 1 */
   -ms-flex: none;
   -webkit-flex: none;
   flex: none;
-  -ms-flex-wrap: wrap;
-  -webkit-flex-wrap: wrap;
-  flex-wrap: wrap;
-  -moz-box-sizing: border-box;
   box-sizing: border-box;
   width: 100%;
 }
 /* Even grid cell widths
  ========================================================================== */
 [class*='uk-grid-width'] > * {
-  -moz-box-sizing: border-box;
   box-sizing: border-box;
   width: 100%;
 }
@@ -758,7 +755,6 @@ iframe {
 [class*='uk-width'],
 [class*='grid-col'],
 [class*='span'] {
-  -moz-box-sizing: border-box;
   box-sizing: border-box;
   width: 100%;
 }
@@ -1249,7 +1245,7 @@ iframe {
   top: 10px;
   right: 10px;
 }
-.uk-panel-box .uk-panel-teaser {
+.uk-panel-box > .uk-panel-teaser {
   margin-top: -11px;
   margin-left: -11px;
   margin-right: -11px;
@@ -1304,7 +1300,7 @@ iframe {
   top: 10px;
   right: 10px;
 }
-.uk-panel-hover .uk-panel-teaser {
+.uk-panel-hover > .uk-panel-teaser {
   margin-top: -16px;
   margin-left: -16px;
   margin-right: -16px;
@@ -1359,7 +1355,6 @@ iframe {
  ========================================================================== */
 .uk-block {
   position: relative;
-  -moz-box-sizing: border-box;
   box-sizing: border-box;
   padding-top: 20px;
   padding-bottom: 20px;
@@ -1438,8 +1433,8 @@ iframe {
   background: #222222;
 }
 /*
- * Adjust padding between equal colored blocks
- */
+     * Adjust padding between equal colored blocks
+     */
 .uk-block-default + .uk-block-default,
 .uk-block-muted + .uk-block-muted,
 .uk-block-primary + .uk-block-primary,
@@ -1978,7 +1973,6 @@ html:not(.uk-touch) .uk-nav-offcanvas ul a:hover {
  */
 .uk-navbar-nav > li > a {
   display: block;
-  -moz-box-sizing: border-box;
   box-sizing: border-box;
   text-decoration: none;
   /* 1 */
@@ -2056,7 +2050,6 @@ html:not(.uk-touch) .uk-nav-offcanvas ul a:hover {
 .uk-navbar-content,
 .uk-navbar-brand,
 .uk-navbar-toggle {
-  -moz-box-sizing: border-box;
   box-sizing: border-box;
   display: block;
   height: 41px;
@@ -2415,7 +2408,6 @@ html:not(.uk-touch) .uk-nav-offcanvas ul a:hover {
   line-height: 20px;
   text-decoration: none;
   /* 1 */
-  -moz-box-sizing: content-box;
   box-sizing: content-box;
   /* 2 */
   text-align: center;
@@ -3081,7 +3073,6 @@ form textarea,
 .mform select,
 .mform textarea {
   /* 1 */
-  -moz-box-sizing: border-box;
   box-sizing: border-box;
   /* 2 */
   margin: 0;
@@ -3823,7 +3814,7 @@ form .fld .felement > :last-child,
   position: absolute;
   top: 50%;
   width: 30px;
-  margin-top: -7px;
+  margin-top: -8px;
   font-size: 14px;
   color: #999999;
   text-align: center;
@@ -3897,7 +3888,6 @@ input[type=button],
   text-transform: none;
   /* 7 */
   display: inline-block;
-  -moz-box-sizing: border-box;
   box-sizing: border-box;
   padding: 0 12px;
   background: #f7f7f7;
@@ -4355,15 +4345,33 @@ input[type=button]:disabled,
      * the active state will not work if you click the icon inside the button
      * Workaround: Just use a `button` or `input` element as button
      */
+.uk-button-group .uk-button:hover,
 .uk-button-group .uk-button:active,
+.uk-button-group .uk-button.uk-active,
+.uk-button-group button:hover,
 .uk-button-group button:active,
+.uk-button-group button.uk-active,
+.uk-button-group input[type=submit]:hover,
 .uk-button-group input[type=submit]:active,
+.uk-button-group input[type=submit].uk-active,
+.uk-button-group input[type=button]:hover,
 .uk-button-group input[type=button]:active,
+.uk-button-group input[type=button].uk-active,
+.uk-button-group #id_submitbutton:hover,
 .uk-button-group #id_submitbutton:active,
+.uk-button-group #id_submitbutton.uk-active,
+.uk-button-group #id_submitbutton2:hover,
 .uk-button-group #id_submitbutton2:active,
+.uk-button-group #id_submitbutton2.uk-active,
+.uk-button-group .form-submit:hover,
 .uk-button-group .form-submit:active,
+.uk-button-group .form-submit.uk-active,
+.uk-button-group .addbloglink:hover,
 .uk-button-group .addbloglink:active,
-.uk-button-group .messagebox a:active {
+.uk-button-group .addbloglink.uk-active,
+.uk-button-group .messagebox a:hover,
+.uk-button-group .messagebox a:active,
+.uk-button-group .messagebox a.uk-active {
   position: relative;
 }
 /* ========================================================================
@@ -4371,8 +4379,8 @@ input[type=button]:disabled,
  ========================================================================== */
 @font-face {
   font-family: 'FontAwesome';
-  src: url('[[setting:fontwww]]fontawesome-webfont.eot?v=4.3.0');
-  src: url('[[setting:fontwww]]fontawesome-webfont.eot?#iefix&v=4.3.0') format('embedded-opentype'), url('[[setting:fontwww]]fontawesome-webfont.woff2?v=4.3.0') format('woff2'), url('[[setting:fontwww]]fontawesome-webfont.woff?v=4.3.0') format('woff'), url('[[setting:fontwww]]fontawesome-webfont.ttf?v=4.3.0') format('truetype'), url('[[setting:fontwww]]fontawesome-webfont.svg?v=4.3.0#fontawesomeregular') format('svg');
+  src: url('[[setting:fontwww]]fontawesome-webfont.eot?v=4.4.0');
+  src: url('[[setting:fontwww]]fontawesome-webfont.eot?#iefix&v=4.4.0') format('embedded-opentype'), url('[[setting:fontwww]]fontawesome-webfont.woff2?v=4.4.0') format('woff2'), url('[[setting:fontwww]]fontawesome-webfont.woff?v=4.4.0') format('woff'), url('[[setting:fontwww]]fontawesome-webfont.ttf?v=4.4.0') format('truetype'), url('[[setting:fontwww]]fontawesome-webfont.svg?v=4.4.0#fontawesomeregular') format('svg');
   font-weight: normal;
   font-style: normal;
 }
@@ -4404,17 +4412,23 @@ input[type=button]:disabled,
 }
 /* Size modifiers
  ========================================================================== */
-.uk-icon-small:before {
+.uk-icon-small {
   font-size: 150%;
   vertical-align: -10%;
 }
-.uk-icon-medium:before {
+.uk-icon-medium {
   font-size: 200%;
   vertical-align: -16%;
 }
-.uk-icon-large:before {
+.uk-icon-large {
   font-size: 250%;
   vertical-align: -22%;
+}
+/* Modifier: `uk-icon-justify`
+ ========================================================================== */
+.uk-icon-justify {
+  width: 1em;
+  text-align: center;
 }
 /* Modifier: `uk-icon-spin`
  ========================================================================== */
@@ -4437,7 +4451,6 @@ input[type=button]:disabled,
 /* Modifier: `uk-icon-button`
  ========================================================================== */
 .uk-icon-button {
-  -moz-box-sizing: border-box;
   box-sizing: border-box;
   display: inline-block;
   width: 35px;
@@ -6110,6 +6123,217 @@ input[type=button]:disabled,
 .uk-icon-medium-logo:before {
   content: "\f23a";
 }
+.uk-icon-500px:before {
+  content: "\f26e";
+}
+.uk-icon-amazon:before {
+  content: "\f270";
+}
+.uk-icon-balance-scale:before {
+  content: "\f24e";
+}
+.uk-icon-battery-empty:before,
+.uk-icon-battery-0:before {
+  content: "\f244";
+}
+.uk-icon-battery-quarter:before,
+.uk-icon-battery-1:before {
+  content: "\f243";
+}
+.uk-icon-battery-half:before,
+.uk-icon-battery-2:before {
+  content: "\f242";
+}
+.uk-icon-battery-three-quarters:before,
+.uk-icon-battery-3:before {
+  content: "\f241";
+}
+.uk-icon-battery-full:before,
+.uk-icon-battery-4:before {
+  content: "\f240";
+}
+.uk-icon-black-tie:before {
+  content: "\f27e";
+}
+.uk-icon-calendar-check-o:before {
+  content: "\f274";
+}
+.uk-icon-calendar-minus-o:before {
+  content: "\f272";
+}
+.uk-icon-calendar-plus-o:before {
+  content: "\f271";
+}
+.uk-icon-calendar-times-o:before {
+  content: "\f273";
+}
+.uk-icon-cc-diners-club:before {
+  content: "\f24c";
+}
+.uk-icon-cc-jcb:before {
+  content: "\f24b";
+}
+.uk-icon-chrome:before {
+  content: "\f268";
+}
+.uk-icon-clone:before {
+  content: "\f24d";
+}
+.uk-icon-commenting:before {
+  content: "\f27a";
+}
+.uk-icon-commenting-o:before {
+  content: "\f27b";
+}
+.uk-icon-contao:before {
+  content: "\f26d";
+}
+.uk-icon-creative-commons:before {
+  content: "\f25e";
+}
+.uk-icon-expeditedssl:before {
+  content: "\f23e";
+}
+.uk-icon-firefox:before {
+  content: "\f269";
+}
+.uk-icon-fonticons:before {
+  content: "\f280";
+}
+.uk-icon-get-pocket:before {
+  content: "\f265";
+}
+.uk-icon-gg:before {
+  content: "\f260";
+}
+.uk-icon-gg-circle:before {
+  content: "\f261";
+}
+.uk-icon-hand-lizard-o:before {
+  content: "\f258";
+}
+.uk-icon-hand-stop-o:before,
+.uk-icon-hand-paper-o:before {
+  content: "\f256";
+}
+.uk-icon-hand-peace-o:before {
+  content: "\f25b";
+}
+.uk-icon-hand-pointer-o:before {
+  content: "\f25a";
+}
+.uk-icon-hand-grab-o:before,
+.uk-icon-hand-rock-o:before {
+  content: "\f255";
+}
+.uk-icon-hand-scissors-o:before {
+  content: "\f257";
+}
+.uk-icon-hand-spock-o:before {
+  content: "\f259";
+}
+.uk-icon-hourglass:before {
+  content: "\f254";
+}
+.uk-icon-hourglass-o:before {
+  content: "\f250";
+}
+.uk-icon-hourglass-1:before,
+.uk-icon-hourglass-start:before {
+  content: "\f251";
+}
+.uk-icon-hourglass-2:before,
+.uk-icon-hourglass-half:before {
+  content: "\f252";
+}
+.uk-icon-hourglass-3:before,
+.uk-icon-hourglass-end:before {
+  content: "\f253";
+}
+.uk-icon-houzz:before {
+  content: "\f27c";
+}
+.uk-icon-i-cursor:before {
+  content: "\f246";
+}
+.uk-icon-industry:before {
+  content: "\f275";
+}
+.uk-icon-internet-explorer:before {
+  content: "\f26b";
+}
+.uk-icon-map:before {
+  content: "\f279";
+}
+.uk-icon-map-o:before {
+  content: "\f278";
+}
+.uk-icon-map-pin:before {
+  content: "\f276";
+}
+.uk-icon-map-signs:before {
+  content: "\f277";
+}
+.uk-icon-mouse-pointer:before {
+  content: "\f245";
+}
+.uk-icon-object-group:before {
+  content: "\f247";
+}
+.uk-icon-object-ungroup:before {
+  content: "\f248";
+}
+.uk-icon-odnoklassniki:before {
+  content: "\f263";
+}
+.uk-icon-odnoklassniki-square:before {
+  content: "\f264";
+}
+.uk-icon-opencart:before {
+  content: "\f23d";
+}
+.uk-icon-opera:before {
+  content: "\f26a";
+}
+.uk-icon-optin-monster:before {
+  content: "\f23c";
+}
+.uk-icon-registered:before {
+  content: "\f25d";
+}
+.uk-icon-safari:before {
+  content: "\f267";
+}
+.uk-icon-sticky-note:before {
+  content: "\f249";
+}
+.uk-icon-sticky-note-o:before {
+  content: "\f24a";
+}
+.uk-icon-tv:before,
+.uk-icon-television:before {
+  content: "\f26c";
+}
+.uk-icon-trademark:before {
+  content: "\f25c";
+}
+.uk-icon-tripadvisor:before {
+  content: "\f262";
+}
+.uk-icon-vimeo:before {
+  content: "\f27d";
+}
+.uk-icon-wikipedia-w:before {
+  content: "\f266";
+}
+.uk-icon-yc:before,
+.uk-icon-y-combinator:before {
+  content: "\f23b";
+}
+.uk-icon-yc-square:before,
+.uk-icon-y-combinator-square:before {
+  content: "\f1d4";
+}
 /* ========================================================================
    Component: Close
  ========================================================================== */
@@ -6149,7 +6373,6 @@ input[type=button]:disabled,
   background: transparent;
   /* 8 */
   display: inline-block;
-  -moz-box-sizing: content-box;
   box-sizing: content-box;
   width: 20px;
   line-height: 20px;
@@ -6232,7 +6455,6 @@ a.uk-badge:hover {
 /* Modifier: `uk-badge-notification`;
  ========================================================================== */
 .uk-badge-notification {
-  -moz-box-sizing: border-box;
   box-sizing: border-box;
   min-width: 18px;
   border-radius: 500px;
@@ -6642,7 +6864,6 @@ form .fld.femptylabel .felement.fstatic > .uk-close:first-child + *,
   /* 2 */
   max-width: 100%;
   /* 3 */
-  -moz-box-sizing: border-box;
   box-sizing: border-box;
   /* 3 */
   margin: 0;
@@ -6836,7 +7057,7 @@ a.uk-thumbnail:focus {
 [class*='uk-overlay-slide'] {
   transition-duration: 0.3s;
   transition-timing-function: ease-out;
-  transition-property: opacity transform filter;
+  transition-property: opacity, transform, filter;
 }
 .uk-overlay-active .uk-overlay-fade,
 .uk-overlay-active .uk-overlay-scale,
@@ -7003,7 +7224,6 @@ a.uk-thumbnail:focus {
 .uk-overlay-area-content {
   /* 1 */
   display: inline-block;
-  -moz-box-sizing: border-box;
   box-sizing: border-box;
   width: 100%;
   vertical-align: middle;
@@ -7062,6 +7282,153 @@ a.uk-thumbnail:focus {
 .uk-overlay-toggle:hover .uk-overlay-caption,
 .uk-overlay-toggle.uk-hover .uk-overlay-caption {
   opacity: 1;
+}
+/* ========================================================================
+   Component: Column
+ ========================================================================== */
+[class*='uk-column-'] {
+  -webkit-column-gap: 25px;
+  -moz-column-gap: 25px;
+  column-gap: 25px;
+}
+/* Width modifiers
+ ========================================================================== */
+.uk-column-1-2 {
+  -webkit-column-count: 2;
+  -moz-column-count: 2;
+  column-count: 2;
+}
+.uk-column-1-3 {
+  -webkit-column-count: 3;
+  -moz-column-count: 3;
+  column-count: 3;
+}
+.uk-column-1-4 {
+  -webkit-column-count: 4;
+  -moz-column-count: 4;
+  column-count: 4;
+}
+.uk-column-1-5 {
+  -webkit-column-count: 5;
+  -moz-column-count: 5;
+  column-count: 5;
+}
+.uk-column-1-6 {
+  -webkit-column-count: 6;
+  -moz-column-count: 6;
+  column-count: 6;
+}
+/* Phone landscape and bigger */
+@media (min-width: 480px) {
+  .uk-column-small-1-2 {
+    -webkit-column-count: 2;
+    -moz-column-count: 2;
+    column-count: 2;
+  }
+  .uk-column-small-1-3 {
+    -webkit-column-count: 3;
+    -moz-column-count: 3;
+    column-count: 3;
+  }
+  .uk-column-small-1-4 {
+    -webkit-column-count: 4;
+    -moz-column-count: 4;
+    column-count: 4;
+  }
+  .uk-column-small-1-5 {
+    -webkit-column-count: 5;
+    -moz-column-count: 5;
+    column-count: 5;
+  }
+  .uk-column-small-1-6 {
+    -webkit-column-count: 6;
+    -moz-column-count: 6;
+    column-count: 6;
+  }
+}
+/* Tablet and bigger */
+@media (min-width: 768px) {
+  .uk-column-medium-1-2 {
+    -webkit-column-count: 2;
+    -moz-column-count: 2;
+    column-count: 2;
+  }
+  .uk-column-medium-1-3 {
+    -webkit-column-count: 3;
+    -moz-column-count: 3;
+    column-count: 3;
+  }
+  .uk-column-medium-1-4 {
+    -webkit-column-count: 4;
+    -moz-column-count: 4;
+    column-count: 4;
+  }
+  .uk-column-medium-1-5 {
+    -webkit-column-count: 5;
+    -moz-column-count: 5;
+    column-count: 5;
+  }
+  .uk-column-medium-1-6 {
+    -webkit-column-count: 6;
+    -moz-column-count: 6;
+    column-count: 6;
+  }
+}
+/* Desktop and bigger */
+@media (min-width: 960px) {
+  .uk-column-large-1-2 {
+    -webkit-column-count: 2;
+    -moz-column-count: 2;
+    column-count: 2;
+  }
+  .uk-column-large-1-3 {
+    -webkit-column-count: 3;
+    -moz-column-count: 3;
+    column-count: 3;
+  }
+  .uk-column-large-1-4 {
+    -webkit-column-count: 4;
+    -moz-column-count: 4;
+    column-count: 4;
+  }
+  .uk-column-large-1-5 {
+    -webkit-column-count: 5;
+    -moz-column-count: 5;
+    column-count: 5;
+  }
+  .uk-column-large-1-6 {
+    -webkit-column-count: 6;
+    -moz-column-count: 6;
+    column-count: 6;
+  }
+}
+/* Large screen and bigger */
+@media (min-width: 1220px) {
+  .uk-column-xlarge-1-2 {
+    -webkit-column-count: 2;
+    -moz-column-count: 2;
+    column-count: 2;
+  }
+  .uk-column-xlarge-1-3 {
+    -webkit-column-count: 3;
+    -moz-column-count: 3;
+    column-count: 3;
+  }
+  .uk-column-xlarge-1-4 {
+    -webkit-column-count: 4;
+    -moz-column-count: 4;
+    column-count: 4;
+  }
+  .uk-column-xlarge-1-5 {
+    -webkit-column-count: 5;
+    -moz-column-count: 5;
+    column-count: 5;
+  }
+  .uk-column-xlarge-1-6 {
+    -webkit-column-count: 6;
+    -moz-column-count: 6;
+    column-count: 6;
+  }
 }
 /* ========================================================================
    Component: Animation
@@ -7622,27 +7989,29 @@ a.uk-thumbnail:focus {
  * 1. Hide by default
  * 2. Set position
  * 3. Box-sizing is needed for `uk-dropdown-justify`
- * 4. Set style
- * 5. Reset button group whitespace hack
+ * 4. Set width
  */
-.uk-dropdown {
+.uk-dropdown,
+.uk-dropdown-blank {
   /* 1 */
   display: none;
   /* 2 */
   position: absolute;
-  top: 100%;
-  left: 0;
   z-index: 1020;
   /* 3 */
-  -moz-box-sizing: border-box;
   box-sizing: border-box;
   /* 4 */
   width: 200px;
-  margin-top: 5px;
+}
+/*
+ * Dropdown style
+ * 1. Reset button group whitespace hack
+ */
+.uk-dropdown {
   padding: 15px;
   background: #ffffff;
   color: #444444;
-  /* 5 */
+  /* 1 */
   font-size: 1rem;
   vertical-align: top;
   border: 1px solid #cbcbcb;
@@ -7654,7 +8023,8 @@ a.uk-thumbnail:focus {
  * 2. Set animation
  * 3. Needed for scale animation
  */
-.uk-open > .uk-dropdown {
+.uk-open > .uk-dropdown,
+.uk-open > .uk-dropdown-blank {
   /* 1 */
   display: block;
   /* 2 */
@@ -7667,20 +8037,19 @@ a.uk-thumbnail:focus {
 /* Alignment modifiers
  ========================================================================== */
 /*
- * Modifier `uk-dropdown-flip`
+ * Modifier
  */
-.uk-dropdown-flip {
-  left: auto;
-  right: 0;
+.uk-dropdown-top {
+  margin-top: -5px;
 }
-/*
- * Modifier `uk-dropdown-up`
- */
-.uk-dropdown-up {
-  top: auto;
-  bottom: 100%;
-  margin-top: auto;
-  margin-bottom: 5px;
+.uk-dropdown-bottom {
+  margin-top: 5px;
+}
+.uk-dropdown-left {
+  margin-left: -5px;
+}
+.uk-dropdown-right {
+  margin-left: 5px;
 }
 /* Nav in dropdown
  ========================================================================== */
@@ -7803,6 +8172,8 @@ a.uk-thumbnail:focus {
   overflow-y: auto;
   max-height: 200px;
 }
+/* Sub-object: `uk-dropdown-overlay`
+ ========================================================================== */
 .uk-dropdown-navbar.uk-dropdown-flip {
   left: auto;
 }
@@ -7869,7 +8240,6 @@ a.uk-thumbnail:focus {
   /* 1 */
   position: relative;
   /* 2 */
-  -moz-box-sizing: border-box;
   box-sizing: border-box;
   margin: 50px auto;
   padding: 20px;
@@ -8070,7 +8440,7 @@ a.uk-thumbnail:focus {
  * 2. Size and style
  * 3. Allow scrolling
  * 4. Side-out transition
- * 5. Deavtivate scroll chaining in IE11
+ * 5. Deactivate scroll chaining in IE11
  */
 .uk-offcanvas-bar {
   /* 1 */
@@ -8271,7 +8641,6 @@ a.uk-thumbnail:focus {
 /* Container
  ========================================================================== */
 .uk-container {
-  -moz-box-sizing: border-box;
   box-sizing: border-box;
   max-width: 980px;
   padding: 0 25px;
@@ -8418,7 +8787,6 @@ a.uk-thumbnail:focus {
  * More robust if padding and border are used
  */
 [class*='uk-height'] {
-  -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
 /*
@@ -8442,7 +8810,6 @@ a.uk-thumbnail:focus {
  */
 .uk-responsive-width,
 .uk-responsive-height {
-  -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
 /*
@@ -8615,7 +8982,6 @@ a.uk-thumbnail:focus {
  * Box with scrolling enabled
  */
 .uk-scrollable-box {
-  -moz-box-sizing: border-box;
   box-sizing: border-box;
   height: 170px;
   padding: 10px;
@@ -8650,13 +9016,16 @@ a.uk-thumbnail:focus {
 [class*='uk-position-bottom'] {
   position: absolute !important;
 }
+/* Don't use `width: 100%` because it is wrong if the parent has padding. */
 .uk-position-top {
   top: 0;
-  width: 100%;
+  left: 0;
+  right: 0;
 }
 .uk-position-bottom {
   bottom: 0;
-  width: 100%;
+  left: 0;
+  right: 0;
 }
 .uk-position-top-left {
   top: 0;
@@ -8859,6 +9228,11 @@ a.uk-thumbnail:focus {
 }
 /* Wrap
  ========================================================================== */
+.uk-flex-nowrap {
+  -ms-flex-wrap: nowrap;
+  -webkit-flex-wrap: nowrap;
+  flex-wrap: nowrap;
+}
 .uk-flex-wrap {
   -ms-flex-wrap: wrap;
   -webkit-flex-wrap: wrap;
@@ -9471,7 +9845,6 @@ a.uk-thumbnail:focus {
  */
 .uk-dotnav > * > * {
   display: block;
-  -moz-box-sizing: content-box;
   box-sizing: content-box;
   width: 20px;
   height: 20px;
@@ -9554,7 +9927,6 @@ a.uk-thumbnail:focus {
   /* 1 */
   display: inline-block;
   /* 2 */
-  -moz-box-sizing: border-box;
   box-sizing: border-box;
   width: 60px;
   height: 60px;
@@ -9788,7 +10160,6 @@ a.uk-thumbnail:focus {
 [data-uk-sticky].uk-active {
   z-index: 980;
   /* 1 */
-  -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
 /*
@@ -9803,12 +10174,12 @@ a.uk-thumbnail:focus {
  * Faster animations
  */
 [data-uk-sticky][class*='uk-animation-'] {
-  -webkit-animation-duration: 0.15s;
-  animation-duration: 0.15s;
+  -webkit-animation-duration: 0.2s;
+  animation-duration: 0.2s;
 }
 [data-uk-sticky].uk-animation-reverse {
-  -webkit-animation-duration: 0.04s;
-  animation-duration: 0.04s;
+  -webkit-animation-duration: 0.2s;
+  animation-duration: 0.2s;
 }
 /* ========================================================================
    Component: Autocomplete
@@ -9869,7 +10240,6 @@ a.uk-thumbnail:focus {
  * 2. Vertical alignment if text is used
  */
 .uk-progress {
-  -moz-box-sizing: border-box;
   box-sizing: border-box;
   height: 20px;
   margin-bottom: 15px;
@@ -14067,7 +14437,6 @@ span.editinstructions {
   padding: 0;
 }
 .dndupload-progress-outer {
-  -moz-box-sizing: border-box;
   box-sizing: border-box;
   height: 20px;
   margin-bottom: 15px;
@@ -18880,7 +19249,6 @@ fieldset.coursesearchbox label {
   background-image: linear-gradient(to bottom, #00b4f5, #008dc5);
   border-radius: 2px;
   text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.2);
-  -moz-box-sizing: border-box;
   box-sizing: border-box;
   min-width: 18px;
   border-radius: 500px;
