@@ -75,7 +75,7 @@ Spectrum Colorpicker v1.2.0 for the customizer color variables
 
 codemirror.js and codemirror less.js mode
 --------------------
-CodeMirror version 5.3
+CodeMirror version 5.8
 Library for advanced source code edition in a text area
 Used to edit custom LESS code in the customizer
 
