@@ -20113,30 +20113,6 @@ a.logo {
 .uk-modal-dialog {
   color: #333333;
 }
-/*
- * Main page content:
- */
-#main-content-box {
-  overflow: auto;
-  -webkit-overflow-scrolling: touch;
-  background-color: rgba(180, 180, 180, 0.1);
-  border: 1px solid #dddddd;
-  border-radius: 4px;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-  padding: 10px;
-  *zoom: 1;
-}
-#main-content-box:before,
-#main-content-box:after {
-  display: table;
-  content: "";
-  line-height: 0;
-}
-#main-content-box:after {
-  clear: both;
-}
 /* Footer */
 #page-footer {
   -webkit-box-sizing: border-box;

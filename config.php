@@ -51,8 +51,7 @@ $generated_css_file = $fs->get_file($fileinfo['contextid'], $fileinfo['component
     $fileinfo['itemid'], $fileinfo['filepath'], $fileinfo['filename']);
 
 $THEME->sheets = array();
-$debug = false;
-if (!$debug && $generated_css_file) {
+if ($generated_css_file) {
     $THEME->sheets[]= 'generated';//Load a file with just a placeholder where the real saved styles will be put by the theme post-process function
 }else{
     $THEME->sheets[]= 'themeuikit';//Load base styles for theme uikit
