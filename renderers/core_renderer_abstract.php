@@ -665,7 +665,7 @@ abstract class abstract_uikit_core_renderer extends core_renderer {
             'i/return' => 'repeat',
             'i/roles' => 'user',
             'i/settings' => 'cog',
-            'i/show' => 'eye-open',
+            'i/show' => 'eye',
             'i/hide' => 'eye-slash',
             'i/scales' => 'signal',
             'i/switchrole' => 'random',
@@ -720,10 +720,13 @@ abstract class abstract_uikit_core_renderer extends core_renderer {
             't/print' => 'print',
         );
         
+        //Issue #39 UIkit not compatible with un/hidding course sections in Moodle 3.0
+        //We place an img tag just after the new icon because some Moodle modules try to find the img with javascript to alter it...
+        //Sorry for this hack, they should be using classes instead of assuming that render_pix_icon will render an img tag
         if(strpos($name, 'uk-icon') === 0){
-             return "<i class=\"$name uk-icon mr2\" ".$title."></i>";
+             return "<i class=\"$name uk-icon mr2\" ".$title."></i><img class=\"uk-hidden\" />";
         }elseif (isset($icons[$name])) {
-            return "<i class=\"uk-icon-$icons[$name] uk-icon mr2\" ".$title."></i>";
+            return "<i class=\"uk-icon-$icons[$name] uk-icon mr2\" ".$title."></i><img class=\"uk-hidden\" />";
         } else {
             return false;
         }
