@@ -1,7 +1,24 @@
 /*
 * This code has been obtained and adapted from http://www.getuikit.com/docs/customizer.html
 */
-(function($) {
+/* global define, less */
+
+(function (mod) {
+    function buildAbsoluteURL(relativeURL){
+        return window.moodlewwwroot + relativeURL;
+    }
+    
+    var dependencies = [
+        'jquery',
+        buildAbsoluteURL('/theme/uikit/javascript/less.js')
+    ];
+    
+    if (typeof define === "function" && define.amd){ // AMD
+        return define(dependencies, mod);
+    } else {// Plain browser env
+        window.jqueryLess = mod(jQuery, less);
+    }
+})(function($, less) {
     function getCSS(source, options) {
 
         var deferred = $.Deferred(), opts = options || {};
@@ -212,15 +229,12 @@
         return parts;
     }
 
-    $.less = $.less || (function() {
-        return {
-            'getCSS': getCSS,
-            'getVars': getVars,
-            'resolveImports': resolveImports,
-            'rewriteUrls': rewriteUrls,
-            'pathDiff': pathDiff,
-            'extractUrlParts': extractUrlParts
-        };
-    })();
-
-})(jQuery);
+    return {
+        'getCSS': getCSS,
+        'getVars': getVars,
+        'resolveImports': resolveImports,
+        'rewriteUrls': rewriteUrls,
+        'pathDiff': pathDiff,
+        'extractUrlParts': extractUrlParts
+    };
+});

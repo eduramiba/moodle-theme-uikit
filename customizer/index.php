@@ -59,9 +59,23 @@ if(!$CFG->themedesignermode){
 
 $themeversion = $PAGE->theme->settings->version;
 
-$PAGE->requires->js(new moodle_url($CFG->wwwroot . '/theme/uikit/javascript/customizer.js?'.$themeversion));
-$PAGE->requires->js(new moodle_url($CFG->wwwroot . '/theme/uikit/javascript/less.js?'.$themeversion));
-$PAGE->requires->js(new moodle_url($CFG->wwwroot . '/theme/uikit/javascript/jquery.less.js?'.$themeversion));
+
+//Only include these javascripts if current Moodle version does not have RequireJS. Otherwise they are included in customizer_require_load.js
+//We do this to support both Moodle 2.9+ and 2.8 or less (no RequireJS) with the same code.
+if(!method_exists($PAGE->requires, 'js_call_amd')) {
+    $PAGE->requires->js(new moodle_url($CFG->wwwroot . '/theme/uikit/javascript/less.js?'.$themeversion));
+    $PAGE->requires->js(new moodle_url($CFG->wwwroot . '/theme/uikit/javascript/jquery.less.js?'.$themeversion));
+    $PAGE->requires->js(new moodle_url($CFG->wwwroot . '/theme/uikit/javascript/codemirror/lib/codemirror.js?'.$themeversion));
+    $PAGE->requires->js(new moodle_url($CFG->wwwroot . '/theme/uikit/javascript/codemirror/mode/css/css.js?'.$themeversion));
+    $PAGE->requires->js(new moodle_url($CFG->wwwroot . '/theme/uikit/javascript/codemirror/addons/edit/matchbrackets.js?'.$themeversion));
+    $PAGE->requires->js(new moodle_url($CFG->wwwroot . '/theme/uikit/javascript/codemirror/addons/edit/closebrackets.js?'.$themeversion));
+    $PAGE->requires->js(new moodle_url($CFG->wwwroot . '/theme/uikit/javascript/codemirror/addons/selection/active-line.js?'.$themeversion));
+    
+    $PAGE->requires->js(new moodle_url($CFG->wwwroot . '/theme/uikit/javascript/customizer.js?'.$themeversion));
+} else {
+    $PAGE->requires->js(new moodle_url($CFG->wwwroot . '/theme/uikit/javascript/customizer_require_load.js?'.$themeversion));
+}
+
 $PAGE->requires->js(new moodle_url($CFG->wwwroot . '/theme/uikit/javascript/spectrum.colorpicker.js'));
 $PAGE->requires->js(new moodle_url($CFG->wwwroot . '/theme/uikit/javascript/Blob.js'));
 $PAGE->requires->js(new moodle_url($CFG->wwwroot . '/theme/uikit/javascript/FileSaver.js'));
@@ -74,11 +88,6 @@ $PAGE->requires->css(new moodle_url($CFG->wwwroot . '/theme/uikit/style/customiz
 //Codemirror editor for custom LESS
 $PAGE->requires->css(new moodle_url($CFG->wwwroot . '/theme/uikit/style/codemirror/codemirror.css?'.$themeversion));
 $PAGE->requires->css(new moodle_url($CFG->wwwroot . '/theme/uikit/style/codemirror/theme/solarized.css?'.$themeversion));
-$PAGE->requires->js(new moodle_url($CFG->wwwroot . '/theme/uikit/javascript/codemirror/codemirror.js?'.$themeversion));
-$PAGE->requires->js(new moodle_url($CFG->wwwroot . '/theme/uikit/javascript/codemirror/mode/css.js?'.$themeversion));
-$PAGE->requires->js(new moodle_url($CFG->wwwroot . '/theme/uikit/javascript/codemirror/addons/matchbrackets.js?'.$themeversion));
-$PAGE->requires->js(new moodle_url($CFG->wwwroot . '/theme/uikit/javascript/codemirror/addons/closebrackets.js?'.$themeversion));
-$PAGE->requires->js(new moodle_url($CFG->wwwroot . '/theme/uikit/javascript/codemirror/addons/active-line.js?'.$themeversion));
 
 //Load current settings:
 $table = "theme_uikit_less_settings";
