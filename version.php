@@ -18,15 +18,15 @@
  * Theme version info
  *
  * @package    theme_uikit
- * @copyright  2015 Eduardo Ramos
+ * @copyright  2016 Eduardo Ramos
  * @authors    Eduardo Ramos
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
 defined('MOODLE_INTERNAL') || die;
 
-$plugin->version   = 2015052800;        // YYYYMMDDXX
+$plugin->version   = 2016011800;        // YYYYMMDDXX
 $plugin->maturity = MATURITY_STABLE;             // this version's maturity level.
-$plugin->release = '2.9 (Build: 2015052800)';
+$plugin->release = '3.0 (Build: 2016011800)';
 $plugin->requires  = 2013051401;        // Requires Moodle 2.5.1.
 $plugin->component = 'theme_uikit';
