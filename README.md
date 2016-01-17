@@ -13,14 +13,14 @@ Key features of this theme
 * Slideshow, marketing spots and social networks for your site frontpage like in the essential theme
 * Many other cool features such as: login page and navigation menu customization, possibility of showing only enrolled courses in combo lists and google analytics integration
 
-It supports Moodle versions from 2.5 to 2.8
+It supports Moodle versions from 2.5 to 3.0
 
 * package   Moodle UIkit theme (theme_uikit)
-* copyright 2013-2015 Eduardo Ramos
+* copyright 2013-2016 Eduardo Ramos
 * authors   Eduardo Ramos
 * license   [GNU GPL v3 or later](http://www.gnu.org/copyleft/gpl.html)
 
-This theme is based on the UIkit CSS framework version 2.23.0 (http://www.getuikit.com)
+This theme is based on the UIkit CSS framework version 2.24.3 (http://www.getuikit.com)
 It contains all unmodified less* CSS sources from the UIKit framework in folder /less/uikit, except for FontAwesome url in icon.less.
 
 It is inspired by bootstrapbase theme and essential theme (https://moodle.org/plugins/view.php?plugin=theme_essential). A big thank you to the creators of these two themes.
@@ -75,7 +75,7 @@ Spectrum Colorpicker v1.2.0 for the customizer color variables
 
 codemirror.js and codemirror less.js mode
 --------------------
-CodeMirror version 5.8
+CodeMirror version 5.10
 Library for advanced source code edition in a text area
 Used to edit custom LESS code in the customizer
 
