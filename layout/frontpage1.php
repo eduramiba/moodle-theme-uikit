@@ -62,8 +62,8 @@ echo $OUTPUT->doctype()
                 <div id="<?php echo $regionbsid ?>">
                     <div id="pre-and-content" class="uk-grid">
                         <?php 
-                                $sidePreClasses = 'uk-width-1-1 uk-width-medium-1-3 uk-width-large-1-4 mdl-width-xlarge-2-10';
-                                $regionClasses = 'uk-width-1-1 uk-width-medium-2-3 uk-width-large-3-4 mdl-width-xlarge-8-10';
+                                $sidePreClasses = 'uk-width-1-1 uk-width-medium-1-3 uk-width-large-1-4 uk-width-xlarge-2-10';
+                                $regionClasses = 'uk-width-1-1 uk-width-medium-2-3 uk-width-large-3-4 uk-width-xlarge-8-10';
                                 
                                 $hassidepre = (empty($PAGE->layout_options['noblocks']) && $PAGE->blocks->region_has_content('side-pre', $OUTPUT));
                                 

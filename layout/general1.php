@@ -40,11 +40,11 @@ if ($rtl) {
 $hassidepre = (empty($PAGE->layout_options['noblocks']) && $PAGE->blocks->region_has_content('side-pre', $OUTPUT));
 $hassidepost = (empty($PAGE->layout_options['noblocks']) && $PAGE->blocks->region_has_content('side-post', $OUTPUT));
 
-$preClass = 'uk-width-1-1 uk-width-medium-3-10 uk-width-large-3-10 mdl-width-xlarge-1-4';
-$contentClass = 'uk-width-1-1 uk-width-medium-7-10 uk-width-large-7-10 mdl-width-xlarge-3-4';
+$preClass = 'uk-width-1-1 uk-width-medium-3-10 uk-width-large-3-10 uk-width-xlarge-1-4';
+$contentClass = 'uk-width-1-1 uk-width-medium-7-10 uk-width-large-7-10 uk-width-xlarge-3-4';
 
-$regionClass = 'uk-width-1-1 uk-width-medium-1-1 uk-width-large-3-4 mdl-width-xlarge-8-10';
-$postClass = 'uk-width-1-1 uk-width-medium-1-1 uk-width-large-1-4 mdl-width-xlarge-2-10';
+$regionClass = 'uk-width-1-1 uk-width-medium-1-1 uk-width-large-3-4 uk-width-xlarge-8-10';
+$postClass = 'uk-width-1-1 uk-width-medium-1-1 uk-width-large-1-4 uk-width-xlarge-2-10';
 
 if(!$hassidepre){
     $contentClass = 'uk-width-1-1';
@@ -54,8 +54,8 @@ if(!$hassidepost){
     $regionClass = 'uk-width-1-1';
     
     if($hassidepre){
-        $preClass = 'uk-width-1-1 uk-width-medium-1-3 uk-width-large-1-4 mdl-width-xlarge-2-10';
-        $contentClass = 'uk-width-1-1 uk-width-medium-2-3 uk-width-large-3-4 mdl-width-xlarge-8-10';
+        $preClass = 'uk-width-1-1 uk-width-medium-1-3 uk-width-large-1-4 uk-width-xlarge-2-10';
+        $contentClass = 'uk-width-1-1 uk-width-medium-2-3 uk-width-large-3-4 uk-width-xlarge-8-10';
     }
 }
 
