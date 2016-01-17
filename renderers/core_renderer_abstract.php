@@ -418,7 +418,7 @@ abstract class abstract_uikit_core_renderer extends core_renderer {
         $hasdisplaymydashboard = (empty($this->page->theme->settings->displaymydashboard)) ? false : $this->page->theme->settings->displaymydashboard;
         if (isloggedin() && $hasdisplaymydashboard) {
             $branchlabel = '<i class="uk-icon-dashboard"></i> ' . $this->processMenuItemText(get_string('mydashboard', 'theme_uikit'), $isOffCanvas);
-            $branchurl = new moodle_url('/my/index.php');
+            $branchurl = new moodle_url('#');
             $branchtitle = get_string('mydashboard', 'theme_uikit');
             $branchsort = $dashboardposition;
 
@@ -460,7 +460,7 @@ abstract class abstract_uikit_core_renderer extends core_renderer {
                 $branchlabel = '<i class="uk-icon-briefcase"></i> ' . $this->processMenuItemText(get_string('mycourses', 'theme_uikit'), $isOffCanvas);
                 $branchtitle = get_string('mycourses', 'theme_uikit');
             }
-            $branchurl = new moodle_url('/my/index.php');
+            $branchurl = new moodle_url('#');
 
             $branch = $menu->add($branchlabel, $branchurl, $branchtitle, $mycoursesposition);
             
