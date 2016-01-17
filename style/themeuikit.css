@@ -9276,7 +9276,8 @@ a.uk-thumbnail:focus {
   .uk-visible-large {
     display: none !important;
   }
-  .uk-hidden-small {
+  .uk-hidden-small,
+  .hidden-phone {
     display: none !important;
   }
 }
@@ -10619,7 +10620,7 @@ a.uk-thumbnail:focus {
   border: 1px solid #ddd;
   border-radius: 4px;
 }
-Sizes .well-large {
+.well-large {
   padding: 24px;
 }
 .well-small {

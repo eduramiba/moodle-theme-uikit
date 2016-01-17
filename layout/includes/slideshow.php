@@ -98,7 +98,7 @@ if ($slideshowenabled) {
 
     if(!empty($slidesHtml)){
         ?>
-        <div id="themeuikit-slideshow" class="uk-slidenav-position uk-margin-bottom" data-uk-slideshow="{height: '<?php echo $slideshowheight; ?>', autoplay: <?php echo $slideshowautoplay ? 'true' : 'false'; ?>, animation: '<?php echo $slideshowanimation; ?>', kenburns: <?php echo $slideshowkenburns ? 'true' : 'false'?>}">
+        <div id="themeuikit-slideshow" class="uk-slidenav-position uk-margin-bottom <?php echo $hideonphone; ?>" data-uk-slideshow="{height: '<?php echo $slideshowheight; ?>', autoplay: <?php echo $slideshowautoplay ? 'true' : 'false'; ?>, animation: '<?php echo $slideshowanimation; ?>', kenburns: <?php echo $slideshowkenburns ? 'true' : 'false'?>}">
             <ul class="uk-slideshow uk-overlay-active">
                 <?php echo $slidesHtml; ?>
             </ul>
