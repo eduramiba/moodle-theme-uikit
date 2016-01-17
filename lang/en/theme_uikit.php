@@ -311,6 +311,7 @@ $string['marketingbuttontext'] = 'Link Text';
 $string['marketingbuttontextdesc'] = 'Text to appear on the button.';
 $string['marketingbuttonurl'] = 'Link URL';
 $string['marketingbuttonurldesc'] = 'URL the button will point to.';
+$string['marketingbuttontype'] = 'Button type';
 
 /* Social Networks */
 $string['socialheading'] = 'Social Networking';
@@ -686,6 +687,13 @@ $string['mdl-login-box-width'] = 'Login Box Width';
 $string['mdl-login-box-background'] = 'Login Box Background';
 $string['mdl-login-box-border'] = 'Login Box Border';
 
+
+/* Marketing spots */
+$string['group-marketing-spots'] = 'Marketing spots';
+$string['mdl-marketingspot-title-color'] = 'Title color';
+$string['mdl-marketingspot-background'] = 'Background color';
+$string['mdl-marketingspot-color'] = 'Text color';
+$string['mdl-marketingspot-border-color'] = 'Border color';
 
 /* Other */
 $string['group-other'] = 'Other';

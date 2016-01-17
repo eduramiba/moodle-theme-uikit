@@ -35,9 +35,13 @@
         
         function theme_uikit_get_advert_html(&$PAGE, $icon, $title,
                 $imageSetting, $content,
-                $buttonUrl, $buttonText){
+                $buttonUrl, $buttonText, $buttonType){
             if(empty($title) && empty($content)){
                 return '';
+            }
+            
+            if(!isset($buttonType)){
+                $buttonType = 'uk-button-primary';//The default
             }
             
             if(!empty($PAGE->theme->settings->$imageSetting)){
@@ -55,7 +59,7 @@
 			
 			if(!empty($buttonText) && !empty($buttonUrl)){
 				$buttonHtml = '<p align="right">
-                        <a class="uk-button uk-button-primary" target="_blank" href="'.$buttonUrl.'">'.$buttonText.'</a>
+                        <a class="uk-button ' . $buttonType . '" target="_blank" href="'.$buttonUrl.'">'.$buttonText.'</a>
                     </p>';
 			}else{
 				$buttonHtml = '<p align="right">
@@ -82,15 +86,15 @@
             <div class="uk-grid" id="marketing" data-uk-grid-match="{target:'.service'}" data-uk-grid-margin>
                 <?php echo theme_uikit_get_advert_html($PAGE, $PAGE->theme->settings->marketing1icon, $PAGE->theme->settings->marketing1,
                     "marketing1image", $PAGE->theme->settings->marketing1content,
-                    $PAGE->theme->settings->marketing1buttonurl, $PAGE->theme->settings->marketing1buttontext);
+                    $PAGE->theme->settings->marketing1buttonurl, $PAGE->theme->settings->marketing1buttontext, $PAGE->theme->settings->marketing1buttontype);
                 ?>
                 <?php echo theme_uikit_get_advert_html($PAGE, $PAGE->theme->settings->marketing2icon, $PAGE->theme->settings->marketing2,
                     "marketing2image", $PAGE->theme->settings->marketing2content,
-                    $PAGE->theme->settings->marketing2buttonurl, $PAGE->theme->settings->marketing2buttontext);
+                    $PAGE->theme->settings->marketing2buttonurl, $PAGE->theme->settings->marketing2buttontext, $PAGE->theme->settings->marketing2buttontype);
                 ?>
                 <?php echo theme_uikit_get_advert_html($PAGE, $PAGE->theme->settings->marketing3icon, $PAGE->theme->settings->marketing3,
                     "marketing3image", $PAGE->theme->settings->marketing3content,
-                    $PAGE->theme->settings->marketing3buttonurl, $PAGE->theme->settings->marketing3buttontext);
+                    $PAGE->theme->settings->marketing3buttonurl, $PAGE->theme->settings->marketing3buttontext,  $PAGE->theme->settings->marketing3buttontype);
                 ?>
             </div>
         </div>

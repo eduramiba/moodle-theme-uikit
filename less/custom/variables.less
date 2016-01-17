@@ -79,6 +79,26 @@
 @mdl-login-box-background: @mdl-main-region-background;
 @mdl-login-box-border: @mdl-main-region-border;
 
+//Marketing spots (default to uk-panel-box-primary):
+@mdl-marketingspot-background: @panel-box-primary-background;
+@mdl-marketingspot-color: @panel-box-primary-color;
+@mdl-marketingspot-title-color: @panel-box-primary-title-color;
+
+.marketing-vars (default) {
+    @mdl-marketingspot-border-color: @global-border;//No border in default theme
+}
+
+.marketing-vars (almost-flat) {
+    @mdl-marketingspot-border-color: @panel-box-primary-border;
+}
+
+.marketing-vars (gradient) {
+    @mdl-marketingspot-border-color: @panel-box-primary-border;
+}
+
+.marketing-vars(@uikit-theme);
+
+
 
 //UIkit base theme dependant variables:
 .theme-vars (default) {

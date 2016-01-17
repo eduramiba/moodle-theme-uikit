@@ -21746,6 +21746,17 @@ ul.socials {
 .service img {
   max-width: 100%;
 }
+.service,
+.service.uk-panel-box-primary {
+  background-color: #ebf7fd;
+  color: #2d7091;
+  border-color: rgba(45, 112, 145, 0.3);
+  border-radius: 4px;
+}
+.service .uk-panel-title,
+.service.uk-panel-box-primary .uk-panel-title {
+  color: #2d7091;
+}
 .service .uk-icon {
   font-size: 1.2em;
   color: #07D;

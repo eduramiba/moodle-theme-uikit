@@ -683,6 +683,25 @@
             ]
         },
         {
+            "id": "marketing-spots",
+            "defaultType": "color",
+            "elements": [
+                {
+                    "var": "mdl-marketingspot-title-color"
+                },
+                {
+                    "var": "mdl-marketingspot-background"
+                },
+                {
+                    "var": "mdl-marketingspot-color"
+                },
+                {
+                    "themes": ["almost-flat", "gradient"],
+                    "var": "mdl-marketingspot-border-color"
+                }
+            ]
+        },
+        {
             "id": "other",
             "defaultType": "color",
             "elements": [
