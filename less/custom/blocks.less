@@ -56,6 +56,16 @@
 	.singlebutton {
 		.buttons-vertical-separation(8px);
 	}
+    
+    ul, ol {
+        ul, ol {
+            padding-left: 15px;
+        }
+    }
+    
+    li, span {
+        .hyphens();
+    }
 }
 
 
@@ -133,6 +143,13 @@ a.skip-block, a.skip {
     margin: 3px 0;
 }
 
+.block_navigation .block_tree .active_tree_node {
+    font-weight: bold;
+}
+
+.jsenabled .block_navigation .block_tree .tree_item.branch {
+    cursor: pointer;
+}
 
 .block_navigation.block li.depth_1 .tree_item.branch:before {
 	content: "\f015 ";//Home
@@ -143,7 +160,7 @@ a.skip-block, a.skip {
 	content: "\f07b ";//Folder
 }
 .block_navigation.block li.depth_2 {
-	margin-left: -20px;
+	margin-left: -15px;
 }
 
 //Open folders:

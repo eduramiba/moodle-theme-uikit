@@ -13320,6 +13320,12 @@ body.lockscroll {
   height: 100%;
   overflow: hidden;
 }
+.hidden {
+  display: none;
+}
+.hidden.sectionname + .side {
+  display: none;
+}
 /* admin.less */
 .formtable tbody th {
   font-weight: normal;
@@ -21163,6 +21169,21 @@ body.layout2 .page-login #main-content-box {
 .block .singlebutton {
   line-height: 36px;
 }
+.block ul ul,
+.block ol ul,
+.block ul ol,
+.block ol ol {
+  padding-left: 15px;
+}
+.block li,
+.block span {
+  word-wrap: break-word;
+  -webkit-hyphens: auto;
+  -moz-hyphens: auto;
+  -ms-hyphens: auto;
+  -o-hyphens: auto;
+  hyphens: auto;
+}
 a.skip-block,
 a.skip {
   display: none;
@@ -21226,6 +21247,12 @@ a.skip {
   color: #444;
   margin: 3px 0;
 }
+.block_navigation .block_tree .active_tree_node {
+  font-weight: bold;
+}
+.jsenabled .block_navigation .block_tree .tree_item.branch {
+  cursor: pointer;
+}
 .block_navigation.block li.depth_1 .tree_item.branch:before {
   content: "\f015 ";
 }
@@ -21233,7 +21260,7 @@ a.skip {
   content: "\f07b ";
 }
 .block_navigation.block li.depth_2 {
-  margin-left: -20px;
+  margin-left: -15px;
 }
 .block_navigation.block li.depth_2.contains_branch:not(.collapsed) > .tree_item.branch:before,
 .block_navigation.block li.depth_2 li.contains_branch:not(.collapsed) > .tree_item.branch:before {
