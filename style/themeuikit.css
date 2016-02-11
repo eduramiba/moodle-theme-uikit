@@ -21184,6 +21184,9 @@ body.layout2 .page-login #main-content-box {
   -o-hyphens: auto;
   hyphens: auto;
 }
+.block .contains_branch .collapsed > ul {
+  display: none;
+}
 a.skip-block,
 a.skip {
   display: none;
@@ -21266,10 +21269,8 @@ a.skip {
 .block_navigation.block li.depth_2 li.contains_branch:not(.collapsed) > .tree_item.branch:before {
   content: "\f07c ";
 }
-.block_navigation.block li.depth_2 .tree_item.branch[data-loaded="1"]:before {
-  content: "\f07c ";
-}
-.block_navigation.block li.depth_2.collapsed > .tree_item.branch[data-loaded="1"]:before {
+.block_navigation.block li.depth_2 .tree_item.branch[data-loaded="0"]:before,
+.block_navigation.block li.depth_2 li .tree_item.branch[data-loaded="0"]:before {
   content: "\f07b ";
 }
 .block_navigation.block li.depth_2 .tree_item.emptybranch:before {

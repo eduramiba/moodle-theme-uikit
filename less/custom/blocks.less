@@ -66,6 +66,10 @@
     li, span {
         .hyphens();
     }
+    
+    .contains_branch .collapsed > ul {
+        display: none;
+    }
 }
 
 
@@ -171,17 +175,11 @@ a.skip-block, a.skip {
                 content: "\f07c ";//Folder-open
             }
         }
-    }
-	
-    .tree_item.branch[data-loaded="1"] {
-        &:before{
-            content: "\f07c ";//Folder-open
-        }
-    }
-	
-    &.collapsed > .tree_item.branch[data-loaded="1"] {
-        &:before{
-            content: "\f07b ";//Folder
+        
+        .tree_item.branch[data-loaded="0"] {
+            &:before{
+                content: "\f07b ";//Folder
+            }
         }
     }
 }
