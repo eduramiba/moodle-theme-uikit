@@ -13320,7 +13320,7 @@ body.lockscroll {
   height: 100%;
   overflow: hidden;
 }
-.hidden {
+.hidden.sectionname {
   display: none;
 }
 .hidden.sectionname + .side {

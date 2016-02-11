@@ -2232,10 +2232,10 @@ body.lockscroll {
   overflow: hidden;
 }
 
-.hidden {
+.hidden.sectionname {
     display: none;
-}
-
-.hidden.sectionname + .side {
-    display: none;
+    
+    & + .side {
+        display: none;
+    }
 }
